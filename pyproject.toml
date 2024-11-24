@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dronerescue"
+version = "0.1.0"
+description = ""
+authors = ["Evgenii Iurin <iurin.evgenii@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain-openai = "^0.2.9"
+numpy = "^2.1.3"
+pillow = "^11.0.0"
+pre-commit = "^4.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
