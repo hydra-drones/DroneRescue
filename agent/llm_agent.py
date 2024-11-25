@@ -15,6 +15,7 @@ class NextAction(TypedDict):
         str, ..., "Short explanaition why this aciton should be taken"
     ]
     action: Annotated[int, ..., "Action should be taken"]
+    speed: Annotated[int, ..., "Speed of the drone"]
 
 
 class LLMAgent(BaseDroneAgent):
