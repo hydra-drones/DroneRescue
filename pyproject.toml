@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "dronerescue"
+name = "DroneRescue"
 version = "0.1.0"
 description = ""
 authors = ["Evgenii Iurin <iurin.evgenii@gmail.com>"]
@@ -11,6 +11,8 @@ langchain-openai = "^0.2.9"
 numpy = "^2.1.3"
 pillow = "^11.0.0"
 pre-commit = "^4.0.1"
+hydra-core = "^1.3.2"
+python-dotenv = "^1.0.1"
 
 
 [build-system]

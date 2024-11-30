@@ -23,6 +23,8 @@ fi
 # Activate the virtual environment
 source "$ENVIRONMENT_NAME/bin/activate"
 
+pip install poetry
+
 # Use Poetry to install dependencies
 if [ -f "pyproject.toml" ]; then
     poetry install
