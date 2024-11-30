@@ -50,15 +50,16 @@ class Environment:
         action: int,
         agent_position: tuple[int, int],
         observation_area: tuple[int, int],
+        speed: int,
     ):
         if action == 0:  # up
-            new_position = agent_position + np.array([-1, 0])
+            new_position = agent_position + np.array([speed * -1, 0])
         elif action == 1:  # down
-            new_position = agent_position + np.array([1, 0])
+            new_position = agent_position + np.array([speed * 1, 0])
         elif action == 2:  # left
-            new_position = agent_position + np.array([0, -1])
+            new_position = agent_position + np.array([0, speed * -1])
         elif action == 3:  # right
-            new_position = agent_position + np.array([0, 1])
+            new_position = agent_position + np.array([0, speed * 1])
         elif action == 4:  # stop
             new_position = agent_position + np.array([0, 0])
         else:
