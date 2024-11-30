@@ -18,7 +18,6 @@ class Environment:
         self.obstacles_map = obstacles_map
         self.color_map = color_map
         self.object_map = object_map
-        self.done = False
 
         self.area = np.zeros((self.area_size[0], self.area_size[1]))
         self._generate_area()
@@ -44,6 +43,15 @@ class Environment:
         # ========== Add targets ==========
         for x, y in zip(target_point_x, target_point_y):
             self._insert_kernel((3, 3), (x, y), self.object_map.get("TARGET_POINT"))
+
+    def reset(self):
+        self._generate_area()
+
+    def generare_start_positions(self, spawn_area: tuple[int, int]) -> tuple[int, int]:
+        while True:
+            start_position = self.get_random_x_y(spawn_area[0], spawn_area[1], 1)
+            if self.area[start_position] != self.object_map.get("OBSTACLE"):
+                return start_position
 
     def step(
         self,
@@ -73,15 +81,23 @@ class Environment:
             new_position, observation_area
         )
 
+        done, terminated = False, False
         # Check if the agent doesn't hit the obstacle
         if self.area[new_position] == self.object_map.get("OBSTACLE"):  # obstacle
-            self.done = True
+            terminated = True
 
         # End the episode if agent sees the target
         if np.any(observation == self.object_map.get("TARGET_POINT")):  # target point
-            self.done = True
+            done = True
 
-        return new_position, self.done, observation, observation_binary_mask, metadata
+        return (
+            new_position,
+            done,
+            terminated,
+            observation,
+            observation_binary_mask,
+            metadata,
+        )
 
     def _get_observation(
         self, agent_position: tuple[int, int], observation_area: tuple[int, int]
