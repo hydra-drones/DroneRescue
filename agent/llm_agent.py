@@ -16,6 +16,14 @@ class NextAction(TypedDict):
     ]
     action: Annotated[int, ..., "Action should be taken"]
     speed: Annotated[int, ..., "Speed of the drone"]
+    message_to_agent: Annotated[
+        str,
+        ...,
+        "Short communication message or order for a team of drones",
+    ]
+    mission_completed: Annotated[
+        bool, ..., "Set up True if you think that mission is completed"
+    ]
 
 
 class LLMAgent(BaseDroneAgent):
@@ -35,10 +43,12 @@ class LLMAgent(BaseDroneAgent):
 
         self.model = ChatOpenAI(model=chat_gpt_model, api_key=api_key)
 
-    def generate_action_by_model(self, visited_map, observation):
-        system_propmt = generate_system_prompt(self.object_map)
+    def generate_action_by_model(
+        self, total_targets, visited_map, observation, message_from_drone
+    ):
+        system_propmt = generate_system_prompt(self.object_map, total_targets)
         prompt = generate_drone_state_prompt(
-            visited_map, observation, self.observation_area
+            visited_map, observation, self.observation_area, message_from_drone
         )
         messages = [
             SystemMessage(content=system_propmt),

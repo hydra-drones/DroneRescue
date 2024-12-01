@@ -9,7 +9,7 @@ structure:
   exp_name: dry_run_exp
   experiment_folder: ${base.base_dir}/inference_outputs/${structure.exp_name}
 
-rollout_num: 3
+rollout_num: 40
 
 environment:
   area_size: [100, 100]
@@ -19,4 +19,6 @@ environment:
 
 agents:
   agent_01:
-    observation_area: [9,9]
+    observation_area: [13,13]
+  agent_02:
+    observation_area: [13,13]

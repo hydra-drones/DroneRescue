@@ -11,6 +11,7 @@ class BaseDroneAgent:
         self.object_map = object_map
         self.area_size = area_size
         self.observation_area = observation_area
+        self.targets_found = 0  # how many targets are found
         self.visited_map = np.full(
             (self.area_size[0], self.area_size[1]),
             self.object_map.get("NOT_VISITED_AREA"),

@@ -1,4 +1,4 @@
-def generate_system_prompt(object_map: dict) -> str:
+def generate_system_prompt(object_map: dict, total_targets: int) -> str:
     """
     Generates the static system-level prompt.
 
@@ -6,7 +6,10 @@ def generate_system_prompt(object_map: dict) -> str:
         object_map: A dictionary mapping object types to their integer representations.
     """
     return f"""
+        # Initialization
         You are controlling an autonomous drone in a grid-based area.
+
+        # Motion
         The grid contains visited and unvisited cells. Your task is to decide the next action.
         The possible actions are:
         0 - Move up
@@ -15,14 +18,14 @@ def generate_system_prompt(object_map: dict) -> str:
         3 - Move right
         4 - Stay in place
 
-
+        # Speed
         To optimize the drone's movement for both time efficiency and safety, you can select
-        a speed within the range of (1) to (9). Note that there is no "0" speed, as this would equate
+        a speed within the range of (1) to (6). Note that there is no "0" speed, as this would equate
         to a "stay in place" action. The speed you choose determines the exact number of cells the
         drone will move in the specified direction.
 
         For example:
-        - If the speed is (6) and the action corresponds to moving downward, the drone will move (6) cells down**.
+        - If the speed is (6) and the action corresponds to moving downward, the drone will move (6) cells down.
 
         Key considerations for choosing speed:
         - Obstacle Awareness: Be mindful of walls and other obstacles. The closer the drone is to a wall,
@@ -32,17 +35,33 @@ def generate_system_prompt(object_map: dict) -> str:
 
         Choose your speed strategically to balance exploration and precision while minimizing risks.
 
+        # Environment
         The environment is the grid-world where each cell has defined digit. Each object has
         its own number. Here is the object map: {object_map}
 
-        Rules:
+        # Rules
         1. Avoid obstacles. If you hit an obstacle, you will fail the mission.
         2. Plan your path efficient
         3. If you will find the target flag - you win
+
+        # Communication with team
+        During the mission you can send the message to your teammate.
+        Include all the critical information that
+        would be useful for the coordination and operation of a
+        drone swarm, such as position, status, environmental data,
+        task progress, or specific commands (orders). The message should
+        be concise but comprehensive enough to ensure efficient
+        team collaboration.
+
+        # Your target
+        Your team's mission is to locate and identify {total_targets} targets.
+        Once your team has successfully located all the targets, the mission is complete, and you win!
     """
 
 
-def generate_drone_state_prompt(visited_map, observation, observation_area_size) -> str:
+def generate_drone_state_prompt(
+    visited_map, observation, observation_area_size, message_from_drone
+) -> str:
     """
     Generates the dynamic drone state prompt.
 
@@ -56,4 +75,5 @@ def generate_drone_state_prompt(visited_map, observation, observation_area_size)
         Visited map: {visited_map}
         Observation area size: {observation_area_size}
         Current observation: {observation}
+        Message from your teammate drone: {message_from_drone}
     """
