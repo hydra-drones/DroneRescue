@@ -46,23 +46,30 @@ In this experiment, we tested aagents in random generated environment. Agents wa
 ### Takeaways from experiments
 
 #### Communication
+
 **Taking into account the teammate moving direction**
 Agent takes into account movements of the teammate agent and plans his path respectively. For instance, if the teammate agent is moving right, then the agent makes the decision to move down to maximaze exploration efficiency. Below you can see the agent message for making the decision 
+
 > The teammate is proceeding west at speed 6, focusing on unvisited areas. To complement their movement and maximize exploration efficiency, I'll move south at a moderate speed to explore unvisited areas while keeping a safe distance from potential obstacles.
+
 > Proceeding westward at maximum speed to cover unvisited areas. Maintain your southward path. Let's synchronize our exploration to maximize coverage efficiency.
 
-Quick decision changing
-One of the main problem of current approach being changing the direction of movement on each step since we don't provide such kind of memory.
+**Quick decision changing**
 
-### Before making the decision
-1. Agent takes into account moving direction of the teammate drone.
+One of the main problem of current approach being changing direction of movement on each step. Hypothesis of the reasono of this behavior is that we don't provide such kind of memory. It's not expected behavior since each agent received visited map, which contain visited sections, so we expected taking into account this map and planning of work according to this map.
 
-### Communication with teammate drone
-1. Agent informs about his own strategy
-2. Send a request to keep the communication and inform about all important information will be found
-```
-Moving east to explore unvisited areas. Maintain formation and report any targets or obstacles.
-```
+**Crash into the obstacles**
+
+Current experiment shows that agents don't take into account ditstance to the obstacle. In experiment we provided to the model observation map, which can be visualized as a grid world, where each cell is a some variable, for instance to show the agent position we described the agent as a digit "4". In summary agent sees the obstacles, but it doesn't calculate the distance. We expected something like: "the distance to the next obstacle is 3, I should use low speed to investigate the area". But instead of it, there are cases when agent just going to the same direction where obstacle is which leads to the crashing. 
+In the following example, agent noticed obstacle on the right side, but makes the decision to go right with speed 3. It was a mistake, since exactly after this action, the agent crashed into the obstacle. Note: for experimenting purposes, we don't finish rollout.
+
+Message below is a message before crashing into the obstacle
+
+> The current drone is positioned near a column of obstacles. Moving right will allow the drone to explore unvisited areas and avoid obstacles, while maintaining distance from the wall of obstacles
+
+Following message is the message after crashing. In this state, the agent is already 'inside' the obstacle
+
+> The current observation shows that there is a wall of obstacles directly to the right. To avoid collision and to continue exploring the unvisited areas, we should move left where the path is clear
 
 ### Points of improvements
 1. Movements are chaotic - agents don't take into account previous positions and explore already explored area
