@@ -81,3 +81,19 @@ The following message is the message after crashing. In this state, the agent is
 
 <img src="https://github.com/user-attachments/assets/33a40bcb-7e95-4e77-b1ad-f0880e853bc3" width="500"/>
 
+
+## Experiment Nr. 2
+In following experiment, we added long-term strategy variable. We insturct agents to generate strategy and then this strategy was propagated to prompt. Agent decided to change or stay with current strategy. We expected, that agent will be more sustainable and this mechanism will prevent rapidly changing direction of movement.
+
+### Takeaways from experiments
+
+**Not efficient movements**
+Agents also were prompted to work efficiently and prevent overlapping but it didn't work as we expected. One of the agents decides to align his movement strategy with teammate agent. This is not a random situation, on the beginning of the exploration agents go together in one direction - right side.
+
+> To align with the teammate's movement and strategy, we should also move downward to explore the unvisited areas efficiently, complementing the teammate's path. 
+
+> The right side has unvisited areas, and the teammate is moving right with speed 5. To maintain coverage and avoid redundancy, move right with a slightly lower speed to ensure safe maneuvering and area coverage
+
+At some moment, one of the agents, decide to change the strategy and go down. We want to highlight here, that the movements in the same direction take a time - we cannot say that it was efficient. The hypothesis what we have is that agents understand the idea of working efficiently and prevent overlapping, but they don't actually know about coordinates of the teammates' positions, since the paths are overlapped.
+
+> To avoid overlap with my teammate who is moving right, I will move downward to explore the unvisited areas below the current position. As there are no immediate obstacles in the downward direction, a moderate speed can be utilized for efficient exploration.
