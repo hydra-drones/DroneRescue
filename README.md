@@ -76,3 +76,8 @@ The following message is the message after crashing. In this state, the agent is
 1. Movements are chaotic - agents don't take into account previous positions and explore already explored areas.
 2. Agents don't understand where the border of the area is.
 3. Agents crash into obstacles - the obstacle avoidance mechanism doesn't work.
+
+### Video rollout
+
+<img src="https://github.com/user-attachments/assets/33a40bcb-7e95-4e77-b1ad-f0880e853bc3" width="500"/>
+
