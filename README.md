@@ -83,17 +83,57 @@ The following message is the message after crashing. In this state, the agent is
 
 
 ## Experiment Nr. 2
-In following experiment, we added long-term strategy variable. We insturct agents to generate strategy and then this strategy was propagated to prompt. Agent decided to change or stay with current strategy. We expected, that agent will be more sustainable and this mechanism will prevent rapidly changing direction of movement.
+In the following experiment, we added a long-term strategy variable. We instructed agents to generate a strategy, and then this strategy was propagated to the prompt. The agent decided to change or stick with the current strategy. We expected that the agent would be more sustainable and that this mechanism would prevent rapidly changing the direction of movement.
 
 ### Takeaways from experiments
 
-**Not efficient movements**
-Agents also were prompted to work efficiently and prevent overlapping but it didn't work as we expected. One of the agents decides to align his movement strategy with teammate agent. This is not a random situation, on the beginning of the exploration agents go together in one direction - right side.
+**Overlapping of the visited area**  
+Agents were also prompted to work efficiently and prevent overlapping, but it didn't work as we expected. One of the agents decided to align its movement strategy with the teammate agent. This is not a random situation; from the beginning, agents moved together in one direction—towards the right side, as observed in the following messages. Agents moved in one direction for 20 steps, which accounts for 1/5 of all steps in one experiment.
 
-> To align with the teammate's movement and strategy, we should also move downward to explore the unvisited areas efficiently, complementing the teammate's path. 
+> To align with the teammate's movement and strategy, we should also move downward to explore the unvisited areas efficiently, complementing the teammate's path.  
 
-> The right side has unvisited areas, and the teammate is moving right with speed 5. To maintain coverage and avoid redundancy, move right with a slightly lower speed to ensure safe maneuvering and area coverage
+> The right side has unvisited areas, and the teammate is moving right with speed 5. To maintain coverage and avoid redundancy, move right with a slightly lower speed to ensure safe maneuvering and area coverage.
 
-At some moment, one of the agents, decide to change the strategy and go down. We want to highlight here, that the movements in the same direction take a time - we cannot say that it was efficient. The hypothesis what we have is that agents understand the idea of working efficiently and prevent overlapping, but they don't actually know about coordinates of the teammates' positions, since the paths are overlapped.
+On step 21, the first agent decided to change its direction and move down.  
 
 > To avoid overlap with my teammate who is moving right, I will move downward to explore the unvisited areas below the current position. As there are no immediate obstacles in the downward direction, a moderate speed can be utilized for efficient exploration.
+
+Also, we want to highlight that the agent tries to move efficiently and takes into account that the teammate agent is exploring the right side of the area.
+
+> The right side is already being explored by the teammate, so we should move downward to explore new and unvisited areas while maintaining our coordinated coverage strategy.
+
+### Finding target
+In the current experiment, one of the agents found the target, and we want to analyze this event further. At some point, the agent informed that the target points were visible in the observation on the right side. The agent decided to move toward that target. Note: we didn't implement logic for the case when an agent finds the target because we wanted to observe what the agent would do in that situation.
+
+> The drone has identified a cluster of target points directly to the right. Moving right will allow for target confirmation and potential mission progress.
+
+The agent also informed its teammate agent about the target:
+
+> Targets located to the right. Moving to investigate and confirm. Continue rightward exploration.
+
+This agent then changed its long-term strategy to:
+
+> Investigate the target points immediately to the right, then continue downward exploration. Collaborate with teammate for rightward coverage after confirming targets.
+
+After investigation, the agent decided to continue the exploration to the right side and use high speed to explore efficiently:
+
+> There is a large unvisited area to the right. To efficiently explore and confirm any targets, move right towards the unexplored sector while maintaining a safe distance from the obstacles to the left.  
+> Proceeding to scout the right sector at high speed. Will update on any targets found.
+
+### "Edge" problem
+On evaluation, we observed that the first (left) agent, at the end of the rollout, started to move right. The messages from it suggested that during all the last steps, the agent was trying to investigate the right side. The agent doesn't know about edges and tries to investigate the entire area. This highlights a few problems: (1) lack of previous sequences and (2) lack of knowledge about the limits of the area. For now, we cannot determine the reason for this behavior. It would be easier to answer this question if the agent didn't have the visited area (entire map), but it did.
+
+### Observations
+1. Implementing a long-term strategy helps reduce "chaotic" position changes and enhances the sustainability of the overall exploration.
+2. Agents frequently adjusted their strategies to prevent overlapping, which is good, but they didn't take their own positions on the global map into account.
+3. Agents tried to move right without considering the global map, neglecting the left side of the map—the reason for this is unknown.
+4. Agents faced the "edge" problem. They don't know about edges and the bounds of the area.
+
+### Points of improvement
+1. Resolve the "edge" problem.
+2. Change the decision-making mechanism to also focus on the global map, not just the current local observation.
+
+
+### Video rollout
+
+<img src="https://github.com/user-attachments/assets/227a4f44-08bf-4a3b-bb20-8cf6f9af637f" width="500"/>
