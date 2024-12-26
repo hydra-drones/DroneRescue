@@ -121,7 +121,7 @@ After investigation, the agent decided to continue the exploration to the right 
 > Proceeding to scout the right sector at high speed. Will update on any targets found.
 
 ### "Edge" problem
-On evaluation, we observed that the first (left) agent, at the end of the rollout, started to move right. The messages from it suggested that during all the last steps, the agent was trying to investigate the right side. The agent doesn't know about edges and tries to investigate the entire area. This highlights a few problems: (1) lack of previous sequences and (2) lack of knowledge about the limits of the area. For now, we cannot determine the reason for this behavior. It would be easier to answer this question if the agent didn't have the visited area (entire map), but it did.
+On evaluation, we observed that the first (left) agent, at the end of the rollout, started to move right. The messages from it suggested that during all the last steps, the agent was trying to investigate the right side. The agent doesn't know about edges and tries to investigate the entire area. This highlights a few problems: (1) lack of previous sequences and (2) lack of knowledge about the limits of the area. For now, we cannot determine the reason for this behavior. It might be easier to answer on this question if the agent didn't have the visited area (entire map), but it did.
 
 ### Observations
 1. Implementing a long-term strategy helps reduce "chaotic" position changes and enhances the sustainability of the overall exploration.
@@ -137,3 +137,21 @@ On evaluation, we observed that the first (left) agent, at the end of the rollou
 ### Video rollout
 
 <img src="https://github.com/user-attachments/assets/227a4f44-08bf-4a3b-bb20-8cf6f9af637f" width="500"/>
+
+# What should be improved - takeaways from Phase #1
+1. Provide more accurate way to solve the problem of crashing into obstacles
+2. Enable exchanging visited area with teammates to prevent overlapping
+3. Don't allow agents to go outside the area of interest
+
+# What was good
+1. Long-term strategy. This is a really good feature which partly solves the problem of chaotic movements.
+2. Summarizing and sending the important information to the teammate. Agents try to align their movements and move efficiently.
+
+# Plans for the next phase
+1. Provide the method to describe the visited (global) to be interpreted easily by agent
+  - As an idea: the map can be divided into a global cells
+  - Also, remember about area limit and provide undestanding of the area of interest
+3. Provide module to send visited (explored) area to the teammate agent - update their own explored area
+4. Improve the module for safety movements and prevent crashing into the obstacles
+  - As an idea: we can provide the all potential position where the agent can go
+6. These experiments don't provide a lot of insight according to communication abilities of the agents. We guess, it would be interesting to provide clear tasks and agents' "roles" to check the 
