@@ -138,20 +138,22 @@ On evaluation, we observed that the first (left) agent, at the end of the rollou
 
 <img src="https://github.com/user-attachments/assets/227a4f44-08bf-4a3b-bb20-8cf6f9af637f" width="500"/>
 
-# What should be improved - takeaways from Phase #1
-1. Provide more accurate way to solve the problem of crashing into obstacles
-2. Enable exchanging visited area with teammates to prevent overlapping
-3. Don't allow agents to go outside the area of interest
 
-# What was good
-1. Long-term strategy. This is a really good feature which partly solves the problem of chaotic movements.
-2. Summarizing and sending the important information to the teammate. Agents try to align their movements and move efficiently.
 
-# Plans for the next phase
-1. Provide the method to describe the visited (global) to be interpreted easily by agent
-  - As an idea: the map can be divided into a global cells
-  - Also, remember about area limit and provide undestanding of the area of interest
-3. Provide module to send visited (explored) area to the teammate agent - update their own explored area
-4. Improve the module for safety movements and prevent crashing into the obstacles
-  - As an idea: we can provide the all potential position where the agent can go
-6. These experiments don't provide a lot of insight according to communication abilities of the agents. We guess, it would be interesting to provide clear tasks and agents' "roles" to check the 
+## What Should Be Improved - Takeaways from Phase #1
+1. Provide a more accurate method to solve the problem of crashing into obstacles.
+2. Enable the exchange of visited areas with teammates to prevent overlapping.
+3. Ensure agents do not go outside the area of interest.
+
+## What Was Good
+1. **Long-term strategy:** This is an excellent feature that partly addresses the problem of chaotic movements.
+2. **Summarizing and sharing important information with teammates:** Agents attempt to align their movements and operate efficiently.
+
+## Plans for the Next Phase
+1. Develop a method to describe the visited (global) areas in a way that can be easily interpreted by agents.
+   - Idea: The map can be divided into global cells.
+   - Also, ensure the area limits are understood and clearly define the area of interest.
+2. Create a module to send the visited (explored) area to teammate agents, enabling them to update their own explored areas.
+3. Improve the safety movement module to prevent crashes into obstacles.
+   - Idea: Provide all potential positions where an agent can move.
+4. Address the lack of insight into agents’ communication abilities observed in these experiments. It may be interesting to define clear tasks and assign agents specific "roles" to test these capabilities. 
