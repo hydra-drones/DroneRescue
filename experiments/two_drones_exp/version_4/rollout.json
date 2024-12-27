@@ -1,0 +1,73 @@
+{
+    "1": {
+        "0": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The observation area shows only background with no obstacles or targets nearby. The agent is located in the center of the observation grid. To maximize exploration and cover more area efficiently, we should move right at a high speed of 6 to quickly scout the unexplored area.",
+                "message_to_another_drone": "",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_4/agent_01/trajectories/visited_map_0.jpg"
+        },
+        "1": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The entire observation area is unvisited, and there are no immediate obstacles or targets. Moving right at speed 5 will allow for efficient exploration while maintaining a good balance between speed and control, as the area appears open and unexplored.",
+                "message_to_another_drone": "Moving right at speed 6 to scout unexplored area. No targets or obstacles detected nearby. Maintain current strategy and update if target is found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_4/agent_01/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 2,
+                "speed": 7,
+                "explaination": "The area around the drone is mostly empty, with no immediate obstacles. The teammate is moving right, so to optimize coverage and exploration, moving left at a high speed will cover more unvisited areas efficiently.",
+                "message_to_another_drone": "Proceeding right at speed 5 to explore unvisited area. No obstacles detected; maintaining strategy for optimal coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_4/agent_01/trajectories/visited_map_2.jpg"
+        }
+    },
+    "2": {
+        "0": {
+            "metadata": {
+                "action": 1,
+                "speed": 9,
+                "explaination": "The drone is in an open area with no obstacles nearby, making it a suitable situation for high-speed scouting to quickly explore unvisited regions and locate targets.",
+                "message_to_another_drone": "",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_4/agent_02/trajectories/visited_map_0.jpg"
+        },
+        "1": {
+            "metadata": {
+                "action": 1,
+                "speed": 8,
+                "explaination": "The current observation shows a line of obstacles at the top, while the rest of the area is clear. To avoid the obstacles, the drone should move downwards where there is more unexplored space. Given the absence of obstacles in the lower part of the observation, a higher speed can be used to efficiently explore unexplored areas.",
+                "message_to_another_drone": "Drone moving downwards at high speed towards unexplored areas. No obstacles detected; all-clear for fast scouting. Keep monitoring surroundings for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_4/agent_02/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 1,
+                "speed": 8,
+                "explaination": "The drone should move downwards at a speed of 8, as teammate has already scouted and confirmed no obstacles in that direction, ensuring efficient and safe exploration of unvisited areas.",
+                "message_to_another_drone": "Drone moving downwards at speed 8 to scout the unexplored areas. No obstacles detected below; continuing efficient exploration. Maintain vigilance for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_4/agent_02/trajectories/visited_map_2.jpg"
+        }
+    },
+    "env": "dry_run_exp/version_4/environment.jpg"
+}

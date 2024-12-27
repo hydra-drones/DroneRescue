@@ -1,0 +1,739 @@
+{
+    "1": {
+        "0": {
+            "metadata": {
+                "action": 4,
+                "speed": 1,
+                "explaination": "",
+                "message_to_another_drone": "",
+                "long_term_strategy": "Strategy is not defined",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_0.jpg"
+        },
+        "1": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The entire grid is unvisited, so we need to start exploring. Moving right with a high speed allows us to quickly cover open areas.",
+                "message_to_another_drone": "Starting exploration. Moving right with high speed to cover open areas quickly.",
+                "long_term_strategy": "Prioritize exploring the right sector of the map initially. We'll systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "Given that most of the area is unexplored and our teammate is moving downwards, we'll move right to cover the right sector of the map as part of our strategy. This complements our teammate's movement.",
+                "message_to_another_drone": "I'm moving right with high speed to begin exploring the right sector. Let's maintain efficient coverage and avoid redundancy.",
+                "long_term_strategy": "Prioritize exploring the right sector of the map initially. We'll systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_2.jpg"
+        },
+        "3": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "Based on the current strategy and the teammate's movement, I'll move towards the right sector to start exploration as planned. The area is unvisited, and moving right aligns with our long-term strategy.",
+                "message_to_another_drone": "Initiating exploration of the right sector as per our strategy. Let's stay coordinated.",
+                "long_term_strategy": "Prioritize exploring the right sector of the map initially. We'll systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_3.jpg"
+        },
+        "4": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The right sector is still unexplored, and we need to cover this area as part of our strategy. Since the teammate is exploring the bottom sector, we should proceed with exploring the right sector to ensure efficient coverage and coordination.",
+                "message_to_another_drone": "Exploring the right sector. Keep me updated on the bottom sector progress.",
+                "long_term_strategy": "Prioritize exploring the right sector of the map initially. We'll systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_4.jpg"
+        },
+        "5": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The teammate is already exploring the bottom sector. To coordinate effectively and avoid redundant paths, I'll focus on the right sector as per our long-term strategy. The area ahead is unexplored, so moving right at a moderate speed is optimal for initial exploration.",
+                "message_to_another_drone": "Continuing exploration of the right sector at moderate speed. Let's cover our designated areas efficiently.",
+                "long_term_strategy": "Prioritize exploring the right sector of the map initially. We'll systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_5.jpg"
+        },
+        "6": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "Since the right sector is our current priority and the teammate is exploring the bottom, we should move right to cover more ground efficiently.",
+                "message_to_another_drone": "Moving to explore the right sector at max speed. Will update on any targets found.",
+                "long_term_strategy": "Prioritize exploring the right sector, then systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_6.jpg"
+        },
+        "7": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The initial map indicates all areas are unvisited, and our strategy is to prioritize exploring the right sector. Therefore, we'll move right to start exploring this area.",
+                "message_to_another_drone": "Moving towards the right sector. Continue with the bottom sector exploration.",
+                "long_term_strategy": "Prioritize exploring the right sector, then systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_7.jpg"
+        },
+        "8": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The majority of the area is unvisited (3), and our current long-term strategy is to prioritize exploring the right sector. The right side is unexplored, and moving right aligns with our strategy.",
+                "message_to_another_drone": "Moving to explore the right sector as planned. Keep focusing on the bottom sector.",
+                "long_term_strategy": "Prioritize exploring the right sector, then systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_8.jpg"
+        },
+        "9": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The right sector is unexplored and aligns with our long-term strategy to prioritize it. Moving right ensures efficient coverage and systematic exploration.",
+                "message_to_another_drone": "Exploring the right sector as planned. Let me know if you encounter any targets.",
+                "long_term_strategy": "Prioritize exploring the right sector, then systematically cover each sector moving from right to left.",
+                "done": true,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_9.jpg"
+        },
+        "10": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The right sector remains unexplored, and it's part of our long-term strategy to explore it. We should move right to cover the area efficiently and at a moderate speed to avoid missing targets.",
+                "message_to_another_drone": "Proceeding to explore the right sector. Keep me updated on any targets found in the bottom sector.",
+                "long_term_strategy": "Prioritize exploring the right sector, then systematically cover each sector moving from right to left.",
+                "done": true,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_10.jpg"
+        },
+        "11": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The right sector is part of our prioritized exploration strategy, and moving right aligns with our current plan.",
+                "message_to_another_drone": "Proceeding to explore the right sector. Will inform if targets are identified.",
+                "long_term_strategy": "Continue exploring the right sector, and once completed, shift focus to systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_11.jpg"
+        },
+        "12": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The entire observed area is still unvisited, indicating it's safe to use a higher speed for efficient exploration. Since the long-term strategy is to explore the right sector, a rightward movement is recommended.",
+                "message_to_another_drone": "Continuing to explore the right sector with maximum speed for efficient coverage.",
+                "long_term_strategy": "Continue exploring the right sector, and once completed, shift focus to systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_12.jpg"
+        },
+        "13": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The entire map is not visited yet. Since the teammate is exploring the bottom sector, I will move right to cover the right sector. This aligns with our long-term strategy of exploring the right sector first. I will use moderate speed to ensure efficient exploration while avoiding any potential obstacles.",
+                "message_to_another_drone": "Exploring the right sector with moderate speed, keeping an eye out for targets.",
+                "long_term_strategy": "Continue exploring the right sector, and once completed, shift focus to systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_13.jpg"
+        },
+        "14": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The entire grid is still unvisited (3), indicating it's crucial to start exploring systematically. I will begin by moving right at a moderate speed to cover more ground efficiently without risking collision with unobserved obstacles.",
+                "message_to_another_drone": "I'm starting exploration of the right sector with moderate speed. Let's keep each other updated on any target finds.",
+                "long_term_strategy": "Continue exploring the right sector, and once completed, shift focus to systematically cover each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_14.jpg"
+        },
+        "15": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "Our teammate is exploring the bottom sector, so to maximize coverage and avoid overlapping, we should continue our strategy to explore the right sector. The area is mostly unexplored, so a moderate speed is appropriate to balance coverage and precision.",
+                "message_to_another_drone": "Continuing to explore the right sector at moderate speed. Let's keep updating on target discoveries.",
+                "long_term_strategy": "Continue exploring the right sector, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_15.jpg"
+        },
+        "16": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "We haven't explored much of the grid, and our teammate is covering the bottom sector. To maximize our efficiency, we'll move to explore the right sector at a high speed. This will both map new areas and ensure we don't overlap with our teammate's current task.",
+                "message_to_another_drone": "Moving to explore the right sector at high speed. Will update on any findings.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_16.jpg"
+        },
+        "17": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "We should continue exploring the right sector as planned to cover more ground swiftly. The right sector appears unvisited, and this will align with our teammate's strategy of exploring the bottom sector.",
+                "message_to_another_drone": "Continuing exploration of the right sector at high speed to maximize coverage. Update on any findings.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_17.jpg"
+        },
+        "18": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The right sector is unexplored, and moving right aligns with our strategy to cover new areas efficiently. ",
+                "message_to_another_drone": "I will continue exploring the right sector at high speed. If you face any obstacles in the bottom sector, inform me immediately.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_18.jpg"
+        },
+        "19": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "We are focusing on exploring the right sector. The drone is positioned at the edge of the grid and the right side is unexplored.",
+                "message_to_another_drone": "Proceeding to explore the right sector.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_19.jpg"
+        },
+        "20": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The drone is located on the right edge of the grid. To efficiently explore the unvisited areas to the right, it should move leftward. Given the open space, a moderate speed will ensure efficient exploration while keeping the drone under control.",
+                "message_to_another_drone": "Exploring the right sector. No obstacles detected yet. Will notify upon finding a target.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_20.jpg"
+        },
+        "21": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The right sector is currently unexplored and aligns with the long-term strategy to cover the area efficiently. Moving right with maximum speed will allow for quick scouting in the open area, beyond observed obstacles.",
+                "message_to_another_drone": "I am moving towards the right sector at high speed for exploration. Keep me updated on your findings in the bottom sector.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_21.jpg"
+        },
+        "22": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The drone is currently positioned at the edge of an unexplored area. Moving right will allow for efficient coverage of new cells according to the long-term strategy of exploring the right sector.",
+                "message_to_another_drone": "Advancing to explore the right sector as planned. Maintain communication about any obstacles or target discoveries.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_22.jpg"
+        },
+        "23": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The drone is currently positioned at the edge of the explored area, with unvisited cells to the right. To continue with the current strategy of exploring the right sector, the drone should move right to cover the unexplored area efficiently.",
+                "message_to_another_drone": "Continuing to explore the right sector with high speed for efficient coverage. Keep me updated on findings in the bottom sector.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_23.jpg"
+        },
+        "24": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "Our current position is at the far right of the observation area. Since the teammate is exploring the bottom sector, we should continue exploring the right side sector above, moving upwards. This will allow us to systematically cover unexplored areas while avoiding redundancy.",
+                "message_to_another_drone": "Continuing to explore the right sector moving upwards. Will update on any targets or obstacles.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_24.jpg"
+        },
+        "25": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The teammate drone is moving to explore unexplored areas in the bottom sector. To complement this strategy, I will move right at high speed to cover the unexplored areas more efficiently and meet our exploration goals quickly.",
+                "message_to_another_drone": "Moving right at high speed to cover unexplored areas in the right sector. Let's coordinate to ensure optimal coverage.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_25.jpg"
+        },
+        "26": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The drone is located at the right edge of the grid with unvisited areas to the right. To maximize area coverage and following the current strategy, we should explore the right sector quickly. Moving right at high speed ensures efficient exploration of the unvisited area.",
+                "message_to_another_drone": "Exploring the right edge swiftly to cover unvisited areas. Will report any findings immediately.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_26.jpg"
+        },
+        "27": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "We are focusing on exploring the right sector as per the strategy. The agent is at the right edge of the map and needs to move further right to continue exploration. We will proceed at maximum speed since the path is clear, allowing us to quickly cover more ground.",
+                "message_to_another_drone": "Continuing to explore the right sector at full speed. Keep me updated on any targets or obstacles in the bottom sector.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_27.jpg"
+        },
+        "28": {
+            "metadata": {
+                "action": 2,
+                "speed": 6,
+                "explaination": "The current strategy is to continue exploring the right sector swiftly. The agent is already positioned at the far right of the grid, so moving left at top speed will ensure maximum coverage while staying aligned with the long-term strategy.",
+                "message_to_another_drone": "Continuing to explore the right sector at maximum speed. Keep me updated on any targets found or obstacles encountered.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_28.jpg"
+        },
+        "29": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The current strategy is to explore the right sector swiftly. The right side of the grid appears to be unvisited, making it a priority to cover this area. By moving right at a high speed, we can efficiently scout this open region, while the teammate is covering the bottom sector.",
+                "message_to_another_drone": "Proceeding with high-speed exploration towards the right sector. Keep me updated on your findings in the bottom sector.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_29.jpg"
+        },
+        "30": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "To continue exploring the right sector as planned, moving right will help cover more unexplored area, aligning with the teammate's current actions.",
+                "message_to_another_drone": "Moving right with speed 4 to explore efficiently. Continue downward exploration as you bypass the obstacle.",
+                "long_term_strategy": "Continue exploring the right sector swiftly to maximize area coverage, then focus on systematically covering each sector moving from right to left.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_01/trajectories/visited_map_30.jpg"
+        }
+    },
+    "2": {
+        "1": {
+            "metadata": {
+                "action": 1,
+                "speed": 6,
+                "explaination": "The teammate is moving right with high speed to cover open areas. To complement this strategy, I will move down with high speed to explore the bottom section of the grid, ensuring efficient and broad coverage of the unexplored area.",
+                "message_to_another_drone": "Moving down with high speed to cover unexplored areas. Let's cover more ground efficiently!",
+                "long_term_strategy": "Focus on exploring the bottom sector of the grid efficiently and systematically, ensuring that we cover all unexplored areas without redundancy.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "To efficiently explore the bottom sector as planned, moving down with medium speed will allow us to cover more unexplored area while maintaining control and avoiding potential obstacles.",
+                "message_to_another_drone": "I'm moving down to explore the bottom sector. Let's cover our areas systematically to locate the targets efficiently.",
+                "long_term_strategy": "Focus on exploring the bottom sector of the grid efficiently and systematically, ensuring that we cover all unexplored areas without redundancy.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_2.jpg"
+        },
+        "3": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The bottom sector is largely unexplored, with many '3' cells indicating unexplored areas. Moving down with a moderate speed will help in exploring this sector effectively while maintaining control.",
+                "message_to_another_drone": "Proceeding with the exploration of the bottom sector. Stay coordinated and update me on any target findings.",
+                "long_term_strategy": "Focus on exploring the bottom sector of the grid efficiently and systematically, ensuring that we cover all unexplored areas without redundancy.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_3.jpg"
+        },
+        "4": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "To efficiently explore the bottom sector while avoiding obstacles and maximizing coverage, moving down with a moderate speed allows the drone to cover unexplored areas systematically without risking collision with unknown obstacles.",
+                "message_to_another_drone": "Proceeding with exploration of the bottom sector. Current strategy is to systematically cover unexplored areas with moderate speed.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage without redundancy and maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_4.jpg"
+        },
+        "5": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The bottom sector remains largely unexplored. Moving down will continue systematic exploration. Using a moderate speed of 4 ensures we cover ground efficiently while remaining cautious of potential obstacles.",
+                "message_to_another_drone": "Proceeding with the exploration of the bottom sector at moderate speed. Keep me updated on any target discoveries.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage without redundancy and maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_5.jpg"
+        },
+        "6": {
+            "metadata": {
+                "action": 1,
+                "speed": 6,
+                "explaination": "To continue systematic exploration of the bottom sector, moving downward will help cover more unvisited areas.",
+                "message_to_another_drone": "Continuing exploration of the bottom sector. Keep me updated on any targets you find.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage without redundancy and maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_6.jpg"
+        },
+        "7": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The teammate is moving towards the right sector, so continuing to explore the bottom sector complements the team's strategy. The area is mostly unexplored, so choosing a downward move with moderate speed ensures coverage.",
+                "message_to_another_drone": "Continuing exploration of the bottom sector as planned. Keep me updated on any target findings.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage without redundancy and maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_7.jpg"
+        },
+        "8": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "To continue our strategy of exploring the bottom sector systematically, we should move downward at a moderate speed to cover more unvisited areas while maintaining control.",
+                "message_to_another_drone": "Proceeding to explore the bottom sector. Keep me updated on any target discoveries.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage without redundancy and maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_8.jpg"
+        },
+        "9": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The observed area has a significant portion unexplored ('3'), especially in the bottom sector. Moving down with a moderate speed will allow efficient exploration and coverage of the unexplored areas.",
+                "message_to_another_drone": "Continuing exploration of the bottom sector. Will update if any targets are found.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage without redundancy and maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_9.jpg"
+        },
+        "10": {
+            "metadata": {
+                "action": 1,
+                "speed": 5,
+                "explaination": "The bottom sector is mostly unvisited, indicating unexplored areas. Moving down helps in covering this area efficiently.",
+                "message_to_another_drone": "Exploring bottom sector. Inform me if any targets are identified.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage without redundancy and maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_10.jpg"
+        },
+        "11": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The bottom sector remains largely unexplored according to the visited map. Moving downwards with moderate speed will allow for efficient exploration while avoiding potential obstacles. This is aligned with the long-term strategy and complements the teammate's movement to the right.",
+                "message_to_another_drone": "Exploring the bottom sector with moderate speed to ensure coverage.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage without redundancy and maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_11.jpg"
+        },
+        "12": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "There are many unvisited areas below, and the teammate is focusing on the right sector. Moving down with moderate speed will allow for efficient exploration of the bottom area while avoiding potential obstacles.",
+                "message_to_another_drone": "Exploring the bottom sector with moderate speed. Will update on any target findings.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage without redundancy and maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_12.jpg"
+        },
+        "13": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "To complement my teammate's exploration of the right sector, I will focus on the bottom sector. Moving down with moderate speed will allow efficient coverage of the area while maintaining safety.",
+                "message_to_another_drone": "Continuing exploration of the bottom sector with moderate speed. Keep me updated on any target finds.",
+                "long_term_strategy": "Focus on systematic exploration of the bottom sector, ensuring full coverage and avoiding redundancy, while maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_13.jpg"
+        },
+        "14": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "To support the team's exploration efforts, I will proceed to explore the bottom sector with a moderate speed of 4, balancing exploration speed with control in the unvisited area.",
+                "message_to_another_drone": "I'll explore the bottom sector at moderate speed. Let's keep sharing updates on targets.",
+                "long_term_strategy": "Focus on systematic exploration of the bottom sector, ensuring full coverage and avoiding redundancy, while maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_14.jpg"
+        },
+        "15": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "Most of the unexplored area is below the current position, and the teammate is focusing on the right sector. Moving down will help in exploring the bottom sector as planned.",
+                "message_to_another_drone": "Proceeding to explore the bottom sector at moderate speed. Keep sharing updates on target findings.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage and avoiding redundancy, while maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_15.jpg"
+        },
+        "16": {
+            "metadata": {
+                "action": 1,
+                "speed": 6,
+                "explaination": "The bottom sector is mostly unexplored, and moving downward will allow us to explore this area. The teammate is covering the right sector, so to avoid redundancy, focusing downward is optimal.",
+                "message_to_another_drone": "Proceeding to explore the bottom sector at high speed for efficient coverage. Will update on any findings.",
+                "long_term_strategy": "Continue systematic exploration of the bottom sector, ensuring full coverage and avoiding redundancy, while maintaining communication for updates on target location.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_16.jpg"
+        },
+        "17": {
+            "metadata": {
+                "action": 1,
+                "speed": 6,
+                "explaination": "The majority of the map is unvisited, indicating a need for systematic exploration. Given the teammate's focus on the right sector, we should focus on exploring the bottom sector to maximize coverage and avoid overlap. The speed is set to 6 to cover more ground efficiently, as there are no visible obstacles in the immediate observation area.",
+                "message_to_another_drone": "Proceeding to explore the bottom sector at high speed. Notify me if a target is located or any obstacles are detected.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Keep communication open for target updates and obstacle alerts.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_17.jpg"
+        },
+        "18": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "Continue systematic exploration of the bottom sector, as it remains largely unvisited. Utilize moderate speed to balance exploration and safety, maintaining readiness for obstacle avoidance. This aligns with the teammate's current strategy focusing on the right sector.",
+                "message_to_another_drone": "Continuing exploration of the bottom sector. Will notify about obstacles or targets immediately.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Keep communication open for target updates and obstacle alerts.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_18.jpg"
+        },
+        "19": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The bottom sector is largely unexplored, with many 'NOT_VISITED_AREA' cells. Moving down with moderate speed will allow us to cover more ground efficiently while avoiding potential obstacles that may not be visible due to the limited observation area.",
+                "message_to_another_drone": "Continuing to explore the bottom sector. Notify if any target is found or obstacle detected.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Keep communication open for target updates and obstacle alerts.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_19.jpg"
+        },
+        "20": {
+            "metadata": {
+                "action": 1,
+                "speed": 6,
+                "explaination": "Most of the map is unexplored, especially the bottom sector. We need to cover more ground quickly to locate targets. The reported absence of obstacles by the teammate suggests we can proceed with a higher speed safely.",
+                "message_to_another_drone": "Proceeding to explore deeper into the bottom sector. Will keep you updated on any targets or obstacles.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Keep communication open for target updates and obstacle alerts.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_20.jpg"
+        },
+        "21": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The bottom sector is mostly unexplored, so moving down with a reasonable speed will allow for efficient exploration. This movement aligns with our long-term strategy of exploring the bottom sector systematically.",
+                "message_to_another_drone": "Moving downwards to continue exploration of the bottom sector. Will update on findings and obstacles.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Keep communication open for target updates and obstacle alerts.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_21.jpg"
+        },
+        "22": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The drone should continue exploring the bottom sector as part of the long-term strategy. The presence of unexplored cells (3) indicates areas that need to be covered. Moving downwards will help in covering these cells efficiently.",
+                "message_to_another_drone": "Proceeding to explore the bottom sector. Will report any targets or obstacles encountered.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Maintain communication for updates on targets and obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_22.jpg"
+        },
+        "23": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The bottom sector is unexplored, and moving downward will provide efficient coverage. Maintaining a moderate speed will ensure control and prevent crashes near unknown obstacles.",
+                "message_to_another_drone": "Proceeding with moderate speed to explore the bottom sector. Will update on findings and any obstacles encountered.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Maintain communication for updates on targets and obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_23.jpg"
+        },
+        "24": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone is currently positioned at the bottom-left corner of the grid, with unexplored areas towards the bottom and right. Based on the observation, moving right into the unexplored area with a moderate speed of 3 prevents collision with the obstacles just below.",
+                "message_to_another_drone": "Moving right to explore unexplored areas in the bottom sector. Continue reporting your findings from the right sector.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Maintain communication for updates on targets and obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_24.jpg"
+        },
+        "25": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "We should continue to explore the bottom sector systematically. Moving downwards at a moderate speed allows us to safely navigate and explore unexplored areas while avoiding obstacles identified in the map.",
+                "message_to_another_drone": "Continuing to explore the bottom sector at moderate speed. Ensure to communicate any sighting of targets or obstacles.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Maintain communication for updates on targets and obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_25.jpg"
+        },
+        "26": {
+            "metadata": {
+                "action": 1,
+                "speed": 2,
+                "explaination": "The drone is currently in a grid with unvisited areas to the right. The teammate is already exploring the right edge, so to efficiently cover more ground and avoid redundancy, it's best to move downwards where there are unvisited areas.",
+                "message_to_another_drone": "Proceeding to explore the bottom sector systematically. Will update on any findings or obstacles.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Coordinate with teammate to ensure we don't miss any targets or duplicate efforts.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_26.jpg"
+        },
+        "27": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The bottom sector has unvisited cells and is a priority for exploration. Moving down will help cover this area systematically. The presence of obstacles (1s) below requires careful maneuvering to avoid collisions, hence a moderate speed is selected.",
+                "message_to_another_drone": "Proceeding to explore the bottom sector. Avoiding obstacles at moderate speed. Will update on progress or any target found.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage. Coordinate with teammate to ensure we don't miss any targets or duplicate efforts.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_27.jpg"
+        },
+        "28": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The bottom sector is currently unexplored and our teammate is focusing on the right sector. To ensure full coverage, we should move downward to explore the bottom sector systematically while avoiding obstacles.",
+                "message_to_another_drone": "Moving to explore the bottom sector. Avoiding obstacles, will update on any findings.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage while coordinating with teammate to ensure no targets are missed.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_28.jpg"
+        },
+        "29": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The teammate is exploring the right sector, and I should focus on the bottom sector. The map indicates unexplored areas (3s) at the bottom, and since there is an obstacle in the immediate path downward, I'll move right first to bypass the obstacle. Moving with a speed of 3 ensures a balance between coverage and obstacle avoidance.",
+                "message_to_another_drone": "Moving right to bypass an obstacle before continuing downward exploration.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage while coordinating with teammate to ensure no targets are missed.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_29.jpg"
+        },
+        "30": {
+            "metadata": {
+                "action": 1,
+                "speed": 2,
+                "explaination": "The teammate is moving to the right with speed 4 to explore efficiently, indicating that I should continue exploring downward to cover more of the unexplored grid systematically. This strategy ensures efficient coverage while avoiding the obstacle detected below.",
+                "message_to_another_drone": "I am moving downward with speed 2 to explore the bottom sector while avoiding obstacles. Continue your rightward exploration.",
+                "long_term_strategy": "Continue exploring the bottom sector systematically for full coverage while coordinating with teammate to ensure no targets are missed.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/agent_02/trajectories/visited_map_30.jpg"
+        }
+    },
+    "env": "/home/evgenii-iurin/work/DroneRescue/experiments/without_observation_exp/version_1/environment.jpg"
+}
