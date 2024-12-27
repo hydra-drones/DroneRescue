@@ -1,0 +1,235 @@
+{
+    "1": {
+        "0": {
+            "metadata": {
+                "action": 4,
+                "speed": 1,
+                "explaination": "",
+                "message_to_another_drone": "",
+                "long_term_strategy": "Strategy is not defined",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_0.jpg"
+        },
+        "1": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The drone is currently surrounded by obstacles on the upper-left side and open space towards the right and bottom. Moving right will allow the drone to explore more unvisited areas efficiently.",
+                "message_to_another_drone": "Moving right to explore open area. Maintain awareness of obstacles.",
+                "long_term_strategy": "Adopt a strategy of exploring open areas by moving in wide arcs to maximize coverage and minimize backtracking.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_01/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The current observation shows a clear path to the right, which aligns with the teammate's movement. Moving right will allow us to explore more unvisited areas efficiently. The speed is set to 3 to balance exploration speed and obstacle avoidance.",
+                "message_to_another_drone": "Moving right with speed 3 to explore unvisited areas. Stay cautious of obstacles in the vicinity.",
+                "long_term_strategy": "Continue exploring open areas by moving in wide arcs to maximize coverage and minimize backtracking. Coordinate with teammates to ensure comprehensive exploration.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_01/trajectories/visited_map_2.jpg"
+        },
+        "3": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The teammate is moving right at a high speed to explore, so I should cover a different area to maximize exploration. Moving left at a moderate speed will explore unvisited areas efficiently and avoid obstacles at the right.",
+                "message_to_another_drone": "Moving left with speed 3 to explore unvisited areas. Continue monitoring for obstacles and adjust the path as needed.",
+                "long_term_strategy": "Maintain a parallel exploration path with the teammate to ensure comprehensive coverage of the area, avoiding obstacle zones and maximizing the discovery of unvisited areas.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_01/trajectories/visited_map_3.jpg"
+        },
+        "4": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The teammate is moving to the right, so we should coordinate by moving downwards to maintain a parallel exploration path, covering new ground efficiently. Since there are obstacles below but not directly in the immediate path, a moderate speed is safe.",
+                "message_to_another_drone": "Moving downwards with speed 3 to maintain parallel coverage. Watch for obstacles and report any targets.",
+                "long_term_strategy": "Continue parallel exploration with the teammate, avoiding obstacles and maximizing unvisited area coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_01/trajectories/visited_map_4.jpg"
+        },
+        "5": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The teammate is moving right with speed 3. To maintain parallel coverage and avoid obstacles, I'll move left to explore more unvisited areas while keeping a safe distance from obstacles.",
+                "message_to_another_drone": "Moving left with speed 3 to maintain parallel exploration. Report any targets found.",
+                "long_term_strategy": "Continue parallel exploration with the teammate, avoiding obstacles and maximizing unvisited area coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_01/trajectories/visited_map_5.jpg"
+        },
+        "6": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "To continue parallel exploration with the teammate and maximize unvisited area coverage, we should move rightward as there is open space in that direction. This aligns with the teammate's current strategy and ensures efficient exploration.",
+                "message_to_another_drone": "Proceeding right with speed 3 to cover unvisited areas, maintaining parallel exploration.",
+                "long_term_strategy": "Continue parallel exploration with the teammate, avoiding obstacles and maximizing unvisited area coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_01/trajectories/visited_map_6.jpg"
+        },
+        "7": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The current observation shows a clear path on the right. The teammate is moving right with speed 3, so to maintain a coordinated exploration and cover more unvisited areas, matching their speed and direction is optimal.",
+                "message_to_another_drone": "Moving right with speed 3 to maintain parallel exploration and maximize area coverage.",
+                "long_term_strategy": "Continue parallel exploration with the teammate, avoiding obstacles and maximizing unvisited area coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_01/trajectories/visited_map_7.jpg"
+        },
+        "8": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The current observation shows obstacles to the right, and the teammate is moving right to align with our leftward path. Thus, moving left with a moderate speed of 3 is optimal to explore the unvisited area without immediate collision risk.",
+                "message_to_another_drone": "Moving left with speed 3 to cover unvisited areas. Continue your rightward path to maximize exploration efficiency.",
+                "long_term_strategy": "Continue parallel exploration with the teammate, avoiding obstacles and maximizing unvisited area coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_01/trajectories/visited_map_8.jpg"
+        },
+        "9": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The drone is in an open area with a clear path to the right, matching the teammate's direction of exploration. To maintain parallel exploration and cover the maximum unvisited area efficiently, moving right with a high speed is optimal, while avoiding the obstacle to the left.",
+                "message_to_another_drone": "Proceeding rightward with speed 5. Confirming leftward path clear for efficient parallel exploration.",
+                "long_term_strategy": "Continue parallel exploration with the teammate, avoiding obstacles and maximizing unvisited area coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_01/trajectories/visited_map_9.jpg"
+        }
+    },
+    "2": {
+        "1": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "Given the current observation, the drone is surrounded by obstacles on its left and partially on its top. The teammate is moving right, and there's an open area in that direction. To efficiently scout and explore, the drone should also move right while maintaining awareness of obstacles. Since there are no immediate obstacles in the right direction, a medium speed should be safe and efficient.",
+                "message_to_another_drone": "Moving right to explore open area. Stay alert for any obstacles ahead.",
+                "long_termf_strategy": "Adopt a rightward exploration strategy to cover open areas while maintaining coordination with the teammate. Adjust speed and direction based on obstacle proximity.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "There are unvisited areas to the right that need to be explored, and the teammate is also moving right. To maintain coordination and cover more ground efficiently, we'll move right at a high speed.",
+                "message_to_another_drone": "Moving right with speed 5 to explore unvisited areas. Keep an eye on obstacles to adjust if needed.",
+                "long_term_strategy": "Continue exploring the rightward direction to maximize area coverage and coordinate with teammates.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_2.jpg"
+        },
+        "3": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The drone is currently facing an open area to the right (east) and should continue exploring that direction as it aligns with the long-term strategy of maximizing area coverage. Since there are no immediate obstacles on the right, a medium speed should efficiently cover ground while still allowing for adjustments if necessary.",
+                "message_to_another_drone": "Continuing to the right with speed 4 to cover more ground. Maintain awareness of obstacles and report any targets found.",
+                "long_term_strategy": "Continue exploring the rightward direction to maximize area coverage and coordinate with teammates.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_3.jpg"
+        },
+        "4": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone is positioned in an open area with unvisited cells to the right and below. To maintain parallel coverage and maximize area exploration, moving right with a moderate speed will cover more unvisited areas efficiently.",
+                "message_to_another_drone": "Moving right with speed 3 to explore unvisited areas. Maintain parallel coverage and report any targets.",
+                "long_term_strategy": "Continue exploring the rightward direction to maximize area coverage and coordinate with teammates.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_4.jpg"
+        },
+        "5": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone should continue moving right towards the unvisited area to maximize exploration and coordinate with the teammate moving left.",
+                "message_to_another_drone": "Continuing rightward exploration with speed 3. Report any obstacles or targets.",
+                "long_term_strategy": "Maintain rightward exploration to cover more unvisited areas and coordinate with the teammate's parallel leftward path.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_5.jpg"
+        },
+        "6": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "To align with the teammate's strategy and cover more unvisited areas, it's optimal to continue moving right. The path is clear, so a speed of 3 will efficiently cover the ground without risking collision with obstacles.",
+                "message_to_another_drone": "Continuing right with speed 3 to ensure efficient coverage in coordination with your path.",
+                "long_term_strategy": "Maintain rightward exploration to cover more unvisited areas and coordinate with the teammate's parallel leftward path.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_6.jpg"
+        },
+        "7": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "Continue moving right to maintain parallel exploration and cover more unvisited areas. This aligns with the teammate's strategy and ensures efficient area coverage.",
+                "message_to_another_drone": "Continuing right with speed 3 to align with your leftward path and maximize area coverage.",
+                "long_term_strategy": "Maintain rightward exploration to cover more unvisited areas and coordinate with the teammate's parallel leftward path.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_7.jpg"
+        },
+        "8": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The teammate is moving left, and our current strategy is to explore rightward. The right side has unvisited areas (value 3) that align with our current strategy to cover more ground efficiently. Given the open space, a higher speed can be used to maximize exploration.",
+                "message_to_another_drone": "Continuing rightward exploration with speed 5. Ensure leftward path is clear for efficient area coverage.",
+                "long_term_strategy": "Maintain rightward exploration to cover more unvisited areas and coordinate with the teammate's parallel leftward path.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_8.jpg"
+        },
+        "9": {
+            "metadata": {
+                "action": 2,
+                "speed": 5,
+                "explaination": "The teammate is proceeding rightward with speed 5. To efficiently explore and maintain parallel coordination, moving leftward will cover unvisited areas. Ensure speed is reasonable to avoid obstacles.",
+                "message_to_another_drone": "Confirming leftward path clear. Proceeding with leftward exploration at speed 5. Maintain parallel path efficiency.",
+                "long_term_strategy": "Continue leftward exploration to cover more unvisited areas and maintain coordination with the teammate's parallel rightward path.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "long-term-strategy_exp/version_2/agent_02/trajectories/visited_map_9.jpg"
+        }
+    },
+    "env": "long-term-strategy_exp/version_2/environment.jpg"
+}
