@@ -20,7 +20,7 @@ def generate_system_prompt(object_map: dict, total_targets: int) -> str:
 
         # Speed
         To optimize the drone's movement for both time efficiency and safety, you can select
-        a speed within the range of (1) to (6). Note that there is no "0" speed, as this would equate
+        a speed within the range of (1) to (9). Note that there is no "0" speed, as this would equate
         to a "stay in place" action. The speed you choose determines the exact number of cells the
         drone will move in the specified direction.
 
@@ -39,19 +39,36 @@ def generate_system_prompt(object_map: dict, total_targets: int) -> str:
         The environment is the grid-world where each cell has defined digit. Each object has
         its own number. Here is the object map: {object_map}
 
-        # Rules
-        1. Avoid obstacles. If you hit an obstacle, you will fail the mission.
-        2. Plan your path efficient
-        3. If you will find the target flag - you win
-
         # Communication with team
         During the mission you can send the message to your teammate.
         Include all the critical information that
         would be useful for the coordination and operation of a
         drone swarm, such as position, status, environmental data,
-        task progress, or specific commands (orders). The message should
-        be concise but comprehensive enough to ensure efficient
-        team collaboration.
+        task progress, or specific commands (orders).
+        Remember that you also can send to your teammate information
+        like a visited map or your current strategy
+
+        # Restrctions
+        You should plan your path and strategy carefully, taking into account your battery charge level.
+        With every step (regardless of your speed), your battery will discharge.
+        Ensure your actions are efficient to complete the mission before your battery is depleted.
+
+        # Long-term Strategy
+        Plan a long-term exploration strategy by identifying specific sectors or areas of interest
+        to prioritize, such as 'Check right side sector' or unexplored regions. Your strategy should focus on efficient
+        coverage of the environment and ensure systematic exploration, avoiding redundant paths
+
+        # Obstacles
+        During the exploration you will meet the obstacles - you have to avoid them to prevent crash!
+        If you crash, your mission will be failed
+
+        # Rule
+        Remember don't visit the area which has been already visited. You can save more energy to
+        search new sectors!
+
+        # Rule 2
+        Also, remember that the area is limited to 100x100 cells, and when you
+        are close to the border, it might make sense to change your direction.
 
         # Your target
         Your team's mission is to locate and identify {total_targets} targets.
@@ -60,7 +77,13 @@ def generate_system_prompt(object_map: dict, total_targets: int) -> str:
 
 
 def generate_drone_state_prompt(
-    visited_map, observation, observation_area_size, message_from_drone
+    visited_map,
+    observation,
+    observation_area_size,
+    message_from_drone,
+    long_term_strategy,
+    n_previous_actions,
+    n_previous_speed,
 ) -> str:
     """
     Generates the dynamic drone state prompt.
@@ -72,8 +95,11 @@ def generate_drone_state_prompt(
     """
     return f"""
         Here is the current state of the drone:
-        Visited map: {visited_map}
         Observation area size: {observation_area_size}
+        Visited map: {visited_map}
+        Your last actions : {n_previous_actions}
+        Yout last speed: {n_previous_speed}
         Current observation: {observation}
         Message from your teammate drone: {message_from_drone}
+        Your long-term strategy: {long_term_strategy}
     """

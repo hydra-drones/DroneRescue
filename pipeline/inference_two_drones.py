@@ -10,7 +10,8 @@ from agent.llm_agent import LLMAgent
 from environment.environment import Environment
 from environment.constants import OBSTACLE_MAP, OBJECT_MAP, COLOR_MAP
 from dotenv import load_dotenv
-
+from images2video import create_video_from_folders
+from collections import deque
 import os
 
 load_dotenv()
@@ -18,6 +19,18 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 logger = logging.getLogger("inference_script")
 logger.setLevel(logging.INFO)
+
+
+def update_speed(speed: deque, x: int):
+    speed.popleft()
+    speed.append(x)
+    return speed
+
+
+def update_action(action: deque, x: int):
+    action.popleft()
+    action.append(x)
+    return action
 
 
 def step_in_environment(
@@ -34,6 +47,7 @@ def step_in_environment(
     explaination = kwargs["explaination"]
     agent_trajectories_folder = kwargs["agent_trajectories_folder"]
     message_to_another_drone = kwargs["message_to_another_drone"]
+    long_term_strategy = kwargs["long_term_strategy"]
     observaion_area = agent.observation_area
 
     (
@@ -64,6 +78,7 @@ def step_in_environment(
             "speed": speed,
             "explaination": explaination,
             "message_to_another_drone": message_to_another_drone,
+            "long_term_strategy": long_term_strategy,
             "done": done,
             "terminated": terminated,
         },
@@ -90,7 +105,7 @@ def run_inference(cfg: DictConfig):
     rollout_config = {1: {}, 2: {}}
 
     # Stage 1 : Prepare directory
-    rollout_folder = Path(cfg.structure.exp_name)
+    rollout_folder = Path(cfg.structure.experiment_folder)
     if rollout_folder.exists():
         versions = rollout_folder.rglob("version_*")
         versions = [int(version.name.replace("version_", "")) for version in versions]
@@ -167,6 +182,7 @@ def run_inference(cfg: DictConfig):
         step_num=0,
         explaination="",
         message_to_another_drone="",
+        long_term_strategy="Strategy is not defined",
         agent_trajectories_folder=agent_01_trajectories_folder,
     )
 
@@ -188,22 +204,52 @@ def run_inference(cfg: DictConfig):
         step_num=0,
         explaination="",
         message_to_another_drone="",
+        long_term_strategy="Strategy is not defined",
         agent_trajectories_folder=agent_02_trajectories_folder,
     )
 
     agent_01_communcation_message = ""
     agent_02_communcation_message = ""
+    agent_01_long_term_strategy = "Startegy is not defined yet"
+    agent_02_long_term_strategy = "Startegy is not defined yet"
+
+    N = 10
+    agent_01_action = 4
+    agent_02_action = 4
+
+    agent_01_speed = 1
+    agent_02_speed = 1
+
+    agent_01_n_previous_actions = deque([None] * N)
+    agent_02_n_previous_actions = deque([None] * N)
+
+    agent_01_n_previous_speed = deque([None] * N)
+    agent_02_n_previous_speed = deque([None] * N)
 
     step = 0
-    while True:
+    for _ in range(50):
+        print(f"Agent previous actions : {agent_01_n_previous_actions}")
+        print(f"Agent previous actions : {agent_02_n_previous_actions}")
+        agent_01_n_previous_actions = update_action(
+            agent_01_n_previous_actions, agent_01_action
+        )
+        agent_01_n_previous_speed = update_speed(
+            agent_01_n_previous_speed, agent_01_speed
+        )
+
         step += 1
         agent_01_response = agent_01.generate_action_by_model(
             cfg.environment.targets_num,
             agent_01_vis_map,
             agent_01_observation,
             agent_02_communcation_message,
+            long_term_strategy=agent_01_long_term_strategy,
+            n_previous_actions=agent_01_n_previous_actions,
+            n_previous_speed=agent_01_n_previous_speed,
         )
-
+        agent_01_action = agent_01_response["action"]
+        agent_01_speed = agent_01_response["speed"]
+        agent_01_long_term_strategy = agent_01_response["long_term_strategy"]
         agent_01_communcation_message = agent_01_response["message_to_agent"]
 
         (
@@ -224,6 +270,7 @@ def run_inference(cfg: DictConfig):
             step_num=step,
             explaination=agent_01_response["explaination"],
             message_to_another_drone=agent_01_response["message_to_agent"],
+            long_term_strategy=agent_01_response["long_term_strategy"],
             agent_trajectories_folder=agent_01_trajectories_folder,
         )
 
@@ -231,7 +278,16 @@ def run_inference(cfg: DictConfig):
             f"""\nAgent (1) :\nStep_{step}:
             A: {agent_01_response["action"]}
             S: {agent_01_response["speed"]}.
-            Explainataion: {agent_01_response["explaination"]}\n"""
+            Explainataion: {agent_01_response["explaination"]}\n
+            Long Short Strategy: {agent_01_response["long_term_strategy"]}\n
+            """
+        )
+
+        agent_02_n_previous_actions = update_action(
+            agent_02_n_previous_actions, agent_02_action
+        )
+        agent_02_n_previous_speed = update_speed(
+            agent_02_n_previous_speed, agent_02_speed
         )
 
         agent_02_response = agent_02.generate_action_by_model(
@@ -239,9 +295,15 @@ def run_inference(cfg: DictConfig):
             agent_02_vis_map,
             agent_02_observation,
             agent_01_communcation_message,
+            long_term_strategy=agent_02_long_term_strategy,
+            n_previous_actions=agent_02_n_previous_actions,
+            n_previous_speed=agent_02_n_previous_speed,
         )
+        agent_02_action = agent_02_response["action"]
+        agent_02_speed = agent_02_response["speed"]
 
-        agent_02_communcation_message = agent_01_response["message_to_agent"]
+        agent_02_long_term_strategy = agent_02_response["long_term_strategy"]
+        agent_02_communcation_message = agent_02_response["message_to_agent"]
 
         (
             agent_02_done_flag,
@@ -261,6 +323,7 @@ def run_inference(cfg: DictConfig):
             step_num=step,
             explaination=agent_02_response["explaination"],
             message_to_another_drone=agent_02_response["message_to_agent"],
+            long_term_strategy=agent_02_response["long_term_strategy"],
             agent_trajectories_folder=agent_02_trajectories_folder,
         )
 
@@ -268,7 +331,9 @@ def run_inference(cfg: DictConfig):
             f"""\nAgent (2) :\nStep_{step}:
             A: {agent_02_response["action"]}
             S: {agent_02_response["speed"]}.
-            Explainataion: {agent_02_response["explaination"]}\n"""
+            Explainataion: {agent_02_response["explaination"]}\n
+            Long Short Strategy: {agent_02_response["long_term_strategy"]}\n
+            """
         )
 
         logger.info(f"Agent 01 message : {agent_01_communcation_message}")
@@ -284,14 +349,20 @@ def run_inference(cfg: DictConfig):
         if agent_02_response["mission_completed"]:
             sys.exit("Agent (2) sent the request to finish the mission")
 
-        # if agent_01_done_flag:
-        #     sys.exit("Script stopped due to terminated of agent (1)")
+    create_video_from_folders(
+        str(rollout_folder / "agent_01/trajectories"),
+        str(rollout_folder / "agent_02/trajectories"),
+        str(rollout_folder / "rollout.mp4"),
+    )
 
-        # if agent_02_done_flag:
-        #     sys.exit("Script stopped due to terminated of agent (2)")
+    # if agent_01_done_flag:
+    #     sys.exit("Script stopped due to terminated of agent (1)")
 
-        # if (agent_01.targets_found + agent_02.targets_found) == cfg.environment.targets_num:
-        #     sys.exit("All targets was found!")
+    # if agent_02_done_flag:
+    #     sys.exit("Script stopped due to terminated of agent (2)")
+
+    # if (agent_01.targets_found + agent_02.targets_found) == cfg.environment.targets_num:
+    #     sys.exit("All targets was found!")
 
 
 if __name__ == "__main__":
