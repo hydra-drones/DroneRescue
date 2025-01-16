@@ -1,0 +1,24 @@
+hydra:
+  run:
+    dir: ${base.base_dir}/hydra_outputs/run/${now:%Y-%m-%d_%H-%M-%S}
+
+base:
+  base_dir: /home/evgenii-iurin/work/DroneRescue
+
+structure:
+  exp_name: high_observation_area_and_speed_exp
+  experiment_folder: ${base.base_dir}/experiments/${structure.exp_name}
+
+rollout_num: 40
+
+environment:
+  area_size: [100, 100]
+  targets_num: 3
+  obstacles_num: 50
+
+
+agents:
+  agent_01:
+    observation_area: [21,21]
+  agent_02:
+    observation_area: [21,21]
