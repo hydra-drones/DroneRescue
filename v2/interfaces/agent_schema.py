@@ -1,7 +1,5 @@
-from typing import Dict, Tuple, Any, Literal
 from pydantic import create_model
 from langchain_core.runnables import Runnable
-from langchain_openai import ChatOpenAI
 from v2.states.agent_state import AgentState
 
 
@@ -10,13 +8,8 @@ class AgentRunnable(Runnable):
     Abstract class. 'invoke' method should be initialized.
     """
 
-    def __init__(
-        self, llm_api_key: str, common_agent_state: AgentState, llm_model: str = "gpt-4"
-    ):
-        self.llm_api_key = llm_api_key
-        self.llm_model = llm_model
+    def __init__(self, common_agent_state: AgentState):
         self.state = common_agent_state
-        self.llm = self._initialize_llm()
 
     @property
     def agent_state(self) -> str:
@@ -54,16 +47,6 @@ class AgentRunnable(Runnable):
         # Current strategy
         Strategy: {self.state.get("strategy")}
         """
-
-    def _initialize_llm(self):
-        try:
-            llm = ChatOpenAI(
-                model=self.llm_model, temperature=0, openai_api_key=self.llm_api_key
-            )
-            print("ChatGPT initialized")
-            return llm
-        except Exception as e:
-            raise ValueError(f"Failed to initialize ChatGPT: {e}") from e
 
     def create_structure_output(self, model_name: str, base_model_dict):
         """Dynamically creates base model for structure llm output"""

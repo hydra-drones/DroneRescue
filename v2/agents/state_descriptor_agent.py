@@ -5,11 +5,10 @@ from v2.states.agent_state import AgentState
 
 
 class StateDescriptor(AgentRunnable):
-    def __init__(
-        self, llm_api_key: str, common_agent_state: AgentState, llm_model: str = "gpt-4"
-    ):
-        super().__init__(llm_api_key, common_agent_state, llm_model)
+    def __init__(self, llm, common_agent_state: AgentState):
+        super().__init__(common_agent_state)
         self.common_agent_state = common_agent_state
+        self.llm = llm
 
     def invoke(self, *args, **kwargs) -> Dict[str, Any]:
         """
@@ -26,7 +25,7 @@ class StateDescriptor(AgentRunnable):
             + str(self.common_agent_state.get("map_of_sectors"))
             + "\n\n"
             + "ACTION HISTORY:\n"
-            + str(self.common_agent_state.get("action_history"))
+            + str(self.common_agent_state.get("action_history")[-5:])
             + "\n\n"
             + "STRATEGY:\n"
             + str(self.common_agent_state.get("strategy"))
@@ -77,8 +76,17 @@ class StateDescriptor(AgentRunnable):
         ]
 
         response = self.llm.invoke(messages)
+        description_message = response.content
 
         if self.common_agent_state.get("verbose"):
-            print(f"State Descriptor\nMessage {response.content}\n" + "-" * 50)
+            print(f"State Descriptor\nMessage {description_message}\n" + "-" * 50)
 
-        return {"messages": [response.content], "state_description": [response.content]}
+        # Update messages
+        messages_history = self.common_agent_state.get("messages")
+        if len(messages_history) > 5:
+            messages_history.pop(0)
+            messages_history.append(description_message)
+        else:
+            messages_history.append(description_message)
+
+        return {"messages": messages_history, "state_description": description_message}

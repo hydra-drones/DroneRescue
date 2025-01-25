@@ -4,7 +4,7 @@ from v2.interfaces.agent_schema import AgentRunnable
 from v2.states.agent_state import AgentState
 
 
-class DecisionAgent(AgentRunnable):
+class DecisionAgentExtended(AgentRunnable):
     def __init__(self, llm, common_agent_state: AgentState):
         super().__init__(common_agent_state)
         self.common_agent_state = common_agent_state
@@ -19,18 +19,44 @@ class DecisionAgent(AgentRunnable):
 
         current_state = args[0]
         system_prompt = (
-            "CURRENT STRATEGY:\n"
+            # Hardware information
+            "BATTERY LEVEL:\n"
+            + str(self.common_agent_state.get("battery_level"))
+            + "\n\n"
+            # Environment and movements
+            + "OBSERVATION (LOCAL):\n"
+            + "Observation describes objects what agent sees. Each value in the observation list symbolizes some object. Here is the mapping:"
+            + str({"BACKGROUND": 0, "TARGET_POINT": 2, "AGENT_POSITION": 4})
+            + str(self.common_agent_state.get("observation"))
+            + "\n\n"
+            + "CURRENT POSIITION (GLOBAL MAP):\n"
+            + str(self.common_agent_state.get("current_position"))
+            + "\n\n"
+            + "ACTION HISTORY:\n"
+            + str(self.common_agent_state.get("action_history")[-5:])
+            + "\n\n"
+            # Role and strategy
+            + "CURRENT STRATEGY:\n"
             + str(current_state.get("strategy"))
+            + "\n\n"
+            + "ROLE:\n"
+            + str(current_state.get("role"))
+            + "\n\n"
+            # Sectors
+            + "MAP OF SECTORS:\n"
+            + str(self.common_agent_state.get("map_of_sectors"))
+            + "\n\n"
+            + "CURRENT SECTOR:\n"
+            + str(self.common_agent_state.get("current_sector"))
+            # Communication
+            + "PREVIOUS MESSAGE:\n"
+            + str(current_state.get("messages")[-1:])
             + "\n\n"
             + "TEAMMATE AGENTS:\n"
             + str(current_state.get("teammate_agent_info"))
             + "\n\n"
-            + "\n\n"
-            + "STATE DESCRIPTION:\n"
-            + str(current_state.get("state_description"))
-            + "\n\n"
-            + "ROLE:\n"
-            + str(current_state.get("role"))
+            + "MESSAGES FROM AGENTS:\n"
+            + str(self.common_agent_state.get("messages_from_agents"))
             + "\n\n"
             + f"""Your task is to analyze the provided state description and the current strategy
             to determine the next best step. You have the following possible options:
@@ -44,13 +70,10 @@ class DecisionAgent(AgentRunnable):
             - "next": The identifier of the next agent to call. It must be one of: {current_state.get('next_agent')}
 
             **CONSIDERATIONS**:
-            - Leverage all relevant details in the state description (e.g., threats, opportunities, teammate requests).
             - Ensure your decision aligns with or appropriately revises the current strategy.
             - If communicating with teammates, provide only necessary, actionable information.
             - If calling the action agent, specify the intended action or context.
             - If changing strategy, clearly state why.
-            - If agent find the target communicate the coordinates to the another agent
-            - Once another agent has been informed about target location you can choose continue searching for the target
 
             **TASK**:
             The "message" must capture the essential details needed by the called agent,
@@ -85,7 +108,7 @@ class DecisionAgent(AgentRunnable):
         - A "next" key: specifying which agent to call ({current_state.get('next_agent')}).
 
         Note: choosing "action" agent you will able to use another tools only on the next step. So, if it's needed, use the another tools first, onyl then "action" agent.
-        Note: take into account previous message : {current_state.get("messages")[-1:]}
+
         Please ensure that your message is clear, actionable, and consistent with the situation and strategy.
         """
 

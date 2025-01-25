@@ -1,6 +1,5 @@
 from v2.states.agent_state import AgentState
-from v2.agents.state_descriptor_agent import StateDescriptor
-from v2.agents.decision_maker import DecisionAgent
+from v2.agents.decision_maker_extended import DecisionAgentExtended
 from v2.agents.action_agent import ActionAgent
 from v2.agents.communicator import CommunicationAgent
 from v2.agents.strategy_agent import StrategyAgent
@@ -8,8 +7,8 @@ from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import StateGraph, END, START
 
 
-class Scoute:
-    """Initialize Scoute agent"""
+class Rescuer:
+    """Initialize Rescuer agent"""
 
     def __init__(self, common_agent_state: AgentState, llm, verbose: bool = False):
         self.common_agent_state = common_agent_state
@@ -18,7 +17,7 @@ class Scoute:
         self.graph_is_compiled_ = False
         self.graph_ = None
         self.last_state_ = None
-        self.agent_name_ = "Scoute"
+        self.agent_name_ = "Rescuer"
         self.llm = llm
 
     def update_state(self, fields_to_update):
@@ -33,21 +32,18 @@ class Scoute:
 
     def compile_graph(self):
         """Compile graph"""
-        descriptor_agent = StateDescriptor(self.llm, self.common_agent_state)
-        decision_maker = DecisionAgent(self.llm, self.common_agent_state)
+        decision_maker = DecisionAgentExtended(self.llm, self.common_agent_state)
         action_agent = ActionAgent(self.llm, self.common_agent_state)
         communication_agent = CommunicationAgent(self.llm, self.common_agent_state)
         strategy_agent = StrategyAgent(self.llm, self.common_agent_state)
 
         graph = StateGraph(AgentState)
-        graph = graph.add_node("Descriptor", descriptor_agent)
         graph = graph.add_node("DecisionMaker", decision_maker)
         graph = graph.add_node("Action", action_agent)
         graph = graph.add_node("Communicator", communication_agent)
         graph = graph.add_node("Strategist", strategy_agent)
 
-        graph.add_edge(START, "Descriptor")
-        graph = graph.add_edge("Descriptor", "DecisionMaker")
+        graph.add_edge(START, "DecisionMaker")
         graph = graph.add_edge("Communicator", "Action")
         graph = graph.add_edge("Strategist", "Action")
         graph.add_conditional_edges(

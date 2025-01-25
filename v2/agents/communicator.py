@@ -5,11 +5,10 @@ from v2.states.agent_state import AgentState
 
 
 class CommunicationAgent(AgentRunnable):
-    def __init__(
-        self, llm_api_key: str, common_agent_state: AgentState, llm_model: str = "gpt-4"
-    ):
-        super().__init__(llm_api_key, common_agent_state, llm_model)
+    def __init__(self, llm, common_agent_state: AgentState):
+        super().__init__(common_agent_state)
         self.common_agent_state = common_agent_state
+        self.llm = llm
 
     def invoke(self, *args, **kwargs) -> Dict[str, Any]:
         """
@@ -64,8 +63,6 @@ class CommunicationAgent(AgentRunnable):
         Be sure to use an agent ID from the list: {agent_ids_list}.
         """
 
-        print(f"DEBUG COMMUNICATOR : {agent_ids_list}")
-
         messages = [
             SystemMessage(system_prompt),
             HumanMessage(human_prompt),
@@ -92,4 +89,16 @@ class CommunicationAgent(AgentRunnable):
         if current_state.get("verbose"):
             print(f"Communicator\nID:{recipient}\nMessage: {message}\n" + "-" * 50)
 
-        return {"message_to_teammate_agent": [{recipient: message}]}
+        # Update messages
+        new_message = f"Message '{message}' has been sent to the {recipient} agent."
+        messages_history = self.common_agent_state.get("messages")
+        if len(messages_history) > 5:
+            messages_history.pop(0)
+            messages_history.append(new_message)
+        else:
+            messages_history.append(new_message)
+
+        return {
+            "message_to_teammate_agent": [(recipient, message)],
+            "messages": messages_history,
+        }

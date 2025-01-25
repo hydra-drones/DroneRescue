@@ -5,11 +5,10 @@ from v2.states.agent_state import AgentState
 
 
 class StrategyAgent(AgentRunnable):
-    def __init__(
-        self, llm_api_key: str, common_agent_state: AgentState, llm_model: str = "gpt-4"
-    ):
-        super().__init__(llm_api_key, common_agent_state, llm_model)
+    def __init__(self, llm, common_agent_state: AgentState):
+        super().__init__(common_agent_state)
         self.common_agent_state = common_agent_state
+        self.llm = llm
 
     def invoke(self, *args, **kwargs) -> Dict[str, Any]:
         """
@@ -76,9 +75,9 @@ class StrategyAgent(AgentRunnable):
         structured_llm = self.llm.with_structured_output(StrategyOutput)
         response = structured_llm.invoke(messages)
 
-        message = response.new_strategy
+        strategy_message = response.new_strategy
 
         if current_state.get("verbose"):
-            print(f"Strategy\nStrategy:{message}\n" + "-" * 50)
+            print(f"Strategy\nStrategy:{strategy_message}\n" + "-" * 50)
 
-        return {"strategy": message}
+        return {"strategy": strategy_message}
