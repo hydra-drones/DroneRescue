@@ -5,11 +5,10 @@ from v2.states.agent_state import AgentState
 
 
 class ActionAgent(AgentRunnable):
-    def __init__(
-        self, llm_api_key: str, common_agent_state: AgentState, llm_model: str = "gpt-4"
-    ):
-        super().__init__(llm_api_key, common_agent_state, llm_model)
+    def __init__(self, llm, common_agent_state: AgentState):
+        super().__init__(common_agent_state)
         self.common_agent_state = common_agent_state
+        self.llm = llm
 
     def invoke(self, *args, **kwargs) -> Dict[str, Any]:
         """
@@ -21,13 +20,13 @@ class ActionAgent(AgentRunnable):
         current_state = args[0]
         system_prompt = (
             "LAST DECISION MAKER MESSAGE:\n"
-            + str(current_state.get("messages")[-1:])
+            + str(current_state.get("messages")[-1])
             + "\n\n"
             + "ACTION HISTORY:\n"
-            + str(current_state.get("action_history"))
+            + str(current_state.get("action_history")[-2:])
             + "\n\n"
             + "SPEED HISTORY:\n"
-            + str(current_state.get("speed_history"))
+            + str(current_state.get("speed_history")[-2:])
             + "\n\n"
             + "CURRENT SECTOR:\n"
             + str(current_state.get("current_sector"))
@@ -37,6 +36,7 @@ class ActionAgent(AgentRunnable):
             + "\n\n"
             + "ACTUAL POSITION:\n"
             + str(current_state.get("current_position"))
+            + "Remember that position in the Y, X format."
             + "\n\n"
             + "ENVIRONMENT SIZE:\n"
             + str(current_state.get("env_size"))
@@ -62,9 +62,13 @@ class ActionAgent(AgentRunnable):
             - Check the action history and speed history to avoid repeating unproductive patterns.
             - Use the current sector and the sector map to decide a valid movement or investigation target.
             - If the agent needs to move far to reach a potential target, favor a higher speed, unless battery or safety concerns suggest otherwise.
+            - Remember, that the environment uses a non-standard coordinate system where the origin (0,0) is in the top-left corner, and the Y-coordinate increases as the agent moves downward (contrary to the conventional Cartesian system where Y increases upward).
 
             Carefully evaluate the distances, priorities, and the Decision Maker’s instructions
             before finalizing your choice of action and speed.
+
+            ### Important
+            - All coordinates provided in a prompt follow the structure (Y, X). For example, the coordinate (1, 29) means Y=1 and X=29. Note that the Y value increases as you move downward
             """
         )
 
@@ -106,4 +110,22 @@ class ActionAgent(AgentRunnable):
         if current_state.get("verbose"):
             print(f"Action Agent\nAction {action}\nSpeed : {speed}\n" + "-" * 50)
 
-        return {"action_history": [str(action)], "speed_history": [str(speed)]}
+        # Update Action
+        action = str(action)
+        action_history = self.common_agent_state.get("action_history")
+        if len(action_history) > 5:
+            action_history.pop(0)
+            action_history.append(action)
+        else:
+            action_history.append(action)
+
+        # Update Speed
+        speed = str(speed)
+        speed_history = self.common_agent_state.get("speed_history")
+        if len(speed_history) > 5:
+            speed_history.pop(0)
+            speed_history.append(speed)
+        else:
+            speed_history.append(speed)
+
+        return {"action_history": action_history, "speed_history": speed_history}

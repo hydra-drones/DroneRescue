@@ -1,14 +1,12 @@
-import operator
-from typing import Type, List, Tuple, Dict, Sequence, Literal, Annotated, Union
+from typing import List, Tuple, Dict, Union
 from typing_extensions import TypedDict
-from langchain.schema import BaseMessage
 
 
 class AgentState(TypedDict):
     """Provides the scheme of Agent State"""
 
     # Messages State
-    messages: Annotated[Sequence[BaseMessage], operator.add]
+    messages: List[str]
 
     # Transitions
     next_agent: List[str]
@@ -19,9 +17,9 @@ class AgentState(TypedDict):
 
     # Environment data
     env_size: tuple[int]
-    action_history: Annotated[Sequence[BaseMessage], operator.add]
-    speed_history: Annotated[Sequence[BaseMessage], operator.add]
-    trajectory_history: Annotated[Sequence[Tuple], operator.add]
+    action_history: List[int]
+    speed_history: List[int]
+    trajectory_history: List[int]
 
     # Strategy
     strategy: str
@@ -40,8 +38,8 @@ class AgentState(TypedDict):
 
     # Communication
     teammate_agent_info: List[Dict[Union[str, int], Dict[str, Union[str, Tuple[int]]]]]
-    messages_from_agents: List[Dict[Union[str, int], Dict[str, Union[str, Tuple[int]]]]]
-    message_to_teammate_agent: Annotated[Sequence[Dict], operator.add]
+    messages_from_agents: Tuple[str, str]
+    message_to_teammate_agent: List[tuple]
 
     # Static Variables
     actions: Tuple[str]
@@ -51,36 +49,32 @@ class AgentState(TypedDict):
 
     # ChatGPT Configuration
     chatgpt_api_key: str
-    chatgpt_model: str
 
     def __init__(
         self,
         agent_id: str,
         role: str,
         env_size: tuple[int],
-        messages: Annotated[Sequence[BaseMessage], operator.add],
+        messages: List[str],
         observation_area: Tuple[int],
-        state_description: Annotated[Sequence[BaseMessage], operator.add],
-        action_history: Annotated[Sequence[BaseMessage], operator.add],
-        speed_history: Annotated[Sequence[BaseMessage], operator.add],
-        trajectory_history: Annotated[Sequence[Tuple], operator.add],
+        state_description: str,
+        action_history: List[int],
+        speed_history: List[int],
+        trajectory_history: List[tuple],
         next_agent: List[str],
         strategy: str,
         battery_level: float,
         current_position: Tuple[int],
         current_sector: int,
-        map_of_sectors: List[List[int]],
+        map_of_sectors: str,
         areas_of_potential_target_locations: List[Tuple[int]],
         observation: List[List[int]],
         teammate_agent_info: List[
             Dict[Union[str, int], Dict[str, Union[str, Tuple[int]]]]
         ],
-        messages_from_agents: List[
-            Dict[Union[str, int], Dict[str, Union[str, Tuple[int]]]]
-        ],
-        message_to_teammate_agent: Annotated[Sequence[Dict], operator.add],
+        messages_from_agents: Tuple[str, str],
+        message_to_teammate_agent: List[tuple],
         chatgpt_api_key: str,
-        chatgpt_model: str = "gpt-3.5-turbo-0125",
         actions: Tuple[str] = ("0", "1", "2", "3", "4"),
         speeds: Tuple[str] = ("0", "1", "2", "3", "4", "5", "6"),
         verbose: bool = False,
@@ -106,7 +100,6 @@ class AgentState(TypedDict):
         self.messages_from_agents = messages_from_agents
         self.message_to_teammate_agent = message_to_teammate_agent
         self.chatgpt_api_key = chatgpt_api_key
-        self.chatgpt_model = chatgpt_model
         self.actions = actions
         self.speeds = speeds
         self.verbose = verbose
