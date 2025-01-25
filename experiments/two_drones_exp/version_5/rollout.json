@@ -1,0 +1,73 @@
+{
+    "1": {
+        "0": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The drone is currently in a wide-open area with no immediate obstacles or targets in sight. Moving to the right with moderate speed will allow us to explore unvisited areas while maintaining control.",
+                "message_to_another_drone": "",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_5/agent_01/trajectories/visited_map_0.jpg"
+        },
+        "1": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The drone is currently surrounded by unvisited areas (3) and open space (0), with no immediate obstacles. It's crucial to explore these areas to locate the targets. Moving right was the last action taken by a teammate, indicating a clear path in that direction. To maintain efficient exploration and cover more ground, the drone should move right with a moderate speed.",
+                "message_to_another_drone": "Proceeding right with speed 5 to explore unvisited areas. No targets found yet. Maintain current formation and keep communication open for updates.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_5/agent_01/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 1,
+                "speed": 5,
+                "explaination": "Since the area directly around the drone is clear, moving down at high speed will help explore unvisited areas quickly and cover more ground. This complements the teammate's action of moving down as well, ensuring efficient exploration of the grid.",
+                "message_to_another_drone": "Drone moving right with speed 5 to explore unvisited areas. No obstacles detected in the immediate vicinity. Continue scanning for targets and update team on any findings. Maintain communication for coordinated exploration.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_5/agent_01/trajectories/visited_map_2.jpg"
+        }
+    },
+    "2": {
+        "0": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The drone is currently in an open area with unvisited cells around. Moving right at a moderate speed will allow us to quickly explore more of the grid without risking collision, as there appear to be no obstacles in the immediate vicinity.",
+                "message_to_another_drone": "",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_5/agent_02/trajectories/visited_map_0.jpg"
+        },
+        "1": {
+            "metadata": {
+                "action": 1,
+                "speed": 5,
+                "explaination": "The drone is currently in an open space with no immediate obstacles, allowing for quick exploration. The teammate is moving right, so moving down with speed 5 will efficiently cover new ground while maintaining a coordinated search pattern.",
+                "message_to_another_drone": "Drone moving right with speed 5. No obstacles detected. Continue exploration of unvisited areas to locate targets. Currently, no targets found. Maintain communication and update on new findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_5/agent_02/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The drone is surrounded by unvisited areas. Moving right will help explore these unvisited areas efficiently without any immediate obstacles. The teammate's message confirms no obstacles detected in that direction.",
+                "message_to_another_drone": "Moving down with speed 5 to explore new areas. Confirmed no obstacles nearby. Let's cover more ground rapidly and reconvene if a target is located.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_5/agent_02/trajectories/visited_map_2.jpg"
+        }
+    },
+    "env": "dry_run_exp/version_5/environment.jpg"
+}

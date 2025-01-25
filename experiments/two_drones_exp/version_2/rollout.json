@@ -1,0 +1,67 @@
+{
+    "1": {
+        "0": {
+            "metadata": {
+                "action": 3,
+                "speed": 7,
+                "explaination": "The drone is positioned in an open area with no immediate obstacles in its observation range. To maximize exploration and cover more unvisited areas efficiently, the drone should move to the right at a high speed, as the grid appears open on that side.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_2/agent_01/trajectories/visited_map_0.jpg"
+        },
+        "1": {
+            "metadata": {
+                "action": 3,
+                "speed": 7,
+                "explaination": "The drone should move to the right to explore unvisited areas and potentially locate targets. The path is clear of obstacles, as confirmed by the teammate, allowing us to use a high speed for efficient exploration.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_2/agent_01/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 3,
+                "speed": 7,
+                "explaination": "The current observation shows no immediate obstacles. Moving right complements the teammate's movement direction, allowing us to efficiently cover the unexplored area to the right. A speed of 7 ensures rapid scouting while maintaining control.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_2/agent_01/trajectories/visited_map_2.jpg"
+        }
+    },
+    "2": {
+        "0": {
+            "metadata": {
+                "action": 1,
+                "speed": 8,
+                "explaination": "The drone is currently in an open area with no immediate obstacles. To maximize exploration efficiency, moving in a direction that covers more unvisited areas is optimal. Given the open observation grid, moving with a higher speed in any direction will help in quickly covering more ground.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_2/agent_02/trajectories/visited_map_0.jpg"
+        },
+        "1": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is surrounded by obstacles on the right and partly below. The best move is to explore the unvisited area by moving left to cover more ground safely.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_2/agent_02/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is surrounded by obstacles on the right and below, but the left side is open for exploration. Moving left will allow us to explore unvisited areas safely and efficiently.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_2/agent_02/trajectories/visited_map_2.jpg"
+        }
+    },
+    "env": "dry_run_exp/version_2/environment.jpg"
+}

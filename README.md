@@ -156,4 +156,145 @@ On evaluation, we observed that the first (left) agent, at the end of the rollou
 2. Create a module to send the visited (explored) area to teammate agents, enabling them to update their own explored areas.
 3. Improve the safety movement module to prevent crashes into obstacles.
    - Idea: Provide all potential positions where an agent can move.
-4. Address the lack of insight into agents’ communication abilities observed in these experiments. It may be interesting to define clear tasks and assign agents specific "roles" to test these capabilities. 
+4. Address the lack of insight into agents’ communication abilities observed in these experiments. It may be interesting to define clear tasks and assign agents specific "roles" to test these capabilities.
+
+==================================================
+
+# Research Stage #2
+
+## Experiment Description
+
+In the current experiment, we decided to shift our focus to improving the communication system rather than movement control. This means that obstacles were excluded, as the goal in phase 2 was to study how agents cooperate with each other. A new feature introduced in this experiment is “roles.” Each agent now has a specific role in the mission. We experimented with two roles: “Scout” and “Rescuer.” Each role has a unique mission goal.
+
+The Scout agent is tasked with searching for the target in predefined zones of interest—specific areas in the environment where a target is likely to be located. The Rescuer agent waits until the Scout agent sends the target coordinates. Upon receiving the coordinates, the Rescuer agent moves to the specified location and, upon arrival, returns to the starting point. This scenario simulates a real-life situation involving a catastrophic event that causes widespread destruction. In such a scenario, robots must locate individuals as quickly as possible within potential zones (e.g., positions of residential buildings extracted from a town map) and inform Rescuer robots to proceed to the designated rescue locations.
+
+Additionally, in this experiment, we enhanced the visualization of the experiments. The visualization now has a higher resolution. We tracked the trajectories of each agent, and the visualization includes the areas of interest as well as the observation zones of each drone.
+
+## Summary
+
+**What has been changed:**
+
+- Obstacles have been removed.
+- Each agent now uses a Multi-Agent architecture.
+- Roles have been introduced.
+- Zones of interest have been added.
+
+**Code improvements:**
+
+- All code has been rewritten to adhere to Object-Oriented Programming (OOP) principles.
+- The code is now clearer and easier to read.
+
+**Visualization improvements:**
+
+- Resolution has been increased.
+- The full trajectory of each agent is now visualized.
+- Zones of interest and agents’ observation zones are visualized.
+- Messages have been added to the visualization.
+
+## Multi-Agent Architecture
+
+We implemented a multi-agent architecture to empower each agent with greater control and explainability. It is important to note that this approach is more computationally intensive.
+
+### **Components**
+
+1. **Descriptor**
+    
+    The Descriptor gathers all available information about the agent, including its position, observations, current strategy, and details about available teammate agents. It then provides a summary, referred to as the *state description*.
+    
+    **Output format**: (state_description)
+    
+2. **Decision Maker**
+    
+    The Decision Maker analyzes the state description and determines the next agent to call or engage.
+    
+    **Output format**: (message, next agent)
+    
+3. **Communicator**
+    
+    The Communicator facilitates message preparation for interaction with other agents. It generates messages based on inputs from the Decision Maker and selects the appropriate recipient.
+    
+    **Output format**: (recipient, message)
+    
+4. **Strategist**
+    
+    The Strategist manages and updates the agent’s current strategy. This component ensures that the agent maintains a consistent strategy across multiple evaluations, preventing fluctuations in behavior and reducing noise in agent movements.
+    
+    **Output format**: (new_strategy)
+    
+5. **Action**
+    
+    The Action component enables the agent to perform actions based on instructions from the Decision Maker and messages from other agents.
+    
+    **Output format**: (action, speed)
+
+<img src="https://github.com/user-attachments/assets/9d5b98e6-0f8a-47f1-b1a3-d42d5b81a521" width="300"/>
+
+
+## Experiment Analysis
+
+I conducted approximately 50 experiments, all of which exhibited the same issues and behavior. Therefore, I will describe two of the experiments in detail.
+
+### Success:
+
+1. Since agents received information about their teammates, they are aware of each other's positions. This allows them to plan actions and strategies to avoid overlapping. As shown below, both agents, Green and Lime, move in different directions. This behavior is also evident in their messages:
+    
+    > *— Scoute Agent :*
+    > 
+    > 
+    > Continue exploring sector 1 to locate potential targets. Ensure to avoid areas already covered by teammate 001
+    >
+
+   <img src="https://github.com/user-attachments/assets/ad69c40c-617f-4b7c-a3d4-504cdd29d346" width="800"/>
+
+2. When the Scout agent detects a target, it immediately informs the Rescuer of the coordinates. However, the current solution has a problem: the agent sometimes sends its own current coordinates instead of the target's coordinates.
+    
+    > *— Scoute_001* sends to *Rescuer_002* following message:
+    > 
+    > 
+    > Message 'Proceed to sector 2 at global position (1, 17) to investigate and handle the cluster of target points. Report back once completed.' has been sent to the 002 agent. Choose another agent
+    > 
+    > *— Response of the Rescuer_002:*
+    > 
+    > Strategy has been changed to new one : 'Investigate sector 2 at global position (1, 17) as instructed by the scout agent, prioritizing this task over returning to the start position. This adjustment is necessary to effectively handle the cluster of target points identified by the scout agent, ensuring mission objectives are met efficiently
+    > 
+    
+    Additionally, Scout_001 sends a message to its teammate, Scout_003, to inform them about the target
+    
+    > *— Scoute_001*:
+    > 
+    > 
+    > Detected a cluster of target points in sector 2 at global position (9, 17). Please proceed to investigate and handle the targets.' has been sent to the 003 agent. Choose another agent.
+    > 
+
+    When Scout_003 detects the target, it sends a message to Rescuer_002 with the target information.
+
+    > — Scoute_003:
+    > 
+    > 
+    > Message 'Detected target points in sector 4 at global position (13, 9). Please proceed to these coordinates and retrieve the targets. Confirm your battery level and position after completion.' has been sent to the 002 agent
+    > 
+
+3. Once the Rescuer agent receives the target information, it moves to the specified position.
+    
+    > *— Rescuer_002*
+    > 
+    > 
+    > Proceed to move towards the target point cluster in sector 2 at global position (1, 17) as instructed by the scout agent. This aligns with the current strategy to investigate and handle the cluster of target points efficiently
+    >
+   
+    <img src="https://github.com/user-attachments/assets/8f843833-7110-449a-a488-7259c05a7c83" width="800"/>
+
+## Issues:
+
+- Agents do not understand when a task is completed and continue acting.
+- The Rescuer does not interact with allies, making the mission impossible to complete.
+- If the Rescuer does not respond, the team becomes paralyzed and remains in place.
+- Agents do not prioritize tasks, leaving many of them unfinished.
+- It is difficult to adapt the LLM for tasks requiring spatial understanding of the environment.
+
+## Rollout
+
+
+https://github.com/user-attachments/assets/6ba01a44-f1c4-492f-91ee-33c783fee5b6
+
+

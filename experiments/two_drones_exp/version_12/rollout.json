@@ -1,0 +1,2108 @@
+{
+    "1": {
+        "0": {
+            "metadata": {
+                "action": 4,
+                "speed": 1,
+                "explaination": "",
+                "message_to_another_drone": "",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_0.jpg"
+        },
+        "1": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is in the center of an unexplored area. To efficiently explore and map the surroundings, we should move in one direction with a moderate speed to avoid hitting any obstacles that might be in the unexplored areas.",
+                "message_to_another_drone": "Moving north to explore new areas. Maintain formation and report obstacles immediately.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The drone is surrounded by open cells, indicating it's in a safe space. Moving eastward aligns with the teammate's current direction, and there's no immediate obstacle in sight. Using maximal speed for efficient exploration.",
+                "message_to_another_drone": "Advancing east at max speed. Ensure continuous scanning for obstacles and targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_2.jpg"
+        },
+        "3": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The observation shows an obstacle (1) to the southeast, and the teammate is moving south. We should support by moving right to explore unvisited areas and maintain formation.",
+                "message_to_another_drone": "Moving east to explore unvisited areas. Maintain formation and report any targets or obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_3.jpg"
+        },
+        "4": {
+            "metadata": {
+                "action": 2,
+                "speed": 2,
+                "explaination": "Since there is an obstacle to the east and the teammate is moving south, the best course of action is to move west to explore unvisited areas while avoiding the obstacle.",
+                "message_to_another_drone": "Moving west to avoid east obstacle and explore unvisited areas. Continue southward exploration and report any targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_4.jpg"
+        },
+        "5": {
+            "metadata": {
+                "action": 0,
+                "speed": 6,
+                "explaination": "Since the teammate is heading north at maximum speed, and there are no obstacles in that direction, we should also head north to explore unvisited areas and cover more ground efficiently.",
+                "message_to_another_drone": "Moving north at maximum speed to scout unvisited areas. Let's cover more ground together. Stay alert for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_5.jpg"
+        },
+        "6": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The drone is currently surrounded by open space to the left and right, but a wall of obstacles is present in the south direction. Moving right allows us to avoid obstacles and reach unvisited areas quickly, maximizing exploration efficiency.",
+                "message_to_another_drone": "Moving right to explore unvisited areas. Maintain caution of obstacles and update me on any target sighting.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_6.jpg"
+        },
+        "7": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The observation area shows a clear path to the right (east) of the drone's current position. Moving right will allow the drone to explore more unvisited areas and avoid the obstacles that are present on the left (west) side.",
+                "message_to_another_drone": "Moving east to explore new areas while avoiding obstacles. Stay alert for any targets and communicate immediately if found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_7.jpg"
+        },
+        "8": {
+            "metadata": {
+                "action": 0,
+                "speed": 5,
+                "explaination": "Currently, there are multiple obstacles directly south of our position, making it unsafe to move downwards. Moving upwards or in another direction with a higher speed will allow us to explore more unvisited areas efficiently. Since the teammate is moving right, moving up will cover a different section of the map.",
+                "message_to_another_drone": "Moving up at speed 5 to explore unvisited areas. Obstacles detected south, avoiding collision. Continuing mission.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_8.jpg"
+        },
+        "9": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The current observation shows a clear path to the right (east) with no immediate obstacles. Moving east will allow us to explore unvisited areas efficiently and keep us away from the obstacles located to the south. A moderate speed ensures both safety and efficient exploration.",
+                "message_to_another_drone": "Moving east to explore unvisited areas. Maintain communication and report if any targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_9.jpg"
+        },
+        "10": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The current observation shows obstacles to the south, and the teammate drone is moving up to explore unvisited areas. To avoid collision and explore efficiently, I will move right to explore unvisited areas as well.",
+                "message_to_another_drone": "Moving right at speed 5 to explore unvisited areas. Obstacles detected south. Continuing mission.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_10.jpg"
+        },
+        "11": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The observation indicates that there are obstacles to the south, but open space to the north and east. Given that the teammate is moving east, it's strategic to explore north to cover more area efficiently. This minimizes overlap and maximizes coverage of unvisited areas.",
+                "message_to_another_drone": "Moving north at speed 3 to explore unvisited areas. Continue your eastward path and update if targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_11.jpg"
+        },
+        "12": {
+            "metadata": {
+                "action": 3,
+                "speed": 2,
+                "explaination": "Moving right allows us to explore an unvisited area efficiently, while avoiding the obstacles to the south that are already detected. A lower speed is chosen for precision in case there are more obstacles nearby.",
+                "message_to_another_drone": "Moving right at speed 2 to explore safely and avoid southern obstacles. Continue scouting and report findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_12.jpg"
+        },
+        "13": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "Given the observation area, the drone is positioned at the center of the grid with clear paths in most directions except south, which is blocked by obstacles. The teammate is moving east, so to maintain efficient exploration, moving north would cover new unvisited areas and avoid obstacles.",
+                "message_to_another_drone": "Moving north at speed 3 to explore new areas while avoiding obstacles to the south. Will update with new findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_13.jpg"
+        },
+        "14": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The observed area shows the drone is surrounded by open space, with obstacles only to the lower left side. Moving right aligns with the teammate's direction and avoids obstacles.",
+                "message_to_another_drone": "Proceeding right at speed 3 to explore open area and avoid obstacles. Stay aligned for coordinated search. Report any targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_14.jpg"
+        },
+        "15": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The observation shows that there are obstacles to the south, and the team is exploring unvisited areas to the east. To align with the team's strategy and avoid potential collisions, we should also move east to continue exploring unvisited areas efficiently.",
+                "message_to_another_drone": "Moving east at speed 4 to explore unvisited areas, avoiding obstacles to the south.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_15.jpg"
+        },
+        "16": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The drone is currently in an open space with no immediate obstacles, allowing for exploration. Since the teammate is moving downward at speed 3, a coordinated movement to the right can expand the exploration area effectively. This also avoids the obstacle line detected to the south, ensuring safety.",
+                "message_to_another_drone": "Moving right at speed 4 to explore. Maintain coordination and update on any targets found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_16.jpg"
+        },
+        "17": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is currently facing a wall of obstacles to the south and should avoid that direction. The teammate is moving north and east. To complement the teammate's movement and explore unvisited areas, the drone can move west at a moderate speed to cover more area and avoid obstacles.",
+                "message_to_another_drone": "Moving west at speed 3 to explore unvisited areas and avoid obstacles. Teammate, watch for walls on your eastward path.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_17.jpg"
+        },
+        "18": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The obstacle is detected to the south. To explore further and align with the teammate's movement, we'll move to the west where the path is clear.",
+                "message_to_another_drone": "Moving west at speed 4, aligning with your movement. No targets found yet.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_18.jpg"
+        },
+        "19": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "To efficiently explore the unvisited areas while avoiding obstacles, moving south at a moderate speed allows the drone to cover more ground safely. This direction avoids the known obstacles to the east and allows for further exploration of the grid.",
+                "message_to_another_drone": "Moving south at speed 3 to explore safely. Maintain current heading and report if targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_19.jpg"
+        },
+        "20": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The current observation shows an obstacle to the right (east), so the drone should move left (west) to coordinate with the teammate's direction and explore unvisited areas.",
+                "message_to_another_drone": "Moving westward at speed 4 to cover unvisited areas. Aligning with team direction. No targets found yet.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_20.jpg"
+        },
+        "21": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "To continue exploring unvisited areas while avoiding obstacles, I will move east at speed 4. This direction appears clear of obstacles, and it allows us to cover more ground efficiently.",
+                "message_to_another_drone": "Moving east at speed 4 to explore open areas. Report any targets if found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_21.jpg"
+        },
+        "22": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "Based on the current observation, there are unvisited areas to the north and south. Since the teammate is moving eastward, moving north at a moderate speed will allow us to cover unvisited areas efficiently while avoiding the obstacles to the east.",
+                "message_to_another_drone": "Heading north at speed 3 to cover unvisited areas. Avoiding obstacles on the east. Continue eastward exploration and report any targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_22.jpg"
+        },
+        "23": {
+            "metadata": {
+                "action": 0,
+                "speed": 4,
+                "explaination": "The current observation shows open space to the north. Moving upward will avoid obstacles and explore unvisited areas.",
+                "message_to_another_drone": "Moving north at speed 4 to explore open areas. Report any targets if found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_23.jpg"
+        },
+        "24": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is currently in an open area, and the teammate is moving east. There are obstacles to the south. To complement the teammate's movement and explore more unvisited areas, the drone should move north with a moderate speed.",
+                "message_to_another_drone": "Moving north at speed 3 to explore unvisited areas and maintain safe distance from obstacles. Report if any targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_24.jpg"
+        },
+        "25": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "Since the teammate is moving left, we should move right to cover more unvisited areas and avoid the obstacles to the left. This will help in efficiently exploring the grid without overlapping paths.",
+                "message_to_another_drone": "Moving right at speed 3 to explore unvisited area. Continue reporting if any targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_25.jpg"
+        },
+        "26": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is currently positioned near the center of its observation area. Given that there are obstacles directly to the south, the safest direction to move is upwards (north). This aligns with the teammate's message, suggesting northward exploration. Moving at speed 3 ensures we avoid hitting any potential unseen obstacles while efficiently covering distance.",
+                "message_to_another_drone": "Moving north at speed 3 to explore and avoid obstacles. Ensure clear area ahead and report any target sightings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_26.jpg"
+        },
+        "27": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The path to the right is clear and our teammate is moving right as well, indicating a coordinated search in that direction. We should proceed right to maintain the formation and continue exploring the unvisited area.",
+                "message_to_another_drone": "Proceeding right at speed 6 to align and cover more ground efficiently. Maintain communication for updates on target findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_27.jpg"
+        },
+        "28": {
+            "metadata": {
+                "action": 1,
+                "speed": 6,
+                "explaination": "The teammate is moving north, so to maintain alignment and cover more ground efficiently, I will move south to explore unvisited areas. The southern part of the grid appears open, allowing for high-speed travel without immediate obstacles. This will help in quickly scouting the area.",
+                "message_to_another_drone": "Moving south at speed 6 to explore unvisited areas. Keeping alignment with team strategy for maximum coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_28.jpg"
+        },
+        "29": {
+            "metadata": {
+                "action": 0,
+                "speed": 6,
+                "explaination": "The observation shows a clear path upwards without obstacles, allowing us to explore unvisited areas efficiently. Moving upwards aligns with the teammate's movement strategy and maximizes exploration.",
+                "message_to_another_drone": "Moving upwards to explore new areas. Maintain current course and speed to cover more ground efficiently.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_29.jpg"
+        },
+        "30": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "Since the teammate is moving north, I should explore in a different direction to maximize coverage. The south direction appears open and has unvisited areas, so I'll move south with a moderate speed to explore efficiently while avoiding obstacles.",
+                "message_to_another_drone": "Moving south at speed 4 to explore unvisited areas. Continuing alignment with team strategy for maximum coverage.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_30.jpg"
+        },
+        "31": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone is surrounded by obstacles on three sides, with a clear path to the right. Moving right will allow exploration of potentially unvisited areas and avoid collision with obstacles.",
+                "message_to_another_drone": "Moving right to explore new areas while avoiding obstacles. Maintain awareness for unvisited areas and targets.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_31.jpg"
+        },
+        "32": {
+            "metadata": {
+                "action": 0,
+                "speed": 4,
+                "explaination": "The teammate drone is moving east, and we're surrounded by obstacles on the west and south. Moving north at moderate speed will help us cover unexplored areas while maintaining safe distance from obstacles.",
+                "message_to_another_drone": "Moving north at speed 4 to explore unvisited areas. Keep communication open for updates on target sightings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_32.jpg"
+        },
+        "33": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The drone is surrounded by open areas with no immediate obstacles in the right direction, allowing for efficient exploration. Moving right also aligns with the teammate's current strategy, ensuring coordinated exploration of new areas.",
+                "message_to_another_drone": "Moving right at high speed for efficient exploration. Watch for targets and obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_33.jpg"
+        },
+        "34": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The current observation shows an obstacle present to the south of the drone. Since the teammate is moving west at a slow speed due to obstacles, it's best to also move west but at a moderate speed to efficiently explore unvisited areas while avoiding obstacles.",
+                "message_to_another_drone": "Moving west at speed 3 to explore unvisited areas while avoiding obstacles. Stay alert for any target sightings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_34.jpg"
+        },
+        "35": {
+            "metadata": {
+                "action": 0,
+                "speed": 5,
+                "explaination": "The drone is currently surrounded by open space, with a wall of obstacles to the south. Moving northwards will allow the drone to explore unvisited areas while avoiding obstacles.",
+                "message_to_another_drone": "Proceeding northwards to explore. Be cautious of obstacles to the south. Let's cover more unvisited areas to locate targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_35.jpg"
+        },
+        "36": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "To explore the unvisited areas efficiently and to maintain the communication with the team, moving east at a high speed is strategic. This allows us to cover more ground quickly and respond to the teammate's movement.",
+                "message_to_another_drone": "Proceeding east at speed 6 to cover unvisited areas. Stay alert for targets. Maintaining comms.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_36.jpg"
+        },
+        "37": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The teammate is moving northwards, so I will move east to explore new areas and cover more ground efficiently. There's no immediate obstacle, allowing a higher speed for quick scouting.",
+                "message_to_another_drone": "Moving east to explore unvisited areas. Continue northwards as planned.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_37.jpg"
+        },
+        "38": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "Since the teammate is moving south, I will move north to explore unvisited areas efficiently and maximize coverage. This ensures that we cover more ground without duplicating efforts.",
+                "message_to_another_drone": "Moving north at speed 3 to explore unvisited areas for better coverage. Report any targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_38.jpg"
+        },
+        "39": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The teammate is covering the north, so it's efficient to move eastward to explore unvisited areas and maximize coverage.",
+                "message_to_another_drone": "Moving eastward to explore unvisited areas as planned. Maintain your path north.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_39.jpg"
+        },
+        "40": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The teammate drone is moving north, thus, it's strategic to explore in different directions to cover more ground. Observing the current area, moving south is clear of obstacles and will explore unvisited areas.",
+                "message_to_another_drone": "Heading south at speed 4 to explore new areas. Maintain current path northward for broader coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_40.jpg"
+        },
+        "41": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The teammate is moving north, leaving the east direction open for exploration. The current observation area shows no obstacles, so we can move east safely. Moving east will help us cover more unvisited areas efficiently.",
+                "message_to_another_drone": "Moving east to cover more unexplored areas. Keep coordinating to maximize coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_41.jpg"
+        },
+        "42": {
+            "metadata": {
+                "action": 0,
+                "speed": 4,
+                "explaination": "The drone is currently surrounded by obstacles to the south, making it unsafe to move down. The teammate is heading north, which means the path is likely clear in that direction. Moving north at a moderate speed will help explore unvisited areas efficiently.",
+                "message_to_another_drone": "Moving north at speed 4 to explore unvisited areas. Obstacles detected to the south, proceed with caution.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_42.jpg"
+        },
+        "43": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The teammate is moving east at a high speed, indicating that they're exploring unexplored areas quickly. To coordinate effectively and cover ground efficiently, moving westward at a moderate speed will ensure that we cover unexplored areas without overlapping paths with our teammate. This will help in achieving a balanced coverage of the area.",
+                "message_to_another_drone": "Moving west at speed 4 to synchronize coverage. Stay alert for obstacles and report any targets found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_43.jpg"
+        },
+        "44": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is currently surrounded by open space on all sides except for the south, which has a line of obstacles. Based on the teammate's message, moving north is a strategy to maintain coordination and avoid obstacles. Since the teammate is moving north at speed 3, matching that speed will help stay in formation and proceed safely.",
+                "message_to_another_drone": "Moving north at speed 3 to maintain formation. Observed obstacles to the south, proceeding north with caution.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_44.jpg"
+        },
+        "45": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The drone is currently facing a row of obstacles to the east. Moving south will allow the drone to explore unvisited areas while avoiding the obstacle wall.",
+                "message_to_another_drone": "Proceeding south at speed 3 to explore unvisited areas. Obstacle wall detected to the east, exercise caution.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_45.jpg"
+        },
+        "46": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The obstacle is directly to the right, so moving left is the safest option to explore new areas without risk of collision.",
+                "message_to_another_drone": "Moving west at speed 3 to explore unvisited areas. Avoiding obstacles on the east.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_46.jpg"
+        },
+        "47": {
+            "metadata": {
+                "action": 0,
+                "speed": 6,
+                "explaination": "The drone is positioned in an open area with obstacles to the south. To maximize exploration of unvisited areas while avoiding obstacles, moving north is optimal. This direction also avoids the caution area mentioned by the teammate about the eastern wall.",
+                "message_to_another_drone": "Heading north at speed 6 to explore open areas. Avoid southern obstacles. Keep updating on your westward progress.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_47.jpg"
+        },
+        "48": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is currently positioned in the center of the observation area with no immediate obstacles detected in the north direction. Therefore, it is safe to move north. The teammate drone is also heading north, which may cover more ground collectively. A moderate speed is chosen to efficiently explore the unvisited areas while maintaining control.",
+                "message_to_another_drone": "Heading north at speed 3 to explore further unvisited areas. Maintain caution, obstacles detected to the south-east, stay coordinated.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_48.jpg"
+        },
+        "49": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The observation shows no immediate obstacles or targets in the vicinity. With the teammate exploring westward, I will move eastward to cover more ground and maintain a wide search pattern. This ensures efficient area coverage and increases the chances of locating targets quickly.",
+                "message_to_another_drone": "Moving eastward at speed 4 to cover more ground. Let's keep updating each other on any findings to ensure efficient search.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_49.jpg"
+        },
+        "50": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is positioned in the center of the observation area with unvisited areas to the north. Moving upwards is strategic for exploration and efficient coverage without immediate obstacle threats.",
+                "message_to_another_drone": "Moving up at speed 3 to explore unvisited areas. Maintain coordination with your leftward path. Stay alert for obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_50.jpg"
+        },
+        "51": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The drone should move right to align with the eastward movement of the team, moving towards unexplored areas for efficient search. Given the open space and the absence of immediate obstacles to the right, a speed of 4 is appropriate for covering distance quickly while maintaining safety.",
+                "message_to_another_drone": "Aligning with eastward movement at speed 4 as per your guidance. Will update if any targets are identified.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_51.jpg"
+        },
+        "52": {
+            "metadata": {
+                "action": 0,
+                "speed": 4,
+                "explaination": "The teammate is covering the right side. We should move upwards to explore the unvisited areas above and ensure complete coverage of the grid. Since there is no immediate obstacle above, we can proceed with a moderate speed to maintain efficiency.",
+                "message_to_another_drone": "Moving up at speed 4 to explore unvisited areas above. Maintaining grid coverage. Continue your path to the right efficiently.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_52.jpg"
+        },
+        "53": {
+            "metadata": {
+                "action": 3,
+                "speed": 1,
+                "explaination": "The teammate is avoiding southern obstacles and suggests continuing eastward. The observation shows obstacles to the east, so a cautious approach is needed. Move eastward with low speed to avoid hitting the obstacles.",
+                "message_to_another_drone": "Continuing eastward with caution due to obstacles. No targets found yet. Will update on further progress.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_53.jpg"
+        },
+        "54": {
+            "metadata": {
+                "action": 0,
+                "speed": 4,
+                "explaination": "The teammate is proceeding right, suggesting an open path. To support the exploration and ensure coverage, we should move upwards to scout the unexplored area above. The speed will be moderate to maintain precision and safety.",
+                "message_to_another_drone": "Moving up at speed 4 to explore the area above and avoid the obstacle line. Ensure right-side path remains clear of obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_54.jpg"
+        },
+        "55": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The drone is currently surrounded by a line of obstacles to the right. To avoid collision and continue exploration, it should move left where there is open space.",
+                "message_to_another_drone": "Moving westward at speed 4 to explore unvisited areas. No targets found yet. Maintain caution near obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_55.jpg"
+        },
+        "56": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The drone is positioned in a clear space with obstacles on the right side. To maximize exploration, move left to explore unvisited areas and avoid obstacles.",
+                "message_to_another_drone": "Moving left at speed 4 to explore unvisited areas. Keep the right path in check for obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_56.jpg"
+        },
+        "57": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The drone is surrounded by mostly background cells with no immediate obstacles. Based on the teammate's message, moving eastward aligns with their direction to explore unvisited areas efficiently. Using a moderate speed of 4 would match the teammate's speed and maintain a safe exploration pace.",
+                "message_to_another_drone": "Moving eastward at speed 4 to explore unvisited areas. No immediate obstacles detected. Maintaining current trajectory and speed for coordination.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_57.jpg"
+        },
+        "58": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "To avoid the row of obstacles detected on the right and to explore the unvisited areas on the left, moving left strategically will allow us to scout uncharted grid areas, as well as follow the teammate's advice to keep the left path in check.",
+                "message_to_another_drone": "Moving left at speed 3 to explore unvisited areas. Watch for obstacles on the right and maintain the formation.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_58.jpg"
+        },
+        "59": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The teammate is moving northward at speed 3, which means they are likely covering the area above our current position. To complement their movement and maximize exploration efficiency, moving south will help in mapping new areas. As the observation shows open space (value 0) around the agent, moving south is safe.",
+                "message_to_another_drone": "Proceeding southward at speed 3 to explore and map unvisited areas. Maintain communication and update on target sightings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_59.jpg"
+        },
+        "60": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The drone is currently in an open area with no immediate obstacles. To efficiently explore unvisited areas, moving right at a moderate speed will cover more ground quickly.",
+                "message_to_another_drone": "Moving right at speed 4 to explore unvisited areas. No obstacles detected, maintaining efficient exploration.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_60.jpg"
+        },
+        "61": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is currently near obstacles to the right, so it should move left to avoid them and continue exploring unvisited areas.",
+                "message_to_another_drone": "Moving west at speed 3. Avoid obstacles and cover new areas.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_61.jpg"
+        },
+        "62": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is surrounded with obstacles on the right side. Based on teammate's message and current observation, it's safer to move left to explore unvisited areas while avoiding potential collisions.",
+                "message_to_another_drone": "Encountered obstacles on the right. Moving left at speed 3 to safely explore new areas.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_62.jpg"
+        },
+        "63": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone is currently surrounded by unvisited areas and should begin exploration by moving east to cover new territories. The teammate is also moving east, so it's essential to coordinate and avoid obstacles. Using a moderate speed of 3 to ensure safety and control.",
+                "message_to_another_drone": "Moving east at speed 3. Coordinating with your movement. Watch for obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_63.jpg"
+        },
+        "64": {
+            "metadata": {
+                "action": 2,
+                "speed": 5,
+                "explaination": "The observation shows a line of obstacles to the right. Based on teammate's message, avoid moving right. Move left to explore unexplored areas and avoid the obstacles.",
+                "message_to_another_drone": "Moving left at speed 5 to explore unexplored areas. Avoid right due to obstacles. Stay alert for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_64.jpg"
+        },
+        "65": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The observation indicates clear space to the right (east) side of the drone. Since the teammate drone is also moving east at speed 3, it's strategic to maintain formation and cover more ground efficiently without obstacles in this direction.",
+                "message_to_another_drone": "Proceeding east at speed 3 to maintain formation with you. Observing clear path ahead. Stay alert for any target.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_65.jpg"
+        },
+        "66": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "Since the teammate is moving downward and the right side is confirmed with obstacles, it's best to move left to cover unexplored areas and avoid obstacles.",
+                "message_to_another_drone": "Moving left at speed 4 to cover unexplored areas. Be cautious of obstacles on the right and report any target findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_66.jpg"
+        },
+        "67": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone is in a clear area with no immediate obstacles on its left and right side. Since the teammate is moving east, it's strategic to move east as well to maintain the formation and symmetry in exploration. Given that the teammate is moving at speed 3, matching their speed ensures coordinated movement and prevents gaps in the grid exploration.",
+                "message_to_another_drone": "Moving east at speed 3 to maintain formation and support scanning efforts.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_67.jpg"
+        },
+        "68": {
+            "metadata": {
+                "action": 1,
+                "speed": 2,
+                "explaination": "The area directly below has unexplored cells, and moving downward will help cover these areas efficiently. Since there are obstacles below, a cautious speed of 2 is selected to safely navigate the space and avoid collision.",
+                "message_to_another_drone": "Moving down at speed 2 to cover unexplored areas cautiously. Report any findings immediately.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_68.jpg"
+        },
+        "69": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "To avoid the obstacles located to the south, the best direction to explore is eastwards where the path is clear. This will help in mapping unvisited areas without the risk of collision.",
+                "message_to_another_drone": "Heading east at speed 4 to map unvisited areas. Confirm position and status for further coordination.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_69.jpg"
+        },
+        "70": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The current observation shows that the path to the right is blocked by obstacles. Given that the teammate is moving downwards, we should scout the left side to maximize area coverage and avoid redundancy.",
+                "message_to_another_drone": "Moving left at speed 3 to explore unvisited area. Maintain communication and report any targets or obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_70.jpg"
+        },
+        "71": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The observation area is mostly unexplored with no visible obstacles around. To efficiently scout the area, we should move east at a moderate speed to cover ground while maintaining safety.",
+                "message_to_another_drone": "Heading east at speed 4 to explore unvisited areas. Maintain current coordination and update if encountering any obstacles or targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_71.jpg"
+        },
+        "72": {
+            "metadata": {
+                "action": 0,
+                "speed": 2,
+                "explaination": "To explore the unvisited area while avoiding obstacles on the right. As the right side is blocked by obstacles, moving up will allow the drone to avoid them and continue exploration.",
+                "message_to_another_drone": "Moving up with speed 2 to navigate around obstacles and explore new areas. Monitor for any targets or changes in terrain.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_72.jpg"
+        },
+        "73": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "To explore the unvisited area while avoiding obstacles, the drone should move left where there's an open path with no immediate obstacles.",
+                "message_to_another_drone": "Moving left at speed 3 to explore unvisited areas. Maintain communication and update on any targets or obstacles found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_73.jpg"
+        },
+        "74": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The teammate is moving left to explore, hence I'll move down with medium speed to cover more area while staying clear from obstacles and explore open cells efficiently.",
+                "message_to_another_drone": "Moving down with speed 4 to expand our search area. Continue monitoring for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_74.jpg"
+        },
+        "75": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The current observation shows that the drone is surrounded by unvisited areas. To maximize coverage and exploration, moving right aligns with the teammate's direction and will cover more unvisited cells effectively.",
+                "message_to_another_drone": "Moving right at speed 3 to explore unvisited areas. Stay alert for obstacles and report any target sightings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_75.jpg"
+        },
+        "76": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The drone is positioned near a wall of obstacles to the right. To explore new unvisited areas safely and avoid the obstacle, moving left is a strategic choice. Considering the teammate's move and advice, proceeding left aligns with coordinated exploration.",
+                "message_to_another_drone": "Moving left with speed 4 to explore safely and align with team strategy. Continue scouting for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_76.jpg"
+        },
+        "77": {
+            "metadata": {
+                "action": 0,
+                "speed": 4,
+                "explaination": "The current observation shows an open area with no immediate obstacles. The teammate is moving left, so I will move up to explore unvisited areas and expand coverage efficiently.",
+                "message_to_another_drone": "Moving up at speed 4 to explore unvisited areas. Keep me updated on any obstacles or targets found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_77.jpg"
+        },
+        "78": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "To cover more ground quickly and explore the unvisited areas, I will move right as well. This aligns with the teammate's direction, ensuring we explore efficiently without overlap.",
+                "message_to_another_drone": "Aligning movement to the right with speed 3. Let's keep covering unvisited areas systematically.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_78.jpg"
+        },
+        "79": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The teammate drone is moving left to explore unvisited areas, and there are obstacles to the right and below. Our path to the left is clear, allowing for safe exploration and coverage of new areas. We should follow the teammate's lead and explore to the left as well.",
+                "message_to_another_drone": "Moving left at speed 3 to cover unvisited areas and support your exploration. Obstacles noted on the right and below. Stay vigilant for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_79.jpg"
+        },
+        "80": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The drone is surrounded by unvisited areas and has a clear path in all directions. Since the teammate is moving right, we'll move down to cover more unvisited areas efficiently and avoid overlapping paths.",
+                "message_to_another_drone": "Moving down with speed 3 to explore unvisited areas and avoid overlap with your path.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_80.jpg"
+        },
+        "81": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The observation grid shows all zeros indicating open space around the drone. To maintain coordination with the teammate who is moving up, it is strategic to move left to explore new unvisited areas and avoid moving in the same direction. This will help in covering more ground and locating targets efficiently.",
+                "message_to_another_drone": "Moving left at speed 4 to explore unvisited areas safely. Maintain current path, and we'll cover more ground.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_81.jpg"
+        },
+        "82": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "There is a clear path to the right, and our teammate is moving right with speed 3. We should align our path to avoid collisions and continue exploring in the same direction.",
+                "message_to_another_drone": "Aligning movement with your path, moving right with speed 3.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_82.jpg"
+        },
+        "83": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The drone is currently positioned near a vertical line of obstacles to its left. Moving to the right will allow the drone to explore more unvisited areas while avoiding the obstacles. A moderate speed is chosen to ensure efficient exploration without risking collision with unseen obstacles.",
+                "message_to_another_drone": "Moving right with speed 4 to continue exploring unvisited areas. Maintain obstacle awareness.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_83.jpg"
+        },
+        "84": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is currently surrounded by unvisited areas on the left and above. Given the reported obstacles on the right by the teammate and the open area on the left, moving left is a safe and efficient option to explore new areas.",
+                "message_to_another_drone": "Proceeding left to explore unvisited areas. Maintain your current path, and let's cover more ground together.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_84.jpg"
+        },
+        "85": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The area is largely unvisited and open with no immediate obstacles detected. Moving right will allow us to cover more ground efficiently, and maintain a coordinated exploration pattern with the teammate who is also moving right.",
+                "message_to_another_drone": "Moving right with speed 4 to explore the unvisited areas efficiently. No obstacles detected in this path.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_85.jpg"
+        },
+        "86": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is currently surrounded by obstacles on the right side. To efficiently explore unvisited areas and avoid obstacles, moving left is the safest and most effective option. This will align with the teammate's strategy to cover more ground.",
+                "message_to_another_drone": "Moving left to explore safely. Update if you spot any targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_86.jpg"
+        },
+        "87": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The current observation shows only background cells (0) with no obstacles or targets in sight. Moving right aligns with the teammate's direction and plan to explore unvisited areas efficiently. The speed is set to 6 to cover more distance quickly in this open area.",
+                "message_to_another_drone": "Moving right with speed 6 to cover more ground efficiently. Will report any targets or obstacles encountered.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_87.jpg"
+        },
+        "88": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is surrounded by obstacles on the right side, so moving left to explore open space is a safe and efficient decision. Additionally, this aligns with the teammate's current movement strategy.",
+                "message_to_another_drone": "Proceeding left to explore open space. Keep an eye out for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_88.jpg"
+        },
+        "89": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "To efficiently explore the unvisited area without hitting the obstacle on the right, moving up is a safe option. This direction is free from obstacles and allows for further exploration.",
+                "message_to_another_drone": "Moving up with speed 3 to continue exploring unvisited areas safely. Be cautious of obstacles on the right.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_89.jpg"
+        },
+        "90": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "We should move left as our teammate suggested, to explore the open space and avoid the obstacles on our right side. The path to the left appears clear, allowing us to scout efficiently.",
+                "message_to_another_drone": "Moving left to explore open space as suggested. Watch for targets and maintain caution near obstacles on the right.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_90.jpg"
+        },
+        "91": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The current observation shows a clear area with no obstacles in the immediate vicinity. Moving right with a speed of 6 will allow us to quickly cover more unvisited area, considering the suggestion from the teammate to watch for obstacles on the right.",
+                "message_to_another_drone": "Moving right with speed 6 to cover more ground quickly. No obstacles detected immediately on the right, but stay alert for any changes.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_91.jpg"
+        },
+        "92": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The agent is surrounded by obstacles on the right, and the teammate is moving up to scout unexplored areas. To efficiently explore and avoid the obstacles, moving left will allow the agent to scout new areas and potentially find a target.",
+                "message_to_another_drone": "Moving left to explore new areas. Continue scouting upwards and report any targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_92.jpg"
+        },
+        "93": {
+            "metadata": {
+                "action": 2,
+                "speed": 6,
+                "explaination": "The drone is surrounded by open space on the left, up, and down, but there are obstacles to the right. Based on the teammate's message to move right, I will move left to explore and avoid the obstacles while maintaining coverage of unvisited areas. ",
+                "message_to_another_drone": "Moving left at speed 6 to explore unvisited areas and avoid obstacles. Let's maintain efficient area coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_93.jpg"
+        },
+        "94": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The current observation shows open space to the right with no immediate obstacles or targets. Moving right will allow us to explore unvisited areas efficiently while avoiding the obstacles below.",
+                "message_to_another_drone": "Moving right to explore open space. No obstacles detected in this direction. Maintain communication and report any target sightings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_94.jpg"
+        },
+        "95": {
+            "metadata": {
+                "action": 2,
+                "speed": 6,
+                "explaination": "The drone is near a row of obstacles on the right side. To efficiently explore unvisited areas and avoid collisions, the drone should move left where there are open spaces.",
+                "message_to_another_drone": "Moving left at speed 6 to avoid obstacles and cover unvisited areas. Continue your path to ensure maximum coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_01/trajectories/visited_map_95.jpg"
+        }
+    },
+    "2": {
+        "1": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The drone is currently in the middle of the observation area. To efficiently scout the unexplored region, moving right with a moderate speed would allow us to cover more ground while avoiding obstacles.",
+                "message_to_another_drone": "Proceeding eastward with caution. No targets yet. Remain vigilant for obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_1.jpg"
+        },
+        "2": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "To maintain formation and explore new areas, move south to cover the unvisited area below and allow the teammate to explore north as per their movement.",
+                "message_to_another_drone": "Moving south to cover unvisited areas. Maintaining formation as instructed. Reporting any obstacles encountered.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_2.jpg"
+        },
+        "3": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The current observation indicates the presence of obstacles to the east. To avoid collision, we will move southward where the path is clear, allowing us to explore new areas efficiently.",
+                "message_to_another_drone": "Obstacle detected east. Moving south to explore. Continue scanning and report any targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_3.jpg"
+        },
+        "4": {
+            "metadata": {
+                "action": 0,
+                "speed": 6,
+                "explaination": "The drone is located near a line of obstacles to the south-east. To avoid collision and continue exploring unvisited areas efficiently, moving north at maximum speed is optimal to cover more ground and maintain formation with the team.",
+                "message_to_another_drone": "Heading north at maximum speed to scout unvisited areas. No obstacles detected in this direction. Maintain communication and report any findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_4.jpg"
+        },
+        "5": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The drone is currently facing no immediate obstacles directly below, allowing for safe downward movement. Following the teammate's advice to continue southward exploration will increase the chances of finding target points in unvisited areas.",
+                "message_to_another_drone": "Proceeding southward as per your suggestion. Will update on any target findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_5.jpg"
+        },
+        "6": {
+            "metadata": {
+                "action": 2,
+                "speed": 6,
+                "explaination": "The drone is currently surrounded by obstacles on the right side, so moving left in an open area is a safe choice. Moving at high speed (6) will help us cover more ground quickly and efficiently.",
+                "message_to_another_drone": "Proceeding west at high speed to scout open areas. Stay alert for targets and communicate any findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_6.jpg"
+        },
+        "7": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The drone is currently in an area with a lot of unvisited cells ('3'), and there's a clear path to the right. Moving right will allow the drone to explore these unvisited areas efficiently, as suggested by the teammate. The speed is set high to cover more ground quickly in this open area.",
+                "message_to_another_drone": "Moving right at speed 6 to explore unvisited areas. No obstacles detected. Continue scouting and report any targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_7.jpg"
+        },
+        "8": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is surrounded by obstacles to the right (east) and needs to explore open areas safely. Moving west is a safe path to explore new cells while avoiding obstacles.",
+                "message_to_another_drone": "Proceeding west to explore unvisited areas while avoiding obstacles. Maintain communication and alert if any targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_8.jpg"
+        },
+        "9": {
+            "metadata": {
+                "action": 0,
+                "speed": 5,
+                "explaination": "The drone should move up to explore the unvisited areas marked as '3' on the upper side of the current position. There are obstacles to the south, so moving up is a safer option. A speed of 5 is chosen to efficiently cover the unvisited areas but still maintain control.",
+                "message_to_another_drone": "Moving up at speed 5 to explore unvisited areas. Obstacles detected south, avoiding collision. Continuing mission.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_9.jpg"
+        },
+        "10": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone is currently surrounded by unvisited areas, and moving east aligns with the teammate's direction to explore unvisited zones efficiently. The path to the east is clear of obstacles, and speed 3 ensures a safe yet efficient exploration.",
+                "message_to_another_drone": "Moving east at speed 3 to explore unvisited areas. Maintain your path and update if targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_10.jpg"
+        },
+        "11": {
+            "metadata": {
+                "action": 2,
+                "speed": 5,
+                "explaination": "The teammate is moving right to explore unvisited areas, so I'll move left to cover more ground and avoid obstacles detected to the south.",
+                "message_to_another_drone": "Moving left at speed 5 to explore unvisited areas. Avoiding obstacles to the south. Continuing mission.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_11.jpg"
+        },
+        "12": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "Continuing to move east to explore unvisited areas and potentially find targets based on the teammate's movement to the north.",
+                "message_to_another_drone": "Moving east at speed 4 to explore further unvisited areas. Keep updating on your findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_12.jpg"
+        },
+        "13": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "We are currently in a safe zone with no immediate obstacles directly adjacent to our position. Moving right aligns with our teammate's direction and allows us to explore unexplored areas efficiently.",
+                "message_to_another_drone": "Proceeding right at speed 3 for efficient exploration. No obstacles in immediate vicinity. Maintain communication and update on findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_13.jpg"
+        },
+        "14": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "To avoid the obstacle line to the south and explore the unvisited areas efficiently, moving east will help cover new ground and avoid immediate obstacles.",
+                "message_to_another_drone": "Moving east at speed 4 to explore unvisited areas and avoid obstacles to the south. Maintain current exploration strategy.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_14.jpg"
+        },
+        "15": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The right side is open and being explored by a teammate. To maintain a coordinated search, moving down allows us to cover more unexplored areas efficiently. Speed is moderate to ensure safety near potential obstacles.",
+                "message_to_another_drone": "Moving down at speed 3 to explore unexplored area. Stay coordinated and report any targets.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_15.jpg"
+        },
+        "16": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is currently surrounded by obstacles to the south, with open paths to the north and east. The teammate is moving east, so to cover more ground efficiently and avoid collision, it's best to move north. This will help in exploring unvisited areas efficiently and potentially locate the target quickly.",
+                "message_to_another_drone": "Moving north at speed 3 to explore unvisited areas. Teammate is moving east to avoid obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_16.jpg"
+        },
+        "17": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "The teammate drone is moving right at speed 4. To maintain coordination and explore efficiently, I'll move down at speed 4 to cover more area and avoid the obstacles to the left side.",
+                "message_to_another_drone": "Moving down at speed 4 to explore new areas. Maintain coordination and update on any targets found.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_17.jpg"
+        },
+        "18": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "To explore unvisited areas and avoid the obstacle wall to the east, the drone should move west. This will efficiently cover new ground and avoid known obstacles, as indicated by the teammate's observation.",
+                "message_to_another_drone": "Heading west at speed 3 to explore new areas and avoid eastward obstacles. Maintain caution, and report any targets found.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_18.jpg"
+        },
+        "19": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "There are obstacles to the east of our current position. To avoid them and continue exploring unvisited areas, moving west is a safe and efficient choice, especially since the teammate is also moving west. We should maintain the same speed to ensure coordinated movement.",
+                "message_to_another_drone": "Aligning westward movement at speed 4 to cover more unvisited areas. Still no targets found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_19.jpg"
+        },
+        "20": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "To maintain exploration momentum and align with the teammate's movement, the drone should move south. This direction aligns with the teammate's movement and avoids obstacles to the east.",
+                "message_to_another_drone": "Moving south at speed 3 to maintain alignment and explore safely. Report any target findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_20.jpg"
+        },
+        "21": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "To cover more unvisited areas efficiently, and since the teammate is moving westward, let's move eastward to ensure optimal area coverage and avoid collision with the teammate. The path is clear to the east with no obstacles in the immediate observation area.",
+                "message_to_another_drone": "Moving eastward at speed 4 to cover unvisited areas. No targets found yet. Maintain coordination to maximize coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_21.jpg"
+        },
+        "22": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The agent is surrounded by obstacles on the right, so moving left is the safest option to explore open areas. The teammate is moving east, so going left will cover more unexplored areas.",
+                "message_to_another_drone": "Moving west at speed 4 to explore open areas. Report any targets if found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_22.jpg"
+        },
+        "23": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone should continue exploring the unvisited areas towards the east. This direction aligns with the teammate's direction of heading north, ensuring coverage of different areas. Moving east allows for further exploration without immediate obstacles, as the observation shows obstacles to the west but open space to the east. A moderate speed of 3 is chosen to balance exploration and caution.",
+                "message_to_another_drone": "Proceeding east at speed 3 to explore unvisited areas and maintain safe distance from obstacles. Report if any targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_23.jpg"
+        },
+        "24": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "To avoid the obstacles to the right and explore the unvisited area, moving left is a safe and efficient option.",
+                "message_to_another_drone": "Moving left at speed 3 to avoid obstacles and explore the unvisited area. Continue to report if any targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_24.jpg"
+        },
+        "25": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "There is a line of obstacles to the southeast, and the teammate is moving north. To efficiently cover the area and avoid the obstacles, moving west (left) at a safe speed of 4 allows exploration of unvisited western areas while maintaining a safe distance from obstacles.",
+                "message_to_another_drone": "Moving west at speed 4 to explore unvisited areas and avoid southeast obstacles. Continue northward exploration and report new findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_25.jpg"
+        },
+        "26": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone is surrounded by open space and the obstacle is located at the bottom of the observation area. The right direction seems clear and aligns with the teammate's current exploration direction. Hence, moving right will help cover more unvisited areas and maintain team coordination.",
+                "message_to_another_drone": "Continuing to move right at speed 3 as well to align with your path. Will report if any targets are found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_26.jpg"
+        },
+        "27": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is in an open area with obstacles to the east and south. To efficiently explore and avoid obstacles, moving north aligns with the teammate's strategy and helps cover more unvisited areas.",
+                "message_to_another_drone": "Moving north at speed 3 to explore unvisited areas. No targets spotted yet. Maintaining alignment with team strategy.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_27.jpg"
+        },
+        "28": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "Our teammate is moving right at speed 6. To efficiently cover more ground and avoid collision with our teammate, we should move downwards towards unexplored areas while avoiding the obstacle to the right.",
+                "message_to_another_drone": "Moving downwards to explore unexplored areas while avoiding obstacles. Keeping pace with your movement to maximize coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_28.jpg"
+        },
+        "29": {
+            "metadata": {
+                "action": 0,
+                "speed": 6,
+                "explaination": "The current position of the drone is in the middle of the observation area. There is a clear path to the north with no obstacles, and moving north will lead to more unvisited areas.",
+                "message_to_another_drone": "Moving north at speed 6 to explore unvisited areas. Continuing alignment with team strategy for maximum coverage.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_29.jpg"
+        },
+        "30": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is currently surrounded by open space (background cells) with obstacles directly to the right. To avoid collision and explore new areas efficiently, moving left is safe and strategic.",
+                "message_to_another_drone": "Moving left to avoid obstacles and explore new areas. Maintain vigilance for unvisited areas or targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_30.jpg"
+        },
+        "31": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The observation area shows that the agent is surrounded by unvisited areas (value 3). The teammate is moving south, so to maximize coverage, the drone should move east to cover different areas, ensuring efficient exploration without overlapping paths. Speed 4 is chosen to balance exploration and safety, given no immediate obstacles are visible.",
+                "message_to_another_drone": "Moving east at speed 4 to explore unvisited areas, aligning with team strategy for maximum coverage. Stay alert for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_31.jpg"
+        },
+        "32": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The path to the right is clear, and moving in that direction aligns with the team strategy to explore new areas while avoiding obstacles. The observation indicates a clear path ahead, allowing for efficient exploration.",
+                "message_to_another_drone": "Moving right to explore new areas. Keep an eye out for targets and report any sightings.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_32.jpg"
+        },
+        "33": {
+            "metadata": {
+                "action": 2,
+                "speed": 1,
+                "explaination": "The drone is surrounded by obstacles on the north, east, and south sides. Moving west is the only open path. Given the proximity to obstacles, a cautious speed of 1 ensures we do not collide.",
+                "message_to_another_drone": "Moving west at speed 1 due to surrounding obstacles. Maintain current speed and direction for safe exploration.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_33.jpg"
+        },
+        "34": {
+            "metadata": {
+                "action": 0,
+                "speed": 2,
+                "explaination": "The drone is currently surrounded by obstacles on the right side, which makes it risky to move in that direction. Moving up is open and safe, allowing us to explore unvisited areas effectively without hitting any obstacles.",
+                "message_to_another_drone": "Executing upward movement to explore unvisited areas. Maintain caution around obstacles and look for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_34.jpg"
+        },
+        "35": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The drone is surrounded by unvisited areas and no immediate obstacles in the east direction, making it optimal to explore further east quickly while avoiding known obstacles in the west.",
+                "message_to_another_drone": "Moving east at speed 6 to explore further unvisited areas. Maintain communication for any target findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_35.jpg"
+        },
+        "36": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The current observation shows obstacles to the south and unvisited areas to the north. We should proceed northwards to explore these unvisited areas, aligning with the teammate's direction to maximize coverage.",
+                "message_to_another_drone": "Proceeding northwards to explore unvisited areas. Cover the east side for more exploration.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_36.jpg"
+        },
+        "37": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The teammate is moving east, so to ensure optimal coverage of unvisited areas and avoid overlapping paths, I will move south at a moderate speed. This allows for exploration of the unvisited areas without risking collision with the obstacles detected in the southern part of the observation area.",
+                "message_to_another_drone": "Moving south at speed 3 to explore unvisited areas. Stay coordinated and report any target sightings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_37.jpg"
+        },
+        "38": {
+            "metadata": {
+                "action": 0,
+                "speed": 6,
+                "explaination": "The drone is currently positioned near a wall of obstacles to the south and has a clear path north. Continuing north as per the teammate's suggestion will allow the drone to explore more unvisited areas efficiently.",
+                "message_to_another_drone": "Continuing north to cover unvisited areas. Maintain your eastward path to maximize exploration efficiency.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_38.jpg"
+        },
+        "39": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "To avoid the obstacles directly south, a strategic move upward allows continued exploration of unvisited areas and aligns with the teammate's movement direction.",
+                "message_to_another_drone": "Moving north at speed 3 to avoid obstacles and explore unvisited areas. Keep an eye out for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_39.jpg"
+        },
+        "40": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is already positioned at the edge of an unvisited area to the north. Moving north will explore more unvisited areas while avoiding obstacles to the south.",
+                "message_to_another_drone": "Proceeding north to explore unvisited areas. Continue your path eastward.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_40.jpg"
+        },
+        "41": {
+            "metadata": {
+                "action": 0,
+                "speed": 4,
+                "explaination": "The drone is currently positioned near the center of the observation grid with obstacles detected southward. Since the teammate is heading south, moving northward will provide complementary exploration coverage. The observation to the north is clear of obstacles, allowing for safe exploration. A moderate speed ensures efficient coverage without risk of collision.",
+                "message_to_another_drone": "Heading north at speed 4 to explore and cover new areas. Avoid obstacles to the south and maintain current strategy.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_41.jpg"
+        },
+        "42": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The drone is currently surrounded by open areas with a cluster of obstacles to the south. The immediate path east towards the unexplored area appears clear, aligning with the teammate's movement direction. A speed of 6 is chosen for efficient exploration while ensuring no immediate collision risks.",
+                "message_to_another_drone": "Advancing east at speed 6 to explore unexplored areas. Sync westward coverage as needed.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_42.jpg"
+        },
+        "43": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The observed area to the north is clear of obstacles, and the teammate drone is already moving north at speed 4. To maintain formation and explore efficiently, we should move north as well, but slightly slower to ensure we maintain coordination and avoid potential unseen obstacles.",
+                "message_to_another_drone": "Moving north at speed 3 to maintain coordination. Observing obstacles to the south, proceed with caution.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_43.jpg"
+        },
+        "44": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "Based on the observation, there is a clear path to the east while the teammate is covering the west. Moving east will help us cover more unvisited area efficiently and avoid the obstacles to the south.",
+                "message_to_another_drone": "Moving east at speed 4 to cover unvisited areas. Watch for targets and obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_44.jpg"
+        },
+        "45": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The teammate drone has identified obstacles to the south and is moving north at a speed of 3. To maintain formation and avoid obstacles, we will also move north. The path ahead is clear, so we can match the speed for efficiency.",
+                "message_to_another_drone": "Moving north at speed 3 to maintain formation. Observing clear path ahead.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_45.jpg"
+        },
+        "46": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The teammate drone is moving south at speed 3, and there's an obstacle wall to the east. To explore efficiently while avoiding the obstacle, move west to uncover new areas.",
+                "message_to_another_drone": "Moving west at speed 3 to explore unvisited areas while avoiding obstacles. Maintain caution near eastern wall.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_46.jpg"
+        },
+        "47": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The observation indicates that the drone is surrounded by mostly open space, except for the obstacles directly south. To explore unvisited areas efficiently, moving north (up) is a safe choice, as it avoids obstacles and moves towards potentially unvisited areas.",
+                "message_to_another_drone": "Heading north at speed 3 to explore unvisited areas. Obstacles detected to the south-east, avoid that direction.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_47.jpg"
+        },
+        "48": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The current observation shows a clear open area to the west (left) of the drone, which is a good direction to explore for potential target points or unvisited areas. Additionally, moving west helps maintain the team's strategy of spreading out the search pattern effectively. Choosing a medium speed of 4 ensures efficient exploration while maintaining control.",
+                "message_to_another_drone": "Proceeding westward at speed 4 to explore open areas. Maintaining coordination. Will update upon any findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_48.jpg"
+        },
+        "49": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "To explore unvisited areas efficiently and maintain coordination with the teammate heading north, it is strategic to move left. This direction avoids obstacles to the south-east and allows coverage of unvisited cells. A moderate speed will ensure we cover distance while maintaining precision.",
+                "message_to_another_drone": "Moving left at speed 3 to explore and cover unvisited areas. Maintaining coordination with your northward path. Stay alert for obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_49.jpg"
+        },
+        "50": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The current observation shows that there is a clear path to the right (east) with no obstacles immediately in the way, and our teammate is also moving eastward. Aligning with the teammate's direction will help in coordinated exploration and efficient coverage of the area.",
+                "message_to_another_drone": "Aligning eastward movement at speed 4 to coordinate search efforts. Continue sharing updates on any targets found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_50.jpg"
+        },
+        "51": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The area to the right is clear, allowing for safe and efficient exploration of unvisited areas. No immediate obstacles are detected in the rightward path.",
+                "message_to_another_drone": "Moving right at speed 6 to explore unvisited areas. Ensure to cover areas above and maintain the grid coverage efficiently.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_51.jpg"
+        },
+        "52": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The observation shows a wall of obstacles to the south, making it risky to move downward. To avoid these obstacles and continue exploring unvisited areas, moving up is a safe option. This direction has no immediate obstacles, allowing for efficient exploration.",
+                "message_to_another_drone": "Proceeding northward to avoid southern obstacles. Continue eastward as planned. Report any target findings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_52.jpg"
+        },
+        "53": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The current observation shows an obstacle line below, suggesting moving to the right where the path is clear. This aligns with the teammate's message, which advises moving right for efficient exploration. The speed is set to 5 to balance safety and efficient coverage, avoiding obstacles.",
+                "message_to_another_drone": "Proceeding right at speed 5 to continue exploration. Monitoring obstacle line below to ensure safe path.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_53.jpg"
+        },
+        "54": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "The observation data shows that the drone is surrounded by unvisited areas on the north, south, east, and west. We should move eastward to explore new areas and follow the teammate's direction. Since the eastward path seems clear (no obstacles detected in our immediate path), we can move at a higher speed for efficient exploration.",
+                "message_to_another_drone": "Proceeding eastward at speed 5 to explore unvisited areas. Maintain caution near obstacles. No targets found in current vicinity.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_54.jpg"
+        },
+        "55": {
+            "metadata": {
+                "action": 3,
+                "speed": 2,
+                "explaination": "The teammate drone is moving upwards at a speed of 4, so I should complement by exploring to the right to avoid the obstacle line and cover more ground efficiently.",
+                "message_to_another_drone": "Moving right at speed 2 to scout the clear path. Ensure upper path remains obstacle-free.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_55.jpg"
+        },
+        "56": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The drone is currently facing a wall of obstacles to the south. To continue exploring unvisited areas, moving east or west is optimal. Given the teammate's movement westward, moving east allows us to cover more ground efficiently without overlapping exploration areas.",
+                "message_to_another_drone": "Moving eastward at speed 4 to explore unvisited areas. Be cautious of obstacles to the south and maintain communication on target status.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_56.jpg"
+        },
+        "57": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The teammate is moving left, so it makes sense to maintain coverage by moving right. This will help in exploring unvisited areas and maintaining balance in exploration. The speed is set to 4 to swiftly cover the open area while keeping an eye on any potential obstacles.",
+                "message_to_another_drone": "Moving right at speed 4 to explore unvisited areas. Keep the left path in check for obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_57.jpg"
+        },
+        "58": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is positioned near the center of the observation area with a clear path to explore the unvisited areas to the north. Moving northward at a moderate speed allows us to safely and efficiently scout for target points while avoiding the obstacle barrier to the south.",
+                "message_to_another_drone": "Proceeding northward at speed 3 to explore and map unvisited areas. Continue to monitor and adjust trajectory as needed based on new observations.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_58.jpg"
+        },
+        "59": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The current observation shows a line of obstacles to the south. Moving up will allow us to explore unvisited areas and avoid the obstacles.",
+                "message_to_another_drone": "Moving up at speed 3 to explore unvisited areas. Maintaining a safe distance from the obstacles below.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_59.jpg"
+        },
+        "60": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is positioned in an open area with unvisited sections to the north. This move will allow us to scout and map unexplored territories efficiently. Given the teammate's movement south, moving north will help cover more ground and enhance area coverage.",
+                "message_to_another_drone": "Moving north at speed 3 to cover unvisited areas. Keep mapping and inform if targets are located.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_60.jpg"
+        },
+        "61": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "There are obstacles below, thus moving right is a safe and efficient way to explore unvisited areas without encountering any obstacles.",
+                "message_to_another_drone": "Moving right at speed 4 to explore unvisited areas. No obstacles detected, maintaining efficient exploration. Continue scouting for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_61.jpg"
+        },
+        "62": {
+            "metadata": {
+                "action": 3,
+                "speed": 5,
+                "explaination": "To effectively cover new areas and explore the grid, moving east is optimal as it avoids the obstacle to the west and leverages open space for exploration. This also complements the teammate's westward movement.",
+                "message_to_another_drone": "Moving east at speed 5 to cover new areas. Avoid obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_62.jpg"
+        },
+        "63": {
+            "metadata": {
+                "action": 2,
+                "speed": 5,
+                "explaination": "Since the teammate has encountered obstacles on the right and is moving left, we should coordinate by scouting further left at a higher speed to quickly cover more unexplored areas and potentially locate a target.",
+                "message_to_another_drone": "Moving left at speed 5 to scout unexplored areas. Avoid right as obstacles are present. Stay alert for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_63.jpg"
+        },
+        "64": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The observation grid shows a clear path to the right (east) without obstacles, and the teammate is also moving east. Coordinating by moving east ensures we maintain a formation and avoid obstacles.",
+                "message_to_another_drone": "Moving east at speed 3 to maintain formation. No obstacles ahead, proceed.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_64.jpg"
+        },
+        "65": {
+            "metadata": {
+                "action": 1,
+                "speed": 4,
+                "explaination": "Given the teammate's message and the current observation, it seems our teammate is covering the left side. There are no visible obstacles around. Thus, moving downward at a moderate speed will help cover more unexplored area efficiently while avoiding the right side, where obstacles are reported.",
+                "message_to_another_drone": "Proceeding downward at speed 4 to cover unexplored areas. Right side confirmed with obstacles, avoid it. Stay vigilant for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_65.jpg"
+        },
+        "66": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "Based on the current observation, there are obstacles to the southeast. To maintain formation with the teammate who is proceeding east, the drone should also move east. Given the clear path in that direction and the teammate's speed, a speed of 3 is appropriate.",
+                "message_to_another_drone": "Proceeding east at speed 3 to maintain formation and avoid obstacles. Keep scanning for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_66.jpg"
+        },
+        "67": {
+            "metadata": {
+                "action": 1,
+                "speed": 3,
+                "explaination": "The drone is surrounded by unexplored areas (marked as '3') on the map. The teammate is moving left, hence I'll move down to cover unexplored areas in that direction, avoiding the obstacles to the lower right.",
+                "message_to_another_drone": "Moving down at speed 3 to cover unexplored areas, avoiding obstacles. Continue your path and report any target findings.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_67.jpg"
+        },
+        "68": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is currently surrounded by obstacles to the right and slightly ahead. To avoid collision and continue exploring unvisited areas, it should move left where there is an open path.",
+                "message_to_another_drone": "Moving west at speed 3 to explore unvisited areas and avoid obstacles. Maintain communication for further coordination.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_68.jpg"
+        },
+        "69": {
+            "metadata": {
+                "action": 1,
+                "speed": 2,
+                "explaination": "The drone is in a safe position with no immediate obstacles in the downward direction, based on the observation matrix. Moving down will help explore unvisited areas further and keep pace with the team strategy.",
+                "message_to_another_drone": "Proceeding downwards at speed 2 to explore further. No targets found yet. Maintain caution and report any obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_69.jpg"
+        },
+        "70": {
+            "metadata": {
+                "action": 2,
+                "speed": 2,
+                "explaination": "The drone is surrounded by obstacles to the east, making it unsafe to proceed in that direction. Moving west where there are no obstacles will allow us to explore unvisited areas safely.",
+                "message_to_another_drone": "Heading west at speed 2 to safely explore unvisited areas and avoid obstacles. Current position confirmed, maintaining coordination.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_70.jpg"
+        },
+        "71": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The current observation shows an open path to the right with unvisited areas. Moving right will allow us to explore these areas efficiently while avoiding the obstacles on the left.",
+                "message_to_another_drone": "Moving right with speed 4 to explore unvisited areas. Continue monitoring and report any targets or obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_71.jpg"
+        },
+        "72": {
+            "metadata": {
+                "action": 0,
+                "speed": 2,
+                "explaination": "The drone is currently surrounded by obstacles on the east side, making it risky to move in that direction. To avoid any potential collision and continue exploring unvisited areas, moving north is the safest option. It will also maintain coordination with the teammate who is moving east.",
+                "message_to_another_drone": "Moving north at speed 2 to avoid obstacles and explore unvisited areas. Continuing coordination, update on any target or obstacle encountered.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_72.jpg"
+        },
+        "73": {
+            "metadata": {
+                "action": 2,
+                "speed": 2,
+                "explaination": "We're currently near a wall of obstacles on our right side. To avoid collision and explore new areas, moving left is a safe option. This will allow us to continue exploration in open spaces without immediate obstacle threats.",
+                "message_to_another_drone": "Moving left with speed 2 to explore open areas and avoid obstacle wall on the right. Keep monitoring for targets in the new area.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_73.jpg"
+        },
+        "74": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The current drone is positioned near a column of obstacles. Moving right will allow the drone to explore unvisited areas and avoid obstacles, while maintaining distance from the wall of obstacles.",
+                "message_to_another_drone": "Moving right at speed 3 to scout unvisited areas. Keep updating the team about any new findings or obstacles.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_74.jpg"
+        },
+        "75": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The current observation shows that there is a wall of obstacles directly to the right. To avoid collision and to continue exploring the unvisited areas, we should move left where the path is clear.",
+                "message_to_another_drone": "Moving left with speed 4 to avoid obstacles and explore new areas. Keep monitoring for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_75.jpg"
+        },
+        "76": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "To explore unvisited areas and maintain a safe distance from obstacles, moving left is optimal as it covers uncharted territory and avoids the obstacle wall to the right.",
+                "message_to_another_drone": "Moving left at speed 3 to explore unvisited areas. Stay cautious of obstacles on the right side.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_76.jpg"
+        },
+        "77": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The observation shows a wall of obstacles on the lower left side, suggesting moving right to avoid collision and explore unvisited areas. This will align with the team's strategy and keep the drone safe.",
+                "message_to_another_drone": "Moving right with speed 3 to explore unvisited areas. Continue coordinating for target search.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_77.jpg"
+        },
+        "78": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The current observation shows obstacles to the right and below. Moving left allows us to explore new, unvisited areas with minimal risk of encountering obstacles.",
+                "message_to_another_drone": "Moving left at speed 3 to explore unvisited areas. Obstacles observed on the right and below. Stay alert for targets.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_78.jpg"
+        },
+        "79": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "To cover more unvisited areas and align with the team's movement strategy, the drone should move to the right. The teammate drone is also moving to the right with speed 3, so matching this speed will help maintain formation and systematic exploration.",
+                "message_to_another_drone": "Moving right with speed 3 to align with your path and cover unvisited areas efficiently.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_79.jpg"
+        },
+        "80": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is surrounded by obstacles on the right and below. The teammate is moving left, which suggests that moving in the opposite direction might be efficient. Moving up allows the drone to cover more unvisited areas safely.",
+                "message_to_another_drone": "Moving up at speed 3 to explore unvisited areas. Obstacles detected on the right and below, maintaining safe distance.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_80.jpg"
+        },
+        "81": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "Based on the observation area, moving right is the most efficient path to explore unvisited areas without hitting obstacles. The target point is not visible, so the mission is not yet completed. We will move at moderate speed to balance exploration and safety.",
+                "message_to_another_drone": "Moving right with speed 3 to explore adjacent unvisited areas. Maintain current path to avoid collision.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_81.jpg"
+        },
+        "82": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The drone is currently surrounded by background cells and has identified obstacles in the lower right quadrant of its observation area. Since the teammate is moving left, it's optimal to cover the area in the opposite direction. Moving right would help in exploring unvisited areas efficiently without hitting obstacles.",
+                "message_to_another_drone": "Proceeding right with speed 4 to cover more unvisited areas. Avoiding obstacles in lower right quadrant.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_82.jpg"
+        },
+        "83": {
+            "metadata": {
+                "action": 3,
+                "speed": 3,
+                "explaination": "The drone should move right to align with the teammate's path and avoid the obstacle zone detected below. This ensures both drones maintain a coordinated search pattern.",
+                "message_to_another_drone": "Moving right to synchronize with your path, maintaining speed 3 to avoid obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_83.jpg"
+        },
+        "84": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "The current observation shows obstacles to the left. We need to avoid those and explore new areas. Moving right aligns with the teammate's plan and helps in exploring unvisited areas.",
+                "message_to_another_drone": "Acknowledged. Moving right with speed 4 to explore unvisited areas and maintain obstacle awareness.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_84.jpg"
+        },
+        "85": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The current observation indicates a large unvisited area surrounding the drone. Moving right with high speed will allow efficient exploration of this unvisited space, aligning with the teammate's leftward path to cover more ground together.",
+                "message_to_another_drone": "Proceeding right to explore unvisited areas efficiently. Let's cover more ground together. Keep me updated on any target sightings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_85.jpg"
+        },
+        "86": {
+            "metadata": {
+                "action": 3,
+                "speed": 4,
+                "explaination": "To efficiently explore unvisited areas, we should move right where there are no obstacles. Our teammate is also moving in the same direction, ensuring coordinated exploration and coverage of the area.",
+                "message_to_another_drone": "Moving right with speed 4 to explore unvisited areas. Ensure to cover any missed cells and report any targets found.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_86.jpg"
+        },
+        "87": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The drone is currently positioned near a line of obstacles to its right. The best course of action is to move left, where there's open space and no immediate obstacles, allowing safe exploration without the risk of collision.",
+                "message_to_another_drone": "Moving left to explore open space and avoid obstacles. No targets spotted yet.",
+                "done": false,
+                "terminated": true
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_87.jpg"
+        },
+        "88": {
+            "metadata": {
+                "action": 2,
+                "speed": 6,
+                "explaination": "The agent is surrounded by obstacles on the right side, making it risky to move in that direction. The left side is clear and allows for efficient exploration without risking a collision. Moving left with a high speed will help cover more unvisited areas quickly.",
+                "message_to_another_drone": "Moving left with speed 6 to efficiently explore unvisited areas. Be cautious of obstacles on the right.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_88.jpg"
+        },
+        "89": {
+            "metadata": {
+                "action": 2,
+                "speed": 4,
+                "explaination": "The drone is currently in a corridor-like area surrounded by obstacles on the right. Moving left (action 2) is aligned with the teammate's direction and allows exploration of open spaces. Choosing a moderate speed of 4 ensures reasonable movement while maintaining safety near potential obstacles.",
+                "message_to_another_drone": "Moving left to explore open space. Watch for targets and avoid the right-side obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_89.jpg"
+        },
+        "90": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is surrounded by unvisited areas and has obstacles below. Moving up will allow safe exploration of unvisited areas while maintaining a safe distance from obstacles. This direction aligns with the teammate's current movement, ensuring team coordination.",
+                "message_to_another_drone": "Moving up with speed 3 to maintain safe exploration. Watch for obstacles on the right. Let's keep covering unvisited areas.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_90.jpg"
+        },
+        "91": {
+            "metadata": {
+                "action": 0,
+                "speed": 3,
+                "explaination": "The drone is currently in an open area with no immediate obstacles except to the bottom right. The teammate is moving left to explore, and we should coordinate by exploring a different area to maximize coverage and avoid collision. Moving up will help us scout unexplored areas and maintain communication with the team.",
+                "message_to_another_drone": "Moving up to scout unexplored areas. Ensure left side exploration is thorough. Watch for targets and obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_91.jpg"
+        },
+        "92": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "Since there are no obstacles detected and the teammate is moving right with a high speed, it is efficient to coordinate by moving right as well to maximize area coverage. The area to the right is not visited, and moving in the same direction can help cover more ground quickly and locate targets efficiently.",
+                "message_to_another_drone": "Moving right at speed 6 to support area coverage. Let's focus on efficient exploration and target identification.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_92.jpg"
+        },
+        "93": {
+            "metadata": {
+                "action": 0,
+                "speed": 5,
+                "explaination": "To explore new areas as instructed by my teammate and avoid the obstacle seen on the right, I will move upward. Since there is no immediate obstacle above, I can increase the speed to cover more distance efficiently.",
+                "message_to_another_drone": "Moving upwards to explore. No targets found in the current zone. Continue coordination and stay alert for obstacles.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_93.jpg"
+        },
+        "94": {
+            "metadata": {
+                "action": 3,
+                "speed": 6,
+                "explaination": "The teammate drone is moving left, and the area to the right appears to be open and unexplored. It's efficient to split directions to cover more ground without overlapping paths.",
+                "message_to_another_drone": "Moving right at speed 6 to explore unvisited areas. Let's maximize our coverage by exploring in opposite directions.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_94.jpg"
+        },
+        "95": {
+            "metadata": {
+                "action": 2,
+                "speed": 3,
+                "explaination": "The teammate is moving right, indicating that direction is obstacle-free. To coordinate exploration and increase the area covered, I'll move left where there are open spaces, avoiding the wall above.",
+                "message_to_another_drone": "Moving left to explore open space. Maintaining communication, report any target sightings.",
+                "done": false,
+                "terminated": false
+            },
+            "visited_map_path": "dry_run_exp/version_12/agent_02/trajectories/visited_map_95.jpg"
+        }
+    },
+    "env": "dry_run_exp/version_12/environment.jpg"
+}
