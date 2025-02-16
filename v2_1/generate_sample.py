@@ -1,142 +1,95 @@
-from v2_1.variables import *
 import numpy as np
 from matplotlib import pyplot as plt
+import hydra
+from omegaconf import DictConfig
 
 
 class DatasetGenerator:
-    number_of_agents = None
-    agent_positions = None
-    number_of_targets = None
-    target_positions = None
-    roles = None
-
     def __init__(self, **args):
-        self.number_of_agents: tuple[int] = args.get("NUMBER_OF_AGENTS")
-        self.agent_positions: tuple[tuple[int]] = args.get("AGENT_POSITIONS")
-        self.number_of_targets: tuple[int] = args.get("NUMBER_OF_TARGETS")
-        self.roles: list[str] = args.get("ROLES")
-        self.size_of_mission_area: tuple[int] = args.get("SIZE_OF_MISSION_AREA")
-        self.agent_symbols: dict[str, str] = args.get("AGENT_SYMBOLS")
-        self.agent_colors: dict[str, str] = args.get("AGENT_COLORS")
+        self.agents = args.get("agents")
+        self.targets = args.get("targets")
+        self.metadata = args.get("metadata")
+
+    def _generate_agent_position(self, min_yx, max_yx):
+        y_min, x_min = min_yx
+        y_max, x_max = max_yx
+        return np.random.randint(y_min, y_max + 1), np.random.randint(x_min, x_max + 1)
+
+    def _generate_positions_for_n_agents(self, n, min_yx, max_yx):
+        return [self._generate_agent_position(min_yx, max_yx) for _ in range(n)]
 
     def sample(self):
-        num_roles = len(self.roles)
+        for agent in self.agents.values():
+            min_num, max_num = agent["number"]["min"], agent["number"]["max"]
+            number_of_agents = np.random.randint(min_num, max_num + 1)
+            agent["positions"] = self._generate_positions_for_n_agents(
+                number_of_agents,
+                agent["position_range"]["min_yx"],
+                agent["position_range"]["max_yx"],
+            )
 
-        # Ensure at least one agent per role
-        min_agents = num_roles
-        max_agents = self.number_of_agents[1]
-
-        # Sample total number of agents
-        num_agents = np.random.randint(min_agents, max_agents + 1)
-
-        # Assign roles (ensuring each role is represented)
-        roles = []
-        remaining_agents = num_agents - num_roles
-        roles.extend(self.roles)  # Ensure each role appears at least once
-        roles.extend(np.random.choice(self.roles, remaining_agents).tolist())
-
-        # Sample agent positions within the specified range
-        y_min, x_min = self.agent_positions[0]
-        y_max, x_max = self.agent_positions[1]
-        agent_positions = [
-            (np.random.randint(y_min, y_max + 1), np.random.randint(x_min, x_max + 1))
-            for _ in range(num_agents)
-        ]
-
-        # Sample number of targets
-        num_targets = np.random.randint(
-            self.number_of_targets[0], self.number_of_targets[1] + 1
+        min_num, max_num = self.targets["number"]["min"], self.targets["number"]["max"]
+        number_of_targets = np.random.randint(min_num, max_num + 1)
+        self.targets["positions"] = self._generate_positions_for_n_agents(
+            number_of_targets,
+            self.targets["position_range"]["min_yx"],
+            self.targets["position_range"]["max_yx"],
         )
 
-        target_positions = [
-            (np.random.randint(y_min, y_max + 1), np.random.randint(x_min, x_max + 1))
-            for _ in range(num_targets)
-        ]
-
-        self.number_of_agents = num_agents
-        self.agent_positions = agent_positions
-        self.number_of_targets = num_targets
-        self.target_positions = target_positions
-        self.roles = roles
-
-    def _get_symbol_by_agent(self, role):
-        return self.agent_symbols[role]
-
-    def _get_agent_color(self, role):
-        return self.agent_colors[role]
-
     def visualize(self):
-        agents = {}
-
         plt.figure(figsize=(6, 6))
-        plt.xlim(0, self.size_of_mission_area[1])
-        plt.ylim(0, SIZE_OF_MISSION_AREA[0])
-        plt.gca().invert_yaxis()  # Invert the Y-axis
+        plt.xlim(0, self.metadata["size_of_mission_area"][1])
+        plt.ylim(0, self.metadata["size_of_mission_area"][1])
+        plt.gca().invert_yaxis()
         plt.gca().xaxis.set_ticks_position("top")
         plt.grid(True)
         plt.xlabel("X")
         plt.ylabel("Y")
 
-        for agent_id, agent_data in enumerate(zip(self.roles, self.agent_positions)):
-            role, position = agent_data
-            agents[agent_id] = {
-                "role": role,
-                "position": position,
-                "symbol": self._get_symbol_by_agent(role),
-                "color": self._get_agent_color(role),
-            }
+        for agent in self.agents.values():
+            for agent_id, position in enumerate(agent["positions"]):
+                plt.scatter(
+                    position[1],
+                    position[0],
+                    marker=agent["symbol"],
+                    color=agent["color"],
+                )
+                plt.text(
+                    position[1] + 1.2,
+                    position[0] + 1.2,
+                    f'{agent["role"]}-{agent_id} ({position[1]}, {position[0]})',
+                    fontsize=8,
+                )
 
-        for agent_id, agent in agents.items():
+        for target_id, position in enumerate(self.targets["positions"]):
             plt.scatter(
-                agent["position"][1],
-                agent["position"][0],
-                marker=agent["symbol"],
-                color=agent["color"],
+                position[1],
+                position[0],
+                marker=self.targets["symbol"],
+                color=self.targets["color"],
             )
             plt.text(
-                agent["position"][1] + 1.2,
-                agent["position"][0] + 1.2,
-                f'{agent["role"]}-{agent_id} ({agent["position"][1]}, {agent["position"][0]})',
+                position[1] + 1.2,
+                position[0] + 1.2,
+                f"{target_id}-({position[1]}, {position[0]})",
                 fontsize=8,
-            )
-
-        for target in self.target_positions:
-            targets = {}
-            for target_id, target_position in enumerate(self.target_positions):
-                targets[target_id] = {
-                    "position": target_position,
-                    "symbol": self._get_symbol_by_agent("target"),
-                    "color": self._get_agent_color("target"),
-                }
-
-        for target_id, target in targets.items():
-            plt.scatter(
-                target["position"][1],
-                target["position"][0],
-                marker=target["symbol"],
-                color=target["color"],
-            )
-            plt.text(
-                target["position"][1] + 1.2,
-                target["position"][0] + 1.2,
-                f'{target_id}-({target["position"][1]}, {target["position"][0]})',
-                fontsize=8,
-                color=target["color"],
+                color=self.targets["color"],
             )
 
         plt.savefig("sample.png")
         plt.close()
 
 
-generator = DatasetGenerator(
-    NUMBER_OF_AGENTS=NUMBER_OF_AGENTS,
-    AGENT_POSITIONS=AGENT_POSITIONS,
-    NUMBER_OF_TARGETS=NUMBER_OF_TARGETS,
-    ROLES=ROLES,
-    SIZE_OF_MISSION_AREA=SIZE_OF_MISSION_AREA,
-    AGENT_SYMBOLS=AGENT_SYMBOLS,
-    AGENT_COLORS=AGENT_COLORS,
-)
+@hydra.main(config_path="./", config_name="setup", version_base="2.1.0")
+def main(cfg: DictConfig):
+    agents = cfg.agents
+    targets = cfg.targets
+    metadata = cfg.metadata
 
-generator.sample()
-generator.visualize()
+    generator = DatasetGenerator(agents=agents, targets=targets, metadata=metadata)
+    generator.sample()
+    generator.visualize()
+
+
+if __name__ == "__main__":
+    main()
