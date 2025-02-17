@@ -8,6 +8,7 @@ class DatasetGenerator:
     def __init__(self, **args):
         self.agents = args.get("agents")
         self.targets = args.get("targets")
+        self.base = args.get("base")
         self.metadata = args.get("metadata")
 
     def _generate_agent_position(self, min_yx, max_yx):
@@ -83,6 +84,40 @@ class DatasetGenerator:
                 color=self.targets["color"],
             )
 
+        base_position_range_idx = np.random.randint(
+            len(self.base["possible_position_ranges"])
+        )
+        base_position_range = self.base["possible_position_ranges"][
+            base_position_range_idx
+        ]
+        base_position_x = (
+            base_position_range[0][1]
+            if base_position_range[0][1] == base_position_range[1][1]
+            else np.random.randint(
+                base_position_range[0][1], base_position_range[1][1] + 1
+            )
+        )
+        base_position_y = (
+            base_position_range[0][0]
+            if base_position_range[0][0] == base_position_range[1][0]
+            else np.random.randint(
+                base_position_range[0][0], base_position_range[1][0] + 1
+            )
+        )
+        plt.scatter(
+            base_position_x,
+            base_position_y,
+            marker=self.base["symbol"],
+            color=self.base["color"],
+        )
+        plt.text(
+            base_position_x + 1.2,
+            base_position_y + 1.2,
+            f"Base ({base_position_x}, {base_position_y})",
+            fontsize=8,
+            color=self.base["color"],
+        )
+
         plt.savefig("sample.png")
         plt.close()
 
@@ -91,9 +126,12 @@ class DatasetGenerator:
 def main(cfg: DictConfig):
     agents = cfg.agents
     targets = cfg.targets
+    base = cfg.base
     metadata = cfg.metadata
 
-    generator = DatasetGenerator(agents=agents, targets=targets, metadata=metadata)
+    generator = DatasetGenerator(
+        agents=agents, targets=targets, base=base, metadata=metadata
+    )
     generator.sample()
     generator.visualize()
 
