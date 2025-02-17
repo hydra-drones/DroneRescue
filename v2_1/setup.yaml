@@ -13,6 +13,8 @@ agents:
       min_yx: [1, 1]
       max_yx: [100, 100]
     positions: []
+    sensor:
+      range: 17
   rescuer:
     role: "rescuer"
     number:
@@ -25,6 +27,8 @@ agents:
       min_yx: [1, 1]
       max_yx: [100, 100]
     positions: []
+    sensor:
+      range: 10
   scout_commander:
     role: "scout commander"
     number:
@@ -37,6 +41,8 @@ agents:
       min_yx: [1, 1]
       max_yx: [100, 100]
     positions: []
+    sensor:
+      range: 25
 
 targets:
   symbol: "x"
