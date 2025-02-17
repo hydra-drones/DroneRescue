@@ -60,6 +60,13 @@ class DatasetGenerator:
                     f'{agent["role"]}-{agent_id} ({position[1]}, {position[0]})',
                     fontsize=8,
                 )
+                sensor_area = plt.Circle(
+                    (position[1], position[0]),
+                    agent["sensor"]["range"],
+                    color=agent["color"],
+                    fill=False,
+                )
+                plt.gca().add_artist(sensor_area)
 
         for target_id, position in enumerate(self.targets["positions"]):
             plt.scatter(
