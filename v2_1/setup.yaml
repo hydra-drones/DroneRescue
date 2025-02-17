@@ -55,5 +55,14 @@ targets:
     max_yx: [100, 100]
   positions: []
 
+base:
+  symbol: "p"
+  color: "orange"
+  possible_position_ranges:
+    - [[5, 5], [5, 95]] # y, x
+    - [[5, 5], [95, 5]] # y, x
+    - [[95, 5], [95, 95]] # y, x
+    - [[5, 95], [95, 95]] # y, x
+
 metadata:
   size_of_mission_area: [100, 100]
