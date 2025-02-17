@@ -1,0 +1,53 @@
+path_to_hydra_outputs: "/home/evgenii-iurin/work/DroneRescue/v2_1/hydra_outputs"
+author: "Eugene Iurin"
+agents:
+  scout:
+    role: "scout"
+    number:
+      min: 1
+      max: 4
+    symbol: "o"
+    color: "blue"
+    mission: "scout postitions of each target"
+    position_range:
+      min_yx: [1, 1]
+      max_yx: [100, 100]
+    positions: []
+  rescuer:
+    role: "rescuer"
+    number:
+      min: 1
+      max: 5
+    symbol: "*"
+    color: "green"
+    mission: "scan all targets using coordinates provided by scout"
+    position_range:
+      min_yx: [1, 1]
+      max_yx: [100, 100]
+    positions: []
+  scout_commander:
+    role: "scout commander"
+    number:
+      min: 1
+      max: 1
+    symbol: "D"
+    color: "purple"
+    mission: "navigate scouts and rescuers"
+    position_range:
+      min_yx: [1, 1]
+      max_yx: [100, 100]
+    positions: []
+
+targets:
+  symbol: "x"
+  color: "red"
+  number:
+    min: 1
+    max: 5
+  position_range:
+    min_yx: [1, 1]
+    max_yx: [100, 100]
+  positions: []
+
+metadata:
+  size_of_mission_area: [100, 100]
