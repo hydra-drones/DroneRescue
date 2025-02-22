@@ -5,32 +5,43 @@ agents:
     role: "scout"
     number:
       min: 1
-      max: 4
+      max: 5
     symbol: "o"
     color: "blue"
     mission: "scout postitions of each target"
     position_range:
       min_yx: [1, 1]
-      max_yx: [100, 100]
-    positions: []
+      max_yx: ${metadata.size_of_mission_area}
     sensor:
       range: 17
+    special_action:
+      name: "save target coordinates"
+      id: 1
+    shape: 1F7CA
+    size: 20
+
   rescuer:
     role: "rescuer"
     number:
       min: 1
-      max: 5
+      max: 1
     symbol: "*"
     color: "green"
     mission: "scan all targets using coordinates provided by scout"
     position_range:
       min_yx: [1, 1]
-      max_yx: [100, 100]
-    positions: []
+      max_yx: ${metadata.size_of_mission_area}
     sensor:
       range: 10
+    special_action:
+      name: "scan area"
+      id: 2
+    shape: 1F7CA
+    size: 20
+
+
   scout_commander:
-    role: "scout commander"
+    role: "scout_commander"
     number:
       min: 1
       max: 1
@@ -39,10 +50,14 @@ agents:
     mission: "navigate scouts and rescuers"
     position_range:
       min_yx: [1, 1]
-      max_yx: [100, 100]
-    positions: []
+      max_yx: ${metadata.size_of_mission_area}
     sensor:
       range: 25
+    special_action:
+      name: "send order"
+      id: 3
+    shape: 1F7CA
+    size: 20
 
 targets:
   symbol: "x"
@@ -52,8 +67,10 @@ targets:
     max: 5
   position_range:
     min_yx: [1, 1]
-    max_yx: [100, 100]
-  positions: []
+    max_yx: ${metadata.size_of_mission_area}
+  sampled_targets: {}
+  shape: 1F7CA
+  size: 20
 
 base:
   symbol: "p"
@@ -63,6 +80,10 @@ base:
     - [[5, 5], [95, 5]] # y, x
     - [[95, 5], [95, 95]] # y, x
     - [[5, 95], [95, 95]] # y, x
+  shape: 1F7CA
+  size: 20
+  sampled_bases: {}
+
 
 metadata:
   size_of_mission_area: [100, 100]
