@@ -44,17 +44,20 @@ class SceneController:
         return self.sampled_agents, self.sampled_targets, self.sampled_bases
 
     def render_scene(self) -> str:
+
+        scale_factor = self.scene_metadata.get("scale_factor")
+
         widget_style = f"""
             position: relative;
-            width:  {self.scene_metadata.get("size_of_mission_area")[0]}px;
-            height: {self.scene_metadata.get("size_of_mission_area")[1]}px;
+            width:  {self.scene_metadata.get("size_of_mission_area")[0] * scale_factor}px;
+            height: {self.scene_metadata.get("size_of_mission_area")[1] * scale_factor}px;
             border: 1px solid black;
             """
 
         rendered_scene_instances = (
-            render_agent(self.sampled_agents, self.cfg["agents"])
-            + render_target(self.sampled_targets, self.cfg["targets"])
-            + render_base(self.sampled_bases, self.cfg["base"])
+            render_agent(self.sampled_agents, self.cfg["agents"], scale_factor)
+            + render_target(self.sampled_targets, self.cfg["targets"], scale_factor)
+            + render_base(self.sampled_bases, self.cfg["base"], scale_factor)
         )
 
         self.scene = f"""
@@ -69,52 +72,37 @@ class SceneController:
         step: int = 1,
     ):
 
-        # TODO: optimize this function to re-use same components
+        instance_dict = {
+            "agent": self.sampled_agents,
+            "target": self.sampled_targets,
+            "base": self.sampled_bases,
+        }
 
-        if instance_type == "agent":
-            if instance_id in self.sampled_agents.keys():
-                current_pos = self.sampled_agents[instance_id].position
-                new_pos = (current_pos[0], current_pos[1] - step)
-                self.sampled_agents[instance_id].position = new_pos
-                logging.info("Set %s to new position %s", instance_type, str(new_pos))
-            else:
-                logging.warning(
-                    "You are trying to move %s with id %d. %s not found with this ID",
-                    instance_type,
-                    instance_id,
-                    instance_type,
-                )
-                return self.scene
-
-        elif instance_type == "target":
-            if instance_id in self.sampled_targets.keys():
-                current_pos = self.sampled_targets[instance_id].position
-                new_pos = (current_pos[0], current_pos[1] - step)
-                self.sampled_targets[instance_id].position = new_pos
-            else:
-                logging.warning(
-                    "You are trying to move %s with id %d. %s not found with this ID",
-                    instance_type,
-                    instance_id,
-                    instance_type,
-                )
-                return self.scene
-
-        elif instance_type == "base":
-            if instance_id in self.sampled_bases.keys():
-                current_pos = self.sampled_bases[instance_id].position
-                new_pos = (current_pos[0], current_pos[1] - step)
-                self.sampled_bases[instance_id].position = new_pos
-            else:
-                logging.warning(
-                    "You are trying to move %s with id %d. %s not found with this ID",
-                    instance_type,
-                    instance_id,
-                    instance_type,
-                )
-                return self.scene
-
-        else:
+        if instance_type not in instance_dict:
             logging.warning("Instance type %s not found", instance_type)
+            return self.scene
+
+        instances = instance_dict[instance_type]
+
+        if instance_id not in instances:
+            logging.warning(
+                "You are trying to move %s with id %d. %s not found with this ID",
+                instance_type,
+                instance_id,
+                instance_type,
+            )
+            return self.scene
+
+        current_pos = instances[instance_id].position
+        new_pos = (current_pos[0], max(0, current_pos[1] - step))
+
+        if new_pos[1] == 0:
+            logging.warning(
+                "%s is out of the range. Stay in place", instance_type.capitalize()
+            )
+            return self.scene
+
+        instances[instance_id].position = new_pos
+        logging.info("Set %s to new position %s", instance_type, str(new_pos))
 
         return self.render_scene()

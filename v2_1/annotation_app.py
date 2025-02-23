@@ -7,23 +7,10 @@ from datetime import datetime
 import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
-
-# JacaScript Injection
-page_reloading_popup = """
-<script>
-window.addEventListener('beforeunload', function (e) {
-    e.preventDefault();  // Required by Chrome
-    e.returnValue = '';
-});
-</script>
-"""
-components.html(page_reloading_popup, height=0)
-
-
 st.title("Drone Rescue. Annotation App")
 
-# DONE: Notify before reloading page with F5
-# TODO: Add scaling for scene rendering
+# CANCELLED: Notify before reloading page with F5
+# DONE: Add scaling for scene rendering
 # TODO: Enable moving left, right and down
 # TODO: Reorganize UX
 

@@ -3,7 +3,9 @@ from v2_1.app_utils.render_instance_as_html import render_agent_or_instance
 from v2_1.generate_sample import AgentData, TargetData
 
 # TODO: add typing for agent_metadata
-def render_agent(agents: Dict[int, AgentData], agent_metadata: dict) -> str:
+def render_agent(
+    agents: Dict[int, AgentData], agent_metadata: dict, scale_factor: int = 1
+) -> str:
     rendering_parts = []
     for agent in agents.values():
         rendering_parts.append(
@@ -13,12 +15,15 @@ def render_agent(agents: Dict[int, AgentData], agent_metadata: dict) -> str:
                 agent_metadata[agent.role]["size"],
                 agent_metadata[agent.role]["sensor"]["range"],
                 agent_metadata[agent.role]["color"],
+                scale_factor,
             )
         )
     return " ".join(rendering_parts)
 
 
-def render_target(targets: Dict[int, TargetData], target_metadata: dict) -> list[str]:
+def render_target(
+    targets: Dict[int, TargetData], target_metadata: dict, scale_factor: int = 1
+) -> list[str]:
     rendering_parts = []
     for target in targets.values():
         rendering_parts.append(
@@ -28,6 +33,7 @@ def render_target(targets: Dict[int, TargetData], target_metadata: dict) -> list
                 target_metadata["size"],
                 0,
                 target_metadata["color"],
+                scale_factor,
                 has_observation=False,
             )
         )
@@ -35,7 +41,9 @@ def render_target(targets: Dict[int, TargetData], target_metadata: dict) -> list
     return "".join(rendering_parts)
 
 
-def render_base(bases: Dict[int, TargetData], base_metadata: dict) -> str:
+def render_base(
+    bases: Dict[int, TargetData], base_metadata: dict, scale_factor: int = 1
+) -> str:
     rendering_parts = []
     for base in bases.values():
         rendering_parts.append(
@@ -45,6 +53,7 @@ def render_base(bases: Dict[int, TargetData], base_metadata: dict) -> str:
                 base_metadata["size"],
                 0,
                 base_metadata["color"],
+                scale_factor,
                 has_observation=False,
                 show_text=False,
             )
