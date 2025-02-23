@@ -7,7 +7,7 @@ def render_agent(
     agents: Dict[int, AgentData], agent_metadata: dict, scale_factor: int = 1
 ) -> str:
     rendering_parts = []
-    for agent in agents.values():
+    for agent_id, agent in agents.items():
         rendering_parts.append(
             render_agent_or_instance(
                 agent.position,
@@ -15,6 +15,7 @@ def render_agent(
                 agent_metadata[agent.role]["size"],
                 agent_metadata[agent.role]["sensor"]["range"],
                 agent_metadata[agent.role]["color"],
+                agent_id,
                 scale_factor,
             )
         )
@@ -25,7 +26,7 @@ def render_target(
     targets: Dict[int, TargetData], target_metadata: dict, scale_factor: int = 1
 ) -> list[str]:
     rendering_parts = []
-    for target in targets.values():
+    for target_id, target in targets.items():
         rendering_parts.append(
             render_agent_or_instance(
                 target.position,
@@ -33,6 +34,7 @@ def render_target(
                 target_metadata["size"],
                 0,
                 target_metadata["color"],
+                target_id,
                 scale_factor,
                 has_observation=False,
             )
@@ -45,7 +47,7 @@ def render_base(
     bases: Dict[int, TargetData], base_metadata: dict, scale_factor: int = 1
 ) -> str:
     rendering_parts = []
-    for base in bases.values():
+    for base_id, base in bases.items():
         rendering_parts.append(
             render_agent_or_instance(
                 base.position,
@@ -53,6 +55,7 @@ def render_base(
                 base_metadata["size"],
                 0,
                 base_metadata["color"],
+                base_id,
                 scale_factor,
                 has_observation=False,
                 show_text=False,

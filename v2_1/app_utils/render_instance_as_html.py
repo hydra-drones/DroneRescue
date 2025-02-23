@@ -7,6 +7,7 @@ def render_agent_or_instance(
     agent_size: int = 20,
     observation_area_size: int = 50,
     color: str = "black",
+    id: Optional[int] = None,
     scale_factor: Optional[int] = None,
     has_observation: bool = True,
     show_text: bool = True,
@@ -18,6 +19,9 @@ def render_agent_or_instance(
 
     if rendering_parts is None:
         rendering_parts = []
+
+    if id is None:
+        id = 1
 
     transform_style = "transform: translate(-50%, -50%);"
 
@@ -57,7 +61,7 @@ def render_agent_or_instance(
             """
 
         rendering_parts.append(
-            f'<div style="{text_label}">({position[0]}, {position[1]})</div>'
+            f'<div style="{text_label}">{id} ({position[0]}, {position[1]})</div>'
         )
 
     return "".join(rendering_parts)

@@ -11,7 +11,7 @@ st.title("Drone Rescue. Annotation App")
 
 # CANCELLED: Notify before reloading page with F5
 # DONE: Add scaling for scene rendering
-# TODO: Enable moving left, right and down
+# DONE: Enable moving left, right and down
 # TODO: Reorganize UX
 
 scene_col, col1, col2, col3 = st.columns(4, border=True)
@@ -39,29 +39,30 @@ if "scene" not in st.session_state:
     st.session_state.scene = st.session_state.controller.render_scene()
 
 
-def move_dot(direction):
-    if direction == "up":
-        st.session_state.scene = st.session_state.controller.go_up(
-            st.session_state.instance_type,
-            st.session_state.active_agent_id,
-            st.session_state.step,
-        )
-    # elif direction == "down" and st.session_state.dot_position[1] < max_y:
-    #     st.session_state.dot_position[1] += step
-    # elif direction == "left" and st.session_state.dot_position[0] > 0:
-    #     st.session_state.dot_position[0] -= step
-    # elif direction == "right" and st.session_state.dot_position[0] < max_x:
-    #     st.session_state.dot_position[0] += step
+def move_instance(direction):
+    st.session_state.scene = st.session_state.controller.move(
+        st.session_state.instance_type,
+        st.session_state.active_agent_id,
+        direction,
+        st.session_state.step,
+    )
 
 
 # Control Panel
 with col1:
     st.write("Control Panel")
-    col11, col12 = st.columns(2)
-    with col11:
+
+# Scene Column
+with scene_col:
+    st.markdown(st.session_state.scene, unsafe_allow_html=True)
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
         st.selectbox(
             "Agent instance", options=("agent", "target", "base"), key="instance_type"
         )
+        st.button("Left", on_click=move_instance, args=("left",))
+    with col2:
         st.number_input(
             "Agent ID",
             value=1,
@@ -75,17 +76,8 @@ with col1:
                 else len(st.session_state.controller.sampled_bases)
             ),
         )
-        st.number_input("Go with step", value=5, key="step", min_value=1)
-
-# Scene Column
-with scene_col:
-    st.markdown(st.session_state.scene, unsafe_allow_html=True)
-
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.button("Left", on_click=move_dot, args=("left",))
-    with col2:
-        st.button("Up", on_click=move_dot, args=("up",))
-        st.button("Down", on_click=move_dot, args=("down",))
+        st.button("Up", on_click=move_instance, args=("up",))
+        st.button("Down", on_click=move_instance, args=("down",))
     with col3:
-        st.button("Right", on_click=move_dot, args=("right",))
+        st.number_input("Go with step", value=5, key="step", min_value=1)
+        st.button("Right", on_click=move_instance, args=("right",))

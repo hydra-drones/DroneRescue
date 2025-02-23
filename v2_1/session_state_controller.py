@@ -65,10 +65,11 @@ class SceneController:
         """
         return self.scene
 
-    def go_up(
+    def move(
         self,
         instance_type: Literal["agent", "target", "base"],
         instance_id: int,
+        direction: Literal["up", "down"],
         step: int = 1,
     ):
 
@@ -94,13 +95,41 @@ class SceneController:
             return self.scene
 
         current_pos = instances[instance_id].position
-        new_pos = (current_pos[0], max(0, current_pos[1] - step))
+        x, y = current_pos[0], current_pos[1]
 
-        if new_pos[1] == 0:
-            logging.warning(
-                "%s is out of the range. Stay in place", instance_type.capitalize()
-            )
-            return self.scene
+        if direction == "up":
+            critical_value = 0
+            y = max(critical_value, (y - step))
+            if y == critical_value:
+                logging.warning(
+                    "%s is out of the range. Stay in place", instance_type.capitalize()
+                )
+
+        elif direction == "down":
+            critical_value = self.scene_metadata.get("size_of_mission_area")[1]
+            y = min(critical_value, (y + step))
+            if y == critical_value:
+                logging.warning(
+                    "%s is out of the range. Stay in place", instance_type.capitalize()
+                )
+
+        elif direction == "right":
+            critical_value = self.scene_metadata.get("size_of_mission_area")[0]
+            x = min(critical_value, (x + step))
+            if x == critical_value:
+                logging.warning(
+                    "%s is out of the range. Stay in place", instance_type.capitalize()
+                )
+
+        elif direction == "left":
+            critical_value = 0
+            x = max(critical_value, (x - step))
+            if x == critical_value:
+                logging.warning(
+                    "%s is out of the range. Stay in place", instance_type.capitalize()
+                )
+
+        new_pos = (x, y)
 
         instances[instance_id].position = new_pos
         logging.info("Set %s to new position %s", instance_type, str(new_pos))

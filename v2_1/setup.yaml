@@ -13,7 +13,7 @@ agents:
       min_yx: [1, 1]
       max_yx: ${metadata.size_of_mission_area}
     sensor:
-      range: 17
+      range: 35
     special_action:
       name: "save target coordinates"
       id: 1
@@ -32,7 +32,7 @@ agents:
       min_yx: [1, 1]
       max_yx: ${metadata.size_of_mission_area}
     sensor:
-      range: 10
+      range: 20
     special_action:
       name: "scan area"
       id: 2
@@ -52,7 +52,7 @@ agents:
       min_yx: [1, 1]
       max_yx: ${metadata.size_of_mission_area}
     sensor:
-      range: 25
+      range: 50
     special_action:
       name: "send order"
       id: 3
