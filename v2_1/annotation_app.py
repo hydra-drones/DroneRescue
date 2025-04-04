@@ -9,10 +9,7 @@ import streamlit.components.v1 as components
 st.set_page_config(layout="wide")
 st.title("Drone Rescue. Annotation App")
 
-# CANCELLED: Notify before reloading page with F5
-# DONE: Add scaling for scene rendering
-# DONE: Enable moving left, right and down
-# TODO: Reorganize UX
+# TODO: Add observation to controller
 
 scene_col, col1, col2, col3 = st.columns(4, border=True)
 

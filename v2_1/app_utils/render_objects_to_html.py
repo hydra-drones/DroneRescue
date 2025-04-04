@@ -1,10 +1,11 @@
 from typing import Dict
 from v2_1.app_utils.render_instance_as_html import render_agent_or_instance
-from v2_1.generate_sample import AgentData, TargetData
+from v2_1.generate_sample import TargetData
+from v2_1.instances.agent import Agent
 
 # TODO: add typing for agent_metadata
 def render_agent(
-    agents: Dict[int, AgentData], agent_metadata: dict, scale_factor: int = 1
+    agents: Dict[int, Agent], agent_metadata: dict, scale_factor: int = 1
 ) -> str:
     rendering_parts = []
     for agent_id, agent in agents.items():

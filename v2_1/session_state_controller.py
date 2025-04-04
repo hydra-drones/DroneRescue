@@ -5,7 +5,9 @@ from typing import Dict, Literal, Optional, Tuple
 import numpy as np
 import streamlit as st
 
-from v2_1.generate_sample import DatasetGenerator, AgentData, TargetData, BaseData
+from v2_1.generate_sample import DatasetGenerator, TargetData, BaseData
+from v2_1.instances.agent import Agent
+
 from v2_1.app_utils.render_objects_to_html import (
     render_agent,
     render_base,
@@ -20,14 +22,14 @@ class SceneController:
     def __init__(self, cfg):
         self.cfg = cfg
         self.scene_metadata = cfg["metadata"]
-        self.sampled_agents: Optional[Dict[int, AgentData]] = None
+        self.sampled_agents: Optional[Dict[int, Agent]] = None
         self.sampled_targets: Optional[Dict[int, TargetData]] = None
         self.sampled_bases: Optional[Dict[int, BaseData]] = None
         self.rendered_scene = None
 
     def sample_instances(
         self,
-    ) -> Tuple[Dict[int, AgentData], Dict[int, TargetData], Dict[int, BaseData]]:
+    ) -> Tuple[Dict[int, Agent], Dict[int, TargetData], Dict[int, BaseData]]:
         generator = DatasetGenerator(
             self.cfg["agents"],
             self.cfg["targets"],
@@ -131,7 +133,10 @@ class SceneController:
 
         new_pos = (x, y)
 
-        instances[instance_id].position = new_pos
-        logging.info("Set %s to new position %s", instance_type, str(new_pos))
+        if isinstance(instances[instance_id], Agent):
+            instances[instance_id].set_new_position(new_pos)
+        else:
+            instances[instance_id].position = new_pos
+            logging.info("Set %s to new position %s", instance_type, str(new_pos))
 
         return self.render_scene()

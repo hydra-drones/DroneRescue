@@ -6,13 +6,9 @@ from dataclasses import dataclass
 from typing import Dict, Optional, Tuple
 from collections import defaultdict
 
+from v2_1.instances.agent import Agent
+
 logging.basicConfig(level=logging.INFO)
-
-
-@dataclass
-class AgentData:
-    role: str
-    position: Tuple[int, int]
 
 
 @dataclass
@@ -31,13 +27,13 @@ class DatasetGenerator:
         self.targets = targets
         self.base = base
         self.metadata = metadata
-        self.sampled_agents: Optional[Dict[int, AgentData]] = None
+        self.sampled_agents: Optional[Dict[int, Agent]] = None
         self.sampled_targets: Optional[Dict[int, TargetData]] = None
         self.sampled_bases: Optional[Dict[int, BaseData]] = None
 
     def sample(
         self,
-    ) -> Tuple[Dict[int, AgentData], Dict[int, TargetData], Dict[int, BaseData]]:
+    ) -> Tuple[Dict[int, Agent], Dict[int, TargetData], Dict[int, BaseData]]:
         self._sample_agents()
         self._sample_targets()
         self._sample_base()
@@ -59,9 +55,7 @@ class DatasetGenerator:
                     agent["position_range"]["max_yx"],
                 )
 
-                self.sampled_agents[_idx] = AgentData(
-                    role=agent["role"], position=position
-                )
+                self.sampled_agents[_idx] = Agent(_idx, agent["role"], position)
 
                 _idx += 1
 
