@@ -8,7 +8,6 @@ from omegaconf import OmegaConf
 
 
 st.set_page_config(layout="wide")
-st.title("Drone Rescue. Annotation App")
 
 scene_col, col1 = st.columns([1, 2], gap="medium")
 
@@ -46,13 +45,15 @@ def move_instance(direction):
 
 # Control Panel
 with col1:
-    st.write("Control Panel")
-    for i in st.session_state.controller.sampled_agents:
-        agent: Agent = st.session_state.controller.sampled_agents[i]
-        with st.expander(f"{agent.role} {i} : {agent.position}"):
+    st.text(f"Global timestamp: {st.session_state.controller.global_timestamp}")
+    for agent_id in st.session_state.controller.sampled_agents:
+        agent: Agent = st.session_state.controller.sampled_agents[agent_id]
+        with st.expander(
+            f"{agent.role} {agent_id} : {agent.position} ||| {agent.get_latest_timestamp()}"
+        ):
             create_messaging_ui(
-                agent_id=i,
-                controller=st.session_state.controller,
+                agent_id,
+                st.session_state.controller,
             )
 
 # Scene Column

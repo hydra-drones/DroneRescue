@@ -21,6 +21,7 @@ class SceneController:
         self.sampled_targets: Optional[Dict[int, TargetData]] = None
         self.sampled_bases: Optional[Dict[int, BaseData]] = None
         self.rendered_scene = None
+        self.global_timestamp: int = 0
 
     def sample_instances(
         self,
@@ -129,7 +130,23 @@ class SceneController:
         new_pos = (x, y)
 
         if isinstance(instances[instance_id], Agent):
-            instances[instance_id].set_new_position(0, new_pos)
+            current_timestamp = instances[instance_id].get_latest_timestamp()
+
+            if current_timestamp == self.global_timestamp:
+                instances[instance_id].update_timestamp_and_set_new_position(
+                    step, new_pos
+                )
+                self.global_timestamp += step
+            elif current_timestamp + step > self.global_timestamp:
+                logging.warning(
+                    "After taking the step, the timestamp of %s will be greater than the global timestamp",
+                )
+                return self.scene
+            else:
+                instances[instance_id].update_timestamp_and_set_new_position(
+                    step, new_pos
+                )
+
         else:
             instances[instance_id].position = new_pos
             logging.info("Set %s to new position %s", instance_type, str(new_pos))

@@ -33,6 +33,7 @@ class Agent:
         self._actions: dict[int, str] = {}
         self._strategy: dict[int, str] = {}
         self._special_actions: dict[int, str] = {}
+        self._timestamp: int = start_timestamp
         self._setup_context()
 
     def _setup_context(self):
@@ -46,24 +47,41 @@ class Agent:
             "mission": self._mission,
         }
 
-    def set_new_position(self, timestamp: int, new_position: tuple[int, int]):
+    def update_timestamp_and_set_new_position(
+        self, step_in_time: int, new_position: tuple[int, int]
+    ):
+        """Update timestamp and set new position"""
+        self._increase_timestamp(step_in_time)
+        self._set_new_position(new_position)
+
+    def get_latest_timestamp(self) -> int:
+        """Get the latest timestamp"""
+        return self._timestamp
+
+    def _increase_timestamp(self, timestamp: int):
+        """Update the timestamp"""
+        if self.verbose:
+            logging.info("Agent %s updated timestamp to %s", self.agent_id, timestamp)
+        self._timestamp += timestamp
+        print("Updated timestamp: ", self._timestamp)
+
+    def _set_new_position(self, new_position: tuple[int, int]):
         """Add position with timestamp"""
         self.position = new_position
-        self._timestamp = timestamp
-        self._positions[timestamp] = new_position
+        self._positions[self._timestamp] = new_position
         if self.verbose:
             logging.info("Agent %s moved to %s", self.agent_id, new_position)
 
     def add_message_from_agent(
         self,
-        timestamp: int,
+        global_timestamp: int,
         sender_id: int,
         message: str,
         message_type: Literal["info", "order"],
     ):
         """Add message from agent to the list of messages"""
 
-        self._messages_from_agents[timestamp] = {
+        self._messages_from_agents[global_timestamp] = {
             "sender_id": sender_id,
             "message": message,
             "type": message_type,
@@ -74,12 +92,12 @@ class Agent:
                 "Agent %s received message from agent %s at %s",
                 self.agent_id,
                 sender_id,
-                timestamp,
+                global_timestamp,
             )
 
     def add_sended_message(
         self,
-        timestamp: int,
+        global_timestamp: int,
         receiver_id: int,
         message: str,
         message_type: Literal["info", "order"],
@@ -92,14 +110,14 @@ class Agent:
                 receiver_id,
                 message,
             )
-        self._sended_messages[timestamp] = {
+        self._sended_messages[global_timestamp] = {
             "receiver": receiver_id,
             "message": message,
             "type": message_type,
         }
 
     def add_latest_information_about_agent(
-        self, timestamp: int, agent_id: int, position: str
+        self, global_timestamp: int, agent_id: int, position: str
     ):
         """Add latest information about agent"""
         if self.verbose:
@@ -107,10 +125,10 @@ class Agent:
                 "Agent %s received information from agent %s at %s",
                 self.agent_id,
                 agent_id,
-                timestamp,
+                global_timestamp,
             )
         self._latest_agent_information[agent_id] = {
-            "timestamp": timestamp,
+            "timestamp": global_timestamp,
             "position": position,
         }
 
@@ -138,25 +156,29 @@ class Agent:
             "special_action": special_action,
         }
 
-    def update_mission_progress(self, timestamp: int, progress: str):
+    def update_mission_progress(self, global_timestamp: int, progress: str):
         """Update the mission progress"""
         if self.verbose:
             logging.info(
-                "Agent %s updated mission progress at %s", self.agent_id, timestamp
+                "Agent %s updated mission progress at %s",
+                self.agent_id,
+                global_timestamp,
             )
 
-        self._mission_progress[timestamp] = progress
+        self._mission_progress[global_timestamp] = progress
 
-    def update_current_strategy(self, timestamp: int, strategy: str):
+    def update_current_strategy(self, global_timestamp: int, strategy: str):
         """Update the mission progress"""
         if self.verbose:
             logging.info(
-                "Agent %s updated mission progress at %s", self.agent_id, timestamp
+                "Agent %s updated mission progress at %s",
+                self.agent_id,
+                global_timestamp,
             )
 
-        self._strategy[timestamp] = strategy
+        self._strategy[global_timestamp] = strategy
 
-    def add_action(self, timestamp: int, new_x: int, new_y: int):
+    def add_action(self, global_timestamp: int, new_x: int, new_y: int):
         """Add action to the list of actions"""
         if self.verbose:
             logging.info(
@@ -164,15 +186,15 @@ class Agent:
                 self.agent_id,
                 new_x,
                 new_y,
-                timestamp,
+                global_timestamp,
             )
-        self._actions[timestamp] = (new_x, new_y)
+        self._actions[global_timestamp] = (new_x, new_y)
 
-    def add_special_action(self, timestamp: int, action: str):
+    def add_special_action(self, global_timestamp: int, action: str):
         """Add special action to the list of actions"""
         if self.verbose:
             logging.info(
-                "Agent %s decided to %s at %s", self.agent_id, action, timestamp
+                "Agent %s decided to %s at %s", self.agent_id, action, global_timestamp
             )
 
-        self._special_actions[timestamp] = action
+        self._special_actions[global_timestamp] = action

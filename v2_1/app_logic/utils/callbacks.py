@@ -20,12 +20,25 @@ def send_message_to_agent(
     confirm_sending: bool,
     message: str,
     message_type: Literal["info", "order"],
-    timestamp: int,
+    global_timestamp: int,
 ) -> CallbackResponse:
     """Send message to agent"""
 
     sender_id = sender.agent_id
     receiver_id = receiver.agent_id
+
+    sender_timestamp = sender.get_latest_timestamp()
+    receiver_timestamp = receiver.get_latest_timestamp()
+
+    if sender_timestamp != global_timestamp or receiver_timestamp != global_timestamp:
+        return CallbackResponse(
+            success=False,
+            message=(
+                f"Timestamp mismatch: sender timestamp ({sender_timestamp}), "
+                f"receiver timestamp ({receiver_timestamp}), global timestamp ({global_timestamp})"
+            ),
+            status_code=400,
+        )
 
     if not confirm_sending:
         return CallbackResponse(
@@ -42,14 +55,14 @@ def send_message_to_agent(
         )
 
     sender.add_sended_message(
-        timestamp=timestamp,
+        global_timestamp=global_timestamp,
         receiver_id=receiver_id,
         message=message,
         message_type=message_type,
     )
 
     receiver.add_message_from_agent(
-        timestamp=timestamp,
+        global_timestamp=global_timestamp,
         sender_id=sender_id,
         message=message,
         message_type=message_type,

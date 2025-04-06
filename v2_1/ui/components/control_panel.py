@@ -58,7 +58,7 @@ def create_messaging_ui(agent_id: int, controller: SceneController):
                 st.session_state[f"confirm_sending_msg_from_agent_{agent_id}"],
                 st.session_state[f"message_from_agent_{agent_id}"],
                 st.session_state[f"send_msg_type_from_agent_{agent_id}"],
-                10,  # placeholder for actual timestamp
+                controller.global_timestamp,
             ),
             key=f"send_msg_from_agent_{agent_id}",
         )
