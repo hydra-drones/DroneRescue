@@ -1,14 +1,9 @@
-from collections import defaultdict
-from datetime import datetime
-from operator import sub
 from typing import Dict, Literal, Optional, Tuple
-import numpy as np
-import streamlit as st
 
-from v2_1.generate_sample import DatasetGenerator, TargetData, BaseData
-from v2_1.instances.agent import Agent
+from v2_1.scripts.generate_sample import DatasetGenerator, TargetData, BaseData
+from v2_1.app_logic.data_models.agent import Agent
 
-from v2_1.app_utils.render_objects_to_html import (
+from v2_1.ui.render.render_objects_to_html import (
     render_agent,
     render_base,
     render_target,
@@ -134,7 +129,7 @@ class SceneController:
         new_pos = (x, y)
 
         if isinstance(instances[instance_id], Agent):
-            instances[instance_id].set_new_position(new_pos)
+            instances[instance_id].set_new_position(0, new_pos)
         else:
             instances[instance_id].position = new_pos
             logging.info("Set %s to new position %s", instance_type, str(new_pos))

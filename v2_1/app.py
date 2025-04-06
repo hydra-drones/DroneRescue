@@ -1,22 +1,21 @@
-from v2_1.session_state_controller import SceneController
+from v2_1.app_logic.services.session_state_controller import SceneController
+from v2_1.ui.components.control_panel import create_messaging_ui
+from v2_1.app_logic.data_models.agent import Agent
 import streamlit as st
 from hydra.core.global_hydra import GlobalHydra
 from hydra import initialize, compose
 from omegaconf import OmegaConf
-from datetime import datetime
-import streamlit.components.v1 as components
+
 
 st.set_page_config(layout="wide")
 st.title("Drone Rescue. Annotation App")
 
-# TODO: Add observation to controller
-
-scene_col, col1, col2, col3 = st.columns(4, border=True)
+scene_col, col1 = st.columns([1, 2], gap="medium")
 
 
 def get_config():
     if not GlobalHydra.instance().is_initialized():
-        initialize(config_path="./")
+        initialize(config_path="./config")
     cfg = compose(config_name="setup")
     return OmegaConf.to_container(cfg, resolve=True)
 
@@ -48,6 +47,13 @@ def move_instance(direction):
 # Control Panel
 with col1:
     st.write("Control Panel")
+    for i in st.session_state.controller.sampled_agents:
+        agent: Agent = st.session_state.controller.sampled_agents[i]
+        with st.expander(f"{agent.role} {i} : {agent.position}"):
+            create_messaging_ui(
+                agent_id=i,
+                controller=st.session_state.controller,
+            )
 
 # Scene Column
 with scene_col:

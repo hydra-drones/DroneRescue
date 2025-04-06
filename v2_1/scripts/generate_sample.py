@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from typing import Dict, Optional, Tuple
 from collections import defaultdict
 
-from v2_1.instances.agent import Agent
+from v2_1.app_logic.data_models.agent import Agent
 
 logging.basicConfig(level=logging.INFO)
 
@@ -55,7 +55,9 @@ class DatasetGenerator:
                     agent["position_range"]["max_yx"],
                 )
 
-                self.sampled_agents[_idx] = Agent(_idx, agent["role"], position)
+                self.sampled_agents[_idx] = Agent(
+                    _idx, agent["role"], 0, position, mission=""
+                )
 
                 _idx += 1
 
