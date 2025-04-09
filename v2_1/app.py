@@ -67,6 +67,14 @@ with scene_col:
         )
 
     st.markdown(st.session_state.scene, unsafe_allow_html=True)
+    st.checkbox(
+        "Edit Mode",
+        value=False,
+        key="edit_mode",
+        on_change=lambda: st.session_state.controller.set_edit_mode(
+            st.session_state.edit_mode
+        ),
+    )
 
     col1, col2, col3 = st.columns(3)
     with col1:

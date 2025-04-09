@@ -33,7 +33,7 @@ class Agent:
         self._actions: dict[int, str] = {}
         self._strategy: dict[int, str] = {}
         self._special_actions: dict[int, str] = {}
-        self._timestamp: int = start_timestamp
+        self._current_timestamp: int = start_timestamp
         self._setup_context()
 
     def _setup_context(self):
@@ -47,6 +47,19 @@ class Agent:
             "mission": self._mission,
         }
 
+    def update_position_in_edit_mode(self, new_position: tuple[int, int]):
+        """Update position in edit mode. Timestamp is not updated
+
+        Set new position under the current timestamp
+        """
+        self._set_new_position(new_position)
+        if self.verbose:
+            logging.info(
+                "EDIT MODE: Agent %s updated position to %s",
+                self.agent_id,
+                self.position,
+            )
+
     def update_timestamp_and_set_new_position(
         self, step_in_time: int, new_position: tuple[int, int]
     ):
@@ -56,19 +69,19 @@ class Agent:
 
     def get_latest_timestamp(self) -> int:
         """Get the latest timestamp"""
-        return self._timestamp
+        return self._current_timestamp
 
     def _increase_timestamp(self, timestamp: int):
         """Update the timestamp"""
         if self.verbose:
             logging.info("Agent %s updated timestamp to %s", self.agent_id, timestamp)
-        self._timestamp += timestamp
-        print("Updated timestamp: ", self._timestamp)
+        self._current_timestamp += timestamp
+        print("Updated timestamp: ", self._current_timestamp)
 
     def _set_new_position(self, new_position: tuple[int, int]):
         """Add position with timestamp"""
         self.position = new_position
-        self._positions[self._timestamp] = new_position
+        self._positions[self._current_timestamp] = new_position
         if self.verbose:
             logging.info("Agent %s moved to %s", self.agent_id, new_position)
 
@@ -151,7 +164,7 @@ class Agent:
             "agent_id": self.agent_id,
             "role": self.role,
             "position": self.position,
-            "timestamp": self._timestamp,
+            "timestamp": self._current_timestamp,
             "action": action,
             "special_action": special_action,
         }

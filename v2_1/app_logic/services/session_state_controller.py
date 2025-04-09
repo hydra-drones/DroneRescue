@@ -25,6 +25,7 @@ class SceneController:
         self.sampled_bases: Optional[Dict[int, BaseData]] = None
         self.rendered_scene = None
         self.global_timestamp: int = 0
+        self.edit_mode: bool = False
         self._path_to_save = Path(self.scene_metadata.get("save_datasample_to"))
         self.datasample_id: int = self._get_datasample_id()
 
@@ -140,20 +141,23 @@ class SceneController:
         if isinstance(instances[instance_id], Agent):
             current_timestamp = instances[instance_id].get_latest_timestamp()
 
-            if current_timestamp == self.global_timestamp:
-                instances[instance_id].update_timestamp_and_set_new_position(
-                    step, new_pos
-                )
-                self.global_timestamp += step
-            elif current_timestamp + step > self.global_timestamp:
-                logging.warning(
-                    "After taking the step, the timestamp of %s will be greater than the global timestamp",
-                )
-                return self.scene
+            if self.edit_mode:
+                instances[instance_id].update_position_in_edit_mode(new_pos)
             else:
-                instances[instance_id].update_timestamp_and_set_new_position(
-                    step, new_pos
-                )
+                if current_timestamp == self.global_timestamp:
+                    instances[instance_id].update_timestamp_and_set_new_position(
+                        step, new_pos
+                    )
+                    self.global_timestamp += step
+                elif current_timestamp + step > self.global_timestamp:
+                    logging.warning(
+                        "After taking the step, the timestamp of %s will be greater than the global timestamp",
+                    )
+                    return self.scene
+                else:
+                    instances[instance_id].update_timestamp_and_set_new_position(
+                        step, new_pos
+                    )
 
         else:
             instances[instance_id].position = new_pos
@@ -205,6 +209,11 @@ class SceneController:
             f.write(json_str)
             logging.info("Scene saved to %s", filename)
         return filename
+
+    def set_edit_mode(self, edit_mode: bool):
+        """Set edit mode"""
+        self.edit_mode = edit_mode
+        logging.info("Edit mode set to %s", edit_mode)
 
     def _get_datasample_id(self) -> int:
         if not self._path_to_save.exists():
