@@ -1,4 +1,7 @@
+from pathlib import Path
 from typing import Dict, Literal, Optional, Tuple
+
+import json
 
 from v2_1.scripts.generate_sample import DatasetGenerator, TargetData, BaseData
 from v2_1.app_logic.data_models.agent import Agent
@@ -22,10 +25,13 @@ class SceneController:
         self.sampled_bases: Optional[Dict[int, BaseData]] = None
         self.rendered_scene = None
         self.global_timestamp: int = 0
+        self._path_to_save = Path(self.scene_metadata.get("save_datasample_to"))
+        self.datasample_id: int = self._get_datasample_id()
 
     def sample_instances(
         self,
     ) -> Tuple[Dict[int, Agent], Dict[int, TargetData], Dict[int, BaseData]]:
+        """Randomly sample agents, targets, and bases from the configuration"""
         generator = DatasetGenerator(
             self.cfg["agents"],
             self.cfg["targets"],
@@ -42,6 +48,7 @@ class SceneController:
         return self.sampled_agents, self.sampled_targets, self.sampled_bases
 
     def render_scene(self) -> str:
+        """Return the HTML code for the scene"""
 
         scale_factor = self.scene_metadata.get("scale_factor")
 
@@ -70,6 +77,7 @@ class SceneController:
         direction: Literal["up", "down"],
         step: int = 1,
     ):
+        """Move the instance in the specified direction by the given step size"""
 
         instance_dict = {
             "agent": self.sampled_agents,
@@ -152,3 +160,64 @@ class SceneController:
             logging.info("Set %s to new position %s", instance_type, str(new_pos))
 
         return self.render_scene()
+
+    def freeze_targets(self) -> dict:
+        """Convert the target position into dict"""
+        freezed_targets = {}
+        for target_id, target_data_cls in self.sampled_targets.items():
+            freezed_targets[target_id] = {"position": target_data_cls.position}
+        return freezed_targets
+
+    def freeze_bases(self) -> dict:
+        """Convert the base position into dict"""
+        freezed_bases = {}
+        for base_id, base_data_cls in self.sampled_bases.items():
+            freezed_bases[base_id] = {"position": base_data_cls.position}
+        return freezed_bases
+
+    def freeze_agents(self) -> dict:
+        """Save all agents' states into the dict"""
+        freezed_agents = {}
+        for agent_id, agent_cls in self.sampled_agents.items():
+            freezed_agents[agent_id] = agent_cls.freeze_agent_state()
+        return freezed_agents
+
+    def get_freezed_scene(self) -> dict:
+        """Collect all the scene data into the dict"""
+        freezed_scene = {
+            "agents": self.freeze_agents(),
+            "targets": self.freeze_targets(),
+            "bases": self.freeze_bases(),
+            "area": self.scene_metadata.get("size_of_mission_area"),
+        }
+        return freezed_scene
+
+    def save_datasample(self):
+        """Save scene data into json file"""
+        if not self._path_to_save.exists():
+            self._path_to_save.mkdir(parents=True, exist_ok=True)
+
+        filename = f"{self._path_to_save}/{self.datasample_id}.json"
+
+        with open(filename, "w", encoding="utf-8") as f:
+            # Convert the dictionary to a JSON string
+            json_str = json.dumps(self.get_freezed_scene(), indent=4)
+            f.write(json_str)
+            logging.info("Scene saved to %s", filename)
+        return filename
+
+    def _get_datasample_id(self) -> int:
+        if not self._path_to_save.exists():
+            self._path_to_save.mkdir(parents=True, exist_ok=True)
+
+        last_id = self._get_last_id_in_datadir()
+        formatted_id = f"{last_id:04d}"
+
+        return formatted_id
+
+    def _get_last_id_in_datadir(self) -> int:
+        files = list(self._path_to_save.glob("*.json"))
+        if not files:
+            return 0
+        last_file = max(files, key=lambda x: int(x.stem))
+        return int(last_file.stem) + 1

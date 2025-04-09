@@ -198,3 +198,18 @@ class Agent:
             )
 
         self._special_actions[global_timestamp] = action
+
+    def freeze_agent_state(self) -> dict:
+        """Convert the agent state into dict"""
+        return {
+            "role": self.role,
+            "mission": self._mission,
+            "messages_from_agents": self._messages_from_agents,
+            "sended_messages": self._sended_messages,
+            "positions": self._positions,
+            "mission_progress": self._mission_progress,
+            "latest_agents_information": self._latest_agent_information,
+            "actions": self._actions,
+            "strategy": self._strategy,
+            "special_actions": self._special_actions,
+        }

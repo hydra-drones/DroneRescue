@@ -58,6 +58,14 @@ with col1:
 
 # Scene Column
 with scene_col:
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write(f"Current datasample ID: {st.session_state.controller.datasample_id}")
+    with col2:
+        st.button(
+            "Save sampled scene", on_click=st.session_state.controller.save_datasample
+        )
+
     st.markdown(st.session_state.scene, unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns(3)
