@@ -7,7 +7,8 @@ from hydra import initialize, compose
 from omegaconf import OmegaConf
 
 # DONE: Allow to increase the agent timestamp up to global timsestamp without perfoming action
-# TODO: Save the scene if only all agents are in the same timstamp
+# TODO: Save information about target position and base position
+# CANCELLED: Save the scene if only all agents are in the same timstamp
 
 st.set_page_config(layout="wide")
 

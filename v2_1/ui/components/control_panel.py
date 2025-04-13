@@ -25,18 +25,22 @@ def create_messaging_ui(agent_id: int, controller: SceneController):
             key=f"send_msg_type_from_agent_{agent_id}",
         )
 
-        # Recipient selector
-        st.selectbox(
-            "Agent ID",
-            options=(
-                [
-                    agent_id_option
-                    for agent_id_option in list(controller.sampled_agents.keys())
-                    if agent_id_option != agent_id
-                ]
-            ),
-            key=f"selected_agent_for_agent_{agent_id}",
-        )
+        # Get all other agents
+        other_agents = [
+            agent_id_option
+            for agent_id_option in list(controller.sampled_agents.keys())
+            if agent_id_option != agent_id
+        ]
+
+        # Create checkboxes for each agent
+        for other_agent_id in other_agents:
+            agent_role = controller.sampled_agents[other_agent_id].role
+            checkbox_key = f"recipient_checkbox_{agent_id}_{other_agent_id}"
+
+            st.checkbox(
+                f"{agent_role} {other_agent_id}",
+                key=checkbox_key,
+            )
 
         # Confirmation checkbox
         st.checkbox(
@@ -46,19 +50,28 @@ def create_messaging_ui(agent_id: int, controller: SceneController):
         )
 
         # Send button
-        st.button(
+        if st.button(
             "Send",
-            on_click=execute_callback,
-            args=(
-                send_message_to_agent,
-                controller.sampled_agents[agent_id],
-                controller.sampled_agents[
-                    st.session_state[f"selected_agent_for_agent_{agent_id}"]
-                ],
-                st.session_state[f"confirm_sending_msg_from_agent_{agent_id}"],
-                st.session_state[f"message_from_agent_{agent_id}"],
-                st.session_state[f"send_msg_type_from_agent_{agent_id}"],
-                controller.global_timestamp,
-            ),
             key=f"send_msg_from_agent_{agent_id}",
-        )
+        ):
+            # Get the selected recipients
+            recipients = [
+                recipient_id
+                for recipient_id in other_agents
+                if st.session_state[f"recipient_checkbox_{agent_id}_{recipient_id}"]
+            ]
+
+            if not recipients:
+                st.warning("Please select at least one recipient")
+            else:
+                # Send message to each selected recipient
+                for recipient_id in recipients:
+                    execute_callback(
+                        send_message_to_agent,
+                        controller.sampled_agents[agent_id],
+                        controller.sampled_agents[recipient_id],
+                        st.session_state[f"confirm_sending_msg_from_agent_{agent_id}"],
+                        st.session_state[f"message_from_agent_{agent_id}"],
+                        st.session_state[f"send_msg_type_from_agent_{agent_id}"],
+                        controller.global_timestamp,
+                    )
