@@ -6,6 +6,8 @@ from hydra.core.global_hydra import GlobalHydra
 from hydra import initialize, compose
 from omegaconf import OmegaConf
 
+# DONE: Allow to increase the agent timestamp up to global timsestamp without perfoming action
+# TODO: Save the scene if only all agents are in the same timstamp
 
 st.set_page_config(layout="wide")
 
@@ -51,6 +53,12 @@ with col1:
         with st.expander(
             f"{agent.role} {agent_id} : {agent.position} ||| {agent.get_latest_timestamp()}"
         ):
+            st.button(
+                "Increase timestamp to global",
+                key=f"increase_timestamp_to_global_for_agent_{agent_id}",
+                on_click=st.session_state.controller.increase_local_timestamp_to_global,
+                args=(agent_id,),
+            )
             create_messaging_ui(
                 agent_id,
                 st.session_state.controller,

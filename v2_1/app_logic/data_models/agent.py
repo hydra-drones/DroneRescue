@@ -71,12 +71,26 @@ class Agent:
         """Get the latest timestamp"""
         return self._current_timestamp
 
+    def increase_local_timestamp_to_global_and_sync_position(
+        self, global_timestamp: int
+    ):
+        """Increase local timestamp to global timestamp"""
+        if self.verbose:
+            logging.info(
+                "Agent %s increased local timestamp to global timestamp %s",
+                self.agent_id,
+                global_timestamp,
+            )
+        current_position = self._positions[self._current_timestamp]
+        self._current_timestamp = global_timestamp
+        self._positions[self._current_timestamp] = current_position
+
     def _increase_timestamp(self, timestamp: int):
         """Update the timestamp"""
         if self.verbose:
             logging.info("Agent %s updated timestamp to %s", self.agent_id, timestamp)
         self._current_timestamp += timestamp
-        print("Updated timestamp: ", self._current_timestamp)
+        logging.info("Updated timestamp: %s", self._current_timestamp)
 
     def _set_new_position(self, new_position: tuple[int, int]):
         """Add position with timestamp"""

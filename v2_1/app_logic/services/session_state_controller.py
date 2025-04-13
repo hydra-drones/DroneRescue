@@ -165,6 +165,11 @@ class SceneController:
 
         return self.render_scene()
 
+    def increase_local_timestamp_to_global(self, agent_id: int):
+        self.sampled_agents[
+            agent_id
+        ].increase_local_timestamp_to_global_and_sync_position(self.global_timestamp)
+
     def freeze_targets(self) -> dict:
         """Convert the target position into dict"""
         freezed_targets = {}
