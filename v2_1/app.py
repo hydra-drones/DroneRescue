@@ -3,6 +3,7 @@ from v2_1.ui.components.control_panel import (
     create_messaging_ui,
     update_global_strategy_ui,
     update_info_about_agents_ui,
+    update_local_strategy_ui,
 )
 from v2_1.app_logic.data_models.agent import Agent
 import streamlit as st
@@ -13,6 +14,7 @@ from omegaconf import OmegaConf
 # DONE: Allow to increase the agent timestamp up to global timsestamp without perfoming action
 # TODO: Save information about target position and base position
 # CANCELLED: Save the scene if only all agents are in the same timstamp
+# TODO: Add agent's mission
 
 st.set_page_config(layout="wide")
 
@@ -73,6 +75,10 @@ with col1:
                 st.session_state.controller,
             )
             update_global_strategy_ui(
+                agent_id,
+                st.session_state.controller,
+            )
+            update_local_strategy_ui(
                 agent_id,
                 st.session_state.controller,
             )
