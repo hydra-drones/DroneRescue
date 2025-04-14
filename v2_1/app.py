@@ -1,6 +1,7 @@
 from v2_1.app_logic.services.session_state_controller import SceneController
 from v2_1.ui.components.control_panel import (
     create_messaging_ui,
+    update_global_strategy_ui,
     update_info_about_agents_ui,
 )
 from v2_1.app_logic.data_models.agent import Agent
@@ -68,6 +69,10 @@ with col1:
                 st.session_state.controller,
             )
             update_info_about_agents_ui(
+                agent_id,
+                st.session_state.controller,
+            )
+            update_global_strategy_ui(
                 agent_id,
                 st.session_state.controller,
             )

@@ -31,6 +31,16 @@ def update_information_about_agents_callback(
     )
 
 
+def update_gloabl_strategy_for_agent_callback(agent: Agent, new_global_strategy: str):
+    """Update global strategy for agent"""
+    agent.update_global_strategy(new_global_strategy)
+    return CallbackResponse(
+        success=True,
+        message=f"Global strategy updated for agent {agent.agent_id}",
+        status_code=200,
+    )
+
+
 def send_message_to_agent(
     sender: Agent,
     receiver: Agent,

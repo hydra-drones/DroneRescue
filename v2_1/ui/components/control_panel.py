@@ -4,6 +4,7 @@ from v2_1.app_logic.data_models.agent import Agent
 from v2_1.app_logic.services.session_state_controller import SceneController
 from v2_1.app_logic.utils.callbacks import (
     send_message_to_agent,
+    update_gloabl_strategy_for_agent_callback,
     update_information_about_agents_callback,
 )
 from v2_1.app_logic.utils.common import execute_callback
@@ -24,6 +25,25 @@ def update_info_about_agents_ui(agent_id: int, controller: SceneController):
             controller.sampled_agents[agent_id],
             agents,
         )
+
+
+def update_global_strategy_ui(agent_id: int, controller: SceneController):
+    """Update the global strategy for the agent."""
+    st.markdown("### Update global strategy")
+    col1, col2 = st.columns([1, 2], gap="medium")
+    with col2:
+        st.text_area(
+            "Enter your message",
+            key=f"global_strategy_for_agent_{agent_id}",
+            height=150,
+        )
+    with col1:
+        if st.button("Update", key=f"update_global_strategy_for_agent_{agent_id}"):
+            execute_callback(
+                update_gloabl_strategy_for_agent_callback,
+                controller.sampled_agents[agent_id],
+                st.session_state[f"global_strategy_for_agent_{agent_id}"],
+            )
 
 
 def create_messaging_ui(agent_id: int, controller: SceneController):

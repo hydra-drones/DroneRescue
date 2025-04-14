@@ -31,7 +31,8 @@ class Agent:
         self._mission_progress: dict[int, str] = {}
         self._latest_agent_information: dict[int, dict[int, dict[str, str]]] = {}
         self._actions: dict[int, str] = {}
-        self._strategy: dict[int, str] = {}
+        self._global_strategy: dict[int, str] = {}
+        self._local_strategy: dict[int, str] = {}
         self._special_actions: dict[int, str] = {}
         self._current_timestamp: int = start_timestamp
         self._setup_context()
@@ -182,27 +183,38 @@ class Agent:
             "special_action": special_action,
         }
 
-    def update_mission_progress(self, global_timestamp: int, progress: str):
+    def update_mission_progress(self, progress: str):
         """Update the mission progress"""
         if self.verbose:
             logging.info(
                 "Agent %s updated mission progress at %s",
                 self.agent_id,
-                global_timestamp,
+                self._current_timestamp,
             )
 
-        self._mission_progress[global_timestamp] = progress
+        self._mission_progress[self._current_timestamp] = progress
 
-    def update_current_strategy(self, global_timestamp: int, strategy: str):
-        """Update the mission progress"""
+    def update_global_strategy(self, new_global_strategy: str):
+        """Update global strategy"""
         if self.verbose:
             logging.info(
-                "Agent %s updated mission progress at %s",
+                "Agent %s updated global strategy at %s",
                 self.agent_id,
-                global_timestamp,
+                self._current_timestamp,
             )
 
-        self._strategy[global_timestamp] = strategy
+        self._global_strategy[self._current_timestamp] = new_global_strategy
+
+    def update_local_strategy(self, new_local_strategy: str):
+        """Update local strategy"""
+        if self.verbose:
+            logging.info(
+                "Agent %s updated local strategy at %s",
+                self.agent_id,
+                self._current_timestamp,
+            )
+
+        self._local_strategy[self._current_timestamp] = new_local_strategy
 
     def add_action(self, global_timestamp: int, new_x: int, new_y: int):
         """Add action to the list of actions"""
@@ -236,6 +248,7 @@ class Agent:
             "mission_progress": self._mission_progress,
             "latest_agents_information": self._latest_agent_information,
             "actions": self._actions,
-            "strategy": self._strategy,
+            "global_strategy": self._global_strategy,
+            "local_strategy": self._local_strategy,
             "special_actions": self._special_actions,
         }
