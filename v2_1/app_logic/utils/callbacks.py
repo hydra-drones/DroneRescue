@@ -14,6 +14,23 @@ class CallbackResponse:
     data: Optional[Dict[str, Any]] = None
 
 
+def update_information_about_agents_callback(
+    agent: Agent, other_agents: list[Agent]
+) -> CallbackResponse:
+    """Update information about agnents for specific agent"""
+    new_info = {}
+    for other_agent in other_agents:
+        new_info[
+            other_agent.agent_id
+        ] = other_agent.get_current_information_about_agent()
+    agent.update_information_about_agents(new_info)
+    return CallbackResponse(
+        success=True,
+        message=f"Information about agents updated for agent {agent.agent_id}",
+        status_code=200,
+    )
+
+
 def send_message_to_agent(
     sender: Agent,
     receiver: Agent,

@@ -1,8 +1,29 @@
 import streamlit as st
 
+from v2_1.app_logic.data_models.agent import Agent
 from v2_1.app_logic.services.session_state_controller import SceneController
-from v2_1.app_logic.utils.callbacks import send_message_to_agent
+from v2_1.app_logic.utils.callbacks import (
+    send_message_to_agent,
+    update_information_about_agents_callback,
+)
 from v2_1.app_logic.utils.common import execute_callback
+
+
+def update_info_about_agents_ui(agent_id: int, controller: SceneController):
+    """Update information about agents in the scene."""
+    st.markdown("### Update information about agents")
+    agents = [
+        controller.sampled_agents[other_agent_id]
+        for other_agent_id in controller.sampled_agents.keys()
+        if other_agent_id != agent_id
+    ]
+
+    if st.button("Update", key=f"send_information_about_agents_for_agent_{agent_id}"):
+        execute_callback(
+            update_information_about_agents_callback,
+            controller.sampled_agents[agent_id],
+            agents,
+        )
 
 
 def create_messaging_ui(agent_id: int, controller: SceneController):

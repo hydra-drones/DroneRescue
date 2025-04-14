@@ -29,7 +29,7 @@ class Agent:
         self._sended_messages: dict[int, dict[int, str]] = {}
         self._positions: dict[int, tuple[int, int]] = {start_timestamp: start_position}
         self._mission_progress: dict[int, str] = {}
-        self._latest_agent_information: dict[int, dict[str, str]] = {}
+        self._latest_agent_information: dict[int, dict[int, dict[str, str]]] = {}
         self._actions: dict[int, str] = {}
         self._strategy: dict[int, str] = {}
         self._special_actions: dict[int, str] = {}
@@ -143,20 +143,19 @@ class Agent:
             "type": message_type,
         }
 
-    def add_latest_information_about_agent(
-        self, global_timestamp: int, agent_id: int, position: str
-    ):
-        """Add latest information about agent"""
-        if self.verbose:
-            logging.info(
-                "Agent %s received information from agent %s at %s",
-                self.agent_id,
-                agent_id,
-                global_timestamp,
-            )
-        self._latest_agent_information[agent_id] = {
-            "timestamp": global_timestamp,
-            "position": position,
+    def update_information_about_agents(
+        self, agents_information: dict[int, dict[str, str]]
+    ) -> None:
+        """Add information dictionaery about agents to current timestamp
+        agents_information - key - agent ids, value: dict with information about agent
+        """
+        self._latest_agent_information[self._current_timestamp] = agents_information
+
+    def get_current_information_about_agent(self) -> dict[str, str]:
+        """Return the information about the agent"""
+        return {
+            "position": self.position,
+            "timestamp": self._current_timestamp,
         }
 
     @property

@@ -1,5 +1,8 @@
 from v2_1.app_logic.services.session_state_controller import SceneController
-from v2_1.ui.components.control_panel import create_messaging_ui
+from v2_1.ui.components.control_panel import (
+    create_messaging_ui,
+    update_info_about_agents_ui,
+)
 from v2_1.app_logic.data_models.agent import Agent
 import streamlit as st
 from hydra.core.global_hydra import GlobalHydra
@@ -64,6 +67,11 @@ with col1:
                 agent_id,
                 st.session_state.controller,
             )
+            update_info_about_agents_ui(
+                agent_id,
+                st.session_state.controller,
+            )
+
 
 # Scene Column
 with scene_col:
