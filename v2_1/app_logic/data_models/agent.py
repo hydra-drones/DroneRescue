@@ -12,6 +12,7 @@ class Agent:
         start_timestamp: int,
         start_position: tuple[int, int],
         mission: str,
+        global_strategy: str,
         verbose: bool = True,
     ):
         """
@@ -31,7 +32,7 @@ class Agent:
         self._mission_progress: dict[int, str] = {}
         self._latest_agent_information: dict[int, dict[int, dict[str, str]]] = {}
         self._actions: dict[int, str] = {}
-        self._global_strategy: dict[int, str] = {}
+        self._global_strategy: dict[int, str] = {start_timestamp: global_strategy}
         self._local_strategy: dict[int, str] = {}
         self._special_actions: dict[int, str] = {}
         self._current_timestamp: int = start_timestamp
