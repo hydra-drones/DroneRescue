@@ -6,6 +6,7 @@ from v2_1.app_logic.utils.callbacks import (
     update_gloabl_strategy_for_agent_callback,
     update_information_about_agents_callback,
     update_local_strategy_for_agent_callback,
+    update_mission_progress_callback,
 )
 from v2_1.app_logic.utils.common import execute_callback
 
@@ -62,6 +63,25 @@ def update_local_strategy_ui(agent_id: int, controller: SceneController):
                 update_local_strategy_for_agent_callback,
                 controller.sampled_agents[agent_id],
                 st.session_state[f"local_strategy_for_agent_{agent_id}"],
+            )
+
+
+def update_mission_progress_ui(agent_id: int, controller: SceneController):
+    """Update the local strategy for the agent."""
+    st.markdown("### Update mission progress")
+    col1, col2 = st.columns([1, 2], gap="medium")
+    with col2:
+        st.text_area(
+            "Enter your message",
+            key=f"mission_progress_{agent_id}",
+            height=150,
+        )
+    with col1:
+        if st.button("Update", key=f"mission_progress_for_agent_{agent_id}"):
+            execute_callback(
+                update_mission_progress_callback,
+                controller.sampled_agents[agent_id],
+                st.session_state[f"mission_progress_{agent_id}"],
             )
 
 

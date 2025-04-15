@@ -51,6 +51,16 @@ def update_local_strategy_for_agent_callback(agent: Agent, new_local_strategy: s
     )
 
 
+def update_mission_progress_callback(agent: Agent, new_mission_progress: str):
+    """Update mission progress for agent"""
+    agent.update_mission_progress(new_mission_progress)
+    return CallbackResponse(
+        success=True,
+        message=f"Mission progress updated for agent {agent.agent_id}",
+        status_code=200,
+    )
+
+
 def send_message_to_agent(
     sender: Agent,
     receiver: Agent,
