@@ -6,10 +6,10 @@ agents:
     role: "scout"
     number:
       min: 1
-      max: 5
+      max: 2
     symbol: "o"
     color: "blue"
-    mission: "scout postitions of each target"
+    mission: "Find the position of targets and send coordinates to rescuer"
     global_strategy: "scout targets"
     position_range:
       min_yx: [1, 1]
@@ -17,7 +17,7 @@ agents:
     sensor:
       range: 35
     special_action:
-      name: "save target coordinates"
+      name: "Scan all targets"
       id: 1
     shape: 1F79B
     size: 20
@@ -29,8 +29,8 @@ agents:
       max: 1
     symbol: "*"
     color: "green"
-    mission: "scan all targets using coordinates provided by scout"
-    global_strategy: "scan targets"
+    mission: "Based on the coordinates provided by scout, scan all targets"
+    global_strategy: "Scan all targets"
     position_range:
       min_yx: [1, 1]
       max_yx: ${metadata.size_of_mission_area}
@@ -50,8 +50,8 @@ agents:
       max: 1
     symbol: "D"
     color: "purple"
-    mission: "navigate scouts and rescuers"
-    global_strategy: "navigate scouts and rescuers"
+    mission: "Coordinaate scouts and rescuers to find and scan targets"
+    global_strategy: "Scan all targets"
     position_range:
       min_yx: [1, 1]
       max_yx: ${metadata.size_of_mission_area}
@@ -68,7 +68,7 @@ targets:
   color: "red"
   number:
     min: 1
-    max: 5
+    max: 3
   position_range:
     min_yx: [1, 1]
     max_yx: ${metadata.size_of_mission_area}
