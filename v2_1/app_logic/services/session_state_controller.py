@@ -169,11 +169,12 @@ class SceneController:
         if targets_in_fov:
             agent.update_target_in_fov(targets_in_fov)
 
-    def increase_local_timestamp_to_global(self, agent_id: int):
+    def increase_local_timestamp_to_global_for_all_agents(self):
         """Increase the local timestamp of the agent to the global timestamp"""
-        self.sampled_agents[
-            agent_id
-        ].increase_local_timestamp_to_global_and_sync_position(self.global_timestamp)
+        for agent in self.sampled_agents.values():
+            agent.increase_local_timestamp_to_global_and_sync_position(
+                self.global_timestamp
+            )
 
     def freeze_targets(self) -> dict:
         """Convert the target position into dict"""

@@ -60,17 +60,16 @@ def move_instance(direction):
 # Control Panel
 with col1:
     st.text(f"Global timestamp: {st.session_state.controller.global_timestamp}")
+    st.button(
+        "Increase timestamp to global for all agents",
+        key="increase_timestamp_for_all_agents_btn",
+        on_click=st.session_state.controller.increase_local_timestamp_to_global_for_all_agents,
+    )
     for agent_id in st.session_state.controller.sampled_agents:
         agent: Agent = st.session_state.controller.sampled_agents[agent_id]
         with st.expander(
             f"{agent.role} {agent_id} : {agent.position} ||| {agent.get_latest_timestamp()}"
         ):
-            st.button(
-                "Increase timestamp to global",
-                key=f"increase_timestamp_to_global_for_agent_{agent_id}",
-                on_click=st.session_state.controller.increase_local_timestamp_to_global,
-                args=(agent_id,),
-            )
             create_messaging_ui(
                 agent_id,
                 st.session_state.controller,
