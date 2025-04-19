@@ -145,9 +145,7 @@ class SceneController:
                 instances[instance_id].update_position_in_edit_mode(new_pos)
             else:
                 if current_timestamp == self.global_timestamp:
-                    instances[instance_id].update_timestamp_and_set_new_position(
-                        step, new_pos
-                    )
+                    self._move_agent(instances[instance_id], step, new_pos)
                     self.global_timestamp += step
                 elif current_timestamp + step > self.global_timestamp:
                     logging.warning(
@@ -155,17 +153,24 @@ class SceneController:
                     )
                     return self.scene
                 else:
-                    instances[instance_id].update_timestamp_and_set_new_position(
-                        step, new_pos
-                    )
-
+                    self._move_agent(instances[instance_id], step, new_pos)
         else:
             instances[instance_id].position = new_pos
             logging.info("Set %s to new position %s", instance_type, str(new_pos))
 
         return self.render_scene()
 
+    def _move_agent(self, agent: Agent, step: int, new_pos: tuple[int, int]):
+        agent.update_timestamp_and_set_new_position(step, new_pos)
+        #  Add targets if are visiable in the field of view
+        targets_in_fov = agent.get_visiable_targets_in_fov(
+            [target.position for _, target in self.sampled_targets.items()]
+        )
+        if targets_in_fov:
+            agent.update_target_in_fov(targets_in_fov)
+
     def increase_local_timestamp_to_global(self, agent_id: int):
+        """Increase the local timestamp of the agent to the global timestamp"""
         self.sampled_agents[
             agent_id
         ].increase_local_timestamp_to_global_and_sync_position(self.global_timestamp)

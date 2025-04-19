@@ -16,7 +16,9 @@ from omegaconf import OmegaConf
 # DONE: Save information about target position and base position
 # CANCELLED: Save the scene if only all agents are in the same timstamp
 # DONE: Enable updating prpogress of the mission
-# TODO: Add agent's mission
+# DONE: Add agent's mission
+# TODO: Update agent's information before sending the message
+# DONE: Add information about target in field of view
 
 st.set_page_config(layout="wide")
 
@@ -46,6 +48,7 @@ if "scene" not in st.session_state:
 
 
 def move_instance(direction):
+    """Move the instance in the given direction"""
     st.session_state.scene = st.session_state.controller.move(
         st.session_state.instance_type,
         st.session_state.active_agent_id,

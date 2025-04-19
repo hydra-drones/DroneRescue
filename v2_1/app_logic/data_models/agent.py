@@ -9,6 +9,7 @@ class Agent:
         self,
         agent_id,
         role,
+        sensor_range,
         start_timestamp: int,
         start_position: tuple[int, int],
         mission: str,
@@ -26,6 +27,7 @@ class Agent:
         self.position = start_position
         self._mission = mission
         self.verbose = verbose
+        self._sensor_range = sensor_range
         self._messages_from_agents: dict[int, dict[int, str]] = {}
         self._sended_messages: dict[int, dict[int, str]] = {}
         self._positions: dict[int, tuple[int, int]] = {start_timestamp: start_position}
@@ -35,6 +37,7 @@ class Agent:
         self._global_strategy: dict[int, str] = {start_timestamp: global_strategy}
         self._local_strategy: dict[int, str] = {}
         self._special_actions: dict[int, str] = {}
+        self._target_in_fov: dict[int, list[tuple[int, int]]] = {}
         self._current_timestamp: int = start_timestamp
         self._setup_context()
 
@@ -100,6 +103,26 @@ class Agent:
         self._positions[self._current_timestamp] = new_position
         if self.verbose:
             logging.info("Agent %s moved to %s", self.agent_id, new_position)
+
+    def get_visiable_targets_in_fov(
+        self, target_positions: list[tuple[int, int]]
+    ) -> list[tuple[int, int]] | list:
+        """Check if target is in field of view radius"""
+        fov_radius = self._sensor_range
+        targets_in_fov = []
+
+        for target_pos in target_positions:
+            # Calculate Euclidean distance between agent and target
+            distance = (
+                (self.position[0] - target_pos[0]) ** 2
+                + (self.position[1] - target_pos[1]) ** 2
+            ) ** 0.5
+
+            # Check if target is within field of view radius
+            if distance <= fov_radius:
+                targets_in_fov.append(target_pos)
+
+        return targets_in_fov
 
     def add_message_from_agent(
         self,
@@ -217,6 +240,20 @@ class Agent:
 
         self._local_strategy[self._current_timestamp] = new_local_strategy
 
+    def update_target_in_fov(self, targets: list[tuple[int, int]]):
+        """Update target in fov
+
+        Target is a list of tuples with coordinates of the target
+        """
+        if self.verbose:
+            logging.info(
+                "Agent %s updated target in fov at %s",
+                self.agent_id,
+                self._current_timestamp,
+            )
+
+        self._target_in_fov[self._current_timestamp] = targets
+
     def add_action(self, global_timestamp: int, new_x: int, new_y: int):
         """Add action to the list of actions"""
         if self.verbose:
@@ -247,6 +284,7 @@ class Agent:
             "sended_messages": self._sended_messages,
             "positions": self._positions,
             "mission_progress": self._mission_progress,
+            "target_in_fov": self._target_in_fov,
             "latest_agents_information": self._latest_agent_information,
             "actions": self._actions,
             "global_strategy": self._global_strategy,

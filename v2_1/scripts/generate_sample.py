@@ -56,12 +56,13 @@ class DatasetGenerator:
                 )
 
                 self.sampled_agents[_idx] = Agent(
-                    _idx,
-                    agent["role"],
-                    0,
-                    position,
+                    agent_id=_idx,
+                    role=agent["role"],
+                    start_timestamp=0,
+                    start_position=position,
                     mission=agent["mission"],
                     global_strategy=agent["global_strategy"],
+                    sensor_range=agent["sensor"]["range"],
                 )
 
                 _idx += 1
