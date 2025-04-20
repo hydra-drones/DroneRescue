@@ -1,5 +1,6 @@
+from collections import defaultdict
 import logging
-from typing import Literal
+from typing import Literal, DefaultDict
 
 logging.basicConfig(level=logging.INFO)
 
@@ -28,8 +29,10 @@ class Agent:
         self._mission = mission
         self.verbose = verbose
         self._sensor_range = sensor_range
-        self._messages_from_agents: dict[int, dict[int, str]] = {}
-        self._sended_messages: dict[int, dict[int, str]] = {}
+        self._messages_from_agents: DefaultDict[int, dict[int, str]] = defaultdict(list)
+        self._sended_messages: DefaultDict[int, list[dict[int, str]]] = defaultdict(
+            list
+        )
         self._positions: dict[int, tuple[int, int]] = {start_timestamp: start_position}
         self._mission_progress: dict[int, str] = {}
         self._latest_agent_information: dict[int, dict[int, dict[str, str]]] = {}
@@ -136,11 +139,13 @@ class Agent:
     ):
         """Add message from agent to the list of messages"""
 
-        self._messages_from_agents[global_timestamp] = {
-            "sender_id": sender_id,
-            "message": message,
-            "type": message_type,
-        }
+        self._messages_from_agents[global_timestamp].append(
+            {
+                "sender_id": sender_id,
+                "message": message,
+                "type": message_type,
+            }
+        )
 
         if self.verbose:
             logging.info(
@@ -165,11 +170,13 @@ class Agent:
                 receiver_id,
                 message,
             )
-        self._sended_messages[global_timestamp] = {
-            "receiver": receiver_id,
-            "message": message,
-            "type": message_type,
-        }
+        self._sended_messages[global_timestamp].append(
+            {
+                "receiver": receiver_id,
+                "message": message,
+                "type": message_type,
+            }
+        )
 
     def update_information_about_agents(
         self, agents_information: dict[int, dict[str, str]]
