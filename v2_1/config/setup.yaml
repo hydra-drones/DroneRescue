@@ -15,7 +15,7 @@ agents:
       min_yx: [1, 1]
       max_yx: ${metadata.size_of_mission_area}
     sensor:
-      range: 35
+      range: 35 # diameter
     special_action:
       name: "Scan all targets"
       id: 1

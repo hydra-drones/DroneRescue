@@ -108,7 +108,7 @@ class Agent:
         self, target_positions: list[tuple[int, int]]
     ) -> list[tuple[int, int]] | list:
         """Check if target is in field of view radius"""
-        fov_radius = self._sensor_range
+        fov_radius = self._sensor_range / 2
         targets_in_fov = []
 
         for target_pos in target_positions:
@@ -119,6 +119,9 @@ class Agent:
             ) ** 0.5
 
             # Check if target is within field of view radius
+            logging.info("Distance to target: %s", distance)
+            logging.info("FOV radius: %s", fov_radius)
+
             if distance <= fov_radius:
                 targets_in_fov.append(target_pos)
 

@@ -210,10 +210,10 @@ class SceneController:
                 400,
             )
 
-        new_info = {}
         agent_ids = list(self.sampled_agents.keys())
 
         for agent_id in agent_ids:
+            new_info = {}
             for other_agent in agent_ids:
                 if agent_id == other_agent:
                     continue
