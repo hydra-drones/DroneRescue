@@ -1,34 +1,7 @@
-from dataclasses import dataclass
-from typing import Dict, Any, Literal, Optional, Tuple
+from typing import Literal
 
 from v2_1.app_logic.data_models.agent import Agent
-
-
-@dataclass
-class CallbackResponse:
-    """Response object from a callback function"""
-
-    success: bool
-    message: str
-    status_code: int = 200
-    data: Optional[Dict[str, Any]] = None
-
-
-def update_information_about_agents_callback(
-    agent: Agent, other_agents: list[Agent]
-) -> CallbackResponse:
-    """Update information about agnents for specific agent"""
-    new_info = {}
-    for other_agent in other_agents:
-        new_info[
-            other_agent.agent_id
-        ] = other_agent.get_current_information_about_agent()
-    agent.update_information_about_agents(new_info)
-    return CallbackResponse(
-        success=True,
-        message=f"Information about agents updated for agent {agent.agent_id}",
-        status_code=200,
-    )
+from v2_1.app_logic.services.session_state_controller import CallbackResponse
 
 
 def update_gloabl_strategy_for_agent_callback(agent: Agent, new_global_strategy: str):

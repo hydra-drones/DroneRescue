@@ -174,6 +174,13 @@ class Agent:
         """Add information dictionaery about agents to current timestamp
         agents_information - key - agent ids, value: dict with information about agent
         """
+
+        logging.info(
+            "Agent %s updated information about agents at %s",
+            self.agent_id,
+            self._current_timestamp,
+        )
+
         self._latest_agent_information[self._current_timestamp] = agents_information
 
     def get_current_information_about_agent(self) -> dict[str, str]:

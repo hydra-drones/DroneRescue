@@ -1,5 +1,6 @@
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Literal, Optional, Tuple
+from typing import Dict, Literal, Optional, Tuple, Any
 
 import json
 
@@ -14,6 +15,16 @@ from v2_1.ui.render.render_objects_to_html import (
 import logging
 
 logging.basicConfig(level=logging.INFO)
+
+
+@dataclass
+class CallbackResponse:
+    """Response object from a callback function"""
+
+    success: bool
+    message: str
+    status_code: int = 200
+    data: Optional[Dict[str, Any]] = None
 
 
 class SceneController:
@@ -169,12 +180,54 @@ class SceneController:
         if targets_in_fov:
             agent.update_target_in_fov(targets_in_fov)
 
-    def increase_local_timestamp_to_global_for_all_agents(self):
+    def increase_local_timestamp_to_global_for_all_agents(self) -> CallbackResponse:
         """Increase the local timestamp of the agent to the global timestamp"""
         for agent in self.sampled_agents.values():
             agent.increase_local_timestamp_to_global_and_sync_position(
                 self.global_timestamp
             )
+        return CallbackResponse(
+            True,
+            "Local timestamp increased to global for all agents",
+            200,
+        )
+
+    def update_information_about_each_agent(self) -> CallbackResponse:
+        """Update information about agnents for specific agent"""
+        is_in_same_timestamp = all(
+            [
+                agent.get_latest_timestamp() == self.global_timestamp
+                for agent in self.sampled_agents.values()
+            ]
+        )
+        if not is_in_same_timestamp:
+            logging.warning(
+                "Agents are not in the same timestamp. Information update is not possible"
+            )
+            return CallbackResponse(
+                False,
+                "Agents are not in the same timestamp. Information update is not possible",
+                400,
+            )
+
+        new_info = {}
+        agent_ids = list(self.sampled_agents.keys())
+
+        for agent_id in agent_ids:
+            for other_agent in agent_ids:
+                if agent_id == other_agent:
+                    continue
+                new_info[other_agent] = self.sampled_agents[
+                    other_agent
+                ].get_current_information_about_agent()
+
+            self.sampled_agents[agent_id].update_information_about_agents(new_info)
+
+        return CallbackResponse(
+            True,
+            "Information about agents updated",
+            200,
+        )
 
     def freeze_targets(self) -> dict:
         """Convert the target position into dict"""
@@ -207,7 +260,7 @@ class SceneController:
         }
         return freezed_scene
 
-    def save_datasample(self):
+    def save_datasample(self) -> CallbackResponse:
         """Save scene data into json file"""
         if not self._path_to_save.exists():
             self._path_to_save.mkdir(parents=True, exist_ok=True)
@@ -219,7 +272,12 @@ class SceneController:
             json_str = json.dumps(self.get_freezed_scene(), indent=4)
             f.write(json_str)
             logging.info("Scene saved to %s", filename)
-        return filename
+
+        return CallbackResponse(
+            True,
+            f"Scene saved to {filename}",
+            200,
+        )
 
     def set_edit_mode(self, edit_mode: bool):
         """Set edit mode"""

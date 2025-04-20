@@ -2,7 +2,6 @@ from v2_1.app_logic.services.session_state_controller import SceneController
 from v2_1.ui.components.control_panel import (
     create_messaging_ui,
     update_global_strategy_ui,
-    update_info_about_agents_ui,
     update_local_strategy_ui,
     update_mission_progress_ui,
 )
@@ -11,14 +10,11 @@ import streamlit as st
 from hydra.core.global_hydra import GlobalHydra
 from hydra import initialize, compose
 from omegaconf import OmegaConf
+from v2_1.app_logic.utils.common import execute_callback
 
-# DONE: Allow to increase the agent timestamp up to global timsestamp without perfoming action
-# DONE: Save information about target position and base position
+
 # CANCELLED: Save the scene if only all agents are in the same timstamp
-# DONE: Enable updating prpogress of the mission
-# DONE: Add agent's mission
 # TODO: Update agent's information before sending the message
-# DONE: Add information about target in field of view
 
 st.set_page_config(layout="wide")
 
@@ -60,11 +56,26 @@ def move_instance(direction):
 # Control Panel
 with col1:
     st.text(f"Global timestamp: {st.session_state.controller.global_timestamp}")
-    st.button(
-        "Increase timestamp to global for all agents",
-        key="increase_timestamp_for_all_agents_btn",
-        on_click=st.session_state.controller.increase_local_timestamp_to_global_for_all_agents,
-    )
+    sub_col1, sub_col2 = st.columns(2)
+    with sub_col1:
+        st.button(
+            "Increase timestamp to global for all agents",
+            key="increase_timestamp_for_all_agents_btn",
+            on_click=execute_callback,
+            args=(
+                [
+                    st.session_state.controller.increase_local_timestamp_to_global_for_all_agents
+                ]
+            ),
+        )
+    with sub_col2:
+        st.button(
+            "Update information about each agent",
+            key="update_info_about_agents_btn",
+            on_click=execute_callback,
+            args=([st.session_state.controller.update_information_about_each_agent]),
+        )
+
     for agent_id in st.session_state.controller.sampled_agents:
         agent: Agent = st.session_state.controller.sampled_agents[agent_id]
         with st.expander(
@@ -74,23 +85,22 @@ with col1:
                 agent_id,
                 st.session_state.controller,
             )
-            update_info_about_agents_ui(
-                agent_id,
-                st.session_state.controller,
-            )
-            update_global_strategy_ui(
-                agent_id,
-                st.session_state.controller,
-            )
-            update_local_strategy_ui(
-                agent_id,
-                st.session_state.controller,
-            )
-            update_mission_progress_ui(
-                agent_id,
-                st.session_state.controller,
-            )
-
+            sub_col1, sub_col2, sub_col3 = st.columns(3)
+            with sub_col1:
+                update_local_strategy_ui(
+                    agent_id,
+                    st.session_state.controller,
+                )
+            with sub_col2:
+                update_mission_progress_ui(
+                    agent_id,
+                    st.session_state.controller,
+                )
+            with sub_col3:
+                update_global_strategy_ui(
+                    agent_id,
+                    st.session_state.controller,
+                )
 
 # Scene Column
 with scene_col:
@@ -99,7 +109,9 @@ with scene_col:
         st.write(f"Current datasample ID: {st.session_state.controller.datasample_id}")
     with col2:
         st.button(
-            "Save sampled scene", on_click=st.session_state.controller.save_datasample
+            "Save sampled scene",
+            on_click=execute_callback,
+            args=([st.session_state.controller.save_datasample]),
         )
 
     st.markdown(st.session_state.scene, unsafe_allow_html=True)
