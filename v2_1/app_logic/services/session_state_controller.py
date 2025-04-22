@@ -192,14 +192,18 @@ class SceneController:
             200,
         )
 
-    def update_information_about_each_agent(self) -> CallbackResponse:
-        """Update information about agnents for specific agent"""
-        is_in_same_timestamp = all(
+    def check_if_all_agents_in_same_timestamp(self) -> CallbackResponse:
+        """ "True - if all agents are in the same timestamp"""
+        return all(
             [
                 agent.get_latest_timestamp() == self.global_timestamp
                 for agent in self.sampled_agents.values()
             ]
         )
+
+    def update_information_about_each_agent(self) -> CallbackResponse:
+        """Update information about agnents for specific agent"""
+        is_in_same_timestamp = self.check_if_all_agents_in_same_timestamp()
         if not is_in_same_timestamp:
             logging.warning(
                 "Agents are not in the same timestamp. Information update is not possible"
@@ -262,6 +266,19 @@ class SceneController:
 
     def save_datasample(self) -> CallbackResponse:
         """Save scene data into json file"""
+        is_in_same_timestamp = self.check_if_all_agents_in_same_timestamp()
+        if not is_in_same_timestamp:
+            logging.warning(
+                "Agents are not in the same timestamp. Information update is not possible"
+            )
+            return CallbackResponse(
+                False,
+                "Agents are not in the same timestamp. Information update is not possible",
+                400,
+            )
+
+        self.update_information_about_each_agent()
+
         if not self._path_to_save.exists():
             self._path_to_save.mkdir(parents=True, exist_ok=True)
 
@@ -275,7 +292,7 @@ class SceneController:
 
         return CallbackResponse(
             True,
-            f"Scene saved to {filename}",
+            f"Scene saved to {filename}. Information about each agent updated",
             200,
         )
 
@@ -291,19 +308,11 @@ class SceneController:
         receiver = self.sampled_agents.get(receiver_id)
         sender = self.sampled_agents.get(sender_id)
 
-        sender_timestamp = sender.get_latest_timestamp()
-        receiver_timestamp = receiver.get_latest_timestamp()
-
-        if (
-            sender_timestamp != self.global_timestamp
-            or receiver_timestamp != self.global_timestamp
-        ):
+        is_all_in_same_timestamp = self.check_if_all_agents_in_same_timestamp()
+        if not is_all_in_same_timestamp:
             return CallbackResponse(
                 success=False,
-                message=(
-                    f"Timestamp mismatch: sender timestamp ({sender_timestamp}), "
-                    f"receiver timestamp ({receiver_timestamp}), global timestamp ({self.global_timestamp})"
-                ),
+                message=("Please make sure that all agents are in the same timestamp"),
                 status_code=400,
             )
 
@@ -334,6 +343,8 @@ class SceneController:
             message=message,
             message_type=message_type,
         )
+
+        self.update_information_about_each_agent()
 
         return CallbackResponse(
             success=True,
