@@ -279,6 +279,107 @@ class SceneController:
             200,
         )
 
+    def send_message_to_agent(
+        self,
+        sender_id: int,
+        receiver_id: int,
+        confirm_sending: bool,
+        message: str,
+        message_type: Literal["info", "order"],
+    ) -> CallbackResponse:
+        """Send message to agent"""
+        receiver = self.sampled_agents.get(receiver_id)
+        sender = self.sampled_agents.get(sender_id)
+
+        sender_timestamp = sender.get_latest_timestamp()
+        receiver_timestamp = receiver.get_latest_timestamp()
+
+        if (
+            sender_timestamp != self.global_timestamp
+            or receiver_timestamp != self.global_timestamp
+        ):
+            return CallbackResponse(
+                success=False,
+                message=(
+                    f"Timestamp mismatch: sender timestamp ({sender_timestamp}), "
+                    f"receiver timestamp ({receiver_timestamp}), global timestamp ({self.global_timestamp})"
+                ),
+                status_code=400,
+            )
+
+        if not confirm_sending:
+            return CallbackResponse(
+                success=False,
+                message=f"Failed to send the message from agent {sender_id} to agent {receiver_id}\nPlease confirm sending the message",
+                status_code=400,
+            )
+
+        if not message:
+            return CallbackResponse(
+                success=False,
+                message=f"Failed to send the message from agent {sender_id} to agent {receiver_id}\nPlease provide a message",
+                status_code=400,
+            )
+
+        sender.add_sended_message(
+            global_timestamp=self.global_timestamp,
+            receiver_id=receiver_id,
+            message=message,
+            message_type=message_type,
+        )
+
+        receiver.add_message_from_agent(
+            global_timestamp=self.global_timestamp,
+            sender_id=sender_id,
+            message=message,
+            message_type=message_type,
+        )
+
+        return CallbackResponse(
+            success=True,
+            message=f"Message sent successfully from agent {sender_id} to agent {receiver_id}",
+            status_code=200,
+            data={
+                "sender": sender_id,
+                "receiver": receiver_id,
+                "timestamp": "2025-04-05T10:30:00Z",
+            },
+        )
+
+    def update_mission_progress_callback(
+        self, agent_id: int, new_mission_progress: str
+    ):
+        """Update mission progress for agent"""
+        self.sampled_agents[agent_id].update_mission_progress(new_mission_progress)
+
+        return CallbackResponse(
+            success=True,
+            message=f"Mission progress updated for agent {agent_id}",
+            status_code=200,
+        )
+
+    def update_gloabl_strategy_for_agent_callback(
+        self, agent_id: int, new_global_strategy: str
+    ):
+        """Update global strategy for agent"""
+        self.sampled_agents[agent_id].update_global_strategy(new_global_strategy)
+        return CallbackResponse(
+            success=True,
+            message=f"Global strategy updated for agent {agent_id}",
+            status_code=200,
+        )
+
+    def update_local_strategy_for_agent_callback(
+        self, agent_id: int, new_local_strategy: str
+    ):
+        """Update local strategy for agent"""
+        self.sampled_agents[agent_id].update_local_strategy(new_local_strategy)
+        return CallbackResponse(
+            success=True,
+            message=f"Local strategy updated for agent {agent_id}",
+            status_code=200,
+        )
+
     def set_edit_mode(self, edit_mode: bool):
         """Set edit mode"""
         self.edit_mode = edit_mode

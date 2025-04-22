@@ -1,12 +1,6 @@
 import streamlit as st
 
 from v2_1.app_logic.services.session_state_controller import SceneController
-from v2_1.app_logic.utils.callbacks import (
-    send_message_to_agent,
-    update_gloabl_strategy_for_agent_callback,
-    update_local_strategy_for_agent_callback,
-    update_mission_progress_callback,
-)
 from v2_1.app_logic.utils.common import execute_callback
 
 
@@ -20,8 +14,8 @@ def update_global_strategy_ui(agent_id: int, controller: SceneController):
     )
     if st.button("Update", key=f"update_global_strategy_for_agent_{agent_id}"):
         execute_callback(
-            update_gloabl_strategy_for_agent_callback,
-            controller.sampled_agents[agent_id],
+            controller.update_gloabl_strategy_for_agent_callback,
+            agent_id,
             st.session_state[f"global_strategy_for_agent_{agent_id}"],
         )
 
@@ -36,8 +30,8 @@ def update_local_strategy_ui(agent_id: int, controller: SceneController):
     )
     if st.button("Update", key=f"update_local_strategy_for_agent_{agent_id}"):
         execute_callback(
-            update_local_strategy_for_agent_callback,
-            controller.sampled_agents[agent_id],
+            controller.update_local_strategy_for_agent_callback,
+            agent_id,
             st.session_state[f"local_strategy_for_agent_{agent_id}"],
         )
 
@@ -52,8 +46,8 @@ def update_mission_progress_ui(agent_id: int, controller: SceneController):
     )
     if st.button("Update", key=f"mission_progress_for_agent_{agent_id}"):
         execute_callback(
-            update_mission_progress_callback,
-            controller.sampled_agents[agent_id],
+            controller.update_mission_progress_callback,
+            agent_id,
             st.session_state[f"mission_progress_{agent_id}"],
         )
 
@@ -120,11 +114,10 @@ def create_messaging_ui(agent_id: int, controller: SceneController):
                 # Send message to each selected recipient
                 for recipient_id in recipients:
                     execute_callback(
-                        send_message_to_agent,
-                        controller.sampled_agents[agent_id],
-                        controller.sampled_agents[recipient_id],
+                        controller.send_message_to_agent,
+                        agent_id,
+                        recipient_id,
                         st.session_state[f"confirm_sending_msg_from_agent_{agent_id}"],
                         st.session_state[f"message_from_agent_{agent_id}"],
                         st.session_state[f"send_msg_type_from_agent_{agent_id}"],
-                        controller.global_timestamp,
                     )
