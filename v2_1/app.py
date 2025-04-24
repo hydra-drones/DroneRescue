@@ -1,3 +1,4 @@
+import os
 from v2_1.app_logic.services.session_state_controller import SceneController
 from v2_1.ui.components.control_panel import (
     create_messaging_ui,
@@ -107,6 +108,9 @@ with scene_col:
     col1, col2 = st.columns(2)
     with col1:
         st.write(f"Current datasample ID: {st.session_state.controller.datasample_id}")
+        st.write(
+            f"Done: {sum(agent.get_number_of_sended_messages() for agent in st.session_state.controller.sampled_agents.values())}"
+        )
     with col2:
         st.button(
             "Save sampled scene",
@@ -149,3 +153,25 @@ with scene_col:
     with col3:
         st.number_input("Go with step", value=5, key="step", min_value=1)
         st.button("Right", on_click=move_instance, args=("right",))
+
+    if os.path.exists(
+        f"v2_1/datasamples/{st.session_state.controller.datasample_id}.json"
+    ):
+        with open(
+            f"v2_1/datasamples/{st.session_state.controller.datasample_id}.json", "rb"
+        ) as file:
+            st.download_button(
+                label="Download Results",
+                data=file,
+                file_name=f"{st.session_state.controller.datasample_id}.json",
+                mime="application/json",
+            )
+    else:
+        st.download_button(
+            label="Download Results (Not Ready)",
+            data=b"",  # empty data
+            file_name="placeholder.json",
+            mime="application/json",
+            disabled=True,
+        )
+        st.info("The results file will be available after saving the file.")
