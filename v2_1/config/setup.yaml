@@ -67,7 +67,7 @@ targets:
   symbol: "x"
   color: "red"
   number:
-    min: 1
+    min: 2
     max: 3
   position_range:
     min_yx: [1, 1]
