@@ -163,4 +163,11 @@ cython_debug/
 
 *_exp
 hydra_outputs/
-.archive
+
+#App versions
+v1/
+v2/
+outputs/
+.archive/
+experiments/
+venv
