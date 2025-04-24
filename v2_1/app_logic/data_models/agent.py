@@ -292,6 +292,10 @@ class Agent:
 
         self._special_actions[global_timestamp] = action
 
+    def get_number_of_sended_messages(self) -> int:
+        """Get the number of sended messages"""
+        return len(self._sended_messages)
+
     def freeze_agent_state(self) -> dict:
         """Convert the agent state into dict"""
         return {
