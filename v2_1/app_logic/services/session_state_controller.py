@@ -396,6 +396,16 @@ class SceneController:
         self.edit_mode = edit_mode
         logging.info("Edit mode set to %s", edit_mode)
 
+    def increase_global_timestamp(self, step: int = 1) -> CallbackResponse:
+        """Increase the global timestamp"""
+        self.global_timestamp += step
+        logging.info("Global timestamp increased to %d", self.global_timestamp)
+        return CallbackResponse(
+            success=True,
+            message=f"Global timestamp increased to {self.global_timestamp}",
+            status_code=200,
+        )
+
     def _get_datasample_id(self) -> int:
         if not self._path_to_save.exists():
             self._path_to_save.mkdir(parents=True, exist_ok=True)

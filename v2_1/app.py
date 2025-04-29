@@ -56,7 +56,17 @@ def move_instance(direction):
 
 # Control Panel
 with col1:
-    st.text(f"Global timestamp: {st.session_state.controller.global_timestamp}")
+    sub_col1, sub_col2 = st.columns(2)
+    with sub_col1:
+        st.text(f"Global timestamp: {st.session_state.controller.global_timestamp}")
+    with sub_col2:
+        st.button(
+            "_+1_ ",
+            key="increase_global_timestamp_btn",
+            on_click=execute_callback,
+            args=([st.session_state.controller.increase_global_timestamp, 1]),
+        )
+
     sub_col1, sub_col2 = st.columns(2)
     with sub_col1:
         st.button(
