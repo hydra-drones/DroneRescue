@@ -31,48 +31,49 @@ Autonomous drone system for rescue and defense applications.
 ```mermaid
 gitGraph
    commit id: "init"
-   branch data_base
-   checkout data_base
+
+   branch dataset_base
+   checkout dataset_base
    commit id: "data a"
    commit id: "data b"
    commit id: "data c"
-   branch data
-   checkout data
+
+   branch dataset_experiment
+   checkout dataset_experiment
    commit id: "data 1"
    commit id: "data 2"
-   checkout data_base
-   merge data
+   checkout dataset_base
+   merge dataset_experiment
 
    branch model_base
    checkout model_base
    commit id: "model a"
    commit id: "model b"
    commit id: "model c"
-   branch model
-   checkout model
+
+   branch model_experiment
+   checkout model_experiment
    commit id: "model 1"
    commit id: "model 2"
    checkout model_base
-   merge model
+   merge model_experiment
 
    branch dev
    checkout dev
    commit id: "dev 1"
    commit id: "dev 2"
-   checkout model
+   checkout model_base
    merge dev
 
-   branch master
-   checkout master
+   branch main
+   checkout main
    commit tag: "0.1.0"
    checkout dev
    commit id: "dev 3"
-   checkout master
+   checkout main
    merge dev
    commit tag: "0.2.0"
-
 ```
-
 
 # Research Stage #1
 
