@@ -12,7 +12,7 @@ Autonomous drone system for rescue and defense applications.
 - Static Code Analysis [Pylance/Pyright](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
   - Pylance is powered by [Pyright](https://github.com/microsoft/pyright/tree/main)
   - The configuration is set to 'standard' mode in: pyproject.toml
- 
+
 ## Requirements
 
 - Python 3.10
@@ -27,6 +27,51 @@ Autonomous drone system for rescue and defense applications.
 
 ## How to Run
 - TODO
+
+```mermaid
+gitGraph
+   commit id: "init"
+   branch data_base
+   checkout data_base
+   commit id: "data a"
+   commit id: "data b"
+   commit id: "data c"
+   branch data
+   checkout data
+   commit id: "data 1"
+   commit id: "data 2"
+   checkout data_base
+   merge data
+
+   branch model_base
+   checkout model_base
+   commit id: "model a"
+   commit id: "model b"
+   commit id: "model c"
+   branch model
+   checkout model
+   commit id: "model 1"
+   commit id: "model 2"
+   checkout model_base
+   merge model
+
+   branch dev
+   checkout dev
+   commit id: "dev 1"
+   commit id: "dev 2"
+   checkout model
+   merge dev
+
+   branch master
+   checkout master
+   commit tag: "0.1.0"
+   checkout dev
+   commit id: "dev 3"
+   checkout master
+   merge dev
+   commit tag: "0.2.0"
+
+```
 
 
 # Research Stage #1
@@ -60,7 +105,7 @@ One of the main problems with the current approach is the frequent change of mov
 
 **Crashing into obstacles**
 
-The current experiment shows that agents don't take into account the distance to obstacles. In the experiment, we provided the model with an observation map, which can be visualized as a grid world, where each cell is a variable. For instance, to show the agent's position, we described the agent as the digit "4." In summary, the agent sees the obstacles, but it doesn't calculate the distance. We expected something like: "The distance to the next obstacle is 3; I should use low speed to investigate the area." But instead, there are cases where the agent simply continues in the same direction where the obstacle is, leading to a crash. 
+The current experiment shows that agents don't take into account the distance to obstacles. In the experiment, we provided the model with an observation map, which can be visualized as a grid world, where each cell is a variable. For instance, to show the agent's position, we described the agent as the digit "4." In summary, the agent sees the obstacles, but it doesn't calculate the distance. We expected something like: "The distance to the next obstacle is 3; I should use low speed to investigate the area." But instead, there are cases where the agent simply continues in the same direction where the obstacle is, leading to a crash.
 
 In the following example, the agent noticed an obstacle on the right side but decided to go right with speed 3. It was a mistake since, immediately after this action, the agent crashed into the obstacle. Note: for experimental purposes, we don't terminate the rollout.
 
@@ -87,14 +132,14 @@ In the following experiment, we added a long-term strategy variable. We instruct
 
 ### Takeaways from experiments
 
-**Overlapping of the visited area**  
+**Overlapping of the visited area**
 Agents were also prompted to work efficiently and prevent overlapping, but it didn't work as we expected. One of the agents decided to align its movement strategy with the teammate agent. This is not a random situation; from the beginning, agents moved together in one direction—towards the right side, as observed in the following messages. Agents moved in one direction for 20 steps, which accounts for 1/5 of all steps in one experiment.
 
-> To align with the teammate's movement and strategy, we should also move downward to explore the unvisited areas efficiently, complementing the teammate's path.  
+> To align with the teammate's movement and strategy, we should also move downward to explore the unvisited areas efficiently, complementing the teammate's path.
 
 > The right side has unvisited areas, and the teammate is moving right with speed 5. To maintain coverage and avoid redundancy, move right with a slightly lower speed to ensure safe maneuvering and area coverage.
 
-On step 21, the first agent decided to change its direction and move down.  
+On step 21, the first agent decided to change its direction and move down.
 
 > To avoid overlap with my teammate who is moving right, I will move downward to explore the unvisited areas below the current position. As there are no immediate obstacles in the downward direction, a moderate speed can be utilized for efficient exploration.
 
@@ -117,7 +162,7 @@ This agent then changed its long-term strategy to:
 
 After investigation, the agent decided to continue the exploration to the right side and use high speed to explore efficiently:
 
-> There is a large unvisited area to the right. To efficiently explore and confirm any targets, move right towards the unexplored sector while maintaining a safe distance from the obstacles to the left.  
+> There is a large unvisited area to the right. To efficiently explore and confirm any targets, move right towards the unexplored sector while maintaining a safe distance from the obstacles to the left.
 > Proceeding to scout the right sector at high speed. Will update on any targets found.
 
 ### "Edge" problem
@@ -198,33 +243,33 @@ We implemented a multi-agent architecture to empower each agent with greater con
 ### **Components**
 
 1. **Descriptor**
-    
+
     The Descriptor gathers all available information about the agent, including its position, observations, current strategy, and details about available teammate agents. It then provides a summary, referred to as the *state description*.
-    
+
     **Output format**: (state_description)
-    
+
 2. **Decision Maker**
-    
+
     The Decision Maker analyzes the state description and determines the next agent to call or engage.
-    
+
     **Output format**: (message, next agent)
-    
+
 3. **Communicator**
-    
+
     The Communicator facilitates message preparation for interaction with other agents. It generates messages based on inputs from the Decision Maker and selects the appropriate recipient.
-    
+
     **Output format**: (recipient, message)
-    
+
 4. **Strategist**
-    
+
     The Strategist manages and updates the agent’s current strategy. This component ensures that the agent maintains a consistent strategy across multiple evaluations, preventing fluctuations in behavior and reducing noise in agent movements.
-    
+
     **Output format**: (new_strategy)
-    
+
 5. **Action**
-    
+
     The Action component enables the agent to perform actions based on instructions from the Decision Maker and messages from other agents.
-    
+
     **Output format**: (action, speed)
 
 <img src="https://github.com/user-attachments/assets/9d5b98e6-0f8a-47f1-b1a3-d42d5b81a521" width="300"/>
@@ -237,51 +282,51 @@ I conducted approximately 50 experiments, all of which exhibited the same issues
 ### Success:
 
 1. Since agents received information about their teammates, they are aware of each other's positions. This allows them to plan actions and strategies to avoid overlapping. As shown below, both agents, Green and Lime, move in different directions. This behavior is also evident in their messages:
-    
+
     > *— Scoute Agent :*
-    > 
-    > 
+    >
+    >
     > Continue exploring sector 1 to locate potential targets. Ensure to avoid areas already covered by teammate 001
     >
 
    <img src="https://github.com/user-attachments/assets/ad69c40c-617f-4b7c-a3d4-504cdd29d346" width="800"/>
 
 2. When the Scout agent detects a target, it immediately informs the Rescuer of the coordinates. However, the current solution has a problem: the agent sometimes sends its own current coordinates instead of the target's coordinates.
-    
+
     > *— Scoute_001* sends to *Rescuer_002* following message:
-    > 
-    > 
+    >
+    >
     > Message 'Proceed to sector 2 at global position (1, 17) to investigate and handle the cluster of target points. Report back once completed.' has been sent to the 002 agent. Choose another agent
-    > 
+    >
     > *— Response of the Rescuer_002:*
-    > 
+    >
     > Strategy has been changed to new one : 'Investigate sector 2 at global position (1, 17) as instructed by the scout agent, prioritizing this task over returning to the start position. This adjustment is necessary to effectively handle the cluster of target points identified by the scout agent, ensuring mission objectives are met efficiently
-    > 
-    
+    >
+
     Additionally, Scout_001 sends a message to its teammate, Scout_003, to inform them about the target
-    
+
     > *— Scoute_001*:
-    > 
-    > 
+    >
+    >
     > Detected a cluster of target points in sector 2 at global position (9, 17). Please proceed to investigate and handle the targets.' has been sent to the 003 agent. Choose another agent.
-    > 
+    >
 
     When Scout_003 detects the target, it sends a message to Rescuer_002 with the target information.
 
     > — Scoute_003:
-    > 
-    > 
+    >
+    >
     > Message 'Detected target points in sector 4 at global position (13, 9). Please proceed to these coordinates and retrieve the targets. Confirm your battery level and position after completion.' has been sent to the 002 agent
-    > 
+    >
 
 3. Once the Rescuer agent receives the target information, it moves to the specified position.
-    
+
     > *— Rescuer_002*
-    > 
-    > 
+    >
+    >
     > Proceed to move towards the target point cluster in sector 2 at global position (1, 17) as instructed by the scout agent. This aligns with the current strategy to investigate and handle the cluster of target points efficiently
     >
-   
+
     <img src="https://github.com/user-attachments/assets/8f843833-7110-449a-a488-7259c05a7c83" width="800"/>
 
 ## Issues:
@@ -296,5 +341,3 @@ I conducted approximately 50 experiments, all of which exhibited the same issues
 
 
 https://github.com/user-attachments/assets/6ba01a44-f1c4-492f-91ee-33c783fee5b6
-
-
