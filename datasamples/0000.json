@@ -1,0 +1,160 @@
+{
+    "agents": {
+        "1": {
+            "role": "scout",
+            "mission": "Find the position of targets and send coordinates to rescuer",
+            "messages_from_agents": {},
+            "sended_messages": {},
+            "positions": {
+                "0": [
+                    21,
+                    41
+                ],
+                "2": [
+                    21,
+                    39
+                ],
+                "3": [
+                    21,
+                    39
+                ]
+            },
+            "mission_progress": {},
+            "target_in_fov": {},
+            "latest_agents_information": {
+                "3": {
+                    "2": {
+                        "position": [
+                            78,
+                            53
+                        ],
+                        "timestamp": 3
+                    },
+                    "3": {
+                        "position": [
+                            36,
+                            5
+                        ],
+                        "timestamp": 3
+                    }
+                }
+            },
+            "actions": {},
+            "global_strategy": {
+                "0": "scout targets"
+            },
+            "local_strategy": {},
+            "special_actions": {}
+        },
+        "2": {
+            "role": "rescuer",
+            "mission": "Based on the coordinates provided by scout, scan all targets",
+            "messages_from_agents": {},
+            "sended_messages": {},
+            "positions": {
+                "0": [
+                    78,
+                    53
+                ],
+                "3": [
+                    78,
+                    53
+                ]
+            },
+            "mission_progress": {},
+            "target_in_fov": {},
+            "latest_agents_information": {
+                "3": {
+                    "1": {
+                        "position": [
+                            21,
+                            39
+                        ],
+                        "timestamp": 3
+                    },
+                    "3": {
+                        "position": [
+                            36,
+                            5
+                        ],
+                        "timestamp": 3
+                    }
+                }
+            },
+            "actions": {},
+            "global_strategy": {
+                "0": "Scan all targets"
+            },
+            "local_strategy": {},
+            "special_actions": {}
+        },
+        "3": {
+            "role": "scout_commander",
+            "mission": "Coordinate scouts and rescuers to find and scan targets",
+            "messages_from_agents": {},
+            "sended_messages": {},
+            "positions": {
+                "0": [
+                    36,
+                    5
+                ],
+                "3": [
+                    36,
+                    5
+                ]
+            },
+            "mission_progress": {},
+            "target_in_fov": {},
+            "latest_agents_information": {
+                "3": {
+                    "1": {
+                        "position": [
+                            21,
+                            39
+                        ],
+                        "timestamp": 3
+                    },
+                    "2": {
+                        "position": [
+                            78,
+                            53
+                        ],
+                        "timestamp": 3
+                    }
+                }
+            },
+            "actions": {},
+            "global_strategy": {
+                "0": "Scan all targets"
+            },
+            "local_strategy": {},
+            "special_actions": {}
+        }
+    },
+    "targets": {
+        "1": {
+            "position": [
+                43,
+                30
+            ]
+        },
+        "2": {
+            "position": [
+                95,
+                99
+            ]
+        }
+    },
+    "bases": {
+        "1": {
+            "position": [
+                53,
+                95
+            ]
+        }
+    },
+    "area": [
+        100,
+        100
+    ]
+}
