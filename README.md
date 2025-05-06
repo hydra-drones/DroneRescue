@@ -25,54 +25,61 @@ Autonomous drone system for rescue and defense applications.
 - `poetry shell`
 - `pre-commit install`
 
-## How to Run
-- TODO
+## How to run Annotation App
+`streamlit run src/app.py`
+
+## Git Flow
 
 ```mermaid
 gitGraph
    commit id: "init"
-
+   
    branch dataset_base
    checkout dataset_base
    commit id: "data a"
    commit id: "data b"
    commit id: "data c"
-
+   
    branch dataset_experiment
    checkout dataset_experiment
    commit id: "data 1"
    commit id: "data 2"
    checkout dataset_base
    merge dataset_experiment
-
+   
+   checkout main
+   
    branch model_base
    checkout model_base
    commit id: "model a"
    commit id: "model b"
    commit id: "model c"
-
+   
    branch model_experiment
    checkout model_experiment
    commit id: "model 1"
    commit id: "model 2"
    checkout model_base
    merge model_experiment
-
+   
+   checkout main
+   
    branch dev
    checkout dev
    commit id: "dev 1"
    commit id: "dev 2"
-   checkout model_base
-   merge dev
-
-   branch main
-   checkout main
-   commit tag: "0.1.0"
+   
+   checkout dataset_base
    checkout dev
+   merge dataset_base
+   
+   checkout model_base
+   checkout dev
+   merge model_base
    commit id: "dev 3"
+   
    checkout main
-   merge dev
-   commit tag: "0.2.0"
+   merge dev tag: "0.1.0"
 ```
 
 # Research Stage #1
