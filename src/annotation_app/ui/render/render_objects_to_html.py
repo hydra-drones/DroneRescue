@@ -1,7 +1,9 @@
 from typing import Dict
-from src.scripts.generate_sample import TargetData
-from src.app_logic.data_models.agent import Agent
-from src.ui.render.render_instance_as_html import render_agent_or_instance
+from src.annotation_app.scripts.generate_sample import TargetData
+from src.annotation_app.app_logic.data_models.agent import Agent
+from src.annotation_app.ui.render.render_instance_as_html import (
+    render_agent_or_instance,
+)
 
 # TODO: add typing for agent_metadata
 def render_agent(

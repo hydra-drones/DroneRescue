@@ -1,6 +1,6 @@
-path_to_hydra_outputs: "/home/evgenii-iurin/work/DroneRescue/src/hydra_outputs"
+path_to_hydra_outputs: "/home/evgenii-iurin/work/DroneRescue/src.annotation_app../hydra_outputs"
 author: "Eugene Iurin"
-base_path: ./src
+base_path: ./src.annotation_app..
 agents:
   scout:
     role: "scout"

@@ -1,7 +1,9 @@
 import streamlit as st
 
-from src.app_logic.services.session_state_controller import SceneController
-from src.app_logic.utils.common import execute_callback
+from src.annotation_app.app_logic.services.session_state_controller import (
+    SceneController,
+)
+from src.annotation_app.app_logic.utils.common import execute_callback
 
 
 def update_global_strategy_ui(agent_id: int, controller: SceneController):

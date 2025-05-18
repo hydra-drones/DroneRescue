@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Evgenii Iurin <iurin.evgenii@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "src" }]
+packages = [{ include = "src.annotation_app.." }]
 package-mode = true
 
 [tool.poetry.dependencies]
