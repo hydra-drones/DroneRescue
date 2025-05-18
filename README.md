@@ -3,6 +3,7 @@ Autonomous drone system for rescue and defense applications.
 
 ## Tools and standards used
 
+- Use conda for virtual environment
 - Project setup: [poetry](https://python-poetry.org/)
   - pyproject.toml
 - [pre-commit](https://pre-commit.com/)
@@ -15,18 +16,43 @@ Autonomous drone system for rescue and defense applications.
 
 ## Requirements
 
-- Python 3.10
+- Python ^3.10
+- Conda
 - Poetry
 - Linux
 
 ## Setup
 
-- `poetry install`
-- `poetry shell`
-- `pre-commit install`
+1. Install conda (for linux)
+    ```
+    mkdir -p ~/miniconda3
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+    bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+    rm ~/miniconda3/miniconda.sh
+    source ~/miniconda3/bin/activate
+    conda init --all
+    ```
 
-## How to run Annotation App
-`streamlit run src/annotation_app/app.py`
+2. `conda create -n drone-rescue-env python=3.11`
+3. `conda activate drone-rescue-env`
+4. `pip install poetry`
+5. `poetry config virtualenvs.path ~/miniconda3/envs/`
+6. `poetry config virtualenvs.create false`
+7. `poetry install`
+9. `pre-commit install`
+
+
+
+## Annotation App
+
+### Run
+  `streamlit run src/annotation_app/app.py`
+
+### Build docker
+  `docker build -t drone-rescue .`
+
+### Run docker
+  `docker run -p 8501:8501 drone-rescue`
 
 ## Git Flow
 
