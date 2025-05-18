@@ -1,6 +1,8 @@
 import streamlit as st
 
-from src.app_logic.services.session_state_controller import CallbackResponse
+from src.annotation_app.app_logic.services.session_state_controller import (
+    CallbackResponse,
+)
 
 
 def handle_callback_response(response: CallbackResponse):

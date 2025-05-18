@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from typing import Dict, Optional, Tuple
 from collections import defaultdict
 
-from src.app_logic.data_models.agent import Agent
+from src.annotation_app.app_logic.data_models.agent import Agent
 
 logging.basicConfig(level=logging.INFO)
 

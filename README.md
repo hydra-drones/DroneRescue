@@ -26,58 +26,58 @@ Autonomous drone system for rescue and defense applications.
 - `pre-commit install`
 
 ## How to run Annotation App
-`streamlit run src/app.py`
+`streamlit run src.annotation_app../app.py`
 
 ## Git Flow
 
 ```mermaid
 gitGraph
    commit id: "init"
-   
+
    branch dataset_base
    checkout dataset_base
    commit id: "data a"
    commit id: "data b"
    commit id: "data c"
-   
+
    branch dataset_experiment
    checkout dataset_experiment
    commit id: "data 1"
    commit id: "data 2"
    checkout dataset_base
    merge dataset_experiment
-   
+
    checkout main
-   
+
    branch model_base
    checkout model_base
    commit id: "model a"
    commit id: "model b"
    commit id: "model c"
-   
+
    branch model_experiment
    checkout model_experiment
    commit id: "model 1"
    commit id: "model 2"
    checkout model_base
    merge model_experiment
-   
+
    checkout main
-   
+
    branch dev
    checkout dev
    commit id: "dev 1"
    commit id: "dev 2"
-   
+
    checkout dataset_base
    checkout dev
    merge dataset_base
-   
+
    checkout model_base
    checkout dev
    merge model_base
    commit id: "dev 3"
-   
+
    checkout main
    merge dev tag: "0.1.0"
 ```
@@ -132,7 +132,7 @@ The following message is the message after crashing. In this state, the agent is
 
 ### Video rollout
 
-<img src="https://github.com/user-attachments/assets/33a40bcb-7e95-4e77-b1ad-f0880e853bc3" width="500"/>
+<img src.annotation_app..="https://github.com/user-attachments/assets/33a40bcb-7e95-4e77-b1ad-f0880e853bc3" width="500"/>
 
 
 ## Experiment Nr. 2
@@ -189,7 +189,7 @@ On evaluation, we observed that the first (left) agent, at the end of the rollou
 
 ### Video rollout
 
-<img src="https://github.com/user-attachments/assets/227a4f44-08bf-4a3b-bb20-8cf6f9af637f" width="500"/>
+<img src.annotation_app..="https://github.com/user-attachments/assets/227a4f44-08bf-4a3b-bb20-8cf6f9af637f" width="500"/>
 
 
 
@@ -280,7 +280,7 @@ We implemented a multi-agent architecture to empower each agent with greater con
 
     **Output format**: (action, speed)
 
-<img src="https://github.com/user-attachments/assets/9d5b98e6-0f8a-47f1-b1a3-d42d5b81a521" width="300"/>
+<img src.annotation_app..="https://github.com/user-attachments/assets/9d5b98e6-0f8a-47f1-b1a3-d42d5b81a521" width="300"/>
 
 
 ## Experiment Analysis
@@ -297,7 +297,7 @@ I conducted approximately 50 experiments, all of which exhibited the same issues
     > Continue exploring sector 1 to locate potential targets. Ensure to avoid areas already covered by teammate 001
     >
 
-   <img src="https://github.com/user-attachments/assets/ad69c40c-617f-4b7c-a3d4-504cdd29d346" width="800"/>
+   <img src.annotation_app..="https://github.com/user-attachments/assets/ad69c40c-617f-4b7c-a3d4-504cdd29d346" width="800"/>
 
 2. When the Scout agent detects a target, it immediately informs the Rescuer of the coordinates. However, the current solution has a problem: the agent sometimes sends its own current coordinates instead of the target's coordinates.
 
@@ -335,7 +335,7 @@ I conducted approximately 50 experiments, all of which exhibited the same issues
     > Proceed to move towards the target point cluster in sector 2 at global position (1, 17) as instructed by the scout agent. This aligns with the current strategy to investigate and handle the cluster of target points efficiently
     >
 
-    <img src="https://github.com/user-attachments/assets/8f843833-7110-449a-a488-7259c05a7c83" width="800"/>
+    <img src.annotation_app..="https://github.com/user-attachments/assets/8f843833-7110-449a-a488-7259c05a7c83" width="800"/>
 
 ## Issues:
 

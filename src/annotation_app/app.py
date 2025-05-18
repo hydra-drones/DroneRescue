@@ -1,17 +1,19 @@
 import os
-from src.app_logic.services.session_state_controller import SceneController
-from src.ui.components.control_panel import (
+from src.annotation_app.app_logic.services.session_state_controller import (
+    SceneController,
+)
+from src.annotation_app.ui.components.control_panel import (
     create_messaging_ui,
     update_global_strategy_ui,
     update_local_strategy_ui,
     update_mission_progress_ui,
 )
-from src.app_logic.data_models.agent import Agent
+from src.annotation_app.app_logic.data_models.agent import Agent
 import streamlit as st
 from hydra.core.global_hydra import GlobalHydra
 from hydra import initialize, compose
 from omegaconf import OmegaConf
-from src.app_logic.utils.common import execute_callback
+from src.annotation_app.app_logic.utils.common import execute_callback
 
 
 # CANCELLED: Save the scene if only all agents are in the same timstamp
@@ -165,10 +167,11 @@ with scene_col:
         st.button("Right", on_click=move_instance, args=("right",))
 
     if os.path.exists(
-        f"src/datasamples/{st.session_state.controller.datasample_id}.json"
+        f"src.annotation_app../datasamples/{st.session_state.controller.datasample_id}.json"
     ):
         with open(
-            f"src/datasamples/{st.session_state.controller.datasample_id}.json", "rb"
+            f"src.annotation_app../datasamples/{st.session_state.controller.datasample_id}.json",
+            "rb",
         ) as file:
             st.download_button(
                 label="Download Results",

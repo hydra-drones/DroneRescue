@@ -4,10 +4,14 @@ from typing import Dict, Literal, Optional, Tuple, Any
 
 import json
 
-from src.scripts.generate_sample import DatasetGenerator, TargetData, BaseData
-from src.app_logic.data_models.agent import Agent
+from src.annotation_app.scripts.generate_sample import (
+    DatasetGenerator,
+    TargetData,
+    BaseData,
+)
+from src.annotation_app.app_logic.data_models.agent import Agent
 
-from src.ui.render.render_objects_to_html import (
+from src.annotation_app.ui.render.render_objects_to_html import (
     render_agent,
     render_base,
     render_target,
