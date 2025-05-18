@@ -26,7 +26,7 @@ Autonomous drone system for rescue and defense applications.
 - `pre-commit install`
 
 ## How to run Annotation App
-`streamlit run src.annotation_app../app.py`
+`streamlit run src/annotation_app/app.py`
 
 ## Git Flow
 
