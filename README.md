@@ -34,33 +34,33 @@ Autonomous drone system for rescue and defense applications.
 gitGraph
    commit id: "init"
 
-   branch feature/dataset-base
-   checkout feature/dataset-base
+   branch feat/dataset-base
+   checkout feat/dataset-base
    commit id: "data a"
    commit id: "data b"
    commit id: "data c"
 
-   branch feature/dataset-experiment
-   checkout feature/dataset-experiment
+   branch feat/dataset-experiment
+   checkout feat/dataset-experiment
    commit id: "data 1"
    commit id: "data 2"
-   checkout feature/dataset-base
-   merge feature/dataset-experiment
+   checkout feat/dataset-base
+   merge feat/dataset-experiment
 
    checkout main
 
-   branch feature/model-base
-   checkout feature/model-base
+   branch feat/model-base
+   checkout feat/model-base
    commit id: "model a"
    commit id: "model b"
    commit id: "model c"
 
-   branch feature/model-experiment
-   checkout feature/model-experiment
+   branch feat/model-experiment
+   checkout feat/model-experiment
    commit id: "model 1"
    commit id: "model 2"
-   checkout feature/model-base
-   merge feature/model-experiment
+   checkout feat/model-base
+   merge feat/model-experiment
 
    checkout main
 
@@ -69,13 +69,13 @@ gitGraph
    commit id: "dev 1"
    commit id: "dev 2"
 
-   checkout feature/dataset-base
+   checkout feat/dataset-base
    checkout dev
-   merge feature/dataset-base
+   merge feat/dataset-base
 
-   checkout feature/model-base
+   checkout feat/model-base
    checkout dev
-   merge feature/model-base
+   merge feat/model-base
    commit id: "dev 3"
 
    checkout main
