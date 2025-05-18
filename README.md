@@ -49,18 +49,18 @@ gitGraph
 
    checkout main
 
-   branch feature/model_base
-   checkout feature/model_base
+   branch feature/model-base
+   checkout feature/model-base
    commit id: "model a"
    commit id: "model b"
    commit id: "model c"
 
-   branch feature/model_experiment
-   checkout feature/model_experiment
+   branch feature/model-experiment
+   checkout feature/model-experiment
    commit id: "model 1"
    commit id: "model 2"
-   checkout feature/model_base
-   merge feature/model_experiment
+   checkout feature/model-base
+   merge feature/model-experiment
 
    checkout main
 
@@ -73,9 +73,9 @@ gitGraph
    checkout dev
    merge feature/dataset-base
 
-   checkout feature/model_base
+   checkout feature/model-base
    checkout dev
-   merge feature/model_base
+   merge feature/model-base
    commit id: "dev 3"
 
    checkout main
