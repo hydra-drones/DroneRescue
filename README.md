@@ -108,6 +108,28 @@ gitGraph
    merge dev tag: "0.1.0"
 ```
 
+## Versioning
+
+This project follows [Semantic Versioning (SemVer)](https://semver.org/) to manage releases.
+
+Version format: `MAJOR.MINOR.PATCH`
+Example: `1.2.3`
+
+### Principles:
+
+* `MAJOR` — increased when backward-incompatible changes are introduced
+* `MINOR` — increased when new functionality is added in a backward-compatible manner
+* `PATCH` — increased when making backward-compatible bug fixes or small improvements
+
+### Workflow:
+
+1. Development is done in the `dev` branch
+2. Once features are complete and tested, a pull request is created from `dev` to `main`
+3. After merging to `main`, a new Git tag is created (e.g., `v1.2.0`)
+4. This tag is used to publish the Docker image or trigger a release pipeline
+
+---
+
 # Research Stage #1
 
 ## Experiment Nr. 1
