@@ -323,14 +323,17 @@ class SceneController:
         if not confirm_sending:
             return CallbackResponse(
                 success=False,
-                message=f"Failed to send the message from agent {sender_id} to agent {receiver_id}\nPlease confirm sending the message",
+                message=f"""Failed to send the message from agent {sender_id}
+                to agent {receiver_id}\nPlease confirm sending the message""",
                 status_code=400,
             )
 
         if not message:
             return CallbackResponse(
                 success=False,
-                message=f"Failed to send the message from agent {sender_id} to agent {receiver_id}\nPlease provide a message",
+                message=f"""Failed to send the message from agent
+                {sender_id} to agent {receiver_id}\n
+                Please provide a message""",
                 status_code=400,
             )
 

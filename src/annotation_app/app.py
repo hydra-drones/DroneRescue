@@ -121,7 +121,10 @@ with scene_col:
     with col1:
         st.write(f"Current datasample ID: {st.session_state.controller.datasample_id}")
         st.write(
-            f"Done: {sum(agent.get_number_of_sended_messages() for agent in st.session_state.controller.sampled_agents.values())}"
+            f"""
+            Done: {sum(agent.get_number_of_sended_messages()
+            for agent in st.session_state.controller.sampled_agents.values())}
+            """
         )
     with col2:
         st.button(

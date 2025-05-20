@@ -6,6 +6,8 @@ from src.annotation_app.ui.render.render_instance_as_html import (
 )
 
 # TODO: add typing for agent_metadata
+
+
 def render_agent(
     agents: Dict[int, Agent], agent_metadata: dict, scale_factor: int = 1
 ) -> str:
