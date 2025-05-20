@@ -6,6 +6,17 @@ on:
   pull_request:
 
 jobs:
+  prevent-push-to-main-if-not-dev:
+    name: Reject PRs to main not from dev
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.base_ref == 'main' && github.head_ref != 'dev'
+
+    steps:
+      - name: Fail PR from non-dev
+        run: |
+          echo "❌ Pull requests to main must come from 'dev' only."
+          exit 1
+
   lint:
     name: Lint Code
     runs-on: ubuntu-latest
@@ -67,8 +78,8 @@ jobs:
   docker-publish:
     name: Build and Publish Docker Image
     runs-on: ubuntu-latest
-    needs:
-      - docker
+    needs: build-package
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout repository
