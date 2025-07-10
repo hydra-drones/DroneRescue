@@ -41,6 +41,26 @@ Autonomous drone system for rescue and defense applications.
 7. `poetry install`
 9. `pre-commit install`
 
+### GCP
+
+To use Data Processing Pipeline you need to have the access to Google Cloud Platform. Put `credentials.json` and `token.json` into `.config` folder. Please, ask administrator to get the access.
+
+### CLI
+
+|  Command | Description |
+|-----------|-----------|
+| data          |    Google Drive transfer commands. You can download raw training data to local directory or upload file. See `--help` for more information       |
+|           |           |
+|           |           |
+
+
+### Airflow
+
+```
+docker compose up airflow-init
+docker compose up
+docker compose down --volumes --rmi all
+```
 
 
 ## Annotation App

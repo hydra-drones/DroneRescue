@@ -1,0 +1,1682 @@
+{
+    "agents": {
+        "1": {
+            "role": "scout",
+            "mission": "Find the position of targets and send coordinates to rescuer",
+            "messages_from_agents": {
+                "1": [
+                    {
+                        "sender_id": 3,
+                        "message": "Scout 1 \u2014 proceed to (32, 24). Confirm target visually and report immediately.",
+                        "type": "order"
+                    }
+                ],
+                "3": [
+                    {
+                        "sender_id": 2,
+                        "message": "Holding position. \n",
+                        "type": "info"
+                    }
+                ],
+                "14": [
+                    {
+                        "sender_id": 3,
+                        "message": "Scout 1 \u2014 move west. Expand reconnaissance grid. Confirm any new targets.",
+                        "type": "order"
+                    }
+                ],
+                "41": [
+                    {
+                        "sender_id": 3,
+                        "message": "Scout 1 \u2014 proceed south. Sweep southern sector for potential additional targets.",
+                        "type": "order"
+                    }
+                ],
+                "62": [
+                    {
+                        "sender_id": 2,
+                        "message": " Target (32, 24) secured. Extraction successful.\n",
+                        "type": "info"
+                    }
+                ],
+                "87": [
+                    {
+                        "sender_id": 2,
+                        "message": " Arrived at secondary target (5, 27). Extraction ready. Holding position.\n",
+                        "type": "info"
+                    }
+                ],
+                "104": [
+                    {
+                        "sender_id": 3,
+                        "message": "Scout 1 \u2014 proceed east. Conduct lateral sweep across southern sector.",
+                        "type": "order"
+                    }
+                ]
+            },
+            "sended_messages": {
+                "3": [
+                    {
+                        "receiver": 2,
+                        "message": "Received orders. Proceeding toward target location (32, 24).",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Received orders. Proceeding toward target location (32, 24).",
+                        "type": "info"
+                    }
+                ],
+                "13": [
+                    {
+                        "receiver": 2,
+                        "message": "Reached designated point (32, 24). Visual confirmation of target.",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Reached designated point (32, 24). Visual confirmation of target.",
+                        "type": "info"
+                    }
+                ],
+                "40": [
+                    {
+                        "receiver": 2,
+                        "message": "Visual contact established with new target at (5, 27).",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Visual contact established with new target at (5, 27).",
+                        "type": "info"
+                    }
+                ],
+                "103": [
+                    {
+                        "receiver": 2,
+                        "message": "Southern boundary reached. No new targets identified.",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Southern boundary reached. No new targets identified.",
+                        "type": "info"
+                    }
+                ],
+                "159": [
+                    {
+                        "receiver": 2,
+                        "message": "Visual contact with new target at (89, 80).",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Visual contact with new target at (89, 80).",
+                        "type": "info"
+                    }
+                ]
+            },
+            "positions": {
+                "0": [
+                    59,
+                    22
+                ],
+                "1": [
+                    59,
+                    22
+                ],
+                "2": [
+                    59,
+                    22
+                ],
+                "3": [
+                    58,
+                    22
+                ],
+                "8": [
+                    53,
+                    22
+                ],
+                "13": [
+                    48,
+                    22
+                ],
+                "14": [
+                    47,
+                    22
+                ],
+                "15": [
+                    46,
+                    22
+                ],
+                "20": [
+                    41,
+                    22
+                ],
+                "25": [
+                    36,
+                    22
+                ],
+                "30": [
+                    31,
+                    22
+                ],
+                "35": [
+                    26,
+                    22
+                ],
+                "40": [
+                    21,
+                    22
+                ],
+                "41": [
+                    20,
+                    22
+                ],
+                "42": [
+                    20,
+                    23
+                ],
+                "47": [
+                    20,
+                    28
+                ],
+                "52": [
+                    20,
+                    33
+                ],
+                "57": [
+                    20,
+                    38
+                ],
+                "62": [
+                    20,
+                    43
+                ],
+                "63": [
+                    20,
+                    43
+                ],
+                "69": [
+                    20,
+                    49
+                ],
+                "75": [
+                    20,
+                    55
+                ],
+                "81": [
+                    20,
+                    61
+                ],
+                "87": [
+                    20,
+                    67
+                ],
+                "88": [
+                    20,
+                    67
+                ],
+                "93": [
+                    20,
+                    72
+                ],
+                "98": [
+                    20,
+                    77
+                ],
+                "103": [
+                    20,
+                    82
+                ],
+                "104": [
+                    20,
+                    82
+                ],
+                "109": [
+                    25,
+                    82
+                ],
+                "114": [
+                    30,
+                    82
+                ],
+                "119": [
+                    35,
+                    82
+                ],
+                "124": [
+                    40,
+                    82
+                ],
+                "129": [
+                    45,
+                    82
+                ],
+                "134": [
+                    50,
+                    82
+                ],
+                "139": [
+                    55,
+                    82
+                ],
+                "144": [
+                    60,
+                    82
+                ],
+                "149": [
+                    65,
+                    82
+                ],
+                "154": [
+                    70,
+                    82
+                ],
+                "159": [
+                    75,
+                    82
+                ]
+            },
+            "mission_progress": {
+                "3": "Recon mission underway. Visual confirmation pending.",
+                "13": " First objective confirmed.",
+                "40": " Additional objective located. Area requires further exploration.",
+                "103": "Requesting new patrol direction.",
+                "159": "Third objective detected. Awaiting commander\u2019s instruction for priority."
+            },
+            "target_in_fov": {
+                "13": [
+                    [
+                        32,
+                        24
+                    ]
+                ],
+                "14": [
+                    [
+                        32,
+                        24
+                    ]
+                ],
+                "15": [
+                    [
+                        32,
+                        24
+                    ]
+                ],
+                "20": [
+                    [
+                        32,
+                        24
+                    ]
+                ],
+                "25": [
+                    [
+                        32,
+                        24
+                    ]
+                ],
+                "30": [
+                    [
+                        32,
+                        24
+                    ]
+                ],
+                "35": [
+                    [
+                        32,
+                        24
+                    ]
+                ],
+                "40": [
+                    [
+                        32,
+                        24
+                    ],
+                    [
+                        5,
+                        27
+                    ]
+                ],
+                "41": [
+                    [
+                        32,
+                        24
+                    ],
+                    [
+                        5,
+                        27
+                    ]
+                ],
+                "42": [
+                    [
+                        32,
+                        24
+                    ],
+                    [
+                        5,
+                        27
+                    ]
+                ],
+                "47": [
+                    [
+                        32,
+                        24
+                    ],
+                    [
+                        5,
+                        27
+                    ]
+                ],
+                "52": [
+                    [
+                        32,
+                        24
+                    ],
+                    [
+                        5,
+                        27
+                    ]
+                ],
+                "159": [
+                    [
+                        89,
+                        80
+                    ]
+                ]
+            },
+            "latest_agents_information": {
+                "1": {
+                    "2": {
+                        "position": [
+                            26,
+                            52
+                        ],
+                        "timestamp": 1
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 1
+                    }
+                },
+                "2": {
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 2
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 2
+                    }
+                },
+                "3": {
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 3
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 3
+                    }
+                },
+                "13": {
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 13
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 13
+                    }
+                },
+                "14": {
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 14
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 14
+                    }
+                },
+                "15": {
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 15
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 15
+                    }
+                },
+                "40": {
+                    "2": {
+                        "position": [
+                            26,
+                            39
+                        ],
+                        "timestamp": 40
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 40
+                    }
+                },
+                "41": {
+                    "2": {
+                        "position": [
+                            26,
+                            39
+                        ],
+                        "timestamp": 41
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 41
+                    }
+                },
+                "42": {
+                    "2": {
+                        "position": [
+                            26,
+                            39
+                        ],
+                        "timestamp": 42
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 42
+                    }
+                },
+                "62": {
+                    "2": {
+                        "position": [
+                            26,
+                            29
+                        ],
+                        "timestamp": 62
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 62
+                    }
+                },
+                "63": {
+                    "2": {
+                        "position": [
+                            25,
+                            29
+                        ],
+                        "timestamp": 63
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 63
+                    }
+                },
+                "87": {
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 87
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 87
+                    }
+                },
+                "88": {
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 88
+                    },
+                    "3": {
+                        "position": [
+                            61,
+                            33
+                        ],
+                        "timestamp": 88
+                    }
+                },
+                "103": {
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 103
+                    },
+                    "3": {
+                        "position": [
+                            61,
+                            33
+                        ],
+                        "timestamp": 103
+                    }
+                },
+                "104": {
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 104
+                    },
+                    "3": {
+                        "position": [
+                            60,
+                            33
+                        ],
+                        "timestamp": 104
+                    }
+                },
+                "159": {
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 159
+                    },
+                    "3": {
+                        "position": [
+                            60,
+                            33
+                        ],
+                        "timestamp": 159
+                    }
+                }
+            },
+            "actions": {},
+            "global_strategy": {
+                "0": "scout targets"
+            },
+            "local_strategy": {
+                "3": "Direct advance initiated. Sensors active.",
+                "13": "Preparing to redeploy.",
+                "40": "Holding observation briefly. Ready to redeploy per new orders.",
+                "103": "Holding position. Awaiting new orders.",
+                "159": "Holding position near contact zone. Monitoring area for additional threats."
+            },
+            "special_actions": {}
+        },
+        "2": {
+            "role": "rescuer",
+            "mission": "Based on the coordinates provided by scout, scan all targets",
+            "messages_from_agents": {
+                "2": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 hold position. Deploy only upon Scout confirmation.\n\n",
+                        "type": "order"
+                    }
+                ],
+                "3": [
+                    {
+                        "sender_id": 1,
+                        "message": "Received orders. Proceeding toward target location (32, 24).",
+                        "type": "info"
+                    }
+                ],
+                "13": [
+                    {
+                        "sender_id": 1,
+                        "message": "Reached designated point (32, 24). Visual confirmation of target.",
+                        "type": "info"
+                    }
+                ],
+                "15": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 proceed to (32, 24). Secure and extract the confirmed objective.",
+                        "type": "order"
+                    }
+                ],
+                "40": [
+                    {
+                        "sender_id": 1,
+                        "message": "Visual contact established with new target at (5, 27).",
+                        "type": "info"
+                    }
+                ],
+                "42": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 continue extraction operation at current location. Report completion.",
+                        "type": "order"
+                    }
+                ],
+                "63": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 proceed to (5, 27) immediately. Secure and prepare for extraction.",
+                        "type": "order"
+                    }
+                ],
+                "88": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 1 \u2014 maintain current position. Hold extraction zone secure. Await further deployment instructions.",
+                        "type": "order"
+                    }
+                ],
+                "103": [
+                    {
+                        "sender_id": 1,
+                        "message": "Southern boundary reached. No new targets identified.",
+                        "type": "info"
+                    }
+                ],
+                "159": [
+                    {
+                        "sender_id": 1,
+                        "message": "Visual contact with new target at (89, 80).",
+                        "type": "info"
+                    }
+                ]
+            },
+            "sended_messages": {
+                "3": [
+                    {
+                        "receiver": 1,
+                        "message": "Holding position. \n",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Holding position. \n",
+                        "type": "info"
+                    }
+                ],
+                "62": [
+                    {
+                        "receiver": 1,
+                        "message": " Target (32, 24) secured. Extraction successful.\n",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": " Target (32, 24) secured. Extraction successful.\n",
+                        "type": "info"
+                    }
+                ],
+                "87": [
+                    {
+                        "receiver": 1,
+                        "message": " Arrived at secondary target (5, 27). Extraction ready. Holding position.\n",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": " Arrived at secondary target (5, 27). Extraction ready. Holding position.\n",
+                        "type": "info"
+                    }
+                ]
+            },
+            "positions": {
+                "0": [
+                    26,
+                    52
+                ],
+                "1": [
+                    26,
+                    52
+                ],
+                "2": [
+                    26,
+                    51
+                ],
+                "3": [
+                    26,
+                    51
+                ],
+                "13": [
+                    26,
+                    51
+                ],
+                "14": [
+                    26,
+                    51
+                ],
+                "15": [
+                    26,
+                    51
+                ],
+                "20": [
+                    26,
+                    46
+                ],
+                "25": [
+                    26,
+                    41
+                ],
+                "27": [
+                    26,
+                    39
+                ],
+                "40": [
+                    26,
+                    39
+                ],
+                "41": [
+                    26,
+                    39
+                ],
+                "42": [
+                    26,
+                    39
+                ],
+                "47": [
+                    26,
+                    34
+                ],
+                "52": [
+                    26,
+                    29
+                ],
+                "62": [
+                    26,
+                    29
+                ],
+                "63": [
+                    25,
+                    29
+                ],
+                "68": [
+                    20,
+                    29
+                ],
+                "73": [
+                    15,
+                    29
+                ],
+                "75": [
+                    13,
+                    29
+                ],
+                "87": [
+                    13,
+                    29
+                ],
+                "88": [
+                    13,
+                    29
+                ],
+                "103": [
+                    13,
+                    29
+                ],
+                "104": [
+                    13,
+                    29
+                ],
+                "159": [
+                    13,
+                    29
+                ]
+            },
+            "mission_progress": {
+                "3": " Awaiting visual confirmation from Scout before deployment.",
+                "62": " Primary extraction complete. Transitioning to secondary recovery.",
+                "87": "Secondary target contact achieved. Position secured."
+            },
+            "target_in_fov": {
+                "52": [
+                    [
+                        32,
+                        24
+                    ]
+                ],
+                "63": [
+                    [
+                        32,
+                        24
+                    ]
+                ],
+                "75": [
+                    [
+                        5,
+                        27
+                    ]
+                ]
+            },
+            "latest_agents_information": {
+                "1": {
+                    "1": {
+                        "position": [
+                            59,
+                            22
+                        ],
+                        "timestamp": 1
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 1
+                    }
+                },
+                "2": {
+                    "1": {
+                        "position": [
+                            59,
+                            22
+                        ],
+                        "timestamp": 2
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 2
+                    }
+                },
+                "3": {
+                    "1": {
+                        "position": [
+                            58,
+                            22
+                        ],
+                        "timestamp": 3
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 3
+                    }
+                },
+                "13": {
+                    "1": {
+                        "position": [
+                            48,
+                            22
+                        ],
+                        "timestamp": 13
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 13
+                    }
+                },
+                "14": {
+                    "1": {
+                        "position": [
+                            47,
+                            22
+                        ],
+                        "timestamp": 14
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 14
+                    }
+                },
+                "15": {
+                    "1": {
+                        "position": [
+                            46,
+                            22
+                        ],
+                        "timestamp": 15
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 15
+                    }
+                },
+                "40": {
+                    "1": {
+                        "position": [
+                            21,
+                            22
+                        ],
+                        "timestamp": 40
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 40
+                    }
+                },
+                "41": {
+                    "1": {
+                        "position": [
+                            20,
+                            22
+                        ],
+                        "timestamp": 41
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 41
+                    }
+                },
+                "42": {
+                    "1": {
+                        "position": [
+                            20,
+                            23
+                        ],
+                        "timestamp": 42
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 42
+                    }
+                },
+                "62": {
+                    "1": {
+                        "position": [
+                            20,
+                            43
+                        ],
+                        "timestamp": 62
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 62
+                    }
+                },
+                "63": {
+                    "1": {
+                        "position": [
+                            20,
+                            43
+                        ],
+                        "timestamp": 63
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 63
+                    }
+                },
+                "87": {
+                    "1": {
+                        "position": [
+                            20,
+                            67
+                        ],
+                        "timestamp": 87
+                    },
+                    "3": {
+                        "position": [
+                            62,
+                            33
+                        ],
+                        "timestamp": 87
+                    }
+                },
+                "88": {
+                    "1": {
+                        "position": [
+                            20,
+                            67
+                        ],
+                        "timestamp": 88
+                    },
+                    "3": {
+                        "position": [
+                            61,
+                            33
+                        ],
+                        "timestamp": 88
+                    }
+                },
+                "103": {
+                    "1": {
+                        "position": [
+                            20,
+                            82
+                        ],
+                        "timestamp": 103
+                    },
+                    "3": {
+                        "position": [
+                            61,
+                            33
+                        ],
+                        "timestamp": 103
+                    }
+                },
+                "104": {
+                    "1": {
+                        "position": [
+                            20,
+                            82
+                        ],
+                        "timestamp": 104
+                    },
+                    "3": {
+                        "position": [
+                            60,
+                            33
+                        ],
+                        "timestamp": 104
+                    }
+                },
+                "159": {
+                    "1": {
+                        "position": [
+                            75,
+                            82
+                        ],
+                        "timestamp": 159
+                    },
+                    "3": {
+                        "position": [
+                            60,
+                            33
+                        ],
+                        "timestamp": 159
+                    }
+                }
+            },
+            "actions": {},
+            "global_strategy": {
+                "0": "Scan all targets"
+            },
+            "local_strategy": {
+                "3": "Standby mode active. Systems ready for deployment.",
+                "62": "Initiating movement toward secondary target",
+                "87": "Defensive perimeter active. Awaiting further instructions."
+            },
+            "special_actions": {}
+        },
+        "3": {
+            "role": "scout_commander",
+            "mission": "Coordinate scouts and rescuers to find and scan targets",
+            "messages_from_agents": {
+                "3": [
+                    {
+                        "sender_id": 1,
+                        "message": "Received orders. Proceeding toward target location (32, 24).",
+                        "type": "info"
+                    },
+                    {
+                        "sender_id": 2,
+                        "message": "Holding position. \n",
+                        "type": "info"
+                    }
+                ],
+                "13": [
+                    {
+                        "sender_id": 1,
+                        "message": "Reached designated point (32, 24). Visual confirmation of target.",
+                        "type": "info"
+                    }
+                ],
+                "40": [
+                    {
+                        "sender_id": 1,
+                        "message": "Visual contact established with new target at (5, 27).",
+                        "type": "info"
+                    }
+                ],
+                "62": [
+                    {
+                        "sender_id": 2,
+                        "message": " Target (32, 24) secured. Extraction successful.\n",
+                        "type": "info"
+                    }
+                ],
+                "87": [
+                    {
+                        "sender_id": 2,
+                        "message": " Arrived at secondary target (5, 27). Extraction ready. Holding position.\n",
+                        "type": "info"
+                    }
+                ],
+                "103": [
+                    {
+                        "sender_id": 1,
+                        "message": "Southern boundary reached. No new targets identified.",
+                        "type": "info"
+                    }
+                ],
+                "159": [
+                    {
+                        "sender_id": 1,
+                        "message": "Visual contact with new target at (89, 80).",
+                        "type": "info"
+                    }
+                ]
+            },
+            "sended_messages": {
+                "1": [
+                    {
+                        "receiver": 1,
+                        "message": "Scout 1 \u2014 proceed to (32, 24). Confirm target visually and report immediately.",
+                        "type": "order"
+                    }
+                ],
+                "2": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 hold position. Deploy only upon Scout confirmation.\n\n",
+                        "type": "order"
+                    }
+                ],
+                "14": [
+                    {
+                        "receiver": 1,
+                        "message": "Scout 1 \u2014 move west. Expand reconnaissance grid. Confirm any new targets.",
+                        "type": "order"
+                    }
+                ],
+                "15": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 proceed to (32, 24). Secure and extract the confirmed objective.",
+                        "type": "order"
+                    }
+                ],
+                "41": [
+                    {
+                        "receiver": 1,
+                        "message": "Scout 1 \u2014 proceed south. Sweep southern sector for potential additional targets.",
+                        "type": "order"
+                    }
+                ],
+                "42": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 continue extraction operation at current location. Report completion.",
+                        "type": "order"
+                    }
+                ],
+                "63": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 proceed to (5, 27) immediately. Secure and prepare for extraction.",
+                        "type": "order"
+                    }
+                ],
+                "88": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 1 \u2014 maintain current position. Hold extraction zone secure. Await further deployment instructions.",
+                        "type": "order"
+                    }
+                ],
+                "104": [
+                    {
+                        "receiver": 1,
+                        "message": "Scout 1 \u2014 proceed east. Conduct lateral sweep across southern sector.",
+                        "type": "order"
+                    }
+                ]
+            },
+            "positions": {
+                "0": [
+                    62,
+                    34
+                ],
+                "1": [
+                    62,
+                    33
+                ],
+                "2": [
+                    62,
+                    33
+                ],
+                "3": [
+                    62,
+                    33
+                ],
+                "13": [
+                    62,
+                    33
+                ],
+                "14": [
+                    62,
+                    33
+                ],
+                "15": [
+                    62,
+                    33
+                ],
+                "40": [
+                    62,
+                    33
+                ],
+                "41": [
+                    62,
+                    33
+                ],
+                "42": [
+                    62,
+                    33
+                ],
+                "62": [
+                    62,
+                    33
+                ],
+                "63": [
+                    62,
+                    33
+                ],
+                "87": [
+                    62,
+                    33
+                ],
+                "88": [
+                    61,
+                    33
+                ],
+                "103": [
+                    61,
+                    33
+                ],
+                "104": [
+                    60,
+                    33
+                ],
+                "159": [
+                    60,
+                    33
+                ]
+            },
+            "mission_progress": {
+                "1": "Phase: Recon Validation Active / Extraction Standby\nObjective (32, 24) in progress. No field deployment yet.",
+                "2": "Phase: Recon Validation Active / Extraction Standby\nObjective (32, 24) in progress. No field deployment yet.",
+                "14": "Phase: Target Confirmed / Recovery and Recon Simultaneously Active\nOperations split: recovery initiated; recon continues for expansion.",
+                "15": "Phase: Target Confirmed / Recovery and Recon Simultaneously Active\nOperations split: recovery initiated; recon continues for expansion.",
+                "41": "Phase: Multiple Targets Identified / Expanded Recon In Progress\nOperation entering multi-target management phase. Recon sweep broadened.",
+                "42": "Phase: Multiple Targets Identified / Expanded Recon In Progress\nOperation entering multi-target management phase. Recon sweep broadened.",
+                "63": "Phase: Primary Recovery Complete / Secondary Recovery Initiated\nOperational tempo maintained. Sector sweep ongoing.\n\n",
+                "88": "Phase: Secondary Objective Secured / Search Operation Continuing\nPartial mission success achieved. Recon sweep ongoing.",
+                "104": "Phase: Sector Transition Active\nRecon realignment initiated to cover full operational zone.\n\n"
+            },
+            "target_in_fov": {},
+            "latest_agents_information": {
+                "1": {
+                    "1": {
+                        "position": [
+                            59,
+                            22
+                        ],
+                        "timestamp": 1
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            52
+                        ],
+                        "timestamp": 1
+                    }
+                },
+                "2": {
+                    "1": {
+                        "position": [
+                            59,
+                            22
+                        ],
+                        "timestamp": 2
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 2
+                    }
+                },
+                "3": {
+                    "1": {
+                        "position": [
+                            58,
+                            22
+                        ],
+                        "timestamp": 3
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 3
+                    }
+                },
+                "13": {
+                    "1": {
+                        "position": [
+                            48,
+                            22
+                        ],
+                        "timestamp": 13
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 13
+                    }
+                },
+                "14": {
+                    "1": {
+                        "position": [
+                            47,
+                            22
+                        ],
+                        "timestamp": 14
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 14
+                    }
+                },
+                "15": {
+                    "1": {
+                        "position": [
+                            46,
+                            22
+                        ],
+                        "timestamp": 15
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            51
+                        ],
+                        "timestamp": 15
+                    }
+                },
+                "40": {
+                    "1": {
+                        "position": [
+                            21,
+                            22
+                        ],
+                        "timestamp": 40
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            39
+                        ],
+                        "timestamp": 40
+                    }
+                },
+                "41": {
+                    "1": {
+                        "position": [
+                            20,
+                            22
+                        ],
+                        "timestamp": 41
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            39
+                        ],
+                        "timestamp": 41
+                    }
+                },
+                "42": {
+                    "1": {
+                        "position": [
+                            20,
+                            23
+                        ],
+                        "timestamp": 42
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            39
+                        ],
+                        "timestamp": 42
+                    }
+                },
+                "62": {
+                    "1": {
+                        "position": [
+                            20,
+                            43
+                        ],
+                        "timestamp": 62
+                    },
+                    "2": {
+                        "position": [
+                            26,
+                            29
+                        ],
+                        "timestamp": 62
+                    }
+                },
+                "63": {
+                    "1": {
+                        "position": [
+                            20,
+                            43
+                        ],
+                        "timestamp": 63
+                    },
+                    "2": {
+                        "position": [
+                            25,
+                            29
+                        ],
+                        "timestamp": 63
+                    }
+                },
+                "87": {
+                    "1": {
+                        "position": [
+                            20,
+                            67
+                        ],
+                        "timestamp": 87
+                    },
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 87
+                    }
+                },
+                "88": {
+                    "1": {
+                        "position": [
+                            20,
+                            67
+                        ],
+                        "timestamp": 88
+                    },
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 88
+                    }
+                },
+                "103": {
+                    "1": {
+                        "position": [
+                            20,
+                            82
+                        ],
+                        "timestamp": 103
+                    },
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 103
+                    }
+                },
+                "104": {
+                    "1": {
+                        "position": [
+                            20,
+                            82
+                        ],
+                        "timestamp": 104
+                    },
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 104
+                    }
+                },
+                "159": {
+                    "1": {
+                        "position": [
+                            75,
+                            82
+                        ],
+                        "timestamp": 159
+                    },
+                    "2": {
+                        "position": [
+                            13,
+                            29
+                        ],
+                        "timestamp": 159
+                    }
+                }
+            },
+            "actions": {},
+            "global_strategy": {
+                "0": "Scan all targets"
+            },
+            "local_strategy": {
+                "1": "Initial recon engagement started. ",
+                "2": "Recovery operation pending scout validation.",
+                "14": "Search grid expanding west.",
+                "15": "Primary extraction authorized.",
+                "41": "New target logged. Recon redirected to southern field to maximize mission efficiency.",
+                "42": "Continue along direct path to designated target.",
+                "63": "Primary objective recovered. Transition to secondary target recovery phase.",
+                "88": "Stabilizing recovery assets. Recon focus sustained on sector completion.",
+                "104": "Recon redirected eastward. Southern perimeter sweep expanding."
+            },
+            "special_actions": {}
+        }
+    },
+    "targets": {
+        "1": {
+            "position": [
+                32,
+                24
+            ]
+        },
+        "2": {
+            "position": [
+                89,
+                80
+            ]
+        },
+        "3": {
+            "position": [
+                5,
+                27
+            ]
+        }
+    },
+    "bases": {
+        "1": {
+            "position": [
+                80,
+                5
+            ]
+        }
+    },
+    "area": [
+        100,
+        100
+    ]
+}

@@ -171,3 +171,7 @@ outputs/
 .archive/
 experiments/
 venv
+
+# GCP AUTH
+credentials.json
+token.json
