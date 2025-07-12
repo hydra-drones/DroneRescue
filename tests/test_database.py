@@ -143,8 +143,6 @@ def test_add_2_sent_message(db_session, agent1_sent_message_to_agent2):
         num_sent_messages == num_received_messages
     ), f"Different number of received and sent messages: {num_sent_messages} and {num_received_messages}"
 
-    assert ()
-
 
 def test_changing_strategy(db_session, add_agent):
     agent, metadata = add_agent

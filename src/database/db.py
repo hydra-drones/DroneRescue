@@ -25,6 +25,7 @@ class MessageT(Enum):
 class PositionT(Enum):
     AGENT = "agent"
     TARGET = "target"
+    BASE = "base"
 
 
 class StrategyT(Enum):

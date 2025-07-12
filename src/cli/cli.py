@@ -1,10 +1,16 @@
 import typer
 
-from src import data_processing_app
+from src import download_folder_to_temp
+from src import create_db
 
 app = typer.Typer(
     help="DroneRescue command-line interface.",
     no_args_is_help=True,
 )
 
-app.add_typer(data_processing_app, name="data")
+data_app = typer.Typer(help="Data-related operations.")
+data_app.command("load-from-grive")(download_folder_to_temp)
+data_app.command("create-db")(create_db)
+
+
+app.add_typer(data_app, name="data")

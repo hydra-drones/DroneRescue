@@ -47,9 +47,9 @@ To use Data Processing Pipeline you need to have the access to Google Cloud Plat
 
 ### CLI
 
-|  Command | Description |
+|  Command | Sub-command |
 |-----------|-----------|
-| data          |    Google Drive transfer commands. You can download raw training data to local directory or upload file. See `--help` for more information       |
+| `data`          | - `load-from-grive` - download data from GDrive <br> - `create-db` - creates database for storing data|
 |           |           |
 |           |           |
 

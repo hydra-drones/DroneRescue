@@ -13,12 +13,10 @@ from googleapiclient.http import MediaIoBaseDownload, MediaFileUpload
 from tqdm import tqdm
 from loguru import logger
 
-data_processing_app = typer.Typer(help="Google Drive transfer commands")
 SCOPES = ["https://www.googleapis.com/auth/drive"]
 
 
 __all__ = [
-    "data_processing_app",
     "get_service",
     "download_folder_to_temp",
 ]
@@ -144,7 +142,6 @@ def upload_file(
     logger.info(f"Uploaded --> https://drive.google.com/file/d/{resp['id']}/view")
 
 
-@data_processing_app.command()
 def download_folder_to_temp(
     folder_id: str = typer.Argument(
         ..., help="Google Drive folder's ID (you can find it in the URL)"
@@ -179,7 +176,6 @@ def download_folder_to_temp(
     return download_folder(service, folder_id, tmp_dir)
 
 
-@data_processing_app.command()
 def download(
     folder_id: str = typer.Argument(
         ..., help="Google Drive folder's ID (you can find it in the URL)"
@@ -220,7 +216,6 @@ def download(
         )
 
 
-@data_processing_app.command()
 def upload(
     local_path: Path = typer.Argument(
         ...,
