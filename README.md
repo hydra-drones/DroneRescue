@@ -49,7 +49,7 @@ To use Data Processing Pipeline you need to have the access to Google Cloud Plat
 
 |  Command | Sub-command |
 |-----------|-----------|
-| `data`          | - `load-from-grive` - download data from GDrive <br> - `create-db` - creates database for storing data|
+| `data`          | - `load-from-grive` - download data from GDrive <br> - `create-db` - creates database for storing data <br> - `connect-to-db` - establish connection with local database|
 |           |           |
 |           |           |
 

@@ -16,10 +16,7 @@ from loguru import logger
 SCOPES = ["https://www.googleapis.com/auth/drive"]
 
 
-__all__ = [
-    "get_service",
-    "download_folder_to_temp",
-]
+__all__ = ["get_service", "download_folder_to_temp", "download", "upload"]
 
 
 def get_service(credentials_file: str, token_file: str) -> Resource:
