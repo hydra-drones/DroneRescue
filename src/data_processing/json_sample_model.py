@@ -120,6 +120,9 @@ class AgentInformation(BaseModel):
 MissionProgressT = dict[int, str]
 GlobalStrategyT = dict[str, str]
 LocalStrategyT = dict[str, str]
+AgentPositionT = dict[int, AgentPosition]
+TargetInFovT = dict[int, list[TargetPosition]]
+SentMessagesT = dict[int, list[SentMessage]]
 
 
 class Agent(BaseModel):
@@ -134,13 +137,13 @@ class Agent(BaseModel):
     messages_from_agents: dict[int, list[MessageFromAgent]]
     """Messages grouped by source agent ID."""
 
-    sent_messages: dict[int, list[SentMessage]] = Field(..., alias="sended_messages")
+    sent_messages: SentMessagesT = Field(..., alias="sended_messages")
     """Sent messages to other agents, grouped by recipient ID."""
 
-    positions: dict[int, AgentPosition]
+    positions: AgentPositionT
     """Agent's positions by tick or other grouping key."""
 
-    target_in_fov: dict[int, list[TargetPosition]]
+    target_in_fov: TargetInFovT
     """Target positions, grouped by tick or assignment."""
 
     latest_agents_information: dict[str, dict[str, AgentInformation]]

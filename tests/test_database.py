@@ -1,7 +1,7 @@
 import pytest
 from sqlalchemy.orm import sessionmaker
 from src.database.db import (
-    Agent,
+    AgentTable,
     Base,
     Strategy,
     MessageT,
@@ -37,7 +37,7 @@ def add_agent(db_session):
     db_session.add(sample)
     db_session.flush()
 
-    agent = Agent(sample=sample, agent_no=1, role="explorer", mission="map")
+    agent = AgentTable(sample=sample, agent_no=1, role="explorer", mission="map")
 
     db_session.add(agent)
     db_session.flush()
@@ -55,8 +55,10 @@ def add_agents(db_session):
     db_session.add(sample)
     db_session.flush()
 
-    agent1 = Agent(sample=sample, agent_no=1, role="explorer", mission="map")
-    agent2 = Agent(sample=sample, agent_no=2, role="commander", mission="coordinate")
+    agent1 = AgentTable(sample=sample, agent_no=1, role="explorer", mission="map")
+    agent2 = AgentTable(
+        sample=sample, agent_no=2, role="commander", mission="coordinate"
+    )
 
     db_session.add_all([agent1, agent2])
     db_session.flush()

@@ -44,7 +44,7 @@ def _get_engine(path: Path | str = ".database/data.db", *, echo: bool = False):
 
 
 def connect_to_db(
-    path: Path = ".database/data.db",
+    path: Path = Path(".database/data.db"),
     *,
     echo: bool = False,
     autoflush: bool = False,
@@ -54,7 +54,7 @@ def connect_to_db(
     """Unable to establish the connection with database
 
     Args:
-        path (Path | str, optional): Path to the database. Defaults to ".database/data.db".
+        path (Path, optional): Path to the database. Defaults to ".database/data.db".
         echo (bool, optional): Verbosse settings. Defaults to False.
         autoflush (bool, optional): The autoflush setting. Defaults to False.
         autocommit (bool, optional): The autocommit setting. Defaults to False.
