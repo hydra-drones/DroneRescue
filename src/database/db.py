@@ -46,7 +46,7 @@ class Base(DeclarativeBase):
     pass
 
 
-class Agent(Base):
+class AgentTable(Base):
     __tablename__ = TableNames.AGENT.value
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -101,7 +101,7 @@ class Samples(Base):
     )
 
     agents = relationship(
-        "Agent", back_populates="sample", cascade="all, delete-orphan"
+        "AgentTable", back_populates="sample", cascade="all, delete-orphan"
     )
 
     @staticmethod
@@ -142,10 +142,10 @@ class Messages(Base):
     type: Mapped[MessageT] = mapped_column(SQLEnum(MessageT), nullable=False)
 
     sender = relationship(
-        "Agent", foreign_keys=[sender_id], back_populates="messages_sent"
+        "AgentTable", foreign_keys=[sender_id], back_populates="messages_sent"
     )
     receiver = relationship(
-        "Agent", foreign_keys=[receiver_id], back_populates="messages_received"
+        "AgentTable", foreign_keys=[receiver_id], back_populates="messages_received"
     )
 
     def __repr__(self) -> str:
@@ -186,7 +186,9 @@ class Strategy(Base):
     strategy: Mapped[str] = mapped_column(String)
     type: Mapped[StrategyT] = mapped_column(SQLEnum(StrategyT), nullable=False)
 
-    agent = relationship("Agent", foreign_keys=[agent_id], back_populates="strategies")
+    agent = relationship(
+        "AgentTable", foreign_keys=[agent_id], back_populates="strategies"
+    )
 
     def __repr__(self) -> str:
         preview = self.strategy
@@ -231,7 +233,9 @@ class Positions(Base):
     pos_y: Mapped[int] = mapped_column(Integer)
     type: Mapped[PositionT] = mapped_column(SQLEnum(PositionT), nullable=False)
 
-    agent = relationship("Agent", foreign_keys=[agent_id], back_populates="positions")
+    agent = relationship(
+        "AgentTable", foreign_keys=[agent_id], back_populates="positions"
+    )
 
     def __repr__(self) -> str:
         return (
@@ -268,7 +272,7 @@ class MissionProgress(Base):
     progress: Mapped[str] = mapped_column(String)
 
     agent = relationship(
-        "Agent", foreign_keys=[agent_id], back_populates="mission_progresses"
+        "AgentTable", foreign_keys=[agent_id], back_populates="mission_progresses"
     )
 
     def __repr__(self) -> str:
@@ -325,8 +329,8 @@ if __name__ == "__main__":
         session.add(sample)
         session.flush()
 
-        agent1 = Agent(sample=sample, agent_no=1, role="explorer", mission="map")
-        agent2 = Agent(
+        agent1 = AgentTable(sample=sample, agent_no=1, role="explorer", mission="map")
+        agent2 = AgentTable(
             sample=sample, agent_no=2, role="commander", mission="coordinate"
         )
 

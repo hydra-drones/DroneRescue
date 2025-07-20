@@ -1,20 +1,28 @@
+import json
 from pathlib import Path
-from src import connect_to_db
 from loguru import logger
+
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-import json
-from src import JSONSampleModel
-from src import AgentTable, Samples, Positions, Messages, Strategy, MissionProgress
+from src.database.db import (
+    AgentTable,
+    Samples,
+    Positions,
+    Messages,
+    Strategy,
+    MissionProgress,
+)
 from src.database.db import PositionT, StrategyT
 from src.data_processing.json_sample_model import (
     AgentPositionT,
+    JSONSampleModel,
     TargetInFovT,
     LocalStrategyT,
     GlobalStrategyT,
     MissionProgressT,
     SentMessagesT,
 )
+from src.database.scripts import connect_to_db
 
 
 class DataLoader:
@@ -208,19 +216,7 @@ def load_dataset_to_db(
                 continue
 
             logger.info(f"Processing {sample}...")
-
-            results = loader.add_sample_to_db(sample)
-
-            print(results)
-
-        # successful = sum(1 for success in results.values() if success)
-        # total = len(results)
-
-        # logger.info(f"Loaded {successful}/{total} files successfully")
-
-        # for file_path, success in results.items():
-        #     status = "✓" if success else "✗"
-        #     logger.info(f"{status} {file_path}")
+            loader.add_sample_to_db(sample)
 
     finally:
         session.close()
