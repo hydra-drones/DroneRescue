@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 from src.database.db import (
     AgentTable,
-    Samples,
+    SamplesTable,
     Positions,
     Messages,
     Strategy,
@@ -42,9 +42,9 @@ class DataLoader:
 
         """
         try:
-            sample_hash = Samples.file_hash(json_path)
+            sample_hash = SamplesTable.file_hash(json_path)
             existing_sample = (
-                self.session.query(Samples).filter_by(hash=sample_hash).first()
+                self.session.query(SamplesTable).filter_by(hash=sample_hash).first()
             )
 
             if existing_sample:
@@ -56,7 +56,7 @@ class DataLoader:
 
             model = JSONSampleModel.model_validate(json_data)
 
-            sample = Samples(hash=sample_hash)
+            sample = SamplesTable(hash=sample_hash)
             self.session.add(sample)
             self.session.flush()
 
@@ -75,7 +75,7 @@ class DataLoader:
             logger.error(f"Failed to load {json_path}: {e}")
             raise
 
-    def _load_agents(self, sample: Samples, model: JSONSampleModel):
+    def _load_agents(self, sample: SamplesTable, model: JSONSampleModel):
         """Load agents and their related data."""
         agent_map = {}  # Map from agent_no to Agent object
 

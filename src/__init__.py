@@ -7,7 +7,7 @@ from .data_processing import (
 )
 from .database import create_db, connect_to_db
 from .database import (
-    Samples,
+    SamplesTable,
     AgentTable,
     Messages,
     Strategy,

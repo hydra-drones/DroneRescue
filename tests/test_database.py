@@ -8,7 +8,7 @@ from src.database.db import (
     StrategyT,
     PositionT,
     Messages,
-    Samples,
+    SamplesTable,
     Positions,
 )
 from pathlib import Path
@@ -32,8 +32,8 @@ def db_session(engine, tables):
 @pytest.fixture()
 def add_agent(db_session):
     new_sample_path = Path("datasamples/0002.json")
-    new_sample_hash = Samples.file_hash(new_sample_path)
-    sample = Samples(hash=new_sample_hash)
+    new_sample_hash = SamplesTable.file_hash(new_sample_path)
+    sample = SamplesTable(hash=new_sample_hash)
     db_session.add(sample)
     db_session.flush()
 
@@ -50,8 +50,8 @@ def add_agent(db_session):
 @pytest.fixture()
 def add_agents(db_session):
     new_sample_path = Path("datasamples/0002.json")
-    new_sample_hash = Samples.file_hash(new_sample_path)
-    sample = Samples(hash=new_sample_hash)
+    new_sample_hash = SamplesTable.file_hash(new_sample_path)
+    sample = SamplesTable(hash=new_sample_hash)
     db_session.add(sample)
     db_session.flush()
 
@@ -93,8 +93,8 @@ def test_add_samples(db_session):
     failed_inserts = 0
 
     for sample_path in samples_to_be_added:
-        sample_hash = Samples.file_hash(sample_path)
-        sample = Samples(hash=sample_hash)
+        sample_hash = SamplesTable.file_hash(sample_path)
+        sample = SamplesTable(hash=sample_hash)
 
         try:
             db_session.add(sample)

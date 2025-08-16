@@ -55,7 +55,9 @@ class AgentTable(Base):
     role: Mapped[str] = mapped_column(String)
     mission: Mapped[str] = mapped_column(String)
 
-    sample: Mapped["Samples"] = relationship("Samples", back_populates="agents")
+    sample: Mapped["SamplesTable"] = relationship(
+        "SamplesTable", back_populates="agents"
+    )
     messages_sent: Mapped[List["Messages"]] = relationship(
         "Messages",
         back_populates="sender",
@@ -83,7 +85,7 @@ class AgentTable(Base):
     )
 
 
-class Samples(Base):
+class SamplesTable(Base):
     """Contains meta information for samples from annotation app
 
     Columns:
@@ -310,8 +312,8 @@ if __name__ == "__main__":
 
         for sample_path in samples_to_be_added:
             try:
-                sample_hash = Samples.file_hash(sample_path)
-                sample = Samples(hash=sample_hash)
+                sample_hash = SamplesTable.file_hash(sample_path)
+                sample = SamplesTable(hash=sample_hash)
                 session.add(sample)
                 session.flush()
                 logger.info(sample)
@@ -324,8 +326,8 @@ if __name__ == "__main__":
         # ===== Test Case #2 : Adding Sent Message =====
 
         new_sample_path = Path("datasamples/0002.json")
-        new_sample_hash = Samples.file_hash(new_sample_path)
-        sample = Samples(hash=new_sample_hash)
+        new_sample_hash = SamplesTable.file_hash(new_sample_path)
+        sample = SamplesTable(hash=new_sample_hash)
         session.add(sample)
         session.flush()
 
