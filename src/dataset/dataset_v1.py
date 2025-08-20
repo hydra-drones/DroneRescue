@@ -8,7 +8,16 @@ from src.dataset.base.processors import BaseDataProcessor
 from src.dataset.base.models import TimelineData, PostProcessedSample, SampleMetadata
 from src.dataset.message.converter import MessageConverter
 from src.dataset.message.extractor import MessageExtractor
+from src.dataset.positions.converter import PositionConverter
+from src.dataset.positions.extractor import PositionExtractor
+from src.dataset.strategy.converter import StrategyConverter
+from src.dataset.strategy.extractor import StrategyExtractor
+from src.dataset.mission_progress.converter import MissionProgressConverter
+from src.dataset.mission_progress.extractor import MissionProgressExtractor
 from src.dataset.message.processor import DefaultMessageProcessor
+from src.dataset.positions.processor import DefaultPositionProcessor
+from src.dataset.strategy.processor import DefaultStrategyProcessor
+from src.dataset.mission_progress.processor import DefaultMissionProgressProcessor
 from src.dataset.splitters.slicing_window import SlicingWindowSplitter
 from src.dataset.templates.alpaca import AlpacaTemplate
 from src.dataset.base.tokens import TokensMapping
@@ -124,7 +133,19 @@ class AlpacaDatasetV1(BaseDataProcessor):
             DefaultMessageProcessor(
                 converter=MessageConverter(),
                 extractor=MessageExtractor(session=self.session),
-            )
+            ),
+            DefaultPositionProcessor(
+                converter=PositionConverter(),
+                extractor=PositionExtractor(session=self.session),
+            ),
+            DefaultStrategyProcessor(
+                converter=StrategyConverter(),
+                extractor=StrategyExtractor(session=self.session),
+            ),
+            DefaultMissionProgressProcessor(
+                converter=MissionProgressConverter(),
+                extractor=MissionProgressExtractor(session=self.session),
+            ),
         ]
 
     def split(self, timeline_data, **kwargs) -> list[PostProcessedSample]:

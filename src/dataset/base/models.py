@@ -1,7 +1,7 @@
 from pydantic import BaseModel
-from typing import Generic, TypeVar, Literal
+from typing import TypeVar, Literal
 from sqlalchemy.engine import Row
-from src.database.db import Messages
+from src.database.db import Messages, Positions, Strategy, MissionProgress
 
 # Type variables
 T = TypeVar("T")
@@ -13,6 +13,9 @@ P = TypeVar("S")
 
 # Type aliases
 FetchedMessagesT = list[Row[tuple[Messages]]]
+FetchedPositionsT = list[Row[tuple[Positions]]]
+FetchedStrategyT = list[Row[tuple[Strategy]]]
+FetchedMissionProgressT = list[Row[tuple[MissionProgress]]]
 TimestampT = int
 SplittedData = list[tuple[list["TimelineData"], "TimelineData"]]
 
@@ -25,12 +28,33 @@ class FetchedMessagesModel:
         self.recieved_messages = recieved_messages
 
 
+class FetchedPositionsModel:
+    def __init__(self, ego_pos: FetchedPositionsT, target_pos: FetchedPositionsT):
+        self.ego_pos = ego_pos
+        self.target_pos = target_pos
+
+
+class FetchedStrategyModel:
+    def __init__(
+        self, local_strategy: FetchedStrategyT, global_strategy: FetchedStrategyT
+    ):
+        self.local_strategy = local_strategy
+        self.global_strategy = global_strategy
+
+
+class FetchedMisionProgressModel:
+    def __init__(self, mission_progress: FetchedMissionProgressT):
+        self.mission_progress = mission_progress
+
+
 class TimelineData(BaseModel):
     """Contains post-processed information for certain timestamp."""
 
     timestamp: int
     formatted: str
-    type: Literal["sent_message", "recieved_message"]
+    type: Literal[
+        "sent_message", "recieved_message", "position", "strategy", "mission_progress"
+    ]
 
 
 class SampleMetadata(BaseModel):

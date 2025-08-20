@@ -62,6 +62,17 @@ class DefaultMessageProcessor(
                     extractor=MessageExtractor(session=db_session)
                 )
         """
+
+        if not isinstance(converter, MessageConverter):
+            raise ValueError(
+                "Please, initialize the `DefaultMessageProcessor` with `MessageConverter`"
+            )
+
+        if not isinstance(extractor, MessageExtractor):
+            raise ValueError(
+                "Please, initialize the `DefaultMessageProcessor` with `MessageExtractor`"
+            )
+
         super().__init__(converter, extractor)
 
     def process(self, sample_id: int, agent_id: int) -> list[TimelineData]:
