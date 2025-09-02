@@ -74,6 +74,7 @@ class SlicingWindowSplitter(
     def __init__(
         self,
         target_column: str = "sent_message",
+        metadata_column: str = "metadata",
         learning_column_not_to_include_on_target_timestamp: str = "recieved_message",
         max_window_size: int = 100,
         **kwargs,
@@ -82,13 +83,9 @@ class SlicingWindowSplitter(
         Initialize the sliding window splitter.
 
         :param target_column: Type of events to use as prediction targets
-        :type target_column: str
         :param learning_column_not_to_include_on_target_timestamp: Event type to exclude from learning context when it occurs at the same timestamp as target events (prevents logical inconsistencies like receiving responses before sending messages)
-        :type learning_column_not_to_include_on_target_timestamp: str
         :param max_window_size: Maximum time span for context windows
-        :type max_window_size: int
         :param kwargs: Additional configuration parameters for base splitter
-        :type kwargs: dict
 
         Window Size Guidelines:
             - **Small windows (10-50)**: Focus on immediate context
@@ -120,6 +117,7 @@ class SlicingWindowSplitter(
         """
         super().__init__(**kwargs)
         self.target_column = target_column
+        self.metadata_column = metadata_column
         self.max_window_size = max_window_size
         self.learning_column_not_to_include_on_target_timestamp = (
             learning_column_not_to_include_on_target_timestamp
@@ -176,9 +174,9 @@ class SlicingWindowSplitter(
                 print(sample.target_data)
                 # Output: <SND> <TO> <AGENT#2> Acknowledged
         """
-        post_processed = []
+        chunk = []
         for learning_data, target_data in splitted_data:
-            post_processed.append(
+            chunk.append(
                 PostProcessedSample(
                     learning_data="\n".join(td.formatted for td in learning_data),
                     target_data=target_data.formatted,
@@ -188,7 +186,7 @@ class SlicingWindowSplitter(
                     target_timestamp=target_data.timestamp,
                 )
             )
-        return post_processed
+        return chunk
 
     def split(self, timeline_data: list[TimelineData]) -> SplittedData:
         """
@@ -262,11 +260,14 @@ class SlicingWindowSplitter(
         """
         x_target_samples = []
         target_timeline_data = []
+        metadata = []
         learning_timeline_data = []
 
         for td in timeline_data:
             if td.type == self.target_column:
                 target_timeline_data.append(td)
+            elif td.type == self.metadata_column:
+                metadata.append(td)
             else:
                 learning_timeline_data.append(td)
 
@@ -299,6 +300,9 @@ class SlicingWindowSplitter(
             if not filtered_samples:
                 continue
 
-            x_target_samples.append((filtered_samples, target_v))
+            # Before saving the (X; Y) pair, we need to put metadata into X
+            filtered_samples_with_metadata = metadata + filtered_samples
+
+            x_target_samples.append((filtered_samples_with_metadata, target_v))
 
         return x_target_samples

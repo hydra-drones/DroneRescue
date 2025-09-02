@@ -14,3 +14,4 @@ from .database import (
     Positions,
     MissionProgress,
 )
+from .dataset.dataset_cli import process_dataset_cli

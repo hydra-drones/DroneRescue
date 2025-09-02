@@ -42,6 +42,12 @@ class TableNames(str, Enum):
     MISSION_PROGRESS = "mission_progress"
 
 
+class AgentRoles(Enum):
+    COMMANDER = "scout_commander"
+    SCOUT = "scout"
+    RESCUER = "rescuer"
+
+
 class Base(DeclarativeBase):
     pass
 
@@ -52,7 +58,7 @@ class AgentTable(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     sample_id: Mapped[int] = mapped_column(ForeignKey(f"{TableNames.SAMPLES.value}.id"))
     agent_no: Mapped[int] = mapped_column(Integer)
-    role: Mapped[str] = mapped_column(String)
+    role: Mapped[AgentRoles] = mapped_column(SQLEnum(AgentRoles), nullable=False)
     mission: Mapped[str] = mapped_column(String)
 
     sample: Mapped["SamplesTable"] = relationship(
@@ -331,9 +337,11 @@ if __name__ == "__main__":
         session.add(sample)
         session.flush()
 
-        agent1 = AgentTable(sample=sample, agent_no=1, role="explorer", mission="map")
+        agent1 = AgentTable(
+            sample=sample, agent_no=1, role=AgentRoles.SCOUT, mission="map"
+        )
         agent2 = AgentTable(
-            sample=sample, agent_no=2, role="commander", mission="coordinate"
+            sample=sample, agent_no=2, role=AgentRoles.COMMANDER, mission="coordinate"
         )
 
         session.add_all([agent1, agent2])

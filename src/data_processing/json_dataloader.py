@@ -11,6 +11,7 @@ from src.database.db import (
     Messages,
     Strategy,
     MissionProgress,
+    AgentRoles,
 )
 from src.database.db import PositionT, StrategyT
 from src.data_processing.json_sample_model import (
@@ -30,6 +31,21 @@ class DataLoader:
 
     def __init__(self, session: Session):
         self.session = session
+
+    def _map_role_to_enum(self, role_str: str) -> AgentRoles:
+        """Map string role to AgentRoles enum."""
+        role_mapping = {
+            "scout_commander": AgentRoles.COMMANDER,
+            "commander": AgentRoles.COMMANDER,
+            "scout": AgentRoles.SCOUT,
+            "rescuer": AgentRoles.RESCUER,
+        }
+
+        if role_str in role_mapping:
+            return role_mapping[role_str]
+        else:
+            logger.warning(f"Unknown role '{role_str}', defaulting to SCOUT")
+            return AgentRoles.SCOUT
 
     def add_sample_to_db(self, json_path: Path):
         """Loads the data from JSON sample into Database
@@ -83,7 +99,7 @@ class DataLoader:
             agent = AgentTable(
                 sample=sample,
                 agent_no=int(agent_no),
-                role=agent_data.role,
+                role=self._map_role_to_enum(agent_data.role),
                 mission=agent_data.mission,
             )
             self.session.add(agent)

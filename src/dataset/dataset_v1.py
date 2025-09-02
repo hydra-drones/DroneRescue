@@ -18,6 +18,9 @@ from src.dataset.message.processor import DefaultMessageProcessor
 from src.dataset.positions.processor import DefaultPositionProcessor
 from src.dataset.strategy.processor import DefaultStrategyProcessor
 from src.dataset.mission_progress.processor import DefaultMissionProgressProcessor
+from src.dataset.metadata.converter import MetadataConverter
+from src.dataset.metadata.extractor import MetadataExtractor
+from src.dataset.metadata.processor import DefaultMetadataProcessor
 from src.dataset.splitters.slicing_window import SlicingWindowSplitter
 from src.dataset.templates.alpaca import AlpacaTemplate
 from src.dataset.base.tokens import TokensMapping
@@ -145,6 +148,10 @@ class AlpacaDatasetV1(BaseDataProcessor):
             DefaultMissionProgressProcessor(
                 converter=MissionProgressConverter(),
                 extractor=MissionProgressExtractor(session=self.session),
+            ),
+            DefaultMetadataProcessor(
+                converter=MetadataConverter(),
+                extractor=MetadataExtractor(session=self.session),
             ),
         ]
 

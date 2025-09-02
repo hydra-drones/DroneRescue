@@ -49,7 +49,7 @@ To use Data Processing Pipeline you need to have the access to Google Cloud Plat
 
 |  Command | Sub-command |
 |-----------|-----------|
-| `data`          | - `load-from-grive` - download data from GDrive <br> - `create-db` - creates database for storing data <br> - `connect-to-db` - establish connection with local database|
+| `data`          | - `load-from-grive` - download data from GDrive <br> - `create-db` - creates database for storing data <br> - `connect-to-db` - establish connection with local database <br> - `load-samples-into-db` - load .json samples into already existing database. <br> - `process-dataset` - takes from given database samples and creates `samples` and `annotations`. These samples are ready to be used for training or validation. The dataset processor is a tool that converts raw data from the database into the required format for a language model with custom tokens. You can specify which data processor you want to use. |
 |           |           |
 |           |           |
 

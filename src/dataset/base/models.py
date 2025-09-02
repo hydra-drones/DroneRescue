@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import TypeVar, Literal
 from sqlalchemy.engine import Row
-from src.database.db import Messages, Positions, Strategy, MissionProgress
+from src.database.db import Messages, Positions, Strategy, MissionProgress, AgentTable
 
 # Type variables
 T = TypeVar("T")
@@ -16,6 +16,7 @@ FetchedMessagesT = list[Row[tuple[Messages]]]
 FetchedPositionsT = list[Row[tuple[Positions]]]
 FetchedStrategyT = list[Row[tuple[Strategy]]]
 FetchedMissionProgressT = list[Row[tuple[MissionProgress]]]
+FetchedMetadataT = list[Row[tuple[AgentTable]]]
 TimestampT = int
 SplittedData = list[tuple[list["TimelineData"], "TimelineData"]]
 
@@ -47,13 +48,23 @@ class FetchedMisionProgressModel:
         self.mission_progress = mission_progress
 
 
+class FetchedMetadataModel:
+    def __init__(self, metadata: FetchedMetadataT):
+        self.metadata = metadata
+
+
 class TimelineData(BaseModel):
     """Contains post-processed information for certain timestamp."""
 
     timestamp: int
     formatted: str
     type: Literal[
-        "sent_message", "recieved_message", "position", "strategy", "mission_progress"
+        "sent_message",
+        "recieved_message",
+        "position",
+        "strategy",
+        "mission_progress",
+        "metadata",
     ]
 
 

@@ -108,6 +108,11 @@ class TokensMapping(Enum):
     LOCAL_STRATEGY_TOKEN = "<LOCAL_STG>"  # Individual agent strategy
     GLOBAL_STRATEGY_TOKEN = "<GLOBAL_STG>"  # Team-wide strategy
     MISSION_PROGRESS_TOKEN = "<PRGS>"  # Mission progress updates
+    MAIN_MISSION_TOKEN = "<MISSION>"
+    AGENT_NUMBER = "<AGENT_NUMBER>"
+    AGENT_TYPE = "<AGENT_TYPE>"
+    START_METADATA = "<METADATA>"
+    END_METADATA = "</METADATA>"
 
     # Role-based agent tokens
     SCOUT_TOKEN = "<SCOUT>"  # Scout role identifier
