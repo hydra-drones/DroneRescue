@@ -41,6 +41,26 @@ Autonomous drone system for rescue and defense applications.
 7. `poetry install`
 9. `pre-commit install`
 
+### GCP
+
+To use Data Processing Pipeline you need to have the access to Google Cloud Platform. Put `credentials.json` and `token.json` into `.config` folder. Please, ask administrator to get the access.
+
+### CLI
+
+|  Command | Sub-command |
+|-----------|-----------|
+| `data`          | - `load-from-grive` - download data from GDrive <br> - `create-db` - creates database for storing data <br> - `connect-to-db` - establish connection with local database <br> - `load-samples-into-db` - load .json samples into already existing database. <br> - `process-dataset` - takes from given database samples and creates `samples` and `annotations`. These samples are ready to be used for training or validation. The dataset processor is a tool that converts raw data from the database into the required format for a language model with custom tokens. You can specify which data processor you want to use. |
+|           |           |
+|           |           |
+
+
+### Airflow
+
+```
+docker compose up airflow-init
+docker compose up
+docker compose down --volumes --rmi all
+```
 
 
 ## Annotation App
@@ -130,6 +150,49 @@ Example: `1.2.3`
 
 ---
 
+# Key Changes [26/06/2025] 
+
+## Changelog
+
+### Added
+
+* Developed a custom annotation tool for dataset creation:
+
+  * Manual control of agent actions;
+  * Bulk message sending to multiple agents;
+  * Enforcement of message time consistency;
+  * Automatic formatting of annotated data.
+* Implemented the basic infrastructure for dialog generation and collection.
+* Trained several models using the LoRA method:
+
+  * QWen2-1.5B
+  * QWen-0.5B
+
+### Changed
+
+* The original goal of generating 10,000 samples was adjusted due to time constraints:
+
+  * Currently, approximately 100 samples have been created;
+  * This smaller dataset was used to test modeling hypotheses and evaluate the initial baseline.
+
+### Fixed
+
+* Conducted analysis of the current baseline and identified key issues:
+
+  * Overfitting to earlier examples;
+  * Rigid adherence to instructions like "see/do not see target".
+* Planned improvements include:
+
+  * Expanding and balancing the dataset;
+  * Introducing more diverse interaction scenarios between agents.
+
+### Known Issues
+
+* Current dataset volume is insufficient for training large-scale models.
+* The baseline still requires refinement in instruction diversity and class balancing.
+
+---
+  
 # Research Stage #1
 
 ## Experiment Nr. 1

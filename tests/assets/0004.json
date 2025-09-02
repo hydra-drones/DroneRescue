@@ -1,0 +1,2668 @@
+{
+    "agents": {
+        "1": {
+            "role": "scout",
+            "mission": "Find the position of targets and send coordinates to rescuer",
+            "messages_from_agents": {
+                "1": [
+                    {
+                        "sender_id": 3,
+                        "message": "Scout 1 \u2014 proceed southeast. Visual confirmation required.",
+                        "type": "order"
+                    }
+                ],
+                "36": [
+                    {
+                        "sender_id": 3,
+                        "message": "Scout 1 \u2014 continue scan sweep to the southeast. Confirm any additional signals.",
+                        "type": "order"
+                    }
+                ],
+                "37": [
+                    {
+                        "sender_id": 2,
+                        "message": " Coordinates received. En route to (19, 73).",
+                        "type": "info"
+                    }
+                ],
+                "49": [
+                    {
+                        "sender_id": 3,
+                        "message": "Scout 1 \u2014 continue scanning south. Once full grid covered, initiate eastern vector.",
+                        "type": "order"
+                    }
+                ],
+                "131": [
+                    {
+                        "sender_id": 3,
+                        "message": "Scout 1 \u2014 redeploy to northern region. Scan full arc from west to east.\n\n",
+                        "type": "order"
+                    }
+                ],
+                "133": [
+                    {
+                        "sender_id": 2,
+                        "message": "En route to objective (23, 86). ETA minimal. Terrain stable.",
+                        "type": "info"
+                    }
+                ],
+                "183": [
+                    {
+                        "sender_id": 2,
+                        "message": "Target at (19, 73) reached. Contact verified.",
+                        "type": "info"
+                    }
+                ],
+                "203": [
+                    {
+                        "sender_id": 2,
+                        "message": "Target confirmed at (23, 86). Holding position.",
+                        "type": "info"
+                    }
+                ],
+                "308": [
+                    {
+                        "sender_id": 2,
+                        "message": "TTarget area reached. Holding at (59, 21).",
+                        "type": "info"
+                    }
+                ],
+                "309": [
+                    {
+                        "sender_id": 3,
+                        "message": "All units \u2014 mission phase locked. Begin return to base sequence.\nScout 1 \u2014 disengage observation post.\nRescuer 2 \u2014 confirm stabilization and initiate transit.\n\n",
+                        "type": "order"
+                    }
+                ]
+            },
+            "sended_messages": {
+                "2": [
+                    {
+                        "receiver": 2,
+                        "message": "Moving from (36, 44) toward southeast vector.",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Moving from (36, 44) toward southeast vector.",
+                        "type": "info"
+                    }
+                ],
+                "33": [
+                    {
+                        "receiver": 2,
+                        "message": "Visual confirmation \u2014 target located at (19, 73)",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Visual confirmation \u2014 target located at (19, 73)",
+                        "type": "info"
+                    }
+                ],
+                "47": [
+                    {
+                        "receiver": 2,
+                        "message": " Visual contact confirmed \u2014 additional target at (23, 86).",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": " Visual contact confirmed \u2014 additional target at (23, 86).",
+                        "type": "info"
+                    }
+                ],
+                "130": [
+                    {
+                        "receiver": 3,
+                        "message": "Southeast sweep complete. No further contacts in visual range.",
+                        "type": "info"
+                    }
+                ],
+                "204": [
+                    {
+                        "receiver": 2,
+                        "message": "Continuing northward reconnaissance. No contacts.",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Continuing northward reconnaissance. No contacts.",
+                        "type": "info"
+                    }
+                ],
+                "226": [
+                    {
+                        "receiver": 2,
+                        "message": "Final objective visually confirmed at (59, 21).",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Final objective visually confirmed at (59, 21).",
+                        "type": "info"
+                    }
+                ]
+            },
+            "positions": {
+                "0": [
+                    36,
+                    44
+                ],
+                "1": [
+                    36,
+                    44
+                ],
+                "2": [
+                    36,
+                    45
+                ],
+                "3": [
+                    36,
+                    46
+                ],
+                "8": [
+                    31,
+                    46
+                ],
+                "13": [
+                    26,
+                    46
+                ],
+                "18": [
+                    21,
+                    46
+                ],
+                "23": [
+                    16,
+                    46
+                ],
+                "28": [
+                    16,
+                    51
+                ],
+                "33": [
+                    16,
+                    56
+                ],
+                "34": [
+                    16,
+                    57
+                ],
+                "35": [
+                    16,
+                    58
+                ],
+                "36": [
+                    16,
+                    59
+                ],
+                "37": [
+                    16,
+                    60
+                ],
+                "42": [
+                    16,
+                    65
+                ],
+                "47": [
+                    16,
+                    70
+                ],
+                "48": [
+                    16,
+                    71
+                ],
+                "49": [
+                    16,
+                    72
+                ],
+                "50": [
+                    16,
+                    73
+                ],
+                "55": [
+                    16,
+                    78
+                ],
+                "60": [
+                    16,
+                    83
+                ],
+                "65": [
+                    21,
+                    83
+                ],
+                "70": [
+                    26,
+                    83
+                ],
+                "75": [
+                    31,
+                    83
+                ],
+                "80": [
+                    36,
+                    83
+                ],
+                "85": [
+                    41,
+                    83
+                ],
+                "90": [
+                    46,
+                    83
+                ],
+                "95": [
+                    51,
+                    83
+                ],
+                "100": [
+                    56,
+                    83
+                ],
+                "105": [
+                    61,
+                    83
+                ],
+                "110": [
+                    66,
+                    83
+                ],
+                "115": [
+                    71,
+                    83
+                ],
+                "120": [
+                    76,
+                    83
+                ],
+                "125": [
+                    81,
+                    83
+                ],
+                "130": [
+                    86,
+                    83
+                ],
+                "131": [
+                    86,
+                    83
+                ],
+                "132": [
+                    86,
+                    82
+                ],
+                "133": [
+                    86,
+                    81
+                ],
+                "138": [
+                    86,
+                    86
+                ],
+                "143": [
+                    86,
+                    81
+                ],
+                "148": [
+                    86,
+                    76
+                ],
+                "153": [
+                    86,
+                    71
+                ],
+                "158": [
+                    86,
+                    66
+                ],
+                "163": [
+                    86,
+                    61
+                ],
+                "168": [
+                    86,
+                    56
+                ],
+                "173": [
+                    86,
+                    51
+                ],
+                "178": [
+                    86,
+                    46
+                ],
+                "183": [
+                    86,
+                    41
+                ],
+                "184": [
+                    86,
+                    40
+                ],
+                "189": [
+                    86,
+                    35
+                ],
+                "193": [
+                    86,
+                    35
+                ],
+                "198": [
+                    86,
+                    30
+                ],
+                "203": [
+                    86,
+                    25
+                ],
+                "204": [
+                    86,
+                    24
+                ],
+                "209": [
+                    86,
+                    19
+                ],
+                "214": [
+                    86,
+                    14
+                ],
+                "219": [
+                    81,
+                    14
+                ],
+                "226": [
+                    74,
+                    14
+                ],
+                "227": [
+                    73,
+                    14
+                ],
+                "228": [
+                    73,
+                    14
+                ],
+                "308": [
+                    73,
+                    14
+                ],
+                "309": [
+                    72,
+                    14
+                ],
+                "314": [
+                    67,
+                    14
+                ],
+                "319": [
+                    62,
+                    14
+                ],
+                "324": [
+                    57,
+                    14
+                ],
+                "329": [
+                    52,
+                    14
+                ],
+                "334": [
+                    47,
+                    14
+                ],
+                "339": [
+                    47,
+                    19
+                ],
+                "344": [
+                    47,
+                    24
+                ],
+                "349": [
+                    42,
+                    24
+                ],
+                "354": [
+                    37,
+                    24
+                ],
+                "359": [
+                    32,
+                    24
+                ],
+                "364": [
+                    27,
+                    24
+                ],
+                "369": [
+                    27,
+                    29
+                ],
+                "374": [
+                    22,
+                    29
+                ],
+                "379": [
+                    22,
+                    34
+                ],
+                "384": [
+                    17,
+                    34
+                ]
+            },
+            "mission_progress": {
+                "2": " No contact yet. Terrain open. Awaiting further telemetry.",
+                "33": "First target identified. Sector yield validated.",
+                "47": "Second target located. New grid priority confirmed.",
+                "130": " Area secured. Transitioning to new vector.",
+                "204": " Third objective not yet located. Sector sweep in progress.",
+                "226": " All three objectives accounted for. Final phase in motion."
+            },
+            "target_in_fov": {
+                "33": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "34": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "35": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "36": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "37": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "42": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "47": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "48": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "49": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "50": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "55": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "60": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "65": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "70": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "75": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "80": [
+                    [
+                        23,
+                        86
+                    ]
+                ],
+                "226": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "227": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "309": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "314": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "319": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "324": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "329": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "334": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "339": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "344": [
+                    [
+                        59,
+                        21
+                    ]
+                ],
+                "349": [
+                    [
+                        59,
+                        21
+                    ]
+                ]
+            },
+            "latest_agents_information": {
+                "1": {
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 1
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 1
+                    }
+                },
+                "2": {
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 2
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 2
+                    }
+                },
+                "3": {
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 3
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 3
+                    }
+                },
+                "33": {
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 33
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 33
+                    }
+                },
+                "34": {
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 34
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 34
+                    }
+                },
+                "36": {
+                    "2": {
+                        "position": [
+                            40,
+                            8
+                        ],
+                        "timestamp": 36
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 36
+                    }
+                },
+                "37": {
+                    "2": {
+                        "position": [
+                            40,
+                            8
+                        ],
+                        "timestamp": 37
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 37
+                    }
+                },
+                "47": {
+                    "2": {
+                        "position": [
+                            40,
+                            13
+                        ],
+                        "timestamp": 47
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 47
+                    }
+                },
+                "49": {
+                    "2": {
+                        "position": [
+                            40,
+                            14
+                        ],
+                        "timestamp": 49
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 49
+                    }
+                },
+                "50": {
+                    "2": {
+                        "position": [
+                            40,
+                            14
+                        ],
+                        "timestamp": 50
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 50
+                    }
+                },
+                "130": {
+                    "2": {
+                        "position": [
+                            30,
+                            49
+                        ],
+                        "timestamp": 130
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 130
+                    }
+                },
+                "131": {
+                    "2": {
+                        "position": [
+                            30,
+                            50
+                        ],
+                        "timestamp": 131
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 131
+                    }
+                },
+                "132": {
+                    "2": {
+                        "position": [
+                            30,
+                            50
+                        ],
+                        "timestamp": 132
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 132
+                    }
+                },
+                "133": {
+                    "2": {
+                        "position": [
+                            30,
+                            50
+                        ],
+                        "timestamp": 133
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 133
+                    }
+                },
+                "183": {
+                    "2": {
+                        "position": [
+                            25,
+                            70
+                        ],
+                        "timestamp": 183
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 183
+                    }
+                },
+                "184": {
+                    "2": {
+                        "position": [
+                            25,
+                            70
+                        ],
+                        "timestamp": 184
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 184
+                    }
+                },
+                "203": {
+                    "2": {
+                        "position": [
+                            25,
+                            79
+                        ],
+                        "timestamp": 203
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 203
+                    }
+                },
+                "204": {
+                    "2": {
+                        "position": [
+                            25,
+                            79
+                        ],
+                        "timestamp": 204
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 204
+                    }
+                },
+                "226": {
+                    "2": {
+                        "position": [
+                            25,
+                            79
+                        ],
+                        "timestamp": 226
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 226
+                    }
+                },
+                "227": {
+                    "2": {
+                        "position": [
+                            25,
+                            79
+                        ],
+                        "timestamp": 227
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 227
+                    }
+                },
+                "308": {
+                    "2": {
+                        "position": [
+                            55,
+                            28
+                        ],
+                        "timestamp": 308
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 308
+                    }
+                },
+                "309": {
+                    "2": {
+                        "position": [
+                            55,
+                            28
+                        ],
+                        "timestamp": 309
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 309
+                    }
+                },
+                "384": {
+                    "2": {
+                        "position": [
+                            35,
+                            33
+                        ],
+                        "timestamp": 384
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 384
+                    }
+                }
+            },
+            "actions": {},
+            "global_strategy": {
+                "0": "scout targets"
+            },
+            "local_strategy": {
+                "2": "Initial sweep pattern activated \u2014 scanning sector grid.",
+                "33": "Continuing southeastern trajectory. Next grid scan initiated.",
+                "47": "Proceeding southbound. ",
+                "130": "Awaiting next directive. Systems green.",
+                "204": "Pattern extended to adjacent quadrants.",
+                "226": "Recon posture locked. Target under surveillance."
+            },
+            "special_actions": {}
+        },
+        "2": {
+            "role": "rescuer",
+            "mission": "Based on the coordinates provided by scout, scan all targets",
+            "messages_from_agents": {
+                "2": [
+                    {
+                        "sender_id": 1,
+                        "message": "Moving from (36, 44) toward southeast vector.",
+                        "type": "info"
+                    }
+                ],
+                "3": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 maintain hold status. No deployment until contact.",
+                        "type": "order"
+                    }
+                ],
+                "33": [
+                    {
+                        "sender_id": 1,
+                        "message": "Visual confirmation \u2014 target located at (19, 73)",
+                        "type": "info"
+                    }
+                ],
+                "34": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 mobilize immediately to (19, 73). Prioritize speed and caution.",
+                        "type": "order"
+                    }
+                ],
+                "47": [
+                    {
+                        "sender_id": 1,
+                        "message": " Visual contact confirmed \u2014 additional target at (23, 86).",
+                        "type": "info"
+                    }
+                ],
+                "50": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 upon securement of target (19, 73), proceed directly to (23, 86).\n\n",
+                        "type": "order"
+                    }
+                ],
+                "132": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 confirm visual upon arrival. Maintain comms open.\n",
+                        "type": "order"
+                    }
+                ],
+                "184": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 redeploy to final recovery coordinates (23, 86). Confirm arrival and maintain readiness.\n\n",
+                        "type": "order"
+                    }
+                ],
+                "204": [
+                    {
+                        "sender_id": 1,
+                        "message": "Continuing northward reconnaissance. No contacts.",
+                        "type": "info"
+                    },
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 maintain current coordinates. Hold for extraction or new tasking.\n",
+                        "type": "order"
+                    }
+                ],
+                "226": [
+                    {
+                        "sender_id": 1,
+                        "message": "Final objective visually confirmed at (59, 21).",
+                        "type": "info"
+                    }
+                ],
+                "227": [
+                    {
+                        "sender_id": 3,
+                        "message": "Rescuer 2 \u2014 proceed immediately to target coordinates (59, 21).",
+                        "type": "order"
+                    }
+                ],
+                "309": [
+                    {
+                        "sender_id": 3,
+                        "message": "All units \u2014 mission phase locked. Begin return to base sequence.\nScout 1 \u2014 disengage observation post.\nRescuer 2 \u2014 confirm stabilization and initiate transit.\n\n",
+                        "type": "order"
+                    }
+                ]
+            },
+            "sended_messages": {
+                "37": [
+                    {
+                        "receiver": 1,
+                        "message": " Coordinates received. En route to (19, 73).",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": " Coordinates received. En route to (19, 73).",
+                        "type": "info"
+                    }
+                ],
+                "133": [
+                    {
+                        "receiver": 1,
+                        "message": "En route to objective (23, 86). ETA minimal. Terrain stable.",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "En route to objective (23, 86). ETA minimal. Terrain stable.",
+                        "type": "info"
+                    }
+                ],
+                "183": [
+                    {
+                        "receiver": 1,
+                        "message": "Target at (19, 73) reached. Contact verified.",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Target at (19, 73) reached. Contact verified.",
+                        "type": "info"
+                    }
+                ],
+                "203": [
+                    {
+                        "receiver": 1,
+                        "message": "Target confirmed at (23, 86). Holding position.",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "Target confirmed at (23, 86). Holding position.",
+                        "type": "info"
+                    }
+                ],
+                "308": [
+                    {
+                        "receiver": 1,
+                        "message": "TTarget area reached. Holding at (59, 21).",
+                        "type": "info"
+                    },
+                    {
+                        "receiver": 3,
+                        "message": "TTarget area reached. Holding at (59, 21).",
+                        "type": "info"
+                    }
+                ]
+            },
+            "positions": {
+                "0": [
+                    40,
+                    7
+                ],
+                "1": [
+                    40,
+                    7
+                ],
+                "2": [
+                    40,
+                    7
+                ],
+                "3": [
+                    40,
+                    7
+                ],
+                "33": [
+                    40,
+                    7
+                ],
+                "34": [
+                    40,
+                    7
+                ],
+                "35": [
+                    40,
+                    8
+                ],
+                "36": [
+                    40,
+                    8
+                ],
+                "37": [
+                    40,
+                    8
+                ],
+                "42": [
+                    40,
+                    13
+                ],
+                "47": [
+                    40,
+                    13
+                ],
+                "48": [
+                    40,
+                    14
+                ],
+                "49": [
+                    40,
+                    14
+                ],
+                "50": [
+                    40,
+                    14
+                ],
+                "55": [
+                    40,
+                    19
+                ],
+                "60": [
+                    40,
+                    24
+                ],
+                "65": [
+                    40,
+                    29
+                ],
+                "70": [
+                    40,
+                    34
+                ],
+                "75": [
+                    40,
+                    39
+                ],
+                "80": [
+                    40,
+                    44
+                ],
+                "85": [
+                    40,
+                    49
+                ],
+                "90": [
+                    35,
+                    49
+                ],
+                "95": [
+                    30,
+                    49
+                ],
+                "130": [
+                    30,
+                    49
+                ],
+                "131": [
+                    30,
+                    50
+                ],
+                "132": [
+                    30,
+                    50
+                ],
+                "133": [
+                    30,
+                    50
+                ],
+                "138": [
+                    30,
+                    55
+                ],
+                "143": [
+                    30,
+                    60
+                ],
+                "148": [
+                    30,
+                    65
+                ],
+                "153": [
+                    25,
+                    65
+                ],
+                "158": [
+                    25,
+                    70
+                ],
+                "183": [
+                    25,
+                    70
+                ],
+                "184": [
+                    25,
+                    70
+                ],
+                "185": [
+                    25,
+                    71
+                ],
+                "186": [
+                    25,
+                    72
+                ],
+                "187": [
+                    25,
+                    73
+                ],
+                "188": [
+                    25,
+                    74
+                ],
+                "189": [
+                    25,
+                    75
+                ],
+                "193": [
+                    25,
+                    79
+                ],
+                "203": [
+                    25,
+                    79
+                ],
+                "204": [
+                    25,
+                    79
+                ],
+                "226": [
+                    25,
+                    79
+                ],
+                "227": [
+                    25,
+                    79
+                ],
+                "228": [
+                    25,
+                    78
+                ],
+                "233": [
+                    25,
+                    73
+                ],
+                "238": [
+                    25,
+                    68
+                ],
+                "243": [
+                    25,
+                    63
+                ],
+                "248": [
+                    30,
+                    63
+                ],
+                "253": [
+                    35,
+                    63
+                ],
+                "258": [
+                    40,
+                    63
+                ],
+                "263": [
+                    40,
+                    58
+                ],
+                "268": [
+                    40,
+                    53
+                ],
+                "273": [
+                    40,
+                    48
+                ],
+                "278": [
+                    45,
+                    48
+                ],
+                "283": [
+                    50,
+                    48
+                ],
+                "288": [
+                    50,
+                    43
+                ],
+                "293": [
+                    50,
+                    38
+                ],
+                "298": [
+                    55,
+                    38
+                ],
+                "303": [
+                    55,
+                    33
+                ],
+                "308": [
+                    55,
+                    28
+                ],
+                "309": [
+                    55,
+                    28
+                ],
+                "314": [
+                    50,
+                    28
+                ],
+                "319": [
+                    45,
+                    28
+                ],
+                "324": [
+                    40,
+                    28
+                ],
+                "329": [
+                    35,
+                    28
+                ],
+                "334": [
+                    35,
+                    33
+                ],
+                "384": [
+                    35,
+                    33
+                ]
+            },
+            "mission_progress": {
+                "37": "Recovery path initiated. Phase 1 objective assigned.",
+                "133": "First evac complete. Second phase progressing.",
+                "183": "First objective secure. Standing by for redeploy order.",
+                "203": "Second recovery complete. Awaiting redeployment or return protocol.",
+                "308": "Third and final recovery completed. Full deployment cycle executed."
+            },
+            "target_in_fov": {
+                "153": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "158": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "185": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "186": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "187": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "188": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "189": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "193": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "228": [
+                    [
+                        23,
+                        86
+                    ],
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "233": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "238": [
+                    [
+                        19,
+                        73
+                    ]
+                ],
+                "308": [
+                    [
+                        59,
+                        21
+                    ]
+                ]
+            },
+            "latest_agents_information": {
+                "1": {
+                    "1": {
+                        "position": [
+                            36,
+                            44
+                        ],
+                        "timestamp": 1
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 1
+                    }
+                },
+                "2": {
+                    "1": {
+                        "position": [
+                            36,
+                            45
+                        ],
+                        "timestamp": 2
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 2
+                    }
+                },
+                "3": {
+                    "1": {
+                        "position": [
+                            36,
+                            46
+                        ],
+                        "timestamp": 3
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 3
+                    }
+                },
+                "33": {
+                    "1": {
+                        "position": [
+                            16,
+                            56
+                        ],
+                        "timestamp": 33
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 33
+                    }
+                },
+                "34": {
+                    "1": {
+                        "position": [
+                            16,
+                            57
+                        ],
+                        "timestamp": 34
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 34
+                    }
+                },
+                "36": {
+                    "1": {
+                        "position": [
+                            16,
+                            59
+                        ],
+                        "timestamp": 36
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 36
+                    }
+                },
+                "37": {
+                    "1": {
+                        "position": [
+                            16,
+                            60
+                        ],
+                        "timestamp": 37
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 37
+                    }
+                },
+                "47": {
+                    "1": {
+                        "position": [
+                            16,
+                            70
+                        ],
+                        "timestamp": 47
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 47
+                    }
+                },
+                "49": {
+                    "1": {
+                        "position": [
+                            16,
+                            72
+                        ],
+                        "timestamp": 49
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 49
+                    }
+                },
+                "50": {
+                    "1": {
+                        "position": [
+                            16,
+                            73
+                        ],
+                        "timestamp": 50
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 50
+                    }
+                },
+                "130": {
+                    "1": {
+                        "position": [
+                            86,
+                            83
+                        ],
+                        "timestamp": 130
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 130
+                    }
+                },
+                "131": {
+                    "1": {
+                        "position": [
+                            86,
+                            83
+                        ],
+                        "timestamp": 131
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 131
+                    }
+                },
+                "132": {
+                    "1": {
+                        "position": [
+                            86,
+                            82
+                        ],
+                        "timestamp": 132
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 132
+                    }
+                },
+                "133": {
+                    "1": {
+                        "position": [
+                            86,
+                            81
+                        ],
+                        "timestamp": 133
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 133
+                    }
+                },
+                "183": {
+                    "1": {
+                        "position": [
+                            86,
+                            41
+                        ],
+                        "timestamp": 183
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 183
+                    }
+                },
+                "184": {
+                    "1": {
+                        "position": [
+                            86,
+                            40
+                        ],
+                        "timestamp": 184
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 184
+                    }
+                },
+                "203": {
+                    "1": {
+                        "position": [
+                            86,
+                            25
+                        ],
+                        "timestamp": 203
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 203
+                    }
+                },
+                "204": {
+                    "1": {
+                        "position": [
+                            86,
+                            24
+                        ],
+                        "timestamp": 204
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 204
+                    }
+                },
+                "226": {
+                    "1": {
+                        "position": [
+                            74,
+                            14
+                        ],
+                        "timestamp": 226
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 226
+                    }
+                },
+                "227": {
+                    "1": {
+                        "position": [
+                            73,
+                            14
+                        ],
+                        "timestamp": 227
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 227
+                    }
+                },
+                "308": {
+                    "1": {
+                        "position": [
+                            73,
+                            14
+                        ],
+                        "timestamp": 308
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 308
+                    }
+                },
+                "309": {
+                    "1": {
+                        "position": [
+                            72,
+                            14
+                        ],
+                        "timestamp": 309
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 309
+                    }
+                },
+                "384": {
+                    "1": {
+                        "position": [
+                            17,
+                            34
+                        ],
+                        "timestamp": 384
+                    },
+                    "3": {
+                        "position": [
+                            21,
+                            23
+                        ],
+                        "timestamp": 384
+                    }
+                }
+            },
+            "actions": {},
+            "global_strategy": {
+                "0": "Scan all targets"
+            },
+            "local_strategy": {
+                "37": "Extraction vector locked. Movement underway.",
+                "133": "Maintaining velocity. Route integrity optimal.",
+                "183": "Stabilizing position. Visual lock maintained.",
+                "203": "Surveillance posture active. Awaiting new orders.",
+                "308": "Secure posture activated. Awaiting extraction or further orders."
+            },
+            "special_actions": {}
+        },
+        "3": {
+            "role": "scout_commander",
+            "mission": "Coordinate scouts and rescuers to find and scan targets",
+            "messages_from_agents": {
+                "2": [
+                    {
+                        "sender_id": 1,
+                        "message": "Moving from (36, 44) toward southeast vector.",
+                        "type": "info"
+                    }
+                ],
+                "33": [
+                    {
+                        "sender_id": 1,
+                        "message": "Visual confirmation \u2014 target located at (19, 73)",
+                        "type": "info"
+                    }
+                ],
+                "37": [
+                    {
+                        "sender_id": 2,
+                        "message": " Coordinates received. En route to (19, 73).",
+                        "type": "info"
+                    }
+                ],
+                "47": [
+                    {
+                        "sender_id": 1,
+                        "message": " Visual contact confirmed \u2014 additional target at (23, 86).",
+                        "type": "info"
+                    }
+                ],
+                "130": [
+                    {
+                        "sender_id": 1,
+                        "message": "Southeast sweep complete. No further contacts in visual range.",
+                        "type": "info"
+                    }
+                ],
+                "133": [
+                    {
+                        "sender_id": 2,
+                        "message": "En route to objective (23, 86). ETA minimal. Terrain stable.",
+                        "type": "info"
+                    }
+                ],
+                "183": [
+                    {
+                        "sender_id": 2,
+                        "message": "Target at (19, 73) reached. Contact verified.",
+                        "type": "info"
+                    }
+                ],
+                "203": [
+                    {
+                        "sender_id": 2,
+                        "message": "Target confirmed at (23, 86). Holding position.",
+                        "type": "info"
+                    }
+                ],
+                "204": [
+                    {
+                        "sender_id": 1,
+                        "message": "Continuing northward reconnaissance. No contacts.",
+                        "type": "info"
+                    }
+                ],
+                "226": [
+                    {
+                        "sender_id": 1,
+                        "message": "Final objective visually confirmed at (59, 21).",
+                        "type": "info"
+                    }
+                ],
+                "308": [
+                    {
+                        "sender_id": 2,
+                        "message": "TTarget area reached. Holding at (59, 21).",
+                        "type": "info"
+                    }
+                ]
+            },
+            "sended_messages": {
+                "1": [
+                    {
+                        "receiver": 1,
+                        "message": "Scout 1 \u2014 proceed southeast. Visual confirmation required.",
+                        "type": "order"
+                    }
+                ],
+                "3": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 maintain hold status. No deployment until contact.",
+                        "type": "order"
+                    }
+                ],
+                "34": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 mobilize immediately to (19, 73). Prioritize speed and caution.",
+                        "type": "order"
+                    }
+                ],
+                "36": [
+                    {
+                        "receiver": 1,
+                        "message": "Scout 1 \u2014 continue scan sweep to the southeast. Confirm any additional signals.",
+                        "type": "order"
+                    }
+                ],
+                "49": [
+                    {
+                        "receiver": 1,
+                        "message": "Scout 1 \u2014 continue scanning south. Once full grid covered, initiate eastern vector.",
+                        "type": "order"
+                    }
+                ],
+                "50": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 upon securement of target (19, 73), proceed directly to (23, 86).\n\n",
+                        "type": "order"
+                    }
+                ],
+                "131": [
+                    {
+                        "receiver": 1,
+                        "message": "Scout 1 \u2014 redeploy to northern region. Scan full arc from west to east.\n\n",
+                        "type": "order"
+                    }
+                ],
+                "132": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 confirm visual upon arrival. Maintain comms open.\n",
+                        "type": "order"
+                    }
+                ],
+                "184": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 redeploy to final recovery coordinates (23, 86). Confirm arrival and maintain readiness.\n\n",
+                        "type": "order"
+                    }
+                ],
+                "204": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 maintain current coordinates. Hold for extraction or new tasking.\n",
+                        "type": "order"
+                    }
+                ],
+                "227": [
+                    {
+                        "receiver": 2,
+                        "message": "Rescuer 2 \u2014 proceed immediately to target coordinates (59, 21).",
+                        "type": "order"
+                    }
+                ],
+                "309": [
+                    {
+                        "receiver": 1,
+                        "message": "All units \u2014 mission phase locked. Begin return to base sequence.\nScout 1 \u2014 disengage observation post.\nRescuer 2 \u2014 confirm stabilization and initiate transit.\n\n",
+                        "type": "order"
+                    },
+                    {
+                        "receiver": 2,
+                        "message": "All units \u2014 mission phase locked. Begin return to base sequence.\nScout 1 \u2014 disengage observation post.\nRescuer 2 \u2014 confirm stabilization and initiate transit.\n\n",
+                        "type": "order"
+                    }
+                ]
+            },
+            "positions": {
+                "0": [
+                    21,
+                    22
+                ],
+                "1": [
+                    21,
+                    23
+                ],
+                "2": [
+                    21,
+                    23
+                ],
+                "3": [
+                    21,
+                    23
+                ],
+                "33": [
+                    21,
+                    23
+                ],
+                "34": [
+                    21,
+                    23
+                ],
+                "36": [
+                    21,
+                    23
+                ],
+                "37": [
+                    21,
+                    23
+                ],
+                "47": [
+                    21,
+                    23
+                ],
+                "49": [
+                    21,
+                    23
+                ],
+                "50": [
+                    21,
+                    23
+                ],
+                "130": [
+                    21,
+                    23
+                ],
+                "131": [
+                    21,
+                    23
+                ],
+                "132": [
+                    21,
+                    23
+                ],
+                "133": [
+                    21,
+                    23
+                ],
+                "183": [
+                    21,
+                    23
+                ],
+                "184": [
+                    21,
+                    23
+                ],
+                "193": [
+                    21,
+                    23
+                ],
+                "203": [
+                    21,
+                    23
+                ],
+                "204": [
+                    21,
+                    23
+                ],
+                "226": [
+                    21,
+                    23
+                ],
+                "227": [
+                    21,
+                    23
+                ],
+                "228": [
+                    21,
+                    23
+                ],
+                "308": [
+                    21,
+                    23
+                ],
+                "309": [
+                    21,
+                    23
+                ],
+                "384": [
+                    21,
+                    23
+                ]
+            },
+            "mission_progress": {
+                "1": "Phase: Reconnaissance & Target Validation\n\nEngagement level low. Tactical phase set to active scanning.",
+                "3": "Phase: Reconnaissance & Target Validation\n\nEngagement level low. Tactical phase set to active scanning.",
+                "34": "Phase: Target Acquisition & Initial Recovery\n\nCurrent status: 1 target confirmed, extraction unit deployed.",
+                "36": "Phase: Target Acquisition & Initial Recovery\n\nCurrent status: 1 target confirmed, extraction unit deployed.",
+                "49": "Phase: Extended Recovery Operations\n\nStrategic response modified \u2014 continuous flow extraction confirmed.",
+                "50": "Phase: Extended Recovery Operations\n\nStrategic response modified \u2014 continuous flow extraction confirmed.",
+                "131": "Phase: Multi-zone confirmation in progress\n\nStrategic tempo constant. Communications cycle uninterrupted.",
+                "132": "Phase: Multi-zone confirmation in progress\n\nStrategic tempo constant. Communications cycle uninterrupted.",
+                "184": "Phase: Final Target Recovery (in transit)\n\nTactical readiness is stable. Final objective in progress.",
+                "204": "Phase: Final Objective Discovery\n\nOne agent stationary, one in extended search mode.\n\nTactical pace sustained. Final identification required.",
+                "227": "Phase: Final Recovery En Route\n\nDeployment near conclusion. Awaiting Rescuer arrival to lock mission completion.",
+                "309": "Phase: Recovery Complete\n\nTactical coordination successful across all three objective sites.\n\nAll units responded within protocol. No contact failures."
+            },
+            "target_in_fov": {},
+            "latest_agents_information": {
+                "1": {
+                    "1": {
+                        "position": [
+                            36,
+                            44
+                        ],
+                        "timestamp": 1
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 1
+                    }
+                },
+                "2": {
+                    "1": {
+                        "position": [
+                            36,
+                            45
+                        ],
+                        "timestamp": 2
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 2
+                    }
+                },
+                "3": {
+                    "1": {
+                        "position": [
+                            36,
+                            46
+                        ],
+                        "timestamp": 3
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 3
+                    }
+                },
+                "33": {
+                    "1": {
+                        "position": [
+                            16,
+                            56
+                        ],
+                        "timestamp": 33
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 33
+                    }
+                },
+                "34": {
+                    "1": {
+                        "position": [
+                            16,
+                            57
+                        ],
+                        "timestamp": 34
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            7
+                        ],
+                        "timestamp": 34
+                    }
+                },
+                "36": {
+                    "1": {
+                        "position": [
+                            16,
+                            59
+                        ],
+                        "timestamp": 36
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            8
+                        ],
+                        "timestamp": 36
+                    }
+                },
+                "37": {
+                    "1": {
+                        "position": [
+                            16,
+                            60
+                        ],
+                        "timestamp": 37
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            8
+                        ],
+                        "timestamp": 37
+                    }
+                },
+                "47": {
+                    "1": {
+                        "position": [
+                            16,
+                            70
+                        ],
+                        "timestamp": 47
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            13
+                        ],
+                        "timestamp": 47
+                    }
+                },
+                "49": {
+                    "1": {
+                        "position": [
+                            16,
+                            72
+                        ],
+                        "timestamp": 49
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            14
+                        ],
+                        "timestamp": 49
+                    }
+                },
+                "50": {
+                    "1": {
+                        "position": [
+                            16,
+                            73
+                        ],
+                        "timestamp": 50
+                    },
+                    "2": {
+                        "position": [
+                            40,
+                            14
+                        ],
+                        "timestamp": 50
+                    }
+                },
+                "130": {
+                    "1": {
+                        "position": [
+                            86,
+                            83
+                        ],
+                        "timestamp": 130
+                    },
+                    "2": {
+                        "position": [
+                            30,
+                            49
+                        ],
+                        "timestamp": 130
+                    }
+                },
+                "131": {
+                    "1": {
+                        "position": [
+                            86,
+                            83
+                        ],
+                        "timestamp": 131
+                    },
+                    "2": {
+                        "position": [
+                            30,
+                            50
+                        ],
+                        "timestamp": 131
+                    }
+                },
+                "132": {
+                    "1": {
+                        "position": [
+                            86,
+                            82
+                        ],
+                        "timestamp": 132
+                    },
+                    "2": {
+                        "position": [
+                            30,
+                            50
+                        ],
+                        "timestamp": 132
+                    }
+                },
+                "133": {
+                    "1": {
+                        "position": [
+                            86,
+                            81
+                        ],
+                        "timestamp": 133
+                    },
+                    "2": {
+                        "position": [
+                            30,
+                            50
+                        ],
+                        "timestamp": 133
+                    }
+                },
+                "183": {
+                    "1": {
+                        "position": [
+                            86,
+                            41
+                        ],
+                        "timestamp": 183
+                    },
+                    "2": {
+                        "position": [
+                            25,
+                            70
+                        ],
+                        "timestamp": 183
+                    }
+                },
+                "184": {
+                    "1": {
+                        "position": [
+                            86,
+                            40
+                        ],
+                        "timestamp": 184
+                    },
+                    "2": {
+                        "position": [
+                            25,
+                            70
+                        ],
+                        "timestamp": 184
+                    }
+                },
+                "203": {
+                    "1": {
+                        "position": [
+                            86,
+                            25
+                        ],
+                        "timestamp": 203
+                    },
+                    "2": {
+                        "position": [
+                            25,
+                            79
+                        ],
+                        "timestamp": 203
+                    }
+                },
+                "204": {
+                    "1": {
+                        "position": [
+                            86,
+                            24
+                        ],
+                        "timestamp": 204
+                    },
+                    "2": {
+                        "position": [
+                            25,
+                            79
+                        ],
+                        "timestamp": 204
+                    }
+                },
+                "226": {
+                    "1": {
+                        "position": [
+                            74,
+                            14
+                        ],
+                        "timestamp": 226
+                    },
+                    "2": {
+                        "position": [
+                            25,
+                            79
+                        ],
+                        "timestamp": 226
+                    }
+                },
+                "227": {
+                    "1": {
+                        "position": [
+                            73,
+                            14
+                        ],
+                        "timestamp": 227
+                    },
+                    "2": {
+                        "position": [
+                            25,
+                            79
+                        ],
+                        "timestamp": 227
+                    }
+                },
+                "308": {
+                    "1": {
+                        "position": [
+                            73,
+                            14
+                        ],
+                        "timestamp": 308
+                    },
+                    "2": {
+                        "position": [
+                            55,
+                            28
+                        ],
+                        "timestamp": 308
+                    }
+                },
+                "309": {
+                    "1": {
+                        "position": [
+                            72,
+                            14
+                        ],
+                        "timestamp": 309
+                    },
+                    "2": {
+                        "position": [
+                            55,
+                            28
+                        ],
+                        "timestamp": 309
+                    }
+                },
+                "384": {
+                    "1": {
+                        "position": [
+                            17,
+                            34
+                        ],
+                        "timestamp": 384
+                    },
+                    "2": {
+                        "position": [
+                            35,
+                            33
+                        ],
+                        "timestamp": 384
+                    }
+                }
+            },
+            "actions": {},
+            "global_strategy": {
+                "0": "Scan all targets"
+            },
+            "local_strategy": {
+                "1": "Priority: Sector SE. Expected target density high based on prior ops.",
+                "3": "Support units remain passive until recon verifies objective.",
+                "34": "Extraction priority: Target Alpha (19, 73)",
+                "36": "Recon sweep expanding deeper into SE quadrant",
+                "49": "Southeast quadrant producing high value. Adaptive sweep in effect.",
+                "50": "Recovery assets realigned for multi-point response.",
+                "131": "Central zone cleared. Intelligence reallocation to northern quadrant.",
+                "132": "Search & Recovery remains primary axis.",
+                "184": "Extraction sequence in progress.",
+                "204": "Two of three known objectives secured. Final confirmation pending.",
+                "227": "High-priority extraction order issued. Full mission coverage achieved.",
+                "309": " return to base"
+            },
+            "special_actions": {}
+        }
+    },
+    "targets": {
+        "1": {
+            "position": [
+                23,
+                86
+            ]
+        },
+        "2": {
+            "position": [
+                19,
+                73
+            ]
+        },
+        "3": {
+            "position": [
+                59,
+                21
+            ]
+        }
+    },
+    "bases": {
+        "1": {
+            "position": [
+                5,
+                44
+            ]
+        }
+    },
+    "area": [
+        100,
+        100
+    ]
+}
