@@ -285,6 +285,7 @@ class AlpacaDatasetV1(BaseDataProcessor):
         post_processed_sample: PostProcessedSample,
         sample_id: int,
         agent_id: int,
+        agent_role: str,
         sample_path: Path,
         annotation_path: Path,
     ):
@@ -368,6 +369,7 @@ class AlpacaDatasetV1(BaseDataProcessor):
             sample_ann = SampleMetadata(
                 id_in_db=sample_id,
                 agent_id=agent_id,
+                agent_role=agent_role,
                 path=str(sample_path),
                 dataset_version=self.dataset_version,
                 rollout_length=post_processed_sample.rollout_length,

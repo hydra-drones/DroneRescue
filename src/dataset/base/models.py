@@ -71,6 +71,7 @@ class TimelineData(BaseModel):
 class SampleMetadata(BaseModel):
     id_in_db: int
     agent_id: int
+    agent_role: str
     path: str
     dataset_version: int | str
     rollout_length: int

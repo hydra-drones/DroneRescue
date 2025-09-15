@@ -59,7 +59,6 @@ def process_dataset_cli(
         if not db_path_obj.exists():
             raise FileNotFoundError(f"Database file not found at {db_path_obj}")
 
-        save_folder_obj.mkdir(parents=True, exist_ok=True)
         session = connect_to_db(db_path_obj)
         dataset = data_processor(save_folder_obj, annotation_path, session)
         dataset.process_all_samples_in_db()
