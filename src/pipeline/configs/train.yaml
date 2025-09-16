@@ -1,0 +1,21 @@
+model:
+  name: "t5-small"
+  save_path: "models"
+
+data:
+  batch_size: 4
+  annotations_path: ".processed_samples/dataset/annotations"
+  data_folder_path: ".processed_samples/dataset/samples"
+  split_ratio:
+    train: 0.5
+    val: 0.25
+    test: 0.25
+
+training:
+  learning_rate: 5e-5
+  num_epochs: 3
+  random_seed: 42
+
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  experiment_name: "drone-rescue-training"
