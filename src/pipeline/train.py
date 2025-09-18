@@ -8,7 +8,8 @@ import pandas as pd
 from tqdm.auto import tqdm
 import mlflow
 import mlflow.pytorch
-from dataset import create_dataloaders
+import json
+from src.pipeline.dataset import create_dataloaders
 
 
 @hydra.main(config_path="configs", config_name="train", version_base=None)
@@ -103,10 +104,30 @@ def train_model(cfg: DictConfig):
         print("Training complete. Logging model with MLFlow...")
         mlflow.pytorch.log_model(model, "model")
 
+        # Save model and tokenizer locally
+        model.save_pretrained(MODEL_SAVE_PATH)
         tokenizer.save_pretrained(MODEL_SAVE_PATH)
         mlflow.log_artifacts(str(MODEL_SAVE_PATH), artifact_path="tokenizer")
 
+        # Save training metrics to JSON file
+        metrics_path = Path("metrics")
+        metrics_path.mkdir(exist_ok=True)
+
+        training_metrics = {
+            "final_train_loss": avg_train_loss,
+            "final_val_loss": avg_val_loss,
+            "model_name": MODEL_NAME,
+            "learning_rate": LEARNING_RATE,
+            "num_epochs": NUM_EPOCHS,
+            "batch_size": cfg.data.batch_size,
+            "random_seed": RANDOM_SEED,
+        }
+
+        with open("metrics/training_metrics.json", "w") as f:
+            json.dump(training_metrics, f, indent=2)
+
         print(f"Model and tokenizer logged to MLFlow.")
+        print(f"Training metrics saved to metrics/training_metrics.json")
 
 
 if __name__ == "__main__":

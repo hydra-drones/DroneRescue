@@ -63,8 +63,8 @@ def test_model(cfg: DictConfig):
                 )
 
     results_df = pd.DataFrame(results)
-    results_df.to_csv("test_results.csv", index=False)
-    print("Testing complete. Results saved to test_results.csv")
+    results_df.to_csv("metrics/evaluation_results.csv", index=False)
+    print("Testing complete. Results saved to metrics/evaluation_results.csv")
 
 
 if __name__ == "__main__":

@@ -177,5 +177,6 @@ credentials.json
 token.json
 
 # Processed files
-.database
 .processed_samples
+
+.credentials.json

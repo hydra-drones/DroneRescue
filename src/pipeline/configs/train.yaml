@@ -1,6 +1,6 @@
 model:
   name: "t5-small"
-  save_path: "models"
+  save_path: "models/trained_model"
 
 data:
   batch_size: 4

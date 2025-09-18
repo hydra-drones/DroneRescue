@@ -74,6 +74,168 @@ docker compose down --volumes --rmi all
 ### Run docker
   `docker run -p 8501:8501 drone-rescue`
 
+## Snakemake ML Pipeline
+
+This project includes a Snakemake pipeline for orchestrating the ML workflow, including data preprocessing, model training, and evaluation.
+
+### Pipeline Overview
+
+The pipeline consists of three main steps:
+1. **Data Preprocessing** - Uses the existing `dataset_cli.py` to process raw data from the database
+2. **Model Training** - Uses the existing `train.py` to train a T5 model
+3. **Model Evaluation** - Uses the existing `test.py` to evaluate the trained model
+
+### Pipeline Files
+
+- `Snakefile` - Main pipeline definition
+- `config.yaml` - Pipeline configuration
+- `Dockerfile` - Container setup for the pipeline
+- `pyproject.toml` - Python dependencies (managed by Poetry)
+
+### DVC Setup with Local Storage (Recommended)
+
+For this educational project, we'll use local storage to avoid authentication and SSL issues:
+
+1. **Install DVC:**
+   ```bash
+    pip install dvc
+   ```
+
+2. **Configure DVC with local storage:**
+   ```bash
+    dvc remote add -d storage /tmp/dvc-storage
+   ```
+
+3. **Test the connection:**
+   ```bash
+    dvc push
+   ```
+
+### DVC Setup (Required)
+
+Before running the pipeline, you need to set up DVC for data versioning:
+
+1. **Initialize DVC (if not already done):**
+   ```bash
+   dvc init
+   ```
+
+2. **Configure remote storage:**
+   ```bash
+   dvc remote add -d storage /path/to/your/storage
+   # OR
+   dvc remote add -d storage gdrive://your-folder-id
+   ```
+
+3. **Add data files to DVC tracking:**
+   ```bash
+   dvc add .database/data.db
+   dvc add .processed_samples/dataset
+   dvc add models/trained_model
+   dvc add metrics/
+   ```
+
+4. **Commit DVC files:**
+   ```bash
+   git add .dvc .dvcignore
+   git commit -m "Initialize DVC tracking"
+   ```
+
+5. **Push data to remote storage:**
+   ```bash
+    dvc push
+   ```
+
+### Running the Pipeline
+
+#### Option 1: Using Docker (Recommended)
+
+1. **Build the Docker image:**
+   ```bash
+   docker build -t drone-rescue-pipeline .
+   ```
+
+2. **Run the pipeline:**
+   ```bash
+   docker run -v $(pwd):/app -w /app drone-rescue-pipeline snakemake --cores 1
+   ```
+
+3. **Run specific targets:**
+   ```bash
+   # Run only preprocessing
+   docker run -v $(pwd):/app -w /app drone-rescue-pipeline snakemake preprocess --cores 1
+
+   # Run training and evaluation
+   docker run -v $(pwd):/app -w /app drone-rescue-pipeline snakemake train evaluate --cores 1
+   ```
+
+#### Option 2: Local Execution
+
+1. **Install dependencies:**
+   ```bash
+   poetry install
+   ```
+
+2. **Run the pipeline:**
+   ```bash
+    snakemake --cores 1
+   ```
+
+3. **Run with dry-run to see what will be executed:**
+   ```bash
+    snakemake --dry-run
+   ```
+
+### Pipeline Outputs
+
+The pipeline generates the following outputs:
+- `.processed_samples/dataset/` - Processed dataset files
+- `models/trained_model/` - Trained model artifacts
+- `metrics/` - Training and evaluation metrics
+- `mlruns/` - MLflow experiment tracking data
+
+### Configuration
+
+Edit `config.yaml` to modify pipeline parameters:
+- Model configuration (T5 model name, learning rate, epochs)
+- Data processing parameters
+- MLflow tracking settings
+
+### DVC Integration
+
+The pipeline automatically integrates with DVC for data versioning:
+
+1. **Pull data before running:**
+   ```bash
+    dvc pull
+   ```
+
+2. **Run the pipeline:**
+   ```bash
+    snakemake --cores 1
+   ```
+
+3. **Add new outputs to DVC:**
+   ```bash
+    dvc add .processed_samples/dataset
+    dvc add models/trained_model
+    dvc add metrics/
+   ```
+
+4. **Commit and push changes:**
+   ```bash
+   git add .
+   git commit -m "Update pipeline outputs"
+    dvc push
+   ```
+
+### Clean Up
+
+To clean up pipeline outputs:
+```bash
+ snakemake clean
+```
+
 ## Git Flow
 
 ```mermaid
