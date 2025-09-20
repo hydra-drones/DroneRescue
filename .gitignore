@@ -175,3 +175,12 @@ venv
 # GCP AUTH
 credentials.json
 token.json
+
+# Processed files
+.processed_samples
+
+.credentials.json
+
+metrics/
+
+.config/

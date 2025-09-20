@@ -1,0 +1,36 @@
+# Snakemake configuration file for DroneRescue ML pipeline
+# This file contains parameters for the ML pipeline
+
+# Data paths
+raw_data_path: ".database/data.db"
+processed_data_path: ".processed_samples/dataset"
+model_path: "models/trained_model"
+metrics_path: "metrics"
+
+# Dataset processing parameters
+dataset_class: "src.dataset.dataset_v1.AlpacaDatasetV1"
+db_path: ".database/data.db"
+
+# Model parameters (for train.py)
+model:
+  name: "t5-small"
+  save_path: "models/trained_model"
+
+# Training parameters
+training:
+  learning_rate: 0.001
+  num_epochs: 3
+  random_seed: 42
+
+# Data parameters
+data:
+  batch_size: 8
+
+# MLflow parameters
+mlflow:
+  tracking_uri: "file:./mlruns"
+  experiment_name: "drone-rescue-experiment"
+
+# Test parameters (for test.py)
+test:
+  model_path: "models/trained_model"

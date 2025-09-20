@@ -311,6 +311,7 @@ class BaseDataProcessor(ABC):
         post_processed_sample: list[PostProcessedSample],
         sample_id: int,
         agent_id: int,
+        agent_role: str,
         sample_path: Path,
         annotation_path: Path,
     ):
@@ -417,7 +418,7 @@ class BaseDataProcessor(ABC):
 
         for sample_id in tqdm.tqdm(all_ids):
             post_processed_sample = self.process_sample(sample_id)
-            all_processed_samples.append(post_processed_sample)
+            all_processed_samples.extend(post_processed_sample)
 
         logger.info("Start saving process.")
 
@@ -437,13 +438,16 @@ class BaseDataProcessor(ABC):
                 post_processed_sample,
                 agent.sample_id,
                 agent.id,
+                agent.role.value,
                 sample_path,
                 annotation_path,
             )
 
         logger.info("All samples has been saved.")
 
-    def process_sample(self, sample_id: int) -> tuple[AgentTable, PostProcessedSample]:
+    def process_sample(
+        self, sample_id: int
+    ) -> list[tuple[AgentTable, PostProcessedSample]]:
         """
         Process a single sample through the complete data pipeline.
 
@@ -476,6 +480,7 @@ class BaseDataProcessor(ABC):
                 agent_info, processed_sample = processor.process_sample(sample_id=1)
                 print(f"Processed agent {agent_info.agent_no}")
         """
+        res = []
         agents = self._get_info_about_agents(sample_id)
 
         for agent in agents:
@@ -494,8 +499,9 @@ class BaseDataProcessor(ABC):
 
             post_processed_data = self.post_process(processed_data)
             splitted_data = self.split(post_processed_data)
+            res.append((agent, splitted_data))
 
-            return agent, splitted_data
+        return res
 
     def _prepare_dir(self) -> tuple[Path, Path]:
         """

@@ -137,14 +137,6 @@ class AlpacaDatasetV1(BaseDataProcessor):
                 converter=MessageConverter(),
                 extractor=MessageExtractor(session=self.session),
             ),
-            DefaultPositionProcessor(
-                converter=PositionConverter(),
-                extractor=PositionExtractor(session=self.session),
-            ),
-            DefaultStrategyProcessor(
-                converter=StrategyConverter(),
-                extractor=StrategyExtractor(session=self.session),
-            ),
             DefaultMissionProgressProcessor(
                 converter=MissionProgressConverter(),
                 extractor=MissionProgressExtractor(session=self.session),
