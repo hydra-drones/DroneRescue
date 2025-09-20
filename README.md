@@ -423,6 +423,48 @@ Among the tested models, **Qwen2-1.5B** showed the best overall performance in t
 
 
 
+# Key Changes [26/06/2025] 
+
+## Changelog
+
+### Added
+
+* Developed a custom annotation tool for dataset creation:
+
+  * Manual control of agent actions;
+  * Bulk message sending to multiple agents;
+  * Enforcement of message time consistency;
+  * Automatic formatting of annotated data.
+* Implemented the basic infrastructure for dialog generation and collection.
+* Trained several models using the LoRA method:
+
+  * QWen2-1.5B
+  * QWen-0.5B
+
+### Changed
+
+* The original goal of generating 10,000 samples was adjusted due to time constraints:
+
+  * Currently, approximately 100 samples have been created;
+  * This smaller dataset was used to test modeling hypotheses and evaluate the initial baseline.
+
+### Fixed
+
+* Conducted analysis of the current baseline and identified key issues:
+
+  * Overfitting to earlier examples;
+  * Rigid adherence to instructions like "see/do not see target".
+* Planned improvements include:
+
+  * Expanding and balancing the dataset;
+  * Introducing more diverse interaction scenarios between agents.
+
+### Known Issues
+
+* Current dataset volume is insufficient for training large-scale models.
+* The baseline still requires refinement in instruction diversity and class balancing.
+
+
 # Research Stage #1
 
 ## Experiment Nr. 1
