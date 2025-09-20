@@ -1,0 +1,35 @@
+# API service configuration for DroneRescue model serving
+
+# Server configuration
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
+
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  experiment_name: "drone-rescue-inference"
+
+models:
+  primary:
+    name: "primary-model"
+    run_id: "b24f9095bd604c849ca9b51d3ca4f563"
+    model_name: "t5-small"
+    description: "Primary trained model for drone rescue missions"
+
+  secondary:
+    name: "secondary-model"
+    run_id: "ae8af9280f5a42bfa30909d62e3ae1b9"
+    model_name: "t5-small"
+    description: "Secondary trained model for comparison"
+
+inference:
+  max_length: 150
+  num_beams: 2
+  temperature: 1.0
+  repetition_penalty: 2.5
+  batch_size: 4
+
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} - {message}"

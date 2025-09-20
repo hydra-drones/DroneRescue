@@ -180,3 +180,7 @@ token.json
 .processed_samples
 
 .credentials.json
+
+metrics/
+
+.config/

@@ -111,6 +111,16 @@ For this educational project, we'll use local storage to avoid authentication an
     dvc push
    ```
 
+### MLFlow
+
+Run MlFlow
+
+By default, it should be run on the 5000 port, if it doesn't, please provide the port in the arguments.
+
+```
+mlflow ui
+```
+
 ### DVC Setup (Required)
 
 Before running the pipeline, you need to set up DVC for data versioning:
@@ -311,6 +321,107 @@ Example: `1.2.3`
 4. This tag is used to publish the Docker image or trigger a release pipeline
 
 ---
+
+# Training Report
+
+## 1. Introduction
+
+The developed system aims to train and deploy language models for controlling drones in strategic scenarios. The primary objective is to coordinate multiple autonomous agents (drones) to perform reconnaissance, target identification, and cooperative mission execution.
+
+Key aspects of the approach:
+
+* Creation of a specialized dataset for training.
+* Fine-tuning of large language models (LLMs).
+* Performance evaluation using standard NLP metrics (BLEU, ROUGE).
+* Qualitative assessment of model predictions against ground-truth labels.
+
+---
+
+## 2. Dataset
+
+The dataset was specifically designed to simulate multi-agent communication in a drone environment.
+
+Each entry consists of:
+
+* **Instruction**: Task description for the model (e.g., generate the next agent message).
+* **Input**: Logs and current context for a given agent.
+* **Output**: Target agent message in protocol format `<SND> <AG#> <INFO>`.
+* **System**: Role description (e.g., “You are a multi-agent autonomous coordination model operating in a simulated drone environment”).
+
+This setup allows the model to learn realistic agent communication patterns while ensuring consistency with the expected structured format.
+
+---
+
+## 3. Experimental Results
+
+### 3.1 Comparative Metrics
+
+A set of models was fine-tuned and evaluated across different agents (**scout, commander, rescuer**) on Dataset Version V2.
+
+Evaluation metrics:
+
+* **BLEU-4**: Measures n-gram overlap with reference text.
+* **ROUGE-1/2**: Measures recall of unigrams and bigrams.
+
+**Best performance** was achieved by **Qwen2-1.5B**, with:
+
+* BLEU-4: **53.28**
+* ROUGE-1: **63.81**
+* ROUGE-2: **62.17**
+
+Other models (e.g., Gemma-2b-instruct, Phi-1.5, DeepSeek) demonstrated weaker results, confirming that Qwen2-1.5B is the most suitable choice for this task.
+
+---
+
+### 3.2 Qualitative Analysis of Predictions
+
+#### Qwen2-1.5B (Strong Performance)
+
+* Predictions closely matched the labels in both format and meaning.
+* Example:
+
+  * Prediction: “Central sector clear. No targets sighted within current visual range.”
+  * Label: “Central sector negative. No targets detected.”
+* The meaning is equivalent, despite stylistic differences.
+* Some minor semantic deviations were observed (e.g., “occupied” instead of “visual contact”), but the protocol structure remained intact.
+
+#### Qwen2-0.5B (Weaker Performance)
+
+* Produced less accurate outputs compared to labels.
+* Example:
+
+  * Prediction: “Sector boundary reached. No contact detected.”
+  * Label: “Visual confirmation — target located at (19, 73).”
+* This demonstrates reduced capability to capture the correct situational semantics.
+
+---
+
+## 4. Analysis and Key Findings
+
+1. The dataset design is effective, combining context, structured communication, and supervision.
+2. Fine-tuned models significantly improve the ability to generate mission-consistent agent communications.
+3. **Qwen2-1.5B** provides the highest BLEU and ROUGE scores and shows the best qualitative alignment with expected outputs.
+4. Smaller models (Qwen2-0.5B, Phi-1.5) perform worse, confirming the importance of parameter scale.
+5. Even high-performing models occasionally deviate stylistically, which suggests the need for standardized phrasing or post-processing.
+
+---
+
+## 5. Recommendations
+
+* Adopt **Qwen2-1.5B** as the primary model for drone coordination tasks.
+* Expand the dataset with more diverse mission contexts and rare scenarios.
+* Implement post-processing to normalize phrasing across agent messages.
+* Consider ensemble strategies (e.g., combining a “commander” model with specialized “scout” and “rescuer” models).
+
+---
+
+## 6. Conclusion
+
+The system demonstrates strong potential for real-world applications in multi-agent drone coordination. With a well-structured dataset and fine-tuned LLMs, agents can generate mission-relevant communications that adhere to structured protocols.
+
+Among the tested models, **Qwen2-1.5B** showed the best overall performance in terms of both quantitative metrics and qualitative prediction quality, making it the most reliable candidate for deployment in strategic drone operations.
+
+
 
 # Research Stage #1
 

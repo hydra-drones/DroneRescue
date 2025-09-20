@@ -9,6 +9,7 @@ from tqdm.auto import tqdm
 import mlflow
 import mlflow.pytorch
 import json
+from loguru import logger
 from src.pipeline.dataset import create_dataloaders
 
 
@@ -17,7 +18,7 @@ def train_model(cfg: DictConfig):
     """
     Main function to train the T5 model on the DroneLogs dataset.
     """
-    print(OmegaConf.to_yaml(cfg))
+    logger.info(OmegaConf.to_yaml(cfg))
     mlflow.set_tracking_uri(cfg.mlflow.tracking_uri)
     mlflow.set_experiment(cfg.mlflow.experiment_name)
 
@@ -29,7 +30,7 @@ def train_model(cfg: DictConfig):
     MODEL_SAVE_PATH.mkdir(exist_ok=True)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Using device: {device}")
+    logger.info(f"Using device: {device}")
 
     tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
     model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
@@ -60,7 +61,7 @@ def train_model(cfg: DictConfig):
         )
 
         for epoch in range(NUM_EPOCHS):
-            print(f"--- Epoch {epoch+1}/{NUM_EPOCHS} ---")
+            logger.info(f"--- Epoch {epoch+1}/{NUM_EPOCHS} ---")
 
             model.train()
             total_train_loss = 0
@@ -81,7 +82,7 @@ def train_model(cfg: DictConfig):
                 optimizer.zero_grad()
 
             avg_train_loss = total_train_loss / len(train_dataloader)
-            print(f"Average Training Loss: {avg_train_loss:.4f}")
+            logger.info(f"Average Training Loss: {avg_train_loss:.4f}")
             mlflow.log_metric("train_loss", avg_train_loss, step=epoch)
 
             model.eval()
@@ -98,11 +99,12 @@ def train_model(cfg: DictConfig):
                     total_val_loss += loss.item()
 
             avg_val_loss = total_val_loss / len(val_dataloader)
-            print(f"Average Validation Loss: {avg_val_loss:.4f}")
+            logger.info(f"Average Validation Loss: {avg_val_loss:.4f}")
             mlflow.log_metric("val_loss", avg_val_loss, step=epoch)
 
-        print("Training complete. Logging model with MLFlow...")
-        mlflow.pytorch.log_model(model, "model")
+        logger.info("Training complete. Logging model with MLFlow...")
+        # mlflow.pytorch.log_model(model, "model")
+        mlflow.log_artifacts(str(MODEL_SAVE_PATH), artifact_path="model_and_tokenizer")
 
         # Save model and tokenizer locally
         model.save_pretrained(MODEL_SAVE_PATH)
@@ -126,8 +128,8 @@ def train_model(cfg: DictConfig):
         with open("metrics/training_metrics.json", "w") as f:
             json.dump(training_metrics, f, indent=2)
 
-        print(f"Model and tokenizer logged to MLFlow.")
-        print(f"Training metrics saved to metrics/training_metrics.json")
+        logger.info(f"Model and tokenizer logged to MLFlow.")
+        logger.info(f"Training metrics saved to metrics/training_metrics.json")
 
 
 if __name__ == "__main__":

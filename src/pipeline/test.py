@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 from tqdm.auto import tqdm
 import mlflow
+from loguru import logger
 from dataset import create_dataloaders
 
 
@@ -14,14 +15,14 @@ def test_model(cfg: DictConfig):
     """
     Main function to test the T5 model on the DroneLogs dataset.
     """
-    print(OmegaConf.to_yaml(cfg))
+    logger.info(OmegaConf.to_yaml(cfg))
     mlflow.set_tracking_uri(cfg.mlflow.tracking_uri)
 
     MODEL_NAME = cfg.model.name
     MODEL_PATH = cfg.model.path
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Using device: {device}")
+    logger.info(f"Using device: {device}")
 
     tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
     model = T5ForConditionalGeneration.from_pretrained(MODEL_PATH)
@@ -64,7 +65,7 @@ def test_model(cfg: DictConfig):
 
     results_df = pd.DataFrame(results)
     results_df.to_csv("metrics/evaluation_results.csv", index=False)
-    print("Testing complete. Results saved to metrics/evaluation_results.csv")
+    logger.info("Testing complete. Results saved to metrics/evaluation_results.csv")
 
 
 if __name__ == "__main__":

@@ -7,6 +7,7 @@ import numpy as np
 from torch.utils.data import DataLoader
 from omegaconf import DictConfig
 from transformers import T5Tokenizer
+from loguru import logger
 
 
 def split_ids_by_ratio(
@@ -146,9 +147,9 @@ def create_dataloaders(cfg: DictConfig, tokenizer: T5Tokenizer):
     test_dataset = DroneLogsDataset(DATA_FOLDER_PATH, ANNOTATIONS_PATH)
     test_dataset.annotations = test_annotations.reset_index(drop=True)
 
-    print(f"Training samples: {len(train_dataset)}")
-    print(f"Validation samples: {len(val_dataset)}")
-    print(f"Test samples: {len(test_dataset)}")
+    logger.info(f"Training samples: {len(train_dataset)}")
+    logger.info(f"Validation samples: {len(val_dataset)}")
+    logger.info(f"Test samples: {len(test_dataset)}")
 
     train_dataloader = DataLoader(
         train_dataset, batch_size=BATCH_SIZE, shuffle=True, collate_fn=collate_fn
@@ -166,4 +167,4 @@ if __name__ == "__main__":
     path_to_annotations = Path(".processed_samples/dataset/annotations")
     path_to_data_folder = Path(".processed_samples/dataset/samples")
     dataset = DroneLogsDataset(path_to_data_folder, path_to_annotations)
-    print(dataset[1])
+    logger.info(f"Sample dataset item: {dataset[1]}")
